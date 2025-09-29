@@ -15,7 +15,7 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://github.com/Magalhaes24/sayfe-lp",
+  "homepage": "https://Magalhaes24.github.com/sayfe-lp",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
