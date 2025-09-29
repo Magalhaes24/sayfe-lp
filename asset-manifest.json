@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Magalhaes24/sayfe-lp/static/css/main.cbaf9d98.css",
+    "main.js": "/Magalhaes24/sayfe-lp/static/js/main.a3d2e507.js",
+    "static/media/logo4000.png": "/Magalhaes24/sayfe-lp/static/media/logo4000.a57f2cec10158442a759.png",
+    "index.html": "/Magalhaes24/sayfe-lp/index.html",
+    "main.cbaf9d98.css.map": "/Magalhaes24/sayfe-lp/static/css/main.cbaf9d98.css.map",
+    "main.a3d2e507.js.map": "/Magalhaes24/sayfe-lp/static/js/main.a3d2e507.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cbaf9d98.css",
+    "static/js/main.a3d2e507.js"
+  ]
+}
