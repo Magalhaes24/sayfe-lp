@@ -1,14 +1,16 @@
 {
   "files": {
-    "main.css": "/sayfe-lp/static/css/main.b8879b52.css",
-    "main.js": "/sayfe-lp/static/js/main.a33c56d9.js",
-    "static/media/logo4000.png": "/sayfe-lp/static/media/logo4000.a57f2cec10158442a759.png",
+    "main.css": "/sayfe-lp/static/css/main.ce1b0744.css",
+    "main.js": "/sayfe-lp/static/js/main.11115624.js",
+    "static/media/francisco.png": "/sayfe-lp/static/media/francisco.54e093ef8fde694a5229.png",
+    "static/media/rodrigo.png": "/sayfe-lp/static/media/rodrigo.ca806b23f380a11a3de3.png",
+    "static/media/martim.png": "/sayfe-lp/static/media/martim.ad36fcbed85632d59aea.png",
     "index.html": "/sayfe-lp/index.html",
-    "main.b8879b52.css.map": "/sayfe-lp/static/css/main.b8879b52.css.map",
-    "main.a33c56d9.js.map": "/sayfe-lp/static/js/main.a33c56d9.js.map"
+    "main.ce1b0744.css.map": "/sayfe-lp/static/css/main.ce1b0744.css.map",
+    "main.11115624.js.map": "/sayfe-lp/static/js/main.11115624.js.map"
   },
   "entrypoints": [
-    "static/css/main.b8879b52.css",
-    "static/js/main.a33c56d9.js"
+    "static/css/main.ce1b0744.css",
+    "static/js/main.11115624.js"
   ]
 }
