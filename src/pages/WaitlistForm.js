@@ -1,151 +1,141 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { db } from "../firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
+import { useTranslation } from "../contexts/LanguageContext";
 import "./WaitlistForm.css";
 
+const initialFormState = {
+  name: "",
+  email: "",
+  age: "",
+  city: "",
+  allergy: "",
+  diningFrequency: "1-4"
+};
+
 function WaitlistForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    age: "",
-    city: "",
-    allergy: "",
-    diningFrequency: "1-4",
-  });
+  const { t } = useTranslation();
+  const [formData, setFormData] = useState(initialFormState);
+  const [status, setStatus] = useState({ key: "", type: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const [status, setStatus] = useState({ message: "", type: "" });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+  const handleChange = event => {
+    const { name, value } = event.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus({ message: "Submitting...", type: "" });
+  const handleSubmit = async event => {
+    event.preventDefault();
+    setStatus({ key: "waitlist.submitting", type: "info" });
+    setIsSubmitting(true);
 
     try {
       await addDoc(collection(db, "waitlist"), {
         ...formData,
         age: Number(formData.age),
-        createdAt: new Date(),
+        createdAt: new Date()
       });
-      setStatus({
-        message: "✅ Thank you! You're now on the waitlist.",
-        type: "success",
-      });
-      setFormData({
-        name: "",
-        email: "",
-        age: "",
-        city: "",
-        allergy: "",
-        diningFrequency: "1-4",
-      });
+      setStatus({ key: "waitlist.success", type: "success" });
+      setFormData(initialFormState);
     } catch (error) {
       console.error(error);
-      setStatus({
-        message: "❌ Error submitting. Please try again.",
-        type: "error",
-      });
+      setStatus({ key: "waitlist.error", type: "error" });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
     <div className="App">
-      {/* ✅ Navbar (same as Home) */}
-      <nav className="navbar">
-        <h1 className="logo">SaYfe</h1>
-        <Link to="/contact" className="nav-btn">Contact</Link> 
-      </nav>
+      <main className="page-main waitlist-main">
+        <section className="waitlist">
+          <div className="section-shell waitlist-shell">
+            <div className="waitlist-intro">
+              <h2>{t("waitlist.title")}</h2>
+              <p>{t("waitlist.intro")}</p>
+            </div>
 
-      {/* ✅ Form Section */}
-      <div className="form-container">
-        <h2>Join Our Waitlist</h2>
-        <p className="form-description">
-          Fill in your details and be the first to experience SaYfe.
-        </p>
+            <div className="form-container">
+              <form onSubmit={handleSubmit} noValidate>
+                <label htmlFor="name">{t("waitlist.fields.name")}</label>
+                <input
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
 
-        <form onSubmit={handleSubmit}>
-          <label>Name</label>
-          <input
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
+                <label htmlFor="email">{t("waitlist.fields.email")}</label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
 
-          <label>Email</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
+                <label htmlFor="age">{t("waitlist.fields.age")}</label>
+                <input
+                  id="age"
+                  type="number"
+                  min="0"
+                  name="age"
+                  value={formData.age}
+                  onChange={handleChange}
+                  required
+                />
 
-          <label>Age</label>
-          <input
-            type="number"
-            name="age"
-            value={formData.age}
-            onChange={handleChange}
-            required
-          />
+                <label htmlFor="city">{t("waitlist.fields.city")}</label>
+                <input
+                  id="city"
+                  name="city"
+                  value={formData.city}
+                  onChange={handleChange}
+                  required
+                />
 
-          <label>City</label>
-          <input
-            name="city"
-            value={formData.city}
-            onChange={handleChange}
-            required
-          />
+                <label htmlFor="allergy">{t("waitlist.fields.allergy")}</label>
+                <input
+                  id="allergy"
+                  name="allergy"
+                  value={formData.allergy}
+                  onChange={handleChange}
+                  required
+                />
 
-          <label>Allergy</label>
-          <input
-            name="allergy"
-            value={formData.allergy}
-            onChange={handleChange}
-            required
-          />
+                <label htmlFor="diningFrequency">{t("waitlist.fields.diningFrequency")}</label>
+                <select
+                  id="diningFrequency"
+                  name="diningFrequency"
+                  value={formData.diningFrequency}
+                  onChange={handleChange}
+                >
+                  <option value="1-4">1-4</option>
+                  <option value="5-8">5-8</option>
+                  <option value="8-12">8-12</option>
+                  <option value="12+">12+</option>
+                </select>
 
-          <label>Dining Out per Month</label>
-          <select
-            name="diningFrequency"
-            value={formData.diningFrequency}
-            onChange={handleChange}
-          >
-            <option value="1-4">1-4</option>
-            <option value="5-8">5-8</option>
-            <option value="8-12">8-12</option>
-            <option value="12+">12+</option>
-          </select>
+                <button type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? t("waitlist.submitting") : t("waitlist.submit")}
+                </button>
+              </form>
 
-          <button type="submit">Join Now</button>
-        </form>
-
-        {/* ✅ Back Button */}
-        <Link to="/" className="back-btn">
-          ← Back to Home
-        </Link>
-
-        {/* ✅ Status Message */}
-        {status.message && (
-          <p
-            className={`status-message ${
-              status.type === "success" ? "status-success" : "status-error"
-            }`}
-          >
-            {status.message}
-          </p>
-        )}
-      </div>
-
-      {/* ✅ Footer (same as Home) */}
-      <footer className="footer">
-        <p>© {new Date().getFullYear()} SaYfe — All rights reserved.</p>
-      </footer>
+              {status.key && (
+                <p
+                  className={`status-message${status.type ? ` status-${status.type}` : ""}`}
+                  role="status"
+                  aria-live="polite"
+                >
+                  {t(status.key)}
+                </p>
+              )}
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
   );
 }

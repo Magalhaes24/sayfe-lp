@@ -1,126 +1,139 @@
-/* Waitlist Form Page */
-
-.form-container {
-  max-width: 480px;
-  margin: 4rem auto;
-  background: #ffffff;
-  padding: 2.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  width: 90%;
+.waitlist {
+  padding-block: clamp(3.5rem, 9vw, 5.5rem);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(243, 250, 244, 0.82) 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
-.form-container h2 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
+.waitlist-shell {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3rem);
+  align-items: start;
 }
 
-.form-description {
-  text-align: center;
-  color: #666;
-  font-size: 0.95rem;
-  margin-bottom: 2rem;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
+.waitlist-intro {
+  max-width: 580px;
+  color: var(--text-secondary);
+  display: grid;
   gap: 1rem;
 }
 
-label {
+.waitlist-intro h2 {
+  margin: 0;
+  font-size: clamp(2.1rem, 5vw, 2.8rem);
+  color: var(--text-primary);
+}
+
+.waitlist-intro p {
+  margin: 0;
+  font-size: clamp(1rem, 2.1vw, 1.15rem);
+}
+
+.form-container {
+  width: 100%;
+  max-width: 540px;
+  background: #ffffff;
+  padding: clamp(2rem, 5vw, 2.8rem);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 18px 44px rgba(20, 31, 25, 0.09);
+  border: 1px solid rgba(18, 28, 22, 0.06);
+  display: grid;
+  gap: 1.4rem;
+}
+
+.form-container form {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-container label {
   font-weight: 600;
-  color: #444;
+  color: var(--text-primary);
   font-size: 0.95rem;
 }
 
-input,
-select {
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.2s ease;
+.form-container input,
+.form-container select {
   width: 100%;
-  box-sizing: border-box;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(18, 28, 22, 0.12);
+  font-size: 1rem;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  background: #fff;
 }
 
-input:focus,
-select:focus {
-  border-color: #73ac84;
-  box-shadow: 0 0 0 2px rgba(115, 172, 132, 0.2);
+.form-container input:focus,
+.form-container select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(115, 172, 132, 0.15);
 }
 
-button {
-  margin-top: 1rem;
+.form-container button {
+  margin-top: 0.5rem;
   padding: 0.9rem;
   border: none;
-  border-radius: 8px;
-  background-color: #73ac84;
+  border-radius: var(--radius-md);
+  background-color: var(--accent);
   color: #fff;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-  width: 100%;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
-button:hover {
-  background-color: #629a74;
+.form-container button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(115, 172, 132, 0.28);
 }
 
-button:active {
+.form-container button:active {
   transform: scale(0.98);
 }
 
 .status-message {
-  margin-top: 1rem;
-  text-align: center;
+  margin: 0;
   font-size: 0.95rem;
+  text-align: center;
 }
 
 .status-success {
-  color: #2e7d32;
+  color: #2f7a46;
 }
 
 .status-error {
-  color: #c62828;
+  color: #b73232;
 }
 
-.back-btn {
-  display: inline-block;
-  margin-top: 1.5rem;
-  text-decoration: none;
-  color: #73ac84;
-  font-weight: 600;
-  transition: color 0.2s ease;
-  text-align: center;
-  width: 100%;
+.status-info {
+  color: var(--text-secondary);
 }
 
-.back-btn:hover {
-  color: #629a74;
-}
+@media (min-width: 960px) {
+  .waitlist-shell {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(2.5rem, 6vw, 4rem);
+  }
 
-.back-btn:active {
-  transform: scale(0.98);
-}
+  .waitlist-intro {
+    justify-self: start;
+  }
 
-/* 📱 Responsive */
-@media (max-width: 480px) {
   .form-container {
-    padding: 1.5rem;
-    margin: 2rem auto;
+    justify-self: end;
+  }
+}
+
+@media (max-width: 620px) {
+  .waitlist-shell {
+    text-align: left;
   }
 
-  .form-container h2 {
-    font-size: 1.5rem;
+  .waitlist-intro {
+    justify-items: start;
   }
 
-  button {
-    font-size: 0.95rem;
+  .form-container {
+    padding: clamp(1.6rem, 7vw, 2.2rem);
   }
 }

@@ -1,44 +1,60 @@
-// src/Home.js
 import React from "react";
 import { Link } from "react-router-dom";
+import DotGrid from "../components/DotGrid";
+import { useTranslation } from "../contexts/LanguageContext";
 
 function Home() {
+  const { t } = useTranslation();
+
   return (
     <div className="App">
-      <nav className="navbar">
-        <h1 className="logo">SaYfe</h1>
-        <Link to="/contact" className="nav-btn">Contact</Link>
-      </nav>
+      <main className="page-main home-main">
 
-      <section className="hero">
-        <h2 className="hero-title">Safety in Every Bite</h2>
-        <p className="hero-text">
-          SaYfe connects restaurants and customers with food allergies through intelligent menus and real-time safety insights.
-        </p>
-        <Link to="/waitlist" className="cta-btn">Join the Waitlist</Link>
-      </section>
+        <section className="hero">
+          <div className="section-shell">
+            <h2 className="hero-title">{t("home.heroTitle")}</h2>
+            <p className="hero-text">{t("home.heroText")}</p>
+            <Link to="/waitlist" className="cta-btn">
+              {t("home.heroCta")}
+            </Link>
+          </div>
+        </section>
 
-      <section className="features">
-        <h3>Why Choose SaYfe?</h3>
-        <div className="feature-grid">
-          <div className="feature-card">
-            <h4>Real-time Safety</h4>
-            <p>Live updates from restaurants ensure allergens are always identified.</p>
+        <DotGrid
+          className="dotGrid-background"
+          dotSize={12}
+          gap={18}
+          baseColor="#73ac84"
+          activeColor="#73ac84"
+          baseOpacity={0.12}
+          activeOpacity={0.26}
+          proximity={140}
+          shockRadius={260}
+          shockStrength={4.2}
+          resistance={820}
+          returnDuration={1.45}
+          style={{ width: "100%", height: "100%" }}
+        />
+        <section className="features">
+          <div className="section-shell">
+            <h3>{t("home.featuresTitle")}</h3>
+            <div className="feature-grid">
+              <div className="feature-card">
+                <h4>{t("home.features.realtime.title")}</h4>
+                <p>{t("home.features.realtime.text")}</p>
+              </div>
+              <div className="feature-card">
+                <h4>{t("home.features.ai.title")}</h4>
+                <p>{t("home.features.ai.text")}</p>
+              </div>
+              <div className="feature-card">
+                <h4>{t("home.features.privacy.title")}</h4>
+                <p>{t("home.features.privacy.text")}</p>
+              </div>
+            </div>
           </div>
-          <div className="feature-card">
-            <h4>Smart AI Recognition</h4>
-            <p>AI detects and corrects allergy inputs for precise communication.</p>
-          </div>
-          <div className="feature-card">
-            <h4>Encrypted Data</h4>
-            <p>All allergy data is securely stored and encrypted for privacy.</p>
-          </div>
-        </div>
-      </section>
-
-      <footer className="footer">
-        <p>© {new Date().getFullYear()} SaYfe — All rights reserved.</p>
-      </footer>
+        </section>
+      </main>
     </div>
   );
 }
