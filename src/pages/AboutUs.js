@@ -42,20 +42,36 @@ function AboutUs() {
             gap={30}
           />
           <div className="section-shell about-shell">
-            <span className="about-tag">{t("about.heroTag")}</span>
-            <h2 className="about-title">{t("about.heroTitle")}</h2>
-            <p className="about-lead">{t("about.heroLead")}</p>
+            <span
+              className="about-tag"
+              dangerouslySetInnerHTML={{ __html: t("about.heroTag") }}
+            ></span>
+            <h2
+              className="about-title"
+              dangerouslySetInnerHTML={{ __html: t("about.heroTitle") }}
+            ></h2>
+            <p
+              className="about-lead"
+              dangerouslySetInnerHTML={{ __html: t("about.heroLead") }}
+            ></p>
           </div>
         </section>
 
         <section className="about-mission">
           <div className="section-shell about-shell">
             <div className="mission-card">
-              <h3>{t("about.missionTitle")}</h3>
-              <p>{t("about.missionBody")}</p>
+              <h3
+                dangerouslySetInnerHTML={{ __html: t("about.missionTitle") }}
+              ></h3>
+              <p
+                dangerouslySetInnerHTML={{ __html: t("about.missionBody") }}
+              ></p>
               <ul className="mission-pillars">
                 {pillars.map(pillar => (
-                  <li key={pillar}>{pillar}</li>
+                  <li
+                    key={pillar}
+                    dangerouslySetInnerHTML={{ __html: pillar }}
+                  ></li>
                 ))}
               </ul>
             </div>
@@ -64,8 +80,14 @@ function AboutUs() {
 
         <section className="about-team">
           <div className="section-shell about-shell">
-            <h3 className="team-title">{t("about.teamTitle")}</h3>
-            <p className="team-intro">{t("about.teamIntro")}</p>
+            <h3
+              className="team-title"
+              dangerouslySetInnerHTML={{ __html: t("about.teamTitle") }}
+            ></h3>
+            <p
+              className="team-intro"
+              dangerouslySetInnerHTML={{ __html: t("about.teamIntro") }}
+            ></p>
             <div className="founder-grid">
               {founders.map(founder => {
                 const founderKey = normalizeFirstName(founder.name);
@@ -83,7 +105,10 @@ function AboutUs() {
                     <div className="founder-card__content">
                       <h4>{founder.name}</h4>
                       <p className="founder-role">{founder.role}</p>
-                      <p className="founder-bio">{founder.bio}</p>
+                      <p
+                        className="founder-bio"
+                        dangerouslySetInnerHTML={{ __html: founder.bio }}
+                      ></p>
                     </div>
                   </article>
                 );
@@ -94,8 +119,12 @@ function AboutUs() {
 
         <section className="about-cta">
           <div className="section-shell about-shell about-cta__shell">
-            <h3>{t("about.ctaTitle")}</h3>
-            <p>{t("about.ctaBody")}</p>
+            <h3
+              dangerouslySetInnerHTML={{ __html: t("about.ctaTitle") }}
+            ></h3>
+            <p
+              dangerouslySetInnerHTML={{ __html: t("about.ctaBody") }}
+            ></p>
             <Link to="/waitlist" className="cta-btn">
               {t("home.heroCta")}
             </Link>

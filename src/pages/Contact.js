@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { db } from "../firebaseConfig";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { useTranslation } from "../contexts/LanguageContext";
+import CryptoJS from "crypto-js"; // ✅ encryption library
 import "./Contact.css";
 
 const initialFormState = {
@@ -18,14 +19,27 @@ function Contact() {
   const [status, setStatus] = useState({ type: "", key: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const statusClass = status.type ? `form-status status-${status.type}` : "form-status";
+  const ENCRYPTION_KEY = process.env.REACT_APP_ENCRYPTION_KEY;
 
-  const handleChange = event => {
-    const { name, value } = event.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+  // 🔐 Encrypts plain text with AES
+  const encrypt = (text) => {
+    if (!ENCRYPTION_KEY) {
+      console.error("Missing REACT_APP_ENCRYPTION_KEY in .env file");
+      return text;
+    }
+    return CryptoJS.AES.encrypt(text, ENCRYPTION_KEY).toString();
   };
 
-  const handleSubmit = async event => {
+  const statusClass = status.type
+    ? `form-status status-${status.type}`
+    : "form-status";
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (isSubmitting) return;
 
@@ -49,14 +63,22 @@ function Contact() {
     setStatus({ type: "info", key: "contact.status.sending" });
 
     try {
-      await addDoc(collection(db, "contactMessages"), {
-        ...trimmedData,
-        createdAt: new Date()
-      });
+      // 🔐 Encrypt all data before saving
+      const encryptedData = {
+        name: encrypt(trimmedData.name),
+        email: encrypt(trimmedData.email),
+        message: encrypt(trimmedData.message),
+        createdAt: serverTimestamp(),
+        userAgent: navigator.userAgent,
+        platform: navigator.platform
+      };
+
+      await addDoc(collection(db, "contactMessages"), encryptedData);
+
       setStatus({ type: "success", key: "contact.status.success" });
       setFormData(initialFormState);
     } catch (error) {
-      console.error(error);
+      console.error("❌ Firestore Error:", error);
       setStatus({ type: "error", key: "contact.status.error" });
     } finally {
       setIsSubmitting(false);
@@ -83,6 +105,7 @@ function Contact() {
                   required
                 />
               </div>
+
               <div className="form-group">
                 <label htmlFor="email">{t("contact.fields.email")}</label>
                 <input
@@ -95,6 +118,7 @@ function Contact() {
                   required
                 />
               </div>
+
               <div className="form-group">
                 <label htmlFor="message">{t("contact.fields.message")}</label>
                 <textarea
@@ -107,6 +131,7 @@ function Contact() {
                   required
                 />
               </div>
+
               <button type="submit" className="cta-btn" disabled={isSubmitting}>
                 {isSubmitting ? t("contact.submitting") : t("contact.submit")}
               </button>

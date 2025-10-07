@@ -1,0 +1,107 @@
+.admin-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #e8f5ee, #ffffff);
+}
+
+.admin-login-card {
+  background: white;
+  padding: 2rem 2.5rem;
+  border-radius: 18px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  max-width: 360px;
+  width: 90%;
+}
+
+.admin-login-card h2 {
+  margin-bottom: 1.5rem;
+  color: #1f2a22;
+}
+
+.admin-login-card input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1.2rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.admin-login-card button {
+  width: 100%;
+  background-color: #73ac84;
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-login-card button:hover {
+  background-color: #5f9870;
+}
+
+.error-message {
+  color: #d64545;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* Admin Dashboard */
+.admin-dashboard {
+  padding: 2rem;
+  background: #f7f9f8;
+  min-height: 100vh;
+}
+
+.admin-dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.logout-btn {
+  background: #d64545;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #b83b3b;
+}
+
+.messages-table-wrapper {
+  overflow-x: auto;
+}
+
+.messages-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.messages-table th,
+.messages-table td {
+  padding: 0.9rem 1.1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.messages-table th {
+  background: #73ac84;
+  color: white;
+}
+
+.messages-table tr:hover td {
+  background: #f1f8f3;
+}

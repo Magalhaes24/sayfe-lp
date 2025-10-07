@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { db } from "../firebaseConfig";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { useTranslation } from "../contexts/LanguageContext";
+import CryptoJS from "crypto-js"; // 🔐 encryption
 import "./WaitlistForm.css";
 
 const initialFormState = {
@@ -19,26 +20,39 @@ function WaitlistForm() {
   const [status, setStatus] = useState({ key: "", type: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    if (isSubmitting) return;
+
     setStatus({ key: "waitlist.submitting", type: "info" });
     setIsSubmitting(true);
 
     try {
-      await addDoc(collection(db, "waitlist"), {
-        ...formData,
-        age: Number(formData.age),
-        createdAt: new Date()
+      const secret = process.env.REACT_APP_ENCRYPTION_KEY;
+
+      // 🔒 Encrypt each field individually
+      const encryptedData = {};
+      Object.keys(formData).forEach((key) => {
+        encryptedData[key] = CryptoJS.AES.encrypt(
+          String(formData[key]),
+          secret
+        ).toString();
       });
+
+      await addDoc(collection(db, "waitlist"), {
+        ...encryptedData,
+        createdAt: serverTimestamp(),
+      });
+
       setStatus({ key: "waitlist.success", type: "success" });
       setFormData(initialFormState);
     } catch (error) {
-      console.error(error);
+      console.error("❌ Firestore Error:", error);
       setStatus({ key: "waitlist.error", type: "error" });
     } finally {
       setIsSubmitting(false);
@@ -51,8 +65,8 @@ function WaitlistForm() {
         <section className="waitlist">
           <div className="section-shell waitlist-shell">
             <div className="waitlist-intro">
-              <h2>{t("waitlist.title")}</h2>
-              <p>{t("waitlist.intro")}</p>
+              <h2 dangerouslySetInnerHTML={{ __html: t("waitlist.title") }}></h2>
+              <p dangerouslySetInnerHTML={{ __html: t("waitlist.intro") }}></p>
             </div>
 
             <div className="form-container">
@@ -105,7 +119,9 @@ function WaitlistForm() {
                   required
                 />
 
-                <label htmlFor="diningFrequency">{t("waitlist.fields.diningFrequency")}</label>
+                <label htmlFor="diningFrequency">
+                  {t("waitlist.fields.diningFrequency")}
+                </label>
                 <select
                   id="diningFrequency"
                   name="diningFrequency"
@@ -125,12 +141,13 @@ function WaitlistForm() {
 
               {status.key && (
                 <p
-                  className={`status-message${status.type ? ` status-${status.type}` : ""}`}
+                  className={`status-message${
+                    status.type ? ` status-${status.type}` : ""
+                  }`}
                   role="status"
                   aria-live="polite"
-                >
-                  {t(status.key)}
-                </p>
+                  dangerouslySetInnerHTML={{ __html: t(status.key) }}
+                ></p>
               )}
             </div>
           </div>

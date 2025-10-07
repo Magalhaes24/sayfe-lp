@@ -10,6 +10,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ClickSpark from "./components/ClickSpark";
 import { LanguageProvider } from "./contexts/LanguageContext";
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
 import "./App.css";
 
 function App() {
@@ -48,6 +50,8 @@ function App() {
                   <Route path="/waitlist" element={<WaitlistForm />} />
                   <Route path="/about" element={<AboutUs />} />
                   <Route path="/contact" element={<Contact />} />
+                  <Route path="/admin" element={<AdminLogin />} />
+                  <Route path="/admin/dashboard" element={<AdminDashboard />} />
                 </Routes>
               </motion.div>
             </AnimatePresence>

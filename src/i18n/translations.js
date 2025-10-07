@@ -18,8 +18,16 @@ const translations = {
     },
     home: {
       heroTitle: "Safety in Every Bite",
-      heroText: "sayfe connects restaurants and customers with food allergies through intelligent menus and real-time safety insights.",
+      heroText:
+        "sayfe connects restaurants and customers with food allergies through intelligent menus and real-time safety insights.",
       heroCta: "Join the Waitlist",
+
+      // 🆕 Demo Section (Coming Soon)
+      demoTitle: "sayfe Demo - Coming Soon",
+      demoText:
+        "We’re preparing a live demo so you can explore how Sayfe connects restaurants and diners safely and transparently. Stay tuned, it’s coming soon.",
+      demoCta: "Coming Soon",
+
       featuresTitle: "Why Choose sayfe?",
       features: {
         realtime: {
@@ -38,7 +46,8 @@ const translations = {
     },
     waitlist: {
       title: "Join Our Waitlist",
-      intro: "Share a few details so we can let you know the moment sayfe launches in your city.",
+      intro:
+        "Share a few details so we can let you know the moment sayfe launches in your city.",
       fields: {
         name: "Name",
         email: "Email",
@@ -55,7 +64,8 @@ const translations = {
     },
     contact: {
       title: "Get in Touch",
-      intro: "We would love to hear from you. Whether you are a restaurant partner, a user with feedback, or just curious, send us a message and we will reach out soon.",
+      intro:
+        "We would love to hear from you. Whether you are a restaurant partner, a user with feedback, or just curious, send us a message and we will reach out soon.",
       fields: {
         name: "Name",
         email: "Email",
@@ -72,23 +82,28 @@ const translations = {
         incomplete: "Please complete all fields before submitting.",
         invalidEmail: "Please provide a valid email address.",
         sending: "Sending your message...",
-        success: "Thanks! We received your message and will be in touch shortly.",
-        error: "We couldn't send your message right now. Please try again later."
+        success:
+          "Thanks! We received your message and will be in touch shortly.",
+        error:
+          "We couldn't send your message right now. Please try again later."
       }
     },
     about: {
       heroTag: "Our Story",
       heroTitle: "Making dining safer, one trusted plate at a time.",
-      heroLead: "sayfe was born from a university project created by three friends passionate about gastronomy and concerned with the risks of food allergies. We wanted to make dining out safer by creating a platform where restaurants and customers collaborate, share knowledge, and build trust with every meal.",      
+      heroLead:
+        "sayfe was born from a university project created by three friends passionate about gastronomy and concerned with the risks of food allergies. We wanted to make dining out safer by creating a platform where restaurants and customers collaborate, share knowledge, and build trust with every meal.",
       missionTitle: "Why we built sayfe",
-      missionBody: "We listened to diners with serious allergies who felt like taking a seat at the table meant taking a risk. We also met restaurant teams eager to do better but missing the tools and context they needed. sayfe connects both sides with real-time knowledge, verified updates, and a warm layer of support.",
+      missionBody:
+        "We listened to diners with serious allergies who felt like taking a seat at the table meant taking a risk. We also met restaurant teams eager to do better but missing the tools and context they needed. sayfe connects both sides with real-time knowledge, verified updates, and a warm layer of support.",
       missionPillars: [
         "Transparency in every reservation.",
         "Empathy for guests and staff alike.",
         "Safety that feels effortless and personal."
       ],
       teamTitle: "Meet the founders",
-      teamIntro: "We are a trio of builders, technology specialists, and hospitality lovers committed to turning trust into the default dining experience.",
+      teamIntro:
+        "We are a trio of builders, technology specialists, and hospitality lovers committed to turning trust into the default dining experience.",
       founders: [
         {
           name: "Francisco Magalhães",
@@ -103,13 +118,16 @@ const translations = {
         {
           name: "Rodrigo Azevedo",
           role: "Co-founder",
-          bio: "Hospitality specialist building the bridge between restaurants, diners, and sayfe."
+          bio: "Digital experience architect building the bridge between restaurants and diners."
         }
       ],
       ctaTitle: "Pull up a chair",
-      ctaBody: "We are continuously partnering with diners, chefs, and operators who share our mission. Join the waitlist or drop us a message so we can build sayfe together."
+      ctaBody:
+        "We are continuously partnering with diners, chefs, and operators who share our mission. Join the waitlist or drop us a message so we can build sayfe together."
     }
   },
+
+  // 🇵🇹 Portuguese (Portugal)
   pt: {
     nav: {
       home: "Início",
@@ -129,8 +147,16 @@ const translations = {
     },
     home: {
       heroTitle: "Segurança em Cada Dentada",
-      heroText: "O sayfe liga restaurantes e clientes com alergias alimentares através de menus inteligentes e informações de segurança em tempo real.",
+      heroText:
+        "O sayfe liga restaurantes e clientes com alergias alimentares através de menus inteligentes e informações de segurança em tempo real.",
       heroCta: "Entrar na lista de espera",
+
+      // 🆕 Nova Secção de Demo (Em breve)
+      demoTitle: "Demo sayfe - Em Breve",
+      demoText:
+        "Estamos a preparar uma demo interativa para que possa explorar como o sayfe liga restaurantes e clientes de forma segura e transparente. Fique atento, está quase a chegar.",
+      demoCta: "Em Breve",
+
       featuresTitle: "Porque escolher o sayfe?",
       features: {
         realtime: {
@@ -149,7 +175,8 @@ const translations = {
     },
     waitlist: {
       title: "Junte-se à nossa lista de espera",
-      intro: "Partilhe alguns detalhes para o avisarmos assim que o sayfe chegar à sua cidade.",
+      intro:
+        "Partilhe alguns detalhes para o avisarmos assim que o sayfe chegar à sua cidade.",
       fields: {
         name: "Nome",
         email: "E-mail",
@@ -166,7 +193,8 @@ const translations = {
     },
     contact: {
       title: "Fale connosco",
-      intro: "Adorávamos ouvir a sua opinião. Seja parceiro de restauração, utilizador com sugestões ou apenas curioso, envie-nos uma mensagem e entraremos em contacto em breve.",
+      intro:
+        "Adorávamos ouvir a sua opinião. Seja parceiro de restauração, utilizador com sugestões ou apenas curioso, envie-nos uma mensagem e entraremos em contacto em breve.",
       fields: {
         name: "Nome",
         email: "E-mail",
@@ -183,23 +211,28 @@ const translations = {
         incomplete: "Preencha todos os campos antes de enviar.",
         invalidEmail: "Indique um endereço de e-mail válido.",
         sending: "A enviar a sua mensagem...",
-        success: "Obrigado! Recebemos a sua mensagem e entraremos em contacto em breve.",
-        error: "Não foi possível enviar a sua mensagem neste momento. Tente novamente mais tarde."
+        success:
+          "Obrigado! Recebemos a sua mensagem e entraremos em contacto em breve.",
+        error:
+          "Não foi possível enviar a sua mensagem neste momento. Tente novamente mais tarde."
       }
     },
     about: {
       heroTag: "A nossa história",
       heroTitle: "Tornar a refeição mais segura, prato a prato.",
-      heroLead: "O sayfe nasceu de um projeto universitário, criado por três amigos apaixonados pela gastronomia e preocupados com os riscos das alergias alimentares. Quisemos tornar a experiência de comer fora mais segura, ao criar uma plataforma onde restaurantes e clientes colaboram, partilham conhecimento e ganham confiança em cada refeição.",
+      heroLead:
+        "O sayfe nasceu de um projeto universitário, criado por três amigos apaixonados pela gastronomia e preocupados com os riscos das alergias alimentares. Quisemos tornar a experiência de comer fora mais segura, ao criar uma plataforma onde restaurantes e clientes colaboram, partilham conhecimento e ganham confiança em cada refeição.",
       missionTitle: "Porque criámos o sayfe",
-      missionBody: "Ouvimos pessoas com alergias severas que sentiam que sentar-se à mesa era correr um risco. Também conhecemos equipas de restauração empenhadas em fazer melhor, mas sem as ferramentas e o contexto de que precisavam. O sayfe liga ambos os lados com conhecimento em tempo real, atualizações validadas e um apoio acolhedor.",
+      missionBody:
+        "Ouvimos pessoas com alergias graves que sentiam que sentar-se à mesa era correr um risco. Também conhecemos equipas de restauração empenhadas em fazer melhor, mas sem as ferramentas e o contexto de que precisavam. O sayfe liga ambos os lados com conhecimento em tempo real, atualizações validadas e um apoio acolhedor.",
       missionPillars: [
         "Transparência em cada reserva.",
         "Empatia para clientes e equipas.",
         "Segurança que parece natural e personalizada."
       ],
       teamTitle: "Conheça os fundadores",
-      teamIntro: "Somos uma equipa de empreendedores, especialistas em tecnologia e amantes da hospitalidade comprometidos em tornar a confiança o padrão das experiências gastronómicas.",
+      teamIntro:
+        "Somos uma equipa de empreendedores, especialistas em tecnologia e amantes da hospitalidade comprometidos em tornar a confiança o padrão das experiências gastronómicas.",
       founders: [
         {
           name: "Francisco Magalhães",
@@ -214,11 +247,12 @@ const translations = {
         {
           name: "Rodrigo Azevedo",
           role: "Co-fundador",
-          bio: "Especialista em hospitalidade que constrói a ponte entre restaurantes, clientes e o sayfe."
+          bio: "Arquiteto de experiências digitais, a construir a ponte entre restaurantes e clientes, promovendo confiança na restauração com a sayfe."
         }
       ],
       ctaTitle: "Sente-se connosco",
-      ctaBody: "Estamos sempre a colaborar com clientes, chefs e operadores que partilham esta missão. Entre na lista de espera ou envie-nos uma mensagem para construirmos o sayfe em conjunto."
+      ctaBody:
+        "Estamos sempre a colaborar com clientes, chefs e operadores que partilham esta missão. Entre na lista de espera ou envie-nos uma mensagem para construirmos o sayfe em conjunto."
     }
   }
 };

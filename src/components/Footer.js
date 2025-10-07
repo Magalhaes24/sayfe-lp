@@ -6,7 +6,7 @@ function Footer() {
 
   return (
     <footer className="footer site-footer">
-      <p>{t("footer.copyright")}</p>
+      <p dangerouslySetInnerHTML={{ __html: t("footer.copyright") }}></p>
     </footer>
   );
 }

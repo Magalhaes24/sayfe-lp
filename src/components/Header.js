@@ -4,7 +4,7 @@ import HamburgerMenu from "./HamburgerMenu";
 import { useTranslation } from "../contexts/LanguageContext";
 
 function Header() {
-  const { t, language, setLanguage } = useTranslation();
+  const { t } = useTranslation();
 
   const logoPath = `${process.env.PUBLIC_URL || ""}/Y1000.png`;
   const navLinks = [
@@ -13,10 +13,6 @@ function Header() {
     { to: "/about", label: t("nav.about") },
     { to: "/contact", label: t("nav.contact") }
   ];
-
-  const handleLanguageChange = event => {
-    setLanguage(event.target.value);
-  };
 
   return (
     <header className="site-header">
@@ -27,19 +23,6 @@ function Header() {
             <h1 className="logo">sayfe</h1>
           </Link>
           <div className="navbar-actions">
-            {/*
-            <label htmlFor="language-select" className="language-switcher">
-              <select
-                id="language-select"
-                className="language-select"
-                value={language}
-                onChange={handleLanguageChange}
-              >
-                <option value="pt">{t("nav.languageOptionPt")}</option>
-                <option value="en">{t("nav.languageOptionEn")}</option>
-              </select>
-            </label>
-            */}
             <HamburgerMenu links={navLinks} />
           </div>
         </div>

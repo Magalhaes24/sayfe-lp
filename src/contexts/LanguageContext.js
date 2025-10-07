@@ -1,4 +1,11 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState
+} from "react";
 import translations from "../i18n/translations";
 
 const DEFAULT_LANGUAGE = "pt";
@@ -13,6 +20,14 @@ const LanguageContext = createContext({
 function resolveKey(bundle, key) {
   if (!bundle) return undefined;
   return key.split(".").reduce((acc, part) => (acc == null ? undefined : acc[part]), bundle);
+}
+
+// 🆕 Helper to highlight every occurrence of "sayfe" or "Sayfe"
+function highlightSayfe(text) {
+  if (typeof text !== "string") return text;
+  return text.replace(/\b(sayfe|Sayfe)\b/g, match => {
+    return `<span class="highlight">${match}</span>`;
+  });
 }
 
 export function LanguageProvider({ children }) {
@@ -35,10 +50,13 @@ export function LanguageProvider({ children }) {
     key => {
       const bundle = translations[language];
       const fallbackBundle = translations.en;
-      const value = resolveKey(bundle, key);
-      if (value !== undefined) return value;
-      const fallback = resolveKey(fallbackBundle, key);
-      return fallback !== undefined ? fallback : key;
+
+      let value = resolveKey(bundle, key);
+      if (value === undefined) value = resolveKey(fallbackBundle, key);
+      if (value === undefined) return key;
+
+      // Apply highlight to sayfe automatically
+      return highlightSayfe(value);
     },
     [language]
   );
@@ -52,7 +70,11 @@ export function LanguageProvider({ children }) {
     [language, translate]
   );
 
-  return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
+  return (
+    <LanguageContext.Provider value={value}>
+      {children}
+    </LanguageContext.Provider>
+  );
 }
 
 export function useTranslation() {

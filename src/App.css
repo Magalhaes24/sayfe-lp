@@ -45,6 +45,12 @@ a {
   text-decoration: none;
 }
 
+.highlight {
+  font-weight: 700; /* bold */
+  color: var(--accent); /* uses your existing brand green (#73ac84) */
+}
+
+
 a:focus-visible,
 button:focus-visible {
   outline: 3px solid rgba(115, 172, 132, 0.4);
@@ -59,7 +65,6 @@ main {
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;
-  gap: clamp(3rem, 8vw, 4.5rem);
 }
 
 /* Navigation */
@@ -211,6 +216,7 @@ main {
 
 .features {
   padding-block: clamp(3rem, 9vw, 4.5rem);
+  background: linear-gradient(180deg, #f7fbf8 0%, #eaf3ed 100%);
 }
 
 .features h3 {
@@ -346,4 +352,336 @@ main {
 .site-footer {
   position: relative;
   z-index: 100;
+}
+
+/* === Center the Sayfe logo and text on mobile === */
+@media (max-width: 520px) {
+  .navbar-inner {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    position: relative;
+  }
+
+  .logo-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.4rem;
+  }
+
+  .logo-mark {
+    height: 2.8em;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  .navbar-actions {
+    position: absolute;
+    top: 0.4rem;
+    right: 0.6rem;
+    margin: 0;
+  }
+}
+
+
+/* === Demo Section === */
+.demo-section {
+  background: linear-gradient(135deg, rgba(115, 172, 132, 0.08) 0%, #ffffff 100%);
+  padding-block: clamp(4rem, 10vw, 6rem);
+}
+
+.demo-shell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(2rem, 6vw, 4rem);
+}
+
+.demo-content {
+  flex: 1;
+  max-width: 520px;
+}
+
+.demo-title {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  color: var(--text-primary);
+  margin: 0 0 1rem 0;
+}
+
+.demo-text {
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 2vw, 1.12rem);
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+}
+
+.demo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.6rem;
+  border-radius: var(--radius-md);
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.demo-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(115, 172, 132, 0.28);
+}
+
+/* === Phone Display (desktop/tablet) === */
+.demo-visual {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.phone-stack {
+  position: relative;
+  width: 360px;
+  height: 600px;
+}
+
+.phone-frame {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 32px;
+  padding: 0.6rem;
+  width: 240px;
+  height: 500px;
+  overflow: hidden;
+  border: 2px solid rgba(115, 172, 132, 0.25); /* soft accent border */
+  box-shadow: 0 8px 20px rgba(115, 172, 132, 0.15); /* subtle glow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.phone-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  overflow: hidden;
+  border: 2px solid rgba(115, 172, 132, 0.25);
+  box-shadow: 0 8px 20px rgba(115, 172, 132, 0.15);
+  border-radius: 32px;
+  padding: 0.5rem;
+}
+
+/* Optional: dark bezel for better contrast */
+.phone-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0.35rem;
+  border-radius: 28px;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+}
+
+/* === Fix for zoomed-in screenshots inside phone frames === */
+.demo-screen {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* keeps full image visible without cropping */
+  object-position: center;
+  border-radius: 24px;
+  background-color: #000; /* makes it look like a real phone screen */
+  display: block;
+}
+
+.phone-left {
+  top: 0;
+  left: 0;
+  transform: rotate(-8deg) translateX(-20px);
+  z-index: 1;
+}
+
+.phone-right {
+  top: 20px;
+  right: 0;
+  transform: rotate(6deg) translateX(20px);
+  z-index: 2;
+}
+
+
+/* === Tablet adjustments === */
+@media (max-width: 900px) {
+  .demo-shell {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .demo-content {
+    order: 1;
+    max-width: 90%;
+  }
+
+  .demo-visual {
+    order: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .phone-stack {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .phone-frame {
+    position: relative;
+    width: 44%;
+    height: auto;
+    aspect-ratio: 9 / 19.5;
+    padding: 0.45rem;
+    transform: none;
+    border-radius: 1.8rem; 
+    box-shadow: 0 10px 28px rgba(20, 31, 25, 0.1);
+  }
+
+  .demo-screen {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* ensures full screenshot visible */
+    object-position: center;
+    border-radius: 1.4rem; /* matches inner curve of phone */
+    background-color: #000; /* simulates screen background */
+    display: block;
+  }
+
+  .demo-title {
+    font-size: 1.9rem;
+  }
+
+  .demo-text {
+    font-size: 1rem;
+  }
+}
+
+/* === Mobile view (smaller phones) === */
+@media (max-width: 520px) {
+  .demo-section {
+    padding-block: 3rem;
+  }
+
+  .demo-shell {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2.5rem;
+  }
+
+  /* Text comes first */
+  .demo-content {
+    order: 1;
+  }
+
+  /* Screens below */
+  .demo-visual {
+    order: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Smaller, tilted phones */
+  .phone-stack {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    max-width: 260px;
+  }
+
+  .phone-frame {
+    width: 48%;
+    aspect-ratio: 9 / 19.5;
+    border-radius: 1.2rem;
+    box-shadow: 0 6px 16px rgba(20, 31, 25, 0.08);
+    border-radius: 1.8rem; /* matches inner curve of phone */
+    opacity: 0.92;
+    transition: transform 0.4s ease;
+  }
+
+  .demo-screen {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* fits naturally without zooming */
+    object-position: center;
+    border-radius: 1.1rem; /* matches frame’s curvature */
+    background-color: #000;
+    display: block;
+  }
+
+  .phone-left {
+    transform: rotate(-10deg);
+  }
+
+  .phone-right {
+    transform: rotate(10deg);
+  }
+
+  .demo-title {
+    font-size: 1.6rem;
+  }
+
+  .demo-text {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    padding-inline: 0.4rem;
+  }
+
+  .demo-btn {
+    padding: 0.75rem 1.3rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* === Extra-small devices (under 400px) === */
+@media (max-width: 400px) {
+  .demo-title {
+    font-size: 1.45rem;
+  }
+
+  .demo-text {
+    font-size: 0.9rem;
+  }
+
+  .phone-stack {
+    max-width: 220px;
+    gap: 0.6rem;
+  }
+
+  .phone-left {
+    transform: rotate(-8deg);
+  }
+
+  .phone-right {
+    transform: rotate(8deg);
+  }
+
+  .phone-frame {
+    width: 46%;
+    border-radius: 1.8rem;
+  }
 }
