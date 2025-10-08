@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/sayfe-lp/static/css/main.86266036.css",
-    "main.js": "/sayfe-lp/static/js/main.284b0a1b.js",
+    "main.js": "/sayfe-lp/static/js/main.e4a8206a.js",
     "static/media/francisco.png": "/sayfe-lp/static/media/francisco.54e093ef8fde694a5229.png",
     "static/media/rodrigo.png": "/sayfe-lp/static/media/rodrigo.ca806b23f380a11a3de3.png",
     "static/media/martim.png": "/sayfe-lp/static/media/martim.ad36fcbed85632d59aea.png",
@@ -9,10 +9,10 @@
     "static/media/Home.png": "/sayfe-lp/static/media/Home.a6450d83f45bc75c3f5d.png",
     "index.html": "/sayfe-lp/index.html",
     "main.86266036.css.map": "/sayfe-lp/static/css/main.86266036.css.map",
-    "main.284b0a1b.js.map": "/sayfe-lp/static/js/main.284b0a1b.js.map"
+    "main.e4a8206a.js.map": "/sayfe-lp/static/js/main.e4a8206a.js.map"
   },
   "entrypoints": [
     "static/css/main.86266036.css",
-    "static/js/main.284b0a1b.js"
+    "static/js/main.e4a8206a.js"
   ]
 }
