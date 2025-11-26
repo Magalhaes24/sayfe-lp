@@ -1,6 +1,6 @@
-{
-  "short_name": "sayfe",
-  "name": "sayfe",
+﻿{
+  "short_name": "besayfe",
+  "name": "besayfe",
   "icons": [
     {
       "src": "favicon.ico",
@@ -28,3 +28,4 @@
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
+
