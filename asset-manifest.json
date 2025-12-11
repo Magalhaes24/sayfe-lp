@@ -1,19 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.f3c0dd2a.css",
-    "main.js": "/static/js/main.f75fc8b0.js",
+    "main.css": "/static/css/main.683d9584.css",
+    "main.js": "/static/js/main.bb04b6d4.js",
     "static/media/Home.png": "/static/media/Home.84f1b41bd442ecdc2fdb.png",
     "static/media/francisco.png": "/static/media/francisco.54e093ef8fde694a5229.png",
     "static/media/rodrigo.png": "/static/media/rodrigo.ca806b23f380a11a3de3.png",
     "static/media/martim.png": "/static/media/martim.ad36fcbed85632d59aea.png",
     "static/media/OnBoarding.png": "/static/media/OnBoarding.3bf6a959e47f5aa15506.png",
+    "static/media/rocket_ic.png": "/static/media/rocket_ic.955e2863d7e5fb61788b.png",
+    "static/media/idea_ic.png": "/static/media/idea_ic.283ff66a2aabb677c1dc.png",
+    "static/media/repair_ic.png": "/static/media/repair_ic.d7830f58f1cb0275eadb.png",
     "static/media/camera_ic.png": "/static/media/camera_ic.4c6952e274d5479ce1be.png",
+    "static/media/check_ic.png": "/static/media/check_ic.63f5aa5b79df943b360d.png",
     "index.html": "/index.html",
-    "main.f3c0dd2a.css.map": "/static/css/main.f3c0dd2a.css.map",
-    "main.f75fc8b0.js.map": "/static/js/main.f75fc8b0.js.map"
+    "main.683d9584.css.map": "/static/css/main.683d9584.css.map",
+    "main.bb04b6d4.js.map": "/static/js/main.bb04b6d4.js.map"
   },
   "entrypoints": [
-    "static/css/main.f3c0dd2a.css",
-    "static/js/main.f75fc8b0.js"
+    "static/css/main.683d9584.css",
+    "static/js/main.bb04b6d4.js"
   ]
 }
