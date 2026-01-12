@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { db } from "../firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 import CryptoJS from "crypto-js";
@@ -13,15 +13,18 @@ function AdminDashboard() {
   const encryptionKey = process.env.REACT_APP_ENCRYPTION_KEY;
 
   // 🔐 Helper to decrypt safely
-  const decryptField = (ciphertext) => {
-    try {
-      const bytes = CryptoJS.AES.decrypt(ciphertext, encryptionKey);
-      return bytes.toString(CryptoJS.enc.Utf8) || "(empty)";
-    } catch (e) {
-      console.error("Decryption error:", e);
-      return "(decryption failed)";
-    }
-  };
+  const decryptField = useCallback(
+    (ciphertext) => {
+      try {
+        const bytes = CryptoJS.AES.decrypt(ciphertext, encryptionKey);
+        return bytes.toString(CryptoJS.enc.Utf8) || "(empty)";
+      } catch (e) {
+        console.error("Decryption error:", e);
+        return "(decryption failed)";
+      }
+    },
+    [encryptionKey]
+  );
 
   // ✅ Auth check
   useEffect(() => {
@@ -72,7 +75,7 @@ function AdminDashboard() {
     };
 
     fetchData();
-  }, [encryptionKey]);
+  }, [decryptField]);
 
   const handleLogout = () => {
     localStorage.removeItem("isAdminAuthenticated");

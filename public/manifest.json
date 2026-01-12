@@ -1,6 +1,6 @@
-{
-  "short_name": "sayfe",
-  "name": "sayfe",
+﻿{
+  "short_name": "besayfe",
+  "name": "besayfe",
   "icons": [
     {
       "src": "favicon.ico",
@@ -13,6 +13,11 @@
       "sizes": "192x192"
     },
     {
+      "src": "logo500.png",
+      "type": "image/png",
+      "sizes": "500x500"
+    },
+    {
       "src": "logo4000.png",
       "type": "image/png",
       "sizes": "512x512"
@@ -23,3 +28,4 @@
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
+

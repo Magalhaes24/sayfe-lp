@@ -22,10 +22,10 @@ function resolveKey(bundle, key) {
   return key.split(".").reduce((acc, part) => (acc == null ? undefined : acc[part]), bundle);
 }
 
-// 🆕 Helper to highlight every occurrence of "sayfe" or "Sayfe"
-function highlightSayfe(text) {
+// Helper to highlight every occurrence of "besayfe"
+function highlightBesayfe(text) {
   if (typeof text !== "string") return text;
-  return text.replace(/\b(sayfe|Sayfe)\b/g, match => {
+  return text.replace(/\bbesayfe\b/g, match => {
     return `<span class="highlight">${match}</span>`;
   });
 }
@@ -55,8 +55,8 @@ export function LanguageProvider({ children }) {
       if (value === undefined) value = resolveKey(fallbackBundle, key);
       if (value === undefined) return key;
 
-      // Apply highlight to sayfe automatically
-      return highlightSayfe(value);
+      // Apply highlight to besayfe automatically
+      return highlightBesayfe(value);
     },
     [language]
   );
@@ -80,3 +80,4 @@ export function LanguageProvider({ children }) {
 export function useTranslation() {
   return useContext(LanguageContext);
 }
+

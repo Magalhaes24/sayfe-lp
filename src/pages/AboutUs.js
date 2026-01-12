@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import DotGrid from "../components/DotGrid";
 import { useTranslation } from "../contexts/LanguageContext";
 import "./AboutUs.css";
@@ -125,7 +125,7 @@ function AboutUs() {
             <p
               dangerouslySetInnerHTML={{ __html: t("about.ctaBody") }}
             ></p>
-            <Link to="/waitlist" className="cta-btn">
+            <Link to="/contact" className="cta-btn">
               {t("home.heroCta")}
             </Link>
           </div>

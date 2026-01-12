@@ -39,6 +39,4 @@ function AdminLogin() {
   );
 }
 
-console.log("Admin password from env:", process.env.REACT_APP_ADMIN_PASSWORD);
-
 export default AdminLogin;

@@ -6,7 +6,7 @@ import "./LoadingScreen.css";
 const LoadingScreen = () => {
   const { t } = useTranslation();
   const accent = "#73ac84";
-  const logoPath = `${process.env.PUBLIC_URL || ""}/logo4000.png`;
+  const logoPath = `${process.env.PUBLIC_URL || ""}/logo500.png`;
 
   return (
     <motion.div
@@ -45,7 +45,7 @@ const LoadingScreen = () => {
 
         <motion.img
           src={logoPath}
-          alt="SaYfe logo"
+          alt="besayfe logo"
           className="core-logo"
           animate={{ y: [0, -6, 0] }}
           transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
@@ -79,5 +79,6 @@ const LoadingScreen = () => {
 };
 
 export default LoadingScreen;
+
 
 

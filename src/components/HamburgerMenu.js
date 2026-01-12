@@ -17,8 +17,8 @@ function HamburgerMenu({ links = [], className = "" }) {
     ? links
     : [
         { to: "/", label: t("nav.home") },
-        { to: "/waitlist", label: t("nav.waitlist") },
         { to: "/about", label: t("nav.about") },
+        { to: "/product-demo", label: t("nav.productDemo") },
         { to: "/contact", label: t("nav.contact") }
       ];
 

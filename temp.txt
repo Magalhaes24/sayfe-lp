@@ -1,0 +1,247 @@
+
+      heroCta: "Fale connosco",
+
+
+
+      demoTitle: "Veja a deteção de risco em ação",
+
+      demoText:
+
+        "A nossa experiência guiada mostra como o OCR, a IA e bases de dados europeias identificam alergénios, comparam perfis e sugerem alternativas seguras em segundos.",
+
+      demoCta: "Quero ser avisado",
+
+
+
+      featuresTitle: "Como a plataforma besayfe responde",
+
+      features: {
+
+        realtime: {
+
+          title: "Leitura imediata de ingredientes",
+
+          text: "Fotografe rótulos, menus ou embalagens e deixe o OCR interpretar cada detalhe automaticamente."
+
+        },
+
+        ai: {
+
+          title: "Análise ligada ao perfil",
+
+          text: "Cada ingrediente é cruzado com alergias, intolerâncias e preferências registadas no perfil pessoal."
+
+        },
+
+        privacy: {
+
+          title: "Índice guiado e histórico",
+
+          text: "Mostre um nível baixo / moderado / alto, apresente alternativas seguras e guarde um registo privado para viagens futuras."
+
+        }
+
+      },
+
+      problemEyebrow: "⚠️ O desafio",
+
+      problemTitle: "Comer tornou-se um ato de risco para milhões",
+
+      problemIntro:
+
+        "Apesar dos avanços legislativos, a informação sobre alergénios continua dispersa e difícil de interpretar, sobretudo na restauração ou em produtos importados—alimentando ansiedade, perda de autonomia e receio constante.",
+
+      problem: {
+
+        points: [
+
+          {
+
+            icon: "📊",
+
+            title: "Alergias em crescimento",
+
+            text: "A SPAIC indica que até 22% das crianças europeias e 10% dos adultos vivem com restrições alimentares."
+
+          },
+
+          {
+
+            icon: "🇵🇹",
+
+            title: "Confiança frágil em Portugal",
+
+            text: "Mais de 12% dos portugueses enfrentam insegurança alimentar moderada ou severa (ECO, 2023)."
+
+          },
+
+          {
+
+            icon: "🌀",
+
+            title: "Informação opaca",
+
+            text: "Quem tem alergias, intolerâncias ou dietas específicas continua sem contexto claro quando come fora."
+
+          }
+
+        ]
+
+      },
+
+      solutionEyebrow: "💡 Como o besayfe resolve",
+
+      solutionTitle: "Da fotografia à decisão segura",
+
+      solutionIntro:
+
+        "O besayfe combina OCR, IA, modo viagem com tradução e modo offline para eliminar o medo de comer e devolver o controlo ao utilizador.",
+
+      solution: {
+
+        steps: [
+
+          {
+
+            icon: "📷",
+
+            title: "Captar",
+
+            text: "Fotografe o produto, código de barras ou menu em qualquer país—even sem ligação."
+
+          },
+
+          {
+
+            icon: "🤖",
+
+            title: "Compreender",
+
+            text: "A aplicação lê os ingredientes, compara-os com o perfil e gera um índice de risco baixo / moderado / alto."
+
+          },
+
+          {
+
+            icon: "🛡️",
+
+            title: "Agir",
+
+            text: "Receba alertas visuais, sugestões seguras, tradução automática e guarde o resultado no histórico pessoal."
+
+          }
+
+        ]
+
+      },
+
+      socialProofEyebrow: "✅ Validação de mercado",
+
+      socialProofTitle: "Demanda e regulamentação puxam pelo besayfe",
+
+      socialProofIntro:
+
+        "A validação inicial confirma uma necessidade real, enquanto o mercado europeu e a legislação criam um contexto ideal para crescer.",
+
+      socialProof: {
+
+        items: [
+
+          {
+
+            icon: "👥",
+
+            title: "210 interessados",
+
+            text: "Utilizadores potenciais registaram interesse e elogiaram os testes de usabilidade.",
+
+            meta: "Fase exploratória, 2024"
+
+          },
+
+          {
+
+            icon: "🤝",
+
+            title: "Endosso clínico e social",
+
+            text: "Associações de alergias e profissionais de saúde validaram a relevância do projeto.",
+
+            meta: "Parcerias com associações e especialistas"
+
+          },
+
+          {
+
+            icon: "⚖️",
+
+            title: "Vento regulatório favorável",
+
+            text: "O Regulamento (CE) n.º 1169/2011 e um mercado de saúde/nutrição digital acima de 45 mil milhões de dólares até 2030 abrem espaço para liderar.",
+
+            meta: "Previsões de mercado globais & legislação europeia"
+
+          }
+
+        ]
+
+      },
+
+      ctaEyebrow: "Pronto para a mudança?",
+
+      ctaTitle: "Leve segurança alimentar inclusiva aos seus clientes",
+
+      ctaText:
+
+        "Colabore com o besayfe para oferecer inteligência de alergénios transparente, experiências mais seguras e tranquilidade em qualquer contexto.",
+
+      ctaButton: "Marcar uma conversa",
+
+      ctaSecondary: "Pedir o relatório de mercado"
+
+    },
+
+
+
+    about: {
+      heroTag: "A nossa história",
+      heroTitle: "Tornar a refeição mais segura, prato a prato.",
+      heroLead:
+        "O besayfe nasceu de um projeto universitário, criado por três amigos apaixonados pela gastronomia e preocupados com os riscos das alergias alimentares. Quisemos tornar a experiência de comer fora mais segura, ao criar uma plataforma onde restaurantes e clientes colaboram, partilham conhecimento e ganham confiança em cada refeição.",
+      missionTitle: "Porque criámos o besayfe",
+      missionBody:
+        "Ouvimos pessoas com alergias graves que sentiam que sentar-se à mesa era correr um risco. Também conhecemos equipas de restauração empenhadas em fazer melhor, mas sem as ferramentas e o contexto de que precisavam. O besayfe liga ambos os lados com conhecimento em tempo real, atualizações validadas e um apoio acolhedor.",
+      missionPillars: [
+        "Transparência em cada reserva.",
+        "Empatia para clientes e equipas.",
+        "Segurança que parece natural e personalizada."
+      ],
+      teamTitle: "Conheça os fundadores",
+      teamIntro:
+        "Somos uma equipa de empreendedores, especialistas em tecnologia e amantes da hospitalidade comprometidos em tornar a confiança o padrão das experiências gastronómicas.",
+      founders: [
+        {
+          name: "Francisco Magalhães",
+          role: "Co-fundador",
+          bio: "Engenheiro full-stack dedicado a criar experiências fluidas e a garantir dados fiáveis em grande escala."
+        },
+        {
+          name: "Martim Pires",
+          role: "Co-fundador",
+          bio: "Estratega de produto que mantém a equipa focada em criar jornadas gastronómicas mais seguras para todos."
+        },
+        {
+          name: "Rodrigo Azevedo",
+          role: "Co-fundador",
+          bio: "Arquiteto de experiências digitais, a construir a ponte entre restaurantes e clientes, promovendo confiança na restauração com o besayfe."
+        }
+      ],
+      ctaTitle: "Sente-se connosco",
+      ctaBody:
+        "Estamos sempre a colaborar com clientes, chefs e operadores que partilham esta missão. Envie-nos uma mensagem e conte-nos como podemos construir o besayfe em conjunto."
+    }
+  }
+};
+
+export default translations;
+
