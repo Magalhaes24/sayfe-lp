@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.3914f3ba.css",
-    "main.js": "/static/js/main.08cf07e7.js",
+    "main.css": "/static/css/main.9e39b676.css",
+    "main.js": "/static/js/main.4a072ea7.js",
     "static/media/Scanner.png": "/static/media/Scanner.b587b321bf280e13f426.png",
     "static/media/Scanner Perigoso.png": "/static/media/Scanner Perigoso.08df11dcd8d50510d4e3.png",
     "static/media/Home.png": "/static/media/Home.84f1b41bd442ecdc2fdb.png",
@@ -11,7 +11,6 @@
     "static/media/OnBoarding.png": "/static/media/OnBoarding.3bf6a959e47f5aa15506.png",
     "static/media/Perfil Refeito.png": "/static/media/Perfil Refeito.50112a719ac0f2bfc374.png",
     "static/media/Start.png": "/static/media/Start.bbf10a9939c56c2b0b9d.png",
-    "static/media/image.png": "/static/media/image.d9b15f58a706375b749f.png",
     "static/media/Loading.png": "/static/media/Loading.89159b9cf12a49505edd.png",
     "static/media/rocket_ic.png": "/static/media/rocket_ic.955e2863d7e5fb61788b.png",
     "static/media/Y-besayfe-green.png": "/static/media/Y-besayfe-green.e480746183bc0f08cdf1.png",
@@ -22,7 +21,7 @@
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.3914f3ba.css",
-    "static/js/main.08cf07e7.js"
+    "static/css/main.9e39b676.css",
+    "static/js/main.4a072ea7.js"
   ]
 }
