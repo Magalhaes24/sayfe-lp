@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.d2842bae.css",
+    "main.css": "/static/css/main.11062ada.css",
     "main.js": "/static/js/main.878b032e.js",
     "static/media/Scanner.png": "/static/media/Scanner.b587b321bf280e13f426.png",
     "static/media/Scanner Perigoso.png": "/static/media/Scanner Perigoso.08df11dcd8d50510d4e3.png",
@@ -21,7 +21,7 @@
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.d2842bae.css",
+    "static/css/main.11062ada.css",
     "static/js/main.878b032e.js"
   ]
 }
