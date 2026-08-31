@@ -500,7 +500,7 @@ const translations = {
       "missionBody": "We listened to people who hesitate before ordering, and to friends who read every menu twice. besayfe puts the answer in their hands: what each dish contains, read against what they avoid, from the kitchen itself where the restaurant is with us and from the menu itself where it is not.",
       "missionPillars": [
         "The answer belongs to the person eating.",
-        "An estimate is always labelled as one.",
+        "The kitchen already has the answer; our job is getting it to the table.",
         "No account, no app to install, no fuss."
       ],
       "teamTitle": "Meet the founders",
@@ -517,8 +517,15 @@ const translations = {
           "bio": "Runs operations and partnerships, and onboards every restaurant that joins."
         }
       ],
-      "ctaTitle": "Ready to be part of the change?",
-      "ctaBody": "Eating out should not depend on who happens to take your order.<br> Join besayfe and help us bring clear allergen information to more tables."
+      "ctaTitle": "Want to be part of it?",
+      "ctaBody": "Tell us where you usually eat and we will bring besayfe to one more table.<br>If you run a restaurant, we will set your menu up so your dishes show as confirmed by you.",
+      "rulesTitle": "How we handle the information",
+      "rulesBody": "We are asking people with allergies to trust what we show them, so the rules we follow belong in the open. These are them, and the app keeps to them without exception.",
+      "rules": [
+        "<strong>Only the restaurant confirms.</strong> Anything the model works out stays marked as unconfirmed and never shows in green.",
+        "<strong>Declared beats inferred.</strong> Where official information exists, that is what we show, even when the estimate says otherwise.",
+        "<strong>We never call a dish safe.</strong> We tell you what we know, where it came from and what is still unconfirmed. The decision stays yours."
+      ]
     }
   },
   "pt": {
@@ -1022,7 +1029,7 @@ const translations = {
       "missionBody": "Ouvimos quem hesita antes de pedir e amigos que leem cada menu duas vezes. A besayfe põe a resposta nas mãos deles: o que cada prato leva, comparado com aquilo que evitam, vindo da cozinha onde o restaurante está connosco e do próprio menu onde não está.",
       "missionPillars": [
         "A resposta pertence a quem está a comer.",
-        "Uma estimativa é sempre identificada como tal.",
+        "A cozinha já tem a resposta; o nosso trabalho é fazê-la chegar à mesa.",
         "Sem conta, sem app para instalar e sem complicações."
       ],
       "teamTitle": "Conhece os fundadores",
@@ -1039,8 +1046,15 @@ const translations = {
           "bio": "Gere operações e parcerias, e acompanha cada restaurante que adere."
         }
       ],
-      "ctaTitle": "Pronto para fazer parte da mudança?",
-      "ctaBody": "Dá aos teus clientes um menu em que podem confiar e à tua equipa uma resposta em que se pode apoiar.<br> Junta-te à besayfe e ajuda-nos a levar informação clara sobre alergénios a mais mesas."
+      "ctaTitle": "Queres fazer parte disto?",
+      "ctaBody": "Diz-nos onde costumas comer e levamos a besayfe a mais uma mesa.<br>Se tens um restaurante, configuramos o teu menu para que os pratos apareçam confirmados por ti.",
+      "rulesTitle": "Como tratamos a informação",
+      "rulesBody": "Pedimos a pessoas com alergias que confiem no que lhes mostramos, por isso as regras que seguimos têm de estar à vista. São estas, e a app cumpre-as sem exceção.",
+      "rules": [
+        "<strong>Só o restaurante confirma.</strong> O que o modelo calcula fica marcado como não confirmado e nunca aparece a verde.",
+        "<strong>O declarado ganha ao inferido.</strong> Onde há informação oficial, é essa que mostramos, mesmo que a estimativa diga outra coisa.",
+        "<strong>Nunca dizemos que um prato é seguro.</strong> Dizemos o que sabemos, de onde veio e o que falta confirmar. A decisão continua a ser tua."
+      ]
     }
   }
 };

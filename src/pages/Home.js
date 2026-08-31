@@ -3,9 +3,6 @@ import { Link } from "react-router-dom";
 import DotGrid from "../components/DotGrid";
 import { useTranslation } from "../contexts/LanguageContext";
 import { useReveal } from "../hooks/useReveal";
-import rocketIcon from "../assets/rocket_ic.png";
-import ideaIcon from "../assets/idea_ic.png";
-import checkIcon from "../assets/check_ic.png";
 import Seo from "../components/Seo";
 
 function Home() {
@@ -75,9 +72,6 @@ function Home() {
           <div className="section-shell demo-shell">
             <div className="demo-content">
               <p className="section-eyebrow hero-eyebrow">
-                <span className="section-emoji" aria-hidden="true">
-                  <img src={rocketIcon} alt="" className="section-icon" />
-                </span>{" "}
                 <span
                   dangerouslySetInnerHTML={{ __html: t("home.heroEyebrow") }}
                 ></span>
@@ -201,9 +195,6 @@ function Home() {
           <div className="section-shell">
             <div className="section-heading section-heading--center reveal">
               <p className="section-eyebrow">
-                <span className="section-emoji" aria-hidden="true">
-                  <img src={ideaIcon} alt="" className="section-icon" />
-                </span>{" "}
                 <span
                   dangerouslySetInnerHTML={{ __html: t("home.solutionEyebrow") }}
                 ></span>
@@ -276,9 +267,6 @@ function Home() {
           <div className="section-shell">
             <div className="section-heading reveal">
               <p className="section-eyebrow">
-                <span className="section-emoji" aria-hidden="true">
-                  <img src={checkIcon} alt="" className="section-icon" />
-                </span>{" "}
                 <span
                   dangerouslySetInnerHTML={{ __html: t("home.socialProofEyebrow") }}
                 ></span>

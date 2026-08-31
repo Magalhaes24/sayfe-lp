@@ -35,7 +35,10 @@ function AboutUs() {
   const seoDefaults = t("seo.defaults") || {};
   const seo = t("seo.about") || {};
 
+  const rules      = t("about.rules") || [];
+
   const missionRef = useReveal();
+  const rulesRef   = useReveal();
   const teamRef    = useReveal();
   const ctaRef     = useReveal();
 
@@ -92,6 +95,29 @@ function AboutUs() {
                     className="mission-pillar-item reveal"
                     style={{ "--reveal-delay": `${i * 80}ms` }}
                     dangerouslySetInnerHTML={{ __html: pillar }}
+                  ></li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="about-mission" ref={rulesRef}>
+          <div className="section-shell about-shell">
+            <div className="mission-card reveal">
+              <h3
+                dangerouslySetInnerHTML={{ __html: t("about.rulesTitle") }}
+              ></h3>
+              <p
+                dangerouslySetInnerHTML={{ __html: t("about.rulesBody") }}
+              ></p>
+              <ul className="mission-pillars">
+                {rules.map((rule, i) => (
+                  <li
+                    key={rule}
+                    className="mission-pillar-item reveal"
+                    style={{ "--reveal-delay": `${i * 80}ms` }}
+                    dangerouslySetInnerHTML={{ __html: rule }}
                   ></li>
                 ))}
               </ul>
