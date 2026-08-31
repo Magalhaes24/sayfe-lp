@@ -1016,6 +1016,7 @@ main {
 .demo-visual {
   flex: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   overflow: visible;
@@ -1570,16 +1571,17 @@ main {
   font-weight: 800;
 }
 
-.mock-status--warn {
-  color: #92400e;
-  background: #fef3c7;
-  border: 1px solid #fcd34d;
+/* Red is "contains" in the app; amber is reserved for possible contact. */
+.mock-status--danger {
+  color: #991b1b;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
 }
 
-.mock-status--warn::before {
+.mock-status--danger::before {
   content: "!";
-  background: #92400e;
-  color: #fef3c7;
+  background: #dc2626;
+  color: #fef2f2;
 }
 
 .mock-status--safe {
@@ -1594,16 +1596,26 @@ main {
   color: #fff;
 }
 
-.mock-status--estimate {
-  color: var(--text-secondary);
-  background: var(--surface-muted);
-  border: 1px dashed rgba(31, 42, 34, 0.28);
+/* The app's blue state: no allergens of yours, but nobody has confirmed it. */
+.mock-status--info {
+  color: #1e40af;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
 }
 
-.mock-status--estimate::before {
+.mock-status--info::before {
   content: "?";
-  background: rgba(31, 42, 34, 0.55);
-  color: var(--surface);
+  background: #2563eb;
+  color: #eff6ff;
+}
+
+.mock-disclaimer {
+  width: min(420px, 100%);
+  margin: 0.9rem auto 0;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--text-tertiary);
+  text-align: center;
 }
 
 /* Contact: direct email fallback under the form. */

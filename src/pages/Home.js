@@ -149,6 +149,11 @@ function Home() {
                   ))}
                 </article>
               </div>
+
+              <p
+                className="mock-disclaimer"
+                dangerouslySetInnerHTML={{ __html: t("home.disclaimer") }}
+              ></p>
             </div>
           </div>
         </section>

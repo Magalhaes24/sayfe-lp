@@ -115,7 +115,7 @@ const translations = {
       "heroText": "Set the allergens you avoid and besayfe reads the menu for you, dish by dish. Where the restaurant has not joined yet, a photo of the menu is enough to get an answer.",
       "heroSecondaryCta": "See how it works",
       "mock": {
-        "menuTag": "Guest menu",
+        "menuTag": "Restaurant menu",
         "filterLabel": "Your profile",
         "filterChips": [
           "Gluten",
@@ -130,7 +130,7 @@ const translations = {
               "Milk",
               "Fish"
             ],
-            "status": "warn",
+            "status": "danger",
             "statusLabel": "Contains gluten and milk"
           },
           {
@@ -146,11 +146,10 @@ const translations = {
             "name": "Arroz de pato",
             "category": "Main courses",
             "allergens": [
-              "Gluten?",
-              "Egg?"
+              "Egg"
             ],
-            "status": "estimate",
-            "statusLabel": "Estimated from a menu photo, not confirmed"
+            "status": "info",
+            "statusLabel": "None of your allergens, not confirmed"
           }
         ]
       },
@@ -184,12 +183,12 @@ const translations = {
           {
             "icon": "01",
             "title": "Tell us what you avoid",
-            "text": "Tick your allergens from the 14 declarable ones. The map and every menu then read against your list rather than against a generic one."
+            "text": "Tick your allergens from the 14 declarable ones. It takes under a minute, and you can skip it and still see everything."
           },
           {
             "icon": "02",
             "title": "Open the map, open the menu",
-            "text": "Restaurants near you are marked by what they mean for you: contains it, does not declare it, or nothing known. Open one and you get the same reading dish by dish."
+            "text": "Restaurants near you are marked by what they mean for you, and the menu tells you upfront how many dishes are free of your allergens."
           },
           {
             "icon": "03",
@@ -206,7 +205,7 @@ const translations = {
           {
             "icon": "01",
             "title": "Straight from the kitchen",
-            "text": "Restaurants with besayfe fill in a technical sheet per recipe. Only what they confirm counts as verified, and only that can ever show as clear."
+            "text": "Restaurants with besayfe fill in a technical sheet per recipe. Only what they confirm counts as verified, and only that shows in green."
           },
           {
             "icon": "02",
@@ -220,18 +219,18 @@ const translations = {
           },
           {
             "icon": "04",
-            "title": "An estimate says so",
-            "text": "Inferred dishes stay marked as unverified and are never painted as safe. You see where the answer came from and decide from there."
+            "title": "Five states, no ambiguity",
+            "text": "Contains, possible contact, no data, none of your allergens, and none of your allergens but unconfirmed. You always know which one you are on, and where the answer came from."
           },
           {
             "icon": "05",
             "title": "A map that knows your list",
-            "text": "Pins are coloured against your own profile: contains, not declared, nothing known, or no data yet. Shared equipment shows up as possible contact."
+            "text": "Pins are coloured against your own profile, and inside a menu you can filter down to the dishes you can actually eat."
           },
           {
             "icon": "06",
             "title": "Yours, and everyone's",
-            "text": "Menus you photograph are reviewed and then help the next person with the same allergy. Portuguese and English throughout."
+            "text": "Menus you photograph are reviewed and then help the next person. Spot a mistake and you report it from the menu itself. All of it in Portuguese and English."
           }
         ]
       },
@@ -264,7 +263,8 @@ const translations = {
       "ctaTitle": "Tell us where you would like to see besayfe.",
       "ctaText": "Send us the restaurant and we will take it from there. And if you run one, we will set your menu up so your dishes show as confirmed rather than estimated.",
       "ctaButton": "Send us a message",
-      "ctaSecondary": "Request the market brief"
+      "ctaSecondary": "Request the market brief",
+      "disclaimer": "besayfe is informative and does not replace confirming allergens with the restaurant."
     },
     "tests": {
       "hero": {
@@ -539,49 +539,49 @@ const translations = {
     "seo": {
       "siteName": "besayfe",
       "defaults": {
-        "description": "A besayfe mostra num mapa os restaurantes face aos alergenios que evita. Onde ainda nao ha menu, fotografe-o e a app le-o e estima os alergenios por si.",
+        "description": "A besayfe mostra-te o que cada prato leva antes de pedires. Escolhes os alergénios que evitas e o menu do restaurante assinala-os, em português e inglês.",
         "keywords": [
           "besayfe",
-          "mapa de alergenios",
+          "mapa de alergénios",
           "comer fora com alergias",
-          "menu sem gluten",
-          "restaurantes para alergicos",
-          "fotografia do menu alergenios",
+          "menu sem glúten",
+          "restaurantes para alérgicos",
+          "fotografia do menu alergénios",
           "alergia alimentar",
-          "celiaco comer fora",
-          "intolerancia alimentar",
-          "ocr de menus"
+          "celíaco comer fora",
+          "intolerância alimentar",
+          "OCR de menus"
         ],
         "image": "/logo1000.png"
       },
       "home": {
         "title": "besayfe",
-        "description": "Escolha os alergenios que evita, abra o mapa e veja os menus prato a prato. Ainda nao ha menu? Uma fotografia chega para ter uma estimativa em segundos.",
+        "description": "Lê o código na mesa, escolhe os alergénios que evitas e vê prato a prato o que podes pedir. Ainda não há menu? Uma fotografia chega para teres uma estimativa em segundos.",
         "keywords": [
           "app alergias menu",
-          "mapa de alergenios",
-          "comer sem gluten",
-          "fotografar menu alergenios",
+          "mapa de alergénios",
+          "comer sem glúten",
+          "fotografar menu alergénios",
           "comer fora com alergias"
         ]
       },
       "about": {
         "title": "besayfe | sobre",
-        "description": "Conheca os fundadores da besayfe e porque quisemos tornar simples comer fora para quem tem alergias ou intolerancias alimentares.",
+        "description": "Conhece os fundadores da besayfe e porque quisemos tornar simples comer fora para quem tem alergias ou intolerâncias alimentares.",
         "keywords": [
           "fundadores besayfe",
           "startup alergias alimentares",
-          "comer fora em seguranca",
-          "transparencia alimentar"
+          "comer fora em segurança",
+          "transparência alimentar"
         ]
       },
       "contact": {
         "title": "besayfe | contacto",
-        "description": "Fale com a equipa besayfe. Sugira um restaurante, tire uma duvida ou traga a besayfe para a sua casa.",
+        "description": "Fala com a equipa besayfe. Sugere um restaurante, tira uma dúvida ou traz a besayfe para a tua casa.",
         "keywords": [
           "contacto besayfe",
           "sugerir restaurante",
-          "menu para alergicos"
+          "menu para alérgicos"
         ]
       },
       "demoPreview": {
@@ -631,14 +631,14 @@ const translations = {
       }
     },
     "home": {
-      "heroCta": "Fale connosco",
+      "heroCta": "Fala connosco",
       "heroEyebrow": "Para quem come fora",
-      "heroTitle": "Saiba o que está no prato antes de pedir.",
-      "heroText": "Escolha os alergénios que evita e a besayfe lê o menu por si, prato a prato. Onde o restaurante ainda não aderiu, uma fotografia do menu chega para ter resposta.",
+      "heroTitle": "Vê o que está no prato antes de pedires.",
+      "heroText": "Escolhes os alergénios que evitas e a besayfe lê o menu por ti, prato a prato. Onde o restaurante ainda não aderiu, uma fotografia do menu chega para teres resposta.",
       "heroSecondaryCta": "Ver como funciona",
       "mock": {
         "menuTag": "Menu do restaurante",
-        "filterLabel": "O seu perfil",
+        "filterLabel": "O teu perfil",
         "filterChips": [
           "Glúten",
           "Leite"
@@ -652,7 +652,7 @@ const translations = {
               "Leite",
               "Peixe"
             ],
-            "status": "warn",
+            "status": "danger",
             "statusLabel": "Contém glúten e leite"
           },
           {
@@ -662,17 +662,16 @@ const translations = {
               "Moluscos"
             ],
             "status": "safe",
-            "statusLabel": "Nenhum dos seus alergénios"
+            "statusLabel": "Sem os teus alergénios"
           },
           {
             "name": "Arroz de pato",
             "category": "Pratos principais",
             "allergens": [
-              "Glúten?",
-              "Ovo?"
+              "Ovo"
             ],
-            "status": "estimate",
-            "statusLabel": "Estimado por fotografia, não confirmado"
+            "status": "info",
+            "statusLabel": "Sem os teus alergénios, não confirmado"
           }
         ]
       },
@@ -694,46 +693,46 @@ const translations = {
           {
             "icon": "03",
             "title": "A maioria dos sítios não publica nada",
-            "text": "Só uma pequena parte dos restaurantes coloca a informação de alergénios onde a possa ler antes, por isso a pergunta acaba sempre por voltar à mesa."
+            "text": "Só uma pequena parte dos restaurantes coloca a informação de alergénios onde a possas ler antes, por isso a pergunta acaba sempre por voltar à mesa."
           }
         ]
       },
       "solutionEyebrow": "Como funciona",
-      "solutionTitle": "Os seus alergénios, no mapa e no menu",
-      "solutionIntro": "A besayfe abre no navegador. Não instala nada e funciona da mesma maneira, esteja o restaurante connosco ou não.",
+      "solutionTitle": "Os teus alergénios, no mapa e no menu",
+      "solutionIntro": "Abre no navegador. Não instalas nada, não crias conta e não esperas.",
       "solution": {
         "steps": [
           {
             "icon": "01",
-            "title": "Diga o que evita",
-            "text": "Assinale os seus alergénios entre os 14 de declaração obrigatória. O mapa e todos os menus passam a ser lidos face à sua lista e não a uma lista genérica."
+            "title": "Diz o que evitas",
+            "text": "Assinalas os teus alergénios entre os 14 de declaração obrigatória. Demora menos de um minuto e podes saltar esta parte e ver tudo na mesma."
           },
           {
             "icon": "02",
-            "title": "Abra o mapa, abra o menu",
-            "text": "Os restaurantes à sua volta ficam marcados pelo que significam para si: contém, não declara, ou nada conhecido. Abra um e tem a mesma leitura prato a prato."
+            "title": "Abre o mapa, abre o menu",
+            "text": "Os restaurantes à tua volta ficam marcados pelo que significam para ti, e o menu diz-te logo quantos pratos estão sem os teus alergénios."
           },
           {
             "icon": "03",
-            "title": "Ainda não há menu? Fotografe",
-            "text": "Aponte a câmara ao menu de papel. A besayfe lê-o em português ou inglês, calcula os alergénios prováveis de cada prato e mostra-lhe o resultado ali mesmo."
+            "title": "Ainda não há menu? Fotografa",
+            "text": "Aponta a câmara ao menu de papel. A besayfe lê-o em português ou inglês, calcula os alergénios prováveis de cada prato e mostra-te o resultado ali mesmo."
           }
         ]
       },
       "featuresEyebrow": "O que ganha",
       "featuresTitle": "Útil ainda antes de o restaurante estar connosco",
-      "featuresIntro": "Três origens de informação, sempre identificadas para saber qual está a ler.",
+      "featuresIntro": "Tudo o que um menu já devia dizer-te, em linguagem simples e na tua língua.",
       "features": {
         "items": [
           {
             "icon": "01",
             "title": "Vem direto da cozinha",
-            "text": "Os restaurantes com besayfe preenchem uma ficha técnica por receita. Só o que confirmam conta como verificado e só isso pode aparecer como sem alergénios."
+            "text": "Os restaurantes com besayfe preenchem uma ficha técnica por receita. Só o que confirmam conta como verificado e só isso aparece a verde."
           },
           {
             "icon": "02",
             "title": "Dados oficiais das cadeias",
-            "text": "Das grandes cadeias carregamos as tabelas de alergénios que publicam. A informação declarada prevalece sempre sobre o que o modelo calcula."
+            "text": "Das grandes cadeias carregamos as tabelas de alergénios que publicam. O que está declarado prevalece sempre sobre o que o modelo calcula."
           },
           {
             "icon": "03",
@@ -742,18 +741,18 @@ const translations = {
           },
           {
             "icon": "04",
-            "title": "Uma estimativa diz que é",
-            "text": "Os pratos inferidos ficam marcados como não verificados e nunca são pintados como seguros. Sabe sempre de onde veio a resposta e decide a partir daí."
+            "title": "Cinco estados, sem ambiguidade",
+            "text": "Contém, possível contacto, sem dados, sem os teus alergénios, e sem os teus alergénios mas por confirmar. Sabes sempre em qual deles estás e de onde veio a resposta."
           },
           {
             "icon": "05",
-            "title": "Um mapa à sua medida",
-            "text": "Os pontos são coloridos face ao seu perfil: contém, não declara, nada conhecido, ou ainda sem dados. O equipamento partilhado aparece como possível contacto."
+            "title": "Um mapa à tua medida",
+            "text": "Os pontos são coloridos face ao teu perfil, e dentro do menu filtras para veres só os pratos que podes comer."
           },
           {
             "icon": "06",
-            "title": "Seu, e de todos",
-            "text": "Os menus que fotografa são revistos e passam a ajudar a próxima pessoa com a mesma alergia. Tudo em português e inglês."
+            "title": "Teu, e de todos",
+            "text": "Os menus que fotografas são revistos e passam a ajudar a próxima pessoa. Se vires um erro, reportas no próprio menu. Tudo em português e inglês."
           }
         ]
       },
@@ -765,7 +764,7 @@ const translations = {
           {
             "icon": "01",
             "title": "1 em cada 10 adultos europeus",
-            "text": "Adultos com alergia ou intolerância escolhem o restaurante pela confiança com que a sua pergunta é respondida.",
+            "text": "Adultos com alergia ou intolerância escolhem o restaurante pela confiança com que lhes respondem.",
             "meta": "Prevalência de alergias e intolerâncias"
           },
           {
@@ -782,11 +781,12 @@ const translations = {
           }
         ]
       },
-      "ctaEyebrow": "Há um sítio onde come muitas vezes?",
-      "ctaTitle": "Diga-nos onde gostava de encontrar a besayfe.",
-      "ctaText": "Envie-nos o restaurante e tratamos do resto. E se for seu, configuramos o menu para que os seus pratos apareçam como confirmados e não como estimados.",
+      "ctaEyebrow": "Há um sítio onde comes muitas vezes?",
+      "ctaTitle": "Diz-nos onde gostavas de encontrar a besayfe.",
+      "ctaText": "Envia-nos o restaurante e tratamos do resto. E se for teu, configuramos o menu para que os teus pratos apareçam como confirmados e não como estimados.",
       "ctaButton": "Enviar mensagem",
-      "ctaSecondary": "Pedir o relatório de mercado"
+      "ctaSecondary": "Pedir o relatório de mercado",
+      "disclaimer": "A besayfe é informativa e não substitui a confirmação dos alergénios no restaurante."
     },
     "tests": {
       "hero": {
@@ -833,14 +833,14 @@ const translations = {
       "tip": "Sugestão: use o rato ou o gesto de pinça para aproximar e analisar os ecrãs com mais detalhe."
     },
     "contact": {
-      "title": "Fale connosco",
-      "intro": "Diga-nos onde costuma comer, ou o que serve, e respondemos-lhe.",
+      "title": "Fala connosco",
+      "intro": "Diz-nos onde costumas comer, ou o que serves, e respondemos-te.",
       "fields": {
         "name": "Nome",
         "email": "Email",
         "message": "Mensagem",
         "placeholders": {
-          "name": "O seu nome",
+          "name": "O teu nome",
           "email": "exemplo@email.com",
           "message": "Como podemos ajudar?"
         }
@@ -848,13 +848,13 @@ const translations = {
       "submit": "Enviar mensagem",
       "submitting": "A enviar...",
       "status": {
-        "incomplete": "Preencha todos os campos antes de enviar.",
-        "invalidEmail": "Indique um email válido.",
+        "incomplete": "Preenche todos os campos antes de enviar.",
+        "invalidEmail": "Indica um email válido.",
         "sending": "A enviar a mensagem encriptada...",
         "success": "Obrigado! Responderemos em breve.",
-        "error": "Não foi possível enviar agora. Tente novamente dentro de momentos."
+        "error": "Não foi possível enviar agora. Tenta novamente dentro de momentos."
       },
-      "directLabel": "Prefere email? Escreva para"
+      "directLabel": "Preferes email? Escreve para"
     },
     "productDemo": {
       "initialMessage": "Aponte a câmara para um código de barras para começar.",
@@ -1025,7 +1025,7 @@ const translations = {
         "Uma estimativa é sempre identificada como tal.",
         "Sem conta, sem app para instalar e sem complicações."
       ],
-      "teamTitle": "Conheça os fundadores",
+      "teamTitle": "Conhece os fundadores",
       "teamIntro": "Somos uma equipa pequena que une tecnologia, rigor e horas passadas em cozinhas reais para mudar a forma como a informação chega à mesa.",
       "founders": [
         {
@@ -1040,7 +1040,7 @@ const translations = {
         }
       ],
       "ctaTitle": "Pronto para fazer parte da mudança?",
-      "ctaBody": "Comer fora não devia depender de quem calha tirar o pedido.<br> Junte-se à besayfe e ajude-nos a levar informação clara sobre alergénios a mais mesas."
+      "ctaBody": "Dá aos teus clientes um menu em que podem confiar e à tua equipa uma resposta em que se pode apoiar.<br> Junta-te à besayfe e ajuda-nos a levar informação clara sobre alergénios a mais mesas."
     }
   }
 };
