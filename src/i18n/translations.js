@@ -264,7 +264,34 @@ const translations = {
       "ctaText": "Send us the restaurant and we will take it from there. And if you run one, we will set your menu up so your dishes show as confirmed rather than estimated.",
       "ctaButton": "Send us a message",
       "ctaSecondary": "Request the market brief",
-      "disclaimer": "besayfe is informative and does not replace confirming allergens with the restaurant."
+      "disclaimer": "besayfe is informative and does not replace confirming allergens with the restaurant.",
+      "galleryEyebrow": "The app",
+      "galleryTitle": "This is what you get on your phone",
+      "galleryIntro": "Real besayfe screens, nothing staged. It opens in the browser, so there is nothing to install to get here.",
+      "gallery": {
+        "items": [
+          {
+            "key": "allergens",
+            "title": "Tell it what you avoid",
+            "text": "The 14 declarable allergens. Under a minute, and you can skip it."
+          },
+          {
+            "key": "map",
+            "title": "See what is around you",
+            "text": "Every pin coloured against your profile, with the list of restaurants a tap away."
+          },
+          {
+            "key": "menu-danger",
+            "title": "The menu, read for you",
+            "text": "How many dishes are clear, what each one contains, and the legend for the five states."
+          },
+          {
+            "key": "contribution",
+            "title": "No menu? Photograph it",
+            "text": "Where there is no data yet, your photo is what the next person will read."
+          }
+        ]
+      }
     },
     "tests": {
       "hero": {
@@ -793,7 +820,34 @@ const translations = {
       "ctaText": "Envia-nos o restaurante e tratamos do resto. E se for teu, configuramos o menu para que os teus pratos apareçam como confirmados e não como estimados.",
       "ctaButton": "Enviar mensagem",
       "ctaSecondary": "Pedir o relatório de mercado",
-      "disclaimer": "A besayfe é informativa e não substitui a confirmação dos alergénios no restaurante."
+      "disclaimer": "A besayfe é informativa e não substitui a confirmação dos alergénios no restaurante.",
+      "galleryEyebrow": "A app",
+      "galleryTitle": "É isto que vais ver no telemóvel",
+      "galleryIntro": "Ecrãs reais da besayfe, sem encenação. Abre no navegador, por isso não tens de instalar nada para chegar aqui.",
+      "gallery": {
+        "items": [
+          {
+            "key": "allergens",
+            "title": "Diz o que evitas",
+            "text": "Os 14 alergénios de declaração obrigatória. Menos de um minuto, e podes saltar."
+          },
+          {
+            "key": "map",
+            "title": "Vês o que tens à volta",
+            "text": "Cada ponto pintado face ao teu perfil, com a lista dos restaurantes à mão."
+          },
+          {
+            "key": "menu-danger",
+            "title": "O menu lido por ti",
+            "text": "Quantos pratos estão livres, o que cada um contém, e a legenda dos cinco estados."
+          },
+          {
+            "key": "contribution",
+            "title": "Sem menu? Fotografa",
+            "text": "Onde ainda não há dados, a tua fotografia passa a servir quem vier a seguir."
+          }
+        ]
+      }
     },
     "tests": {
       "hero": {

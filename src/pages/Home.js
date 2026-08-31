@@ -4,6 +4,17 @@ import DotGrid from "../components/DotGrid";
 import { useTranslation } from "../contexts/LanguageContext";
 import { useReveal } from "../hooks/useReveal";
 import Seo from "../components/Seo";
+import ssAllergens from "../assets/app/ss-allergens.webp";
+import ssMap from "../assets/app/ss-map.webp";
+import ssMenuDanger from "../assets/app/ss-menu-danger.webp";
+import ssContribution from "../assets/app/ss-contribution.webp";
+
+const APP_SHOTS = {
+  allergens: ssAllergens,
+  map: ssMap,
+  "menu-danger": ssMenuDanger,
+  contribution: ssContribution
+};
 
 function Home() {
   const { t } = useTranslation();
@@ -16,6 +27,7 @@ function Home() {
   const mockDishes = mock.dishes || [];
   const problemPoints = t("home.problem.points") || [];
   const solutionSteps = t("home.solution.steps") || [];
+  const galleryItems = t("home.gallery.items") || [];
   const featureItems = t("home.features.items") || [];
   const socialProofItems = t("home.socialProof.items") || [];
 
@@ -36,6 +48,7 @@ function Home() {
 
   const problemRef  = useReveal();
   const solutionRef = useReveal();
+  const galleryRef  = useReveal();
   const featuresRef = useReveal();
   const socialRef   = useReveal();
   const ctaRef      = useReveal();
@@ -221,6 +234,52 @@ function Home() {
                   <h4 dangerouslySetInnerHTML={{ __html: step.title }}></h4>
                   <p dangerouslySetInnerHTML={{ __html: step.text }}></p>
                 </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* === App Screenshots === */}
+        <section className="app-gallery" ref={galleryRef}>
+          <div className="section-shell">
+            <div className="section-heading section-heading--center reveal">
+              <p className="section-eyebrow">
+                <span
+                  dangerouslySetInnerHTML={{ __html: t("home.galleryEyebrow") }}
+                ></span>
+              </p>
+              <h3
+                className="section-title"
+                dangerouslySetInnerHTML={{ __html: t("home.galleryTitle") }}
+              ></h3>
+              <p
+                className="section-intro"
+                dangerouslySetInnerHTML={{ __html: t("home.galleryIntro") }}
+              ></p>
+            </div>
+            <div className="app-gallery-grid">
+              {galleryItems.map((item, i) => (
+                <figure
+                  className="app-shot reveal-scale"
+                  key={item.key}
+                  style={{ "--reveal-delay": `${i * 90}ms` }}
+                >
+                  <div className="app-shot__frame">
+                    <img
+                      src={APP_SHOTS[item.key]}
+                      alt={item.title}
+                      loading="lazy"
+                      decoding="async"
+                      data-skip-preload="true"
+                      width="720"
+                      height="1210"
+                    />
+                  </div>
+                  <figcaption>
+                    <h4 dangerouslySetInnerHTML={{ __html: item.title }}></h4>
+                    <p dangerouslySetInnerHTML={{ __html: item.text }}></p>
+                  </figcaption>
+                </figure>
               ))}
             </div>
           </div>

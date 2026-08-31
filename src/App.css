@@ -1612,3 +1612,69 @@ main {
 .contact-direct a:hover {
   border-bottom-color: var(--accent);
 }
+
+/* ================================================================
+   APP SCREENSHOTS
+   ================================================================ */
+
+.app-gallery {
+  background: var(--surface-muted);
+  padding-block: clamp(3.5rem, 8vw, 5.5rem);
+}
+
+.app-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: clamp(1.2rem, 3vw, 2rem);
+  margin-top: 2.6rem;
+}
+
+.app-shot {
+  margin: 0;
+  text-align: center;
+}
+
+.app-shot__frame {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid rgba(115, 172, 132, 0.20);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.app-shot:hover .app-shot__frame {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.app-shot__frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.app-shot figcaption {
+  padding: 1rem 0.3rem 0;
+}
+
+.app-shot figcaption h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  margin: 0 0 0.35rem;
+}
+
+.app-shot figcaption p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-shot:hover .app-shot__frame {
+    transform: none;
+  }
+}
