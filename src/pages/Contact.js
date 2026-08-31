@@ -92,7 +92,7 @@ function Contact() {
         description={seo.description || seoDefaults.description}
         keywords={seo.keywords || seoDefaults.keywords}
         image={seo.image || seoDefaults.image}
-        canonicalPath="/contact"
+        canonicalPath="/contact/"
         siteName={siteName}
       />
       <main className="page-main contact-main">

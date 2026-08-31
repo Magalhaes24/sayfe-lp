@@ -46,7 +46,7 @@ function AboutUs() {
         description={seo.description || seoDefaults.description}
         keywords={seo.keywords || seoDefaults.keywords}
         image={seo.image || seoDefaults.image}
-        canonicalPath="/about"
+        canonicalPath="/about/"
         siteName={siteName}
       />
       <main className="page-main about-main">
