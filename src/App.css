@@ -1673,6 +1673,27 @@ main {
   margin: 0;
 }
 
+/* One column per screenshot would make this section four screens tall on a
+   phone, so pair them up. */
+@media (max-width: 640px) {
+  .app-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.1rem;
+  }
+
+  .app-shot figcaption {
+    padding-top: 0.75rem;
+  }
+
+  .app-shot figcaption h4 {
+    font-size: 0.92rem;
+  }
+
+  .app-shot figcaption p {
+    font-size: 0.8rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .app-shot:hover .app-shot__frame {
     transform: none;
