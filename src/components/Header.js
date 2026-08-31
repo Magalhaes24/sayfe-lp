@@ -11,7 +11,6 @@ function Header() {
   const navLinks = [
     { to: "/", label: t("nav.home") },
     { to: "/about", label: t("nav.about") },
-    { to: "/product-demo", label: t("nav.productDemo") },
     { to: "/contact", label: t("nav.contact") }
   ];
 

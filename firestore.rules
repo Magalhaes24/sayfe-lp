@@ -1,0 +1,78 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && (
+          request.auth.token.admin == true
+          || request.auth.token.email == "franciscomagalhaes04@gmail.com"
+        );
+    }
+
+    function isNonEmptyString(value, maxLen) {
+      return value is string && value.size() > 0 && value.size() <= maxLen;
+    }
+
+    function isValidEncryptedEnvelope() {
+      return request.resource.data.keys().hasOnly([
+          "version",
+          "algo",
+          "encryptedKey",
+          "iv",
+          "ciphertext",
+          "createdAt"
+        ]) &&
+        request.resource.data.version == 1 &&
+        request.resource.data.algo == "RSA-OAEP/AES-GCM" &&
+        isNonEmptyString(request.resource.data.encryptedKey, 4096) &&
+        isNonEmptyString(request.resource.data.iv, 256) &&
+        isNonEmptyString(request.resource.data.ciphertext, 20000) &&
+        request.resource.data.createdAt == request.time;
+    }
+
+    function isValidLabelUpload() {
+      return request.resource.data.keys().hasOnly([
+          "barcode",
+          "productName",
+          "source",
+          "image",
+          "checked",
+          "createdAt"
+        ]) &&
+        isNonEmptyString(request.resource.data.barcode, 64) &&
+        isNonEmptyString(request.resource.data.productName, 160) &&
+        isNonEmptyString(request.resource.data.source, 64) &&
+        request.resource.data.image is string &&
+        request.resource.data.image.size() > 0 &&
+        request.resource.data.image.size() <= 1100000 &&
+        request.resource.data.checked is bool &&
+        request.resource.data.createdAt == request.time;
+    }
+
+    match /contactMessages/{docId} {
+      allow create: if isValidEncryptedEnvelope();
+      allow read, list, update, delete: if isAdmin();
+    }
+
+    match /waitlist/{docId} {
+      allow create: if isValidEncryptedEnvelope();
+      allow read, list, update, delete: if isAdmin();
+    }
+
+    match /labelUploads/{docId} {
+      allow create: if isValidLabelUpload();
+      allow read, list, update, delete: if isAdmin();
+    }
+
+    match /secure/adminPrivateKey {
+      allow get: if isAdmin();
+      allow list: if false;
+      allow create, update, delete: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

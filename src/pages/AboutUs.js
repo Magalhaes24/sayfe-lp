@@ -3,6 +3,8 @@ import DotGrid from "../components/DotGrid";
 import { useTranslation } from "../contexts/LanguageContext";
 import "./AboutUs.css";
 import { Link } from "react-router-dom";
+import Seo from "../components/Seo";
+import { useReveal } from "../hooks/useReveal";
 
 const founderImages = require.context("../assets", false, /\.png$/);
 
@@ -27,9 +29,24 @@ function AboutUs() {
   const { t } = useTranslation();
   const pillars = t("about.missionPillars") || [];
   const founders = t("about.founders") || [];
+  const siteName = t("seo.siteName") || "besayfe";
+  const seoDefaults = t("seo.defaults") || {};
+  const seo = t("seo.about") || {};
+
+  const missionRef = useReveal();
+  const teamRef    = useReveal();
+  const ctaRef     = useReveal();
 
   return (
     <div className="App">
+      <Seo
+        title={seo.title}
+        description={seo.description || seoDefaults.description}
+        keywords={seo.keywords || seoDefaults.keywords}
+        image={seo.image || seoDefaults.image}
+        canonicalPath="/about"
+        siteName={siteName}
+      />
       <main className="page-main about-main">
         <section className="about-hero">
           <DotGrid
@@ -57,9 +74,9 @@ function AboutUs() {
           </div>
         </section>
 
-        <section className="about-mission">
+        <section className="about-mission" ref={missionRef}>
           <div className="section-shell about-shell">
-            <div className="mission-card">
+            <div className="mission-card reveal">
               <h3
                 dangerouslySetInnerHTML={{ __html: t("about.missionTitle") }}
               ></h3>
@@ -67,9 +84,11 @@ function AboutUs() {
                 dangerouslySetInnerHTML={{ __html: t("about.missionBody") }}
               ></p>
               <ul className="mission-pillars">
-                {pillars.map(pillar => (
+                {pillars.map((pillar, i) => (
                   <li
                     key={pillar}
+                    className="mission-pillar-item reveal"
+                    style={{ "--reveal-delay": `${i * 80}ms` }}
                     dangerouslySetInnerHTML={{ __html: pillar }}
                   ></li>
                 ))}
@@ -78,26 +97,28 @@ function AboutUs() {
           </div>
         </section>
 
-        <section className="about-team">
+        <section className="about-team" ref={teamRef}>
           <div className="section-shell about-shell">
             <h3
-              className="team-title"
+              className="team-title reveal"
               dangerouslySetInnerHTML={{ __html: t("about.teamTitle") }}
             ></h3>
             <p
-              className="team-intro"
+              className="team-intro reveal"
+              style={{ "--reveal-delay": "80ms" }}
               dangerouslySetInnerHTML={{ __html: t("about.teamIntro") }}
             ></p>
             <div className="founder-grid">
-              {founders.map(founder => {
+              {founders.map((founder, i) => {
                 const founderKey = normalizeFirstName(founder.name);
                 const imageSrc = getFounderImage(founderKey);
 
                 return (
                   <article
-                    className="founder-card"
+                    className="founder-card reveal-scale"
                     key={founder.name}
                     data-founder={founderKey}
+                    style={{ "--reveal-delay": `${i * 120}ms` }}
                   >
                     <div className="founder-card__media" aria-hidden="true">
                       <img src={imageSrc} alt="" className="founder-photo" />
@@ -117,8 +138,8 @@ function AboutUs() {
           </div>
         </section>
 
-        <section className="about-cta">
-          <div className="section-shell about-shell about-cta__shell">
+        <section className="about-cta" ref={ctaRef}>
+          <div className="section-shell about-shell about-cta__shell reveal-scale">
             <h3
               dangerouslySetInnerHTML={{ __html: t("about.ctaTitle") }}
             ></h3>

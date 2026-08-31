@@ -8,6 +8,7 @@ import React, {
 import { BrowserMultiFormatReader } from "@zxing/library";
 import "./ProductDemo.css";
 import { useTranslation } from "../contexts/LanguageContext";
+import Seo from "../components/Seo";
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
@@ -36,9 +37,11 @@ function collectProductTags(product, keys) {
 function ProductDemo() {
   const { t } = useTranslation();
   const tt = useMemo(() => t("productDemo"), [t]);
+  const siteName = t("seo.siteName") || "besayfe";
+  const seoDefaults = t("seo.defaults") || {};
+  const seo = t("seo.productDemo") || {};
 
   const manualInputId = "product-demo-manual";
-  const zoomInputId = "product-demo-zoom";
 
   const videoRef = useRef(null);
   const readerRef = useRef(null);
@@ -294,11 +297,6 @@ function ProductDemo() {
     [zoomState]
   );
 
-  const handleZoomChange = event => {
-    const value = Number(event.target.value);
-    applyZoomValue(value);
-  };
-
   useEffect(() => {
     const shell = videoRef.current?.parentElement?.parentElement;
     const target = videoShellRef.current || shell;
@@ -416,6 +414,14 @@ function ProductDemo() {
 
   return (
     <div className="product-demo">
+      <Seo
+        title={seo.title}
+        description={seo.description || seoDefaults.description}
+        keywords={seo.keywords || seoDefaults.keywords}
+        image={seo.image || seoDefaults.image}
+        canonicalPath="/product-demo-legacy"
+        siteName={siteName}
+      />
       <div className="product-demo__container">
         <header className="product-demo__header">
           <span className="product-demo__eyebrow">{tt.headerTag}</span>
@@ -465,24 +471,6 @@ function ProductDemo() {
                 </div>
               </div>
             </div>
-
-            {zoomState.supported && (
-              <div className="product-demo__field product-demo__zoom-slider">
-                <label className="product-demo__label" htmlFor={zoomInputId}>
-                  {tt.zoom} ({zoomState.value.toFixed(1)}x)
-                </label>
-                <input
-                  id={zoomInputId}
-                  type="range"
-                  min={zoomState.min}
-                  max={zoomState.max}
-                  step={zoomState.step}
-                  value={zoomState.value}
-                  onChange={handleZoomChange}
-                  className="product-demo__slider"
-                />
-              </div>
-            )}
 
             <div className="product-demo__manual">
               <span className="product-demo__label">{tt.noCameraQuestion}</span>

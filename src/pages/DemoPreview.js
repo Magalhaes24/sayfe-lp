@@ -2,20 +2,23 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "../contexts/LanguageContext";
 import "./DemoPreview.css";
+import Seo from "../components/Seo";
 
 const DEMO_ACCESS_KEY = "sayfeDemoAccess";
+// Use the embed.figma.com endpoint so the prototype opens without requiring sign-in.
 const FIGMA_PROTOTYPE_URL =
-  "https://www.figma.com/proto/iGXdPEvYF7wvrJGuQcUl53/besayfe?node-id=1-98&t=swqArBPsA4HaT6WA-1";
-
-const buildEmbedUrl = (shareUrl) =>
-  `https://www.figma.com/embed?embed_host=share&url=${encodeURIComponent(
-    shareUrl
-  )}`;
+  "https://www.figma.com/proto/mLfhnggAEYUU5JPKXK4na6/besayfe-app?node-id=1-1641&t=0ju3ZqVWVdUtfp30-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A1637";
+const FIGMA_EMBED_URL =
+  "https://embed.figma.com/proto/mLfhnggAEYUU5JPKXK4na6/besayfe-app?node-id=1-1641&t=0ju3ZqVWVdUtfp30-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A1637&embed-host=share";
 
 function DemoPreview() {
   const { t } = useTranslation();
+  const siteName = t("seo.siteName") || "besayfe";
+  const seoDefaults = t("seo.defaults") || {};
+  const seo = t("seo.demoPreview") || {};
   const navigate = useNavigate();
   const [isAuthorized, setIsAuthorized] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
     const isAllowed = (() => {
@@ -42,10 +45,19 @@ function DemoPreview() {
     }
   }, [navigate]);
 
-  const embedUrl = useMemo(
-    () => buildEmbedUrl(FIGMA_PROTOTYPE_URL),
-    []
-  );
+  const embedUrl = useMemo(() => FIGMA_EMBED_URL, []);
+
+  useEffect(() => {
+    if (!isAuthorized) return undefined;
+    if (isExpanded) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isAuthorized, isExpanded]);
 
   if (!isAuthorized) {
     return null;
@@ -53,6 +65,14 @@ function DemoPreview() {
 
   return (
     <div className="App">
+      <Seo
+        title={seo.title}
+        description={seo.description || seoDefaults.description}
+        keywords={seo.keywords || seoDefaults.keywords}
+        image={seo.image || seoDefaults.image}
+        canonicalPath="/demo"
+        siteName={siteName}
+      />
       <main className="page-main demo-preview-main">
         <section className="demo-preview-hero">
           <div className="section-shell demo-preview-shell">
@@ -81,10 +101,24 @@ function DemoPreview() {
 
         <section className="demo-preview-frame">
           <div className="section-shell demo-preview-shell">
-            <div className="demo-preview-embed" data-embed-container>
+            <div
+              className={`demo-preview-embed${isExpanded ? " demo-preview-embed--expanded" : ""}`}
+              data-embed-container
+            >
+              <button
+                type="button"
+                className="demo-preview-zoom-btn"
+                onClick={() => setIsExpanded(prev => !prev)}
+                aria-pressed={isExpanded}
+              >
+                {isExpanded ? "Close" : "Full screen"}
+              </button>
               <iframe
                 title="besayfe product demo prototype"
                 src={embedUrl}
+                style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
+                width="100%"
+                height="100%"
                 allowFullScreen
                 loading="lazy"
                 data-skip-preload
@@ -101,4 +135,3 @@ function DemoPreview() {
 }
 
 export default DemoPreview;
-

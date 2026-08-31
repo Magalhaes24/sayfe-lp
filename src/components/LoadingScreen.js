@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "../contexts/LanguageContext";
 import "./LoadingScreen.css";
@@ -7,6 +7,20 @@ const LoadingScreen = () => {
   const { t } = useTranslation();
   const accent = "#73ac84";
   const logoPath = `${process.env.PUBLIC_URL || ""}/logo500.png`;
+
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    const { body, documentElement } = document;
+    const previousBodyOverflow = body.style.overflow;
+    const previousHtmlOverflow = documentElement.style.overflow;
+    body.style.overflow = "hidden";
+    documentElement.style.overflow = "hidden";
+
+    return () => {
+      body.style.overflow = previousBodyOverflow;
+      documentElement.style.overflow = previousHtmlOverflow;
+    };
+  }, []);
 
   return (
     <motion.div

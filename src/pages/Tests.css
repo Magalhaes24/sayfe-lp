@@ -1,0 +1,103 @@
+:root {
+  --tests-bg: #0c0d10;
+  --tests-accent: #f5c16c;
+  --tests-accent-2: #6dd3ce;
+  --tests-text: #f6f1ea;
+  --tests-muted: rgba(246, 241, 234, 0.68);
+}
+
+.tests {
+  background: radial-gradient(circle at top left, #1c1f28, #0a0b0e 60%);
+  color: var(--tests-text);
+  font-family: "Segoe UI", sans-serif;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.tests::before {
+  content: "";
+  position: absolute;
+  inset: -20% 0 auto;
+  height: 55vh;
+  background: radial-gradient(
+      circle at 15% 30%,
+      rgba(109, 211, 206, 0.25),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(245, 193, 108, 0.2),
+      transparent 50%
+    );
+  pointer-events: none;
+}
+
+.tests__scroll {
+  position: relative;
+  min-height: 420vh;
+  z-index: 1;
+}
+
+.tests__canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(circle at 30% 20%, #141822, #08090c 60%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.tests__canvas canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.tests__hint {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 11px;
+  color: rgba(246, 241, 234, 0.7);
+  border: 1px solid rgba(246, 241, 234, 0.25);
+  padding: 8px 18px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+  z-index: 2;
+}
+
+.tests__section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 8vw;
+  position: relative;
+  z-index: 1;
+}
+
+.tests__marker {
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: rgba(246, 241, 234, 0.5);
+  border: 1px solid rgba(246, 241, 234, 0.18);
+  padding: 10px 16px;
+  border-radius: 999px;
+}
+
+@media (max-width: 900px) {
+  .tests__section {
+    padding: 0 6vw;
+  }
+}
+
+@media (max-width: 640px) {
+  .tests__scroll {
+    min-height: 360vh;
+  }
+}

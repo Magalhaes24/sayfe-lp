@@ -2,6 +2,20 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Security notes (Firebase + GitHub Pages)
+
+- This site is hosted as static files, so all front-end code and Firebase config are public by design; Firestore Security Rules are the real security boundary.
+- Contact messages are encrypted in the browser with RSA-OAEP + AES-GCM (`src/utils/secureCrypto.js`) before being stored in Firestore.
+- The admin dashboard no longer fetches any RSA private key from Firestore. To decrypt messages, an admin must paste the private key PEM locally in the dashboard UI (kept only in memory in that browser tab).
+
+### Recommended Firebase hardening
+
+- Ensure Firestore Security Rules:
+  - Only allow `create` on public collections (`contactMessages`, `labelUploads`) with strict field validation and size limits.
+  - Only allow `read/list/update/delete` for admins (`request.auth.token.admin == true`).
+- Enable Firebase App Check to reduce automated abuse of your public write endpoints.
+- Add server-side rate limiting if you expect abuse (static sites cannot reliably rate-limit from the client).
+
 ## Available Scripts
 
 In the project directory, you can run:

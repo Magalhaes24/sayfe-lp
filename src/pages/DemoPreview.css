@@ -85,11 +85,12 @@
 
 .demo-preview-embed {
   position: relative;
-  width: 100%;
-  aspect-ratio: 1440 / 1024;
-  border-radius: 26px;
+  width: clamp(200px, 46vw, 340px);
+  margin: 0 auto;
+  aspect-ratio: 390 / 844;
+  border-radius: 22px;
   border: 1px solid rgba(18, 28, 22, 0.08);
-  box-shadow: 0 22px 50px rgba(20, 31, 25, 0.12);
+  box-shadow: 0 18px 42px rgba(20, 31, 25, 0.12);
   overflow: hidden;
   background: #0f1412;
 }
@@ -105,6 +106,46 @@
   transform-origin: center;
 }
 
+.demo-preview-zoom-btn {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 5;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(18, 28, 22, 0.6);
+  color: #fff;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+}
+
+.demo-preview-embed--expanded .demo-preview-zoom-btn {
+  display: inline-flex;
+}
+
+.demo-preview-embed--expanded {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  z-index: 9999;
+}
+
+@media (max-width: 900px) {
+  .demo-preview-zoom-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+}
+
 .demo-preview-tip {
   margin-top: 1.4rem;
   text-align: center;
@@ -115,10 +156,6 @@
 @media (max-width: 720px) {
   .demo-preview-main {
     padding-block: clamp(2.5rem, 8vw, 4rem);
-  }
-
-  .demo-preview-embed {
-    aspect-ratio: 16 / 9;
   }
 
   .demo-preview-embed iframe {

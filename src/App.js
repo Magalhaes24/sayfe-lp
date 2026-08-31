@@ -1,11 +1,11 @@
 import React, { useState, useLayoutEffect, useRef } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import AboutUs from "./pages/AboutUs";
-import DemoPreview from "./pages/DemoPreview";
-import ProductDemo from "./pages/ProductDemo";
+import Tests from "./pages/Tests";
+import TestsCopy from "./pages/Tests copy";
 import LoadingScreen from "./components/LoadingScreen";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -261,9 +261,9 @@ function App() {
       <ClickSpark
         sparkColor="#73ac84"
         sparkSize={10}
-        sparkRadius={15}
+        sparkRadius={16}
         sparkCount={8}
-        duration={400}
+        duration={380}
       >
         <>
           <div ref={contentRef} data-page-root aria-hidden={isLoading}>
@@ -281,10 +281,14 @@ function App() {
                   <Route path="/" element={<Home />} />
                   <Route path="/about" element={<AboutUs />} />
                   <Route path="/contact" element={<Contact />} />
-                  <Route path="/demo" element={<DemoPreview />} />
-                  <Route path="/product-demo" element={<ProductDemo />} />
+                  {/* Demo and product demonstration routes are hidden while the
+                      restaurant platform is the public offering. Old links fall
+                      back to the home page instead of a blank screen. */}
+                  <Route path="/tests" element={<Tests />} />
+                  <Route path="/tests-copy" element={<TestsCopy />} />
                   <Route path="/admin" element={<AdminLogin />} />
                   <Route path="/admin/dashboard" element={<AdminDashboard />} />
+                  <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
               </motion.div>
             </AnimatePresence>

@@ -55,7 +55,11 @@ export function LanguageProvider({ children }) {
       if (value === undefined) value = resolveKey(fallbackBundle, key);
       if (value === undefined) return key;
 
-      // Apply highlight to besayfe automatically
+      const skipHighlight = typeof key === "string" && key.startsWith("seo.");
+
+      if (skipHighlight) return value;
+
+      // Apply highlight to besayfe automatically for non-SEO content
       return highlightBesayfe(value);
     },
     [language]

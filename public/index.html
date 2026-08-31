@@ -5,32 +5,34 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#73ac84" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), payment=(), usb=()" />
 
     <!-- 02. Title and Description -->
     <title>besayfe</title>
     <meta
       name="description"
-      content="A besayfe liga restaurantes e clientes com alergias através de menus inteligentes e insights de segurança em tempo real. Descubra como comer com confiança e simplicidade."
+      content="Escolha os alergénios que evita e veja, prato a prato, o que pode pedir. Choose the allergens you avoid and see, dish by dish, what you can order."
     />
 
     <!-- 03. Keywords -->
     <meta
       name="keywords"
-      content="besayfe.com, besayfe, restaurantes, alergias, seguranca alimentar, tecnologia alimentar, app restaurantes, experiencia jantar segura, Portugal"
+      content="besayfe, menu com alergénios, comer fora com alergias, menu sem glúten, restaurantes para alérgicos, menu com código QR, intolerância alimentar, celíaco comer fora, allergen menu, eating out with allergies, gluten free menu, allergy friendly restaurants, qr code menu allergens"
     />
 
     <!-- 04. Author and Language -->
     <meta name="author" content="besayfe.com" />
-    <meta name="language" content="pt-PT" />
+    <meta name="language" content="pt-PT, en" />
 
     <!-- 05. Open Graph / Social Sharing -->
     <meta
       property="og:title"
-      content="besayfe - Comer com mais segurança"
+      content="besayfe"
     />
     <meta
       property="og:description"
-      content="A plataforma besayfe liga restaurantes e clientes com alergias através de refeições seguras, personalizadas e transparentes."
+      content="Leia o código na mesa, escolha os alergénios que evita e veja prato a prato o que pode pedir."
     />
     <meta property="og:image" content="%PUBLIC_URL%/social-preview.png" />
     <meta property="og:url" content="https://www.besayfe.com/" />
@@ -42,11 +44,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="besayfe - Comer com mais segurança"
+      content="besayfe - Saiba o que está no prato antes de pedir"
     />
     <meta
       name="twitter:description"
-      content="Visite besayfe.com para descobrir menus inteligentes e insights de segurança em tempo real pensados para pessoas com alergias alimentares."
+      content="Visite besayfe.com e veja como ler um menu com os seus alergénios já assinalados."
     />
     <meta name="twitter:image" content="%PUBLIC_URL%/social-preview.png" />
     <meta name="twitter:url" content="https://www.besayfe.com/" />
@@ -68,10 +70,25 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZTNEV4V64"></script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7306226343101171"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-FZTNEV4V64");
+    </script>
   </head>
 
   <body>
-    <noscript>besayfe - Comer com mais segurança</noscript>
+    <noscript>besayfe - Saiba o que está no prato antes de pedir</noscript>
     <div id="root"></div>
 
     <!-- 11. GitHub Pages route redirect handler -->
@@ -88,4 +105,3 @@
     </script>
   </body>
 </html>
-
