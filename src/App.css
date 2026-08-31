@@ -1485,6 +1485,18 @@ main {
     margin-inline: auto;
   }
 
+  /* Stacked and equal width, so they must be equal height too. */
+  .hero-actions .demo-btn,
+  .hero-actions .ghost-btn {
+    padding: 0.85rem 1.6rem;
+    font-size: 0.95rem;
+    border: 1.5px solid transparent;
+  }
+
+  .hero-actions .ghost-btn {
+    border-color: rgba(115, 172, 132, 0.45);
+  }
+
   .product-mock {
     width: 100%;
     max-width: 330px;

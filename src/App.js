@@ -4,8 +4,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import AboutUs from "./pages/AboutUs";
-import Tests from "./pages/Tests";
-import TestsCopy from "./pages/Tests copy";
 import LoadingScreen from "./components/LoadingScreen";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -282,10 +280,10 @@ function App() {
                   <Route path="/about" element={<AboutUs />} />
                   <Route path="/contact" element={<Contact />} />
                   {/* Demo and product demonstration routes are hidden while the
-                      restaurant platform is the public offering. Old links fall
-                      back to the home page instead of a blank screen. */}
-                  <Route path="/tests" element={<Tests />} />
-                  <Route path="/tests-copy" element={<TestsCopy />} />
+                      restaurant platform is the public offering. The /tests
+                      scratch pages are unrouted too: they pulled three.js, the
+                      3D models and 4 MB of screenshots into the main bundle.
+                      Old links fall back to the home page. */}
                   <Route path="/admin" element={<AdminLogin />} />
                   <Route path="/admin/dashboard" element={<AdminDashboard />} />
                   <Route path="*" element={<Navigate to="/" replace />} />

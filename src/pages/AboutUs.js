@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
 import { useReveal } from "../hooks/useReveal";
 
-const founderImages = require.context("../assets", false, /\.png$/);
+// Only .webp here: the previous pattern matched every PNG in assets/ and
+// bundled all 4.3 MB of them into this page.
+const founderImages = require.context("../assets", false, /\.webp$/);
 
 const normalizeFirstName = (name = "") =>
   name
@@ -19,9 +21,9 @@ const getFounderImage = firstName => {
   const safeName = firstName || "francisco";
 
   try {
-    return founderImages(`./${safeName}.png`);
+    return founderImages(`./${safeName}.webp`);
   } catch (error) {
-    return founderImages("./francisco.png");
+    return founderImages("./francisco.webp");
   }
 };
 
