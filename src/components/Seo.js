@@ -28,6 +28,22 @@ function ensureLink(rel, href) {
   element.setAttribute("href", href);
 }
 
+function ensureJsonLd(id, data) {
+  const selector = `script[type="application/ld+json"][data-seo="${id}"]`;
+  let element = document.head.querySelector(selector);
+  if (!data) {
+    if (element) element.remove();
+    return;
+  }
+  if (!element) {
+    element = document.createElement("script");
+    element.setAttribute("type", "application/ld+json");
+    element.setAttribute("data-seo", id);
+    document.head.appendChild(element);
+  }
+  element.textContent = JSON.stringify(data);
+}
+
 function clearMetaByProperty(propertyName) {
   const existing = Array.from(
     document.head.querySelectorAll(`meta[property="${propertyName}"]`)
@@ -119,6 +135,55 @@ function Seo({
     ensureMeta("name", "twitter:description", sanitized.description);
     ensureMeta("name", "twitter:image", sanitized.image);
     ensureMeta("name", "twitter:url", sanitized.canonical);
+    ensureMeta("name", "twitter:image:alt", sanitized.title || siteName);
+
+    // Structured data: what the page is, and who publishes it.
+    ensureJsonLd(
+      "graph",
+      noindex
+        ? null
+        : {
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": `${BASE_URL}/#organization`,
+                name: siteName || "besayfe",
+                url: PRODUCT_URL,
+                logo: toAbsoluteUrl("/logo1000.png"),
+                email: "francisco@besayfe.com"
+              },
+              {
+                "@type": "WebSite",
+                "@id": `${BASE_URL}/#website`,
+                name: siteName || "besayfe",
+                url: `${BASE_URL}/`,
+                inLanguage: locale.replace("_", "-"),
+                publisher: { "@id": `${BASE_URL}/#organization` }
+              },
+              {
+                "@type": "WebPage",
+                "@id": `${sanitized.canonical}#webpage`,
+                url: sanitized.canonical,
+                name: finalTitle,
+                description: sanitized.description,
+                inLanguage: locale.replace("_", "-"),
+                isPartOf: { "@id": `${BASE_URL}/#website` },
+                primaryImageOfPage: sanitized.image
+              },
+              {
+                "@type": "MobileApplication",
+                "@id": `${BASE_URL}/#app`,
+                name: siteName || "besayfe",
+                url: PRODUCT_URL,
+                applicationCategory: "HealthApplication",
+                operatingSystem: "iOS, Android",
+                description: sanitized.description,
+                publisher: { "@id": `${BASE_URL}/#organization` }
+              }
+            ]
+          }
+    );
   }, [alternateLocale, locale, noindex, sanitized, siteName, type]);
 
   return null;
