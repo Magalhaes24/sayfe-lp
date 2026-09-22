@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import DotGrid from "../components/DotGrid";
 import { useTranslation } from "../contexts/LanguageContext";
@@ -33,19 +33,6 @@ function Home() {
 
   // Scrolls without touching the URL hash: a hash change would restart the
   // global loading screen, which watches the whole location object.
-  const handleJumpToSteps = useCallback((event) => {
-    event.preventDefault();
-    const target = document.getElementById("how-it-works");
-    if (!target) return;
-    const prefersReducedMotion =
-      typeof window !== "undefined" &&
-      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-    target.scrollIntoView({
-      behavior: prefersReducedMotion ? "auto" : "smooth",
-      block: "start"
-    });
-  }, []);
-
   const problemRef  = useReveal();
   const solutionRef = useReveal();
   const galleryRef  = useReveal();
@@ -106,9 +93,10 @@ function Home() {
                   ></span>
                 </Link>
                 <a
-                  href="#how-it-works"
+                  href="https://besayfe.com"
                   className="ghost-btn"
-                  onClick={handleJumpToSteps}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <span
                     dangerouslySetInnerHTML={{

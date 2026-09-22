@@ -31,8 +31,8 @@ function Header() {
       <nav className={`navbar${isPinned ? " navbar--pinned" : ""}`}>
         <div className="navbar-inner">
           <Link to="/" className="logo-link">
-            <img src={logoPath} alt="besayfe" className="logo-mark" />
-            <h1 className="logo">besayfe</h1>
+            <img src={logoPath} alt="" className="logo-mark" />
+            <span className="logo">besayfe</span>
           </Link>
           <div className="navbar-actions">
             <HamburgerMenu links={navLinks} />
