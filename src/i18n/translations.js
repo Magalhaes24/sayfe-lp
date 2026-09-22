@@ -33,7 +33,7 @@ const translations = {
         "image": "/logo1000.png"
       },
       "home": {
-        "title": "besayfe",
+        "title": "besayfe | See what is on the plate before you order",
         "description": "Set the allergens you avoid, open the map and see restaurant menus dish by dish. No menu yet? A photo is enough to get an estimate in seconds.",
         "keywords": [
           "allergy menu app",
@@ -44,7 +44,7 @@ const translations = {
         ]
       },
       "about": {
-        "title": "besayfe | about",
+        "title": "About besayfe | The team behind the allergen map",
         "description": "Meet the founders of besayfe and why we set out to make eating out simple for people with food allergies and intolerances.",
         "keywords": [
           "besayfe founders",
@@ -54,7 +54,7 @@ const translations = {
         ]
       },
       "contact": {
-        "title": "besayfe | contact",
+        "title": "Contact besayfe | Suggest a restaurant or ask a question",
         "description": "Talk to the besayfe team. Suggest a restaurant, ask a question, or bring besayfe to a place you run.",
         "keywords": [
           "contact besayfe",
@@ -589,7 +589,7 @@ const translations = {
         "image": "/logo1000.png"
       },
       "home": {
-        "title": "besayfe",
+        "title": "besayfe | Vê o que está no prato antes de pedires",
         "description": "Lê o código na mesa, escolhe os alergénios que evitas e vê prato a prato o que podes pedir. Ainda não há menu? Uma fotografia chega para teres uma estimativa em segundos.",
         "keywords": [
           "app alergias menu",
@@ -600,7 +600,7 @@ const translations = {
         ]
       },
       "about": {
-        "title": "besayfe | sobre",
+        "title": "Sobre a besayfe | A equipa por trás do mapa de alergénios",
         "description": "Conhece os fundadores da besayfe e porque quisemos tornar simples comer fora para quem tem alergias ou intolerâncias alimentares.",
         "keywords": [
           "fundadores besayfe",
@@ -610,7 +610,7 @@ const translations = {
         ]
       },
       "contact": {
-        "title": "besayfe | contacto",
+        "title": "Contacto besayfe | Sugere um restaurante ou tira uma dúvida",
         "description": "Fala com a equipa besayfe. Sugere um restaurante, tira uma dúvida ou traz a besayfe para a tua casa.",
         "keywords": [
           "contacto besayfe",

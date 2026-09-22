@@ -68,10 +68,10 @@ function AboutUs() {
               className="about-tag"
               dangerouslySetInnerHTML={{ __html: t("about.heroTag") }}
             ></span>
-            <h2
+            <h1
               className="about-title"
               dangerouslySetInnerHTML={{ __html: t("about.heroTitle") }}
-            ></h2>
+            ></h1>
             <p
               className="about-lead"
               dangerouslySetInnerHTML={{ __html: t("about.heroLead") }}

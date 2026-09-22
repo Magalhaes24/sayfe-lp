@@ -89,12 +89,12 @@ function Home() {
                   dangerouslySetInnerHTML={{ __html: t("home.heroEyebrow") }}
                 ></span>
               </p>
-              <h2 className="demo-title">
+              <h1 className="demo-title">
                 <span
                   className="demo-title__text"
                   dangerouslySetInnerHTML={{ __html: t("home.heroTitle") }}
                 ></span>
-              </h2>
+              </h1>
               <p
                 className="demo-text"
                 dangerouslySetInnerHTML={{ __html: t("home.heroText") }}

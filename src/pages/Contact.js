@@ -98,7 +98,7 @@ function Contact() {
       <main className="page-main contact-main">
         <section className="contact">
           <div className="section-shell contact-shell">
-            <h2 className="contact-title">{t("contact.title")}</h2>
+            <h1 className="contact-title">{t("contact.title")}</h1>
             <p className="contact-text">{t("contact.intro")}</p>
 
             <form className="contact-form" onSubmit={handleSubmit} noValidate>
