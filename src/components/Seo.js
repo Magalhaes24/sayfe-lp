@@ -108,7 +108,9 @@ function Seo({
     const suffix = siteName || "besayfe";
     const pageTitle = sanitized.title || suffix;
     const finalTitle = pageTitle.includes(suffix) ? pageTitle : `${pageTitle} | ${suffix}`;
-    const robotsContent = noindex ? "noindex, nofollow" : "index, follow";
+    const robotsContent = noindex
+      ? "noindex, nofollow"
+      : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
 
     document.title = finalTitle;
 
@@ -125,6 +127,7 @@ function Seo({
     ensureMeta("property", "og:type", type);
     ensureMeta("property", "og:url", sanitized.canonical);
     ensureMeta("property", "og:image", sanitized.image);
+    ensureMeta("property", "og:image:alt", sanitized.title || siteName);
     ensureMeta("property", "og:site_name", siteName || "besayfe");
     ensureMeta("property", "og:locale", locale);
     clearMetaByProperty("og:locale:alternate");
