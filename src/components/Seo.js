@@ -1,7 +1,8 @@
 import { useEffect, useMemo } from "react";
 import { useTranslation } from "../contexts/LanguageContext";
 
-const BASE_URL = "https://www.besayfe.com";
+const BASE_URL = "https://landing.besayfe.com";
+const PRODUCT_URL = "https://besayfe.com";
 
 function ensureMeta(attrName, attrValue, content) {
   if (!content) return;

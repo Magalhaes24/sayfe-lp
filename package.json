@@ -23,7 +23,7 @@
     "three": "^0.182.0",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://www.besayfe.com/",
+  "homepage": "https://landing.besayfe.com/",
   "scripts": {
     "start": "react-scripts start",
     "dev": "react-scripts start",
