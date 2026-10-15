@@ -590,11 +590,17 @@ const translations = {
       },
       "home": {
         "title": "besayfe | Vê o que está no prato antes de pedires",
-        "description": "Lê o código na mesa, escolhe os alergénios que evitas e vê prato a prato o que podes pedir. Ainda não há menu? Uma fotografia chega para teres uma estimativa em segundos.",
+        "description": "Menu de alergénios e app para alergias alimentares: escolhe o que evitas (glúten, lactose, frutos secos, marisco...) e vê prato a prato o que podes pedir. Sem menu? Uma fotografia chega.",
         "keywords": [
-          "app alergias menu",
+          "menu alergias",
+          "menu de alergénios",
+          "tabela de alergénios restaurante",
+          "app alergias alimentares",
+          "restaurantes sem frutos secos",
+          "restaurantes sem frutos de casca rija",
+          "restaurantes sem glúten Lisboa",
+          "restaurantes sem lactose",
           "mapa de alergénios",
-          "comer sem glúten",
           "fotografar menu alergénios",
           "comer fora com alergias"
         ]
