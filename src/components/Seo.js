@@ -172,7 +172,13 @@ function Seo({
                 description: sanitized.description,
                 inLanguage: locale.replace("_", "-"),
                 isPartOf: { "@id": `${BASE_URL}/#website` },
-                primaryImageOfPage: sanitized.image
+                primaryImageOfPage: sanitized.image,
+                keywords: sanitized.keywords,
+                about: [
+                  { "@type": "Thing", name: "Food allergy" },
+                  { "@type": "Thing", name: "Allergen labelling" },
+                  { "@type": "Thing", name: "Gluten-free diet" }
+                ]
               },
               {
                 "@type": "MobileApplication",
@@ -181,6 +187,16 @@ function Seo({
                 url: PRODUCT_URL,
                 applicationCategory: "HealthApplication",
                 operatingSystem: "iOS, Android",
+                inLanguage: ["pt-PT", "en"],
+                keywords: sanitized.keywords,
+                featureList: [
+                  "Allergen menu filtered by the 14 EU allergens",
+                  "Menu de alergénios filtrado pelos 14 alergénios da UE",
+                  "Menu photo scan with OCR and allergen estimate",
+                  "QR code menu at the table",
+                  "Gluten-free, dairy-free and nut-free dining",
+                  "Português e inglês"
+                ],
                 description: sanitized.description,
                 publisher: { "@id": `${BASE_URL}/#organization` }
               }

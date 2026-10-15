@@ -11,3 +11,9 @@ Photo-based estimates do not replace confirming with the restaurant.
 - [About](https://landing.besayfe.com/about/): the founders and why besayfe exists
 - [Contact](https://landing.besayfe.com/contact/): suggest a restaurant or bring besayfe to your venue
 - [Product site](https://besayfe.com): the app
+
+## FAQ
+- Which allergens does besayfe cover? The 14 EU allergens: gluten, crustaceans, eggs, fish, peanuts, soy, milk (lactose), tree nuts, celery, mustard, sesame, sulphites, lupin, molluscs.
+- Quem usa? Pessoas com alergias alimentares, intolerâncias (lactose, glúten) e doença celíaca que querem comer fora com mais segurança.
+- Como funciona? Escolher alergénios, abrir o mapa ou ler o código QR na mesa, ver o menu prato a prato; sem menu, fotografar para obter uma estimativa.
+- Limitation: photo-based estimates do not replace confirming with the restaurant.
