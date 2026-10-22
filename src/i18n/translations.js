@@ -643,7 +643,7 @@ const translations = {
     "seo": {
       "siteName": "besayfe",
       "defaults": {
-        "description": "A besayfe mostra-te o que cada prato leva antes de pedires. Escolhe as tuas alergias e o menu do restaurante assinala-as, em português e inglês.",
+        "description": "O besayfe mostra-te o que cada prato leva antes de pedires. Escolhe as tuas alergias e o menu do restaurante assinala-as, em português e inglês.",
         "keywords": [
           "besayfe",
           "mapa de alergénios",
@@ -676,8 +676,8 @@ const translations = {
         ]
       },
       "about": {
-        "title": "Sobre a besayfe | A equipa por trás do mapa de alergénios",
-        "description": "Conhece os fundadores da besayfe e porque quisemos tornar simples comer fora para quem tem alergias ou intolerâncias alimentares.",
+        "title": "Sobre o besayfe | A equipa por trás do mapa de alergénios",
+        "description": "Conhece os fundadores do besayfe e porque quisemos tornar simples comer fora para quem tem alergias ou intolerâncias alimentares.",
         "keywords": [
           "fundadores besayfe",
           "startup alergias alimentares",
@@ -687,7 +687,7 @@ const translations = {
       },
       "contact": {
         "title": "Contacto besayfe | Sugere um restaurante ou tira uma dúvida",
-        "description": "Fala com a equipa da besayfe. Sugere um restaurante, tira uma dúvida ou leva a besayfe ao teu restaurante.",
+        "description": "Fala com a equipa do besayfe. Sugere um restaurante, tira uma dúvida ou leva o besayfe ao teu restaurante.",
         "keywords": [
           "contacto besayfe",
           "sugerir restaurante",
@@ -696,7 +696,7 @@ const translations = {
       },
       "demoPreview": {
         "title": "besayfe | demo",
-        "description": "Veja a experiência mobile da besayfe: OCR em menus, deteção de alergias, traduções e índice de risco.",
+        "description": "Veja a experiência mobile do besayfe: OCR em menus, deteção de alergias, traduções e índice de risco.",
         "keywords": [
           "protótipo alergias",
           "demo figma",
@@ -795,11 +795,11 @@ const translations = {
       "faq": [
         {
           "q": "Tenho de instalar alguma coisa ou criar conta?",
-          "a": "Não. A besayfe abre no navegador. Podes saltar a escolha das alergias e ver tudo na mesma."
+          "a": "Não. O besayfe abre no navegador. Podes saltar a escolha das alergias e ver tudo na mesma."
         },
         {
           "q": "Posso confiar no resultado?",
-          "a": "Verde quer dizer que o restaurante confirmou. O que é estimado vem sempre identificado como estimativa. A besayfe serve para te informar e não substitui a confirmação com o restaurante."
+          "a": "Verde quer dizer que o restaurante confirmou. O que é estimado vem sempre identificado como estimativa. O besayfe serve para te informar e não substitui a confirmação com o restaurante."
         },
         {
           "q": "O restaurante que frequento não está no mapa.",
@@ -814,7 +814,7 @@ const translations = {
       "ctaSecondaryLabel": "Sugerir um restaurante",
       "heroEyebrow": "Para quem come fora",
       "heroTitle": "Vê o que está no prato antes de pedires.",
-      "heroText": "Escolhe as tuas alergias e a besayfe lê o menu por ti, prato a prato. Se o restaurante ainda não está cá, basta uma foto do menu.",
+      "heroText": "Escolhe as tuas alergias e o besayfe lê o menu por ti, prato a prato. Se o restaurante ainda não está cá, basta uma foto do menu.",
       "heroSecondaryCta": "Ver como funciona",
       "mock": {
         "menuTag": "Menu do restaurante",
@@ -895,7 +895,7 @@ const translations = {
           {
             "icon": "03",
             "title": "Ainda não há menu? Fotografa",
-            "text": "Tira uma foto ao menu de papel. A besayfe lê-o em português ou inglês, estima os alergénios de cada prato e mostra-te logo o resultado."
+            "text": "Tira uma foto ao menu de papel. O besayfe lê-o em português ou inglês, estima os alergénios de cada prato e mostra-te logo o resultado."
           }
         ]
       },
@@ -907,7 +907,7 @@ const translations = {
           {
             "icon": "01",
             "title": "Vem direto da cozinha",
-            "text": "Os restaurantes na besayfe preenchem uma ficha técnica por receita. Só o que confirmam conta como verificado e só isso aparece a verde."
+            "text": "Os restaurantes no besayfe preenchem uma ficha técnica por receita. Só o que confirmam conta como verificado e só isso aparece a verde."
           },
           {
             "icon": "02",
@@ -962,14 +962,14 @@ const translations = {
         ]
       },
       "ctaEyebrow": "Há um sítio onde comes muitas vezes?",
-      "ctaTitle": "Diz-nos onde gostavas de ver a besayfe.",
+      "ctaTitle": "Diz-nos onde gostavas de ver o besayfe.",
       "ctaText": "Diz-nos qual é o restaurante e tratamos do resto. Se o restaurante for teu, configuramos o menu para que os pratos apareçam como confirmados e não como estimados.",
       "ctaButton": "Abrir o mapa",
       "ctaSecondary": "Pedir o relatório de mercado",
-      "disclaimer": "A besayfe é informativa e não substitui a confirmação dos alergénios no restaurante.",
+      "disclaimer": "O besayfe é informativo e não substitui a confirmação dos alergénios no restaurante.",
       "galleryEyebrow": "A app",
       "galleryTitle": "Como fica no telemóvel",
-      "galleryIntro": "Ecrãs reais da besayfe. Abre no navegador, por isso não tens de instalar nada.",
+      "galleryIntro": "Ecrãs reais do besayfe. Abre no navegador, por isso não tens de instalar nada.",
       "gallery": {
         "items": [
           {
@@ -1008,7 +1008,7 @@ const translations = {
       "validation": {
         "kicker": "Validação",
         "title": "Procura, especialistas e regulação impulsionam o projeto",
-        "body": "Entrevistas exploratórias, validação clínica e legislação europeia confirmam que a besayfe responde a uma necessidade real e urgente.",
+        "body": "Entrevistas exploratórias, validação clínica e legislação europeia confirmam que o besayfe responde a uma necessidade real e urgente.",
         "items": [
           {
             "step": "01",
@@ -1019,7 +1019,7 @@ const translations = {
           {
             "step": "02",
             "title": "Endosso clínico e social",
-            "body": "Associações de alergias e profissionais de saúde validaram a relevância científica e humana da besayfe.",
+            "body": "Associações de alergias e profissionais de saúde validaram a relevância científica e humana do besayfe.",
             "meta": "ONG parceiras + conselheiros clínicos"
           },
           {
@@ -1033,7 +1033,7 @@ const translations = {
     },
     "demoPreview": {
       "tag": "Acesso ao protótipo",
-      "title": "Explore a jornada móvel da besayfe",
+      "title": "Explore a jornada móvel do besayfe",
       "subtitle": "Siga o protótipo interativo no Figma e veja como irá ser o UX/UI da app.",
       "backHome": "Voltar ao início",
       "openInFigma": "Abrir no Figma",
@@ -1103,7 +1103,7 @@ const translations = {
       "search": "Pesquisar",
       "tapToEnable": "Toque para ativar/desativar a câmara.",
       "summaryTitle": "Detalhes do produto",
-      "summarySubtitle": "Dados fornecidos pela Open Food Facts e parceiros da besayfe.",
+      "summarySubtitle": "Dados fornecidos pela Open Food Facts e parceiros do besayfe.",
       "empty": "Leia um código ou pesquise acima para ver alergénios e vestígios.",
       "ingredients": "Ingredientes",
       "riskLabel": "Risco",
@@ -1175,7 +1175,7 @@ const translations = {
       "search": "Pesquisar",
       "tapToEnable": "Toque para ativar/desativar a câmara.",
       "summaryTitle": "Detalhes do produto",
-      "summarySubtitle": "Dados fornecidos pela Open Food Facts e parceiros da besayfe.",
+      "summarySubtitle": "Dados fornecidos pela Open Food Facts e parceiros do besayfe.",
       "empty": "Leia um código ou pesquise acima para ver alergénios e vestígios.",
       "ingredients": "Ingredientes",
       "riskLabel": "Risco",
@@ -1224,9 +1224,9 @@ const translations = {
     "about": {
       "heroTag": "A nossa história",
       "heroTitle": "Garantir segurança em cada escolha.",
-      "heroLead": "A besayfe nasceu de um projeto universitário, a partir de uma observação simples: a informação que torna uma refeição segura já existe na cozinha e quase nunca chega a quem a vai comer.",
-      "missionTitle": "Porque criámos a besayfe",
-      "missionBody": "Ouvimos quem hesita antes de pedir e amigos que leem cada menu duas vezes. A besayfe põe a resposta nas mãos deles: o que cada prato leva, comparado com o que evitam. Vem da cozinha, quando o restaurante está na besayfe, e do próprio menu, quando não está.",
+      "heroLead": "O besayfe nasceu de um projeto universitário, a partir de uma observação simples: a informação que torna uma refeição segura já existe na cozinha e quase nunca chega a quem a vai comer.",
+      "missionTitle": "Porque criámos o besayfe",
+      "missionBody": "Ouvimos quem hesita antes de pedir e amigos que leem cada menu duas vezes. O besayfe põe a resposta nas mãos deles: o que cada prato leva, comparado com o que evitam. Vem da cozinha, quando o restaurante está no besayfe, e do próprio menu, quando não está.",
       "missionPillars": [
         "A resposta pertence a quem está a comer.",
         "A cozinha já tem a resposta. O nosso trabalho é fazê-la chegar à mesa.",
@@ -1247,7 +1247,7 @@ const translations = {
         }
       ],
       "ctaTitle": "Queres fazer parte disto?",
-      "ctaBody": "Diz-nos onde costumas comer e levamos a besayfe a mais uma mesa.<br>Se tens um restaurante, configuramos o teu menu para que os pratos apareçam confirmados por ti.",
+      "ctaBody": "Diz-nos onde costumas comer e levamos o besayfe a mais uma mesa.<br>Se tens um restaurante, configuramos o teu menu para que os pratos apareçam confirmados por ti.",
       "rulesTitle": "Como tratamos a informação",
       "rulesBody": "Pedimos a quem tem alergias que confie no que lhe mostramos, por isso as regras que seguimos têm de estar à vista. São estas, e a app cumpre-as sempre.",
       "rules": [
