@@ -109,7 +109,34 @@ const translations = {
       }
     },
     "home": {
-      "heroCta": "Talk to our team",
+      "heroCta": "Open the map",
+      "heroTrust": [
+        "100+ restaurants mapped",
+        "14 allergens",
+        "Nothing to install",
+        "Portuguese and English"
+      ],
+      "legendEyebrow": "Read it at a glance",
+      "legendTitle": "Four colours. One answer.",
+      "legendIntro": "Every pin and every dish is coloured against your own allergens, and always says where the answer came from.",
+      "legend": [
+        { "tone": "safe", "title": "Green", "text": "Safe options, confirmed by the restaurant." },
+        { "tone": "info", "title": "Blue", "text": "Looks safe, but not confirmed yet." },
+        { "tone": "warn", "title": "Orange", "text": "Allergens not confirmed. Ask the restaurant." },
+        { "tone": "danger", "title": "Red", "text": "No safe options for you." }
+      ],
+      "allergensLabel": "All 14 declarable allergens, covered",
+      "allergens": ["🌾 Gluten", "🦐 Crustaceans", "🥚 Eggs", "🐟 Fish", "🥜 Peanuts", "🫘 Soy", "🥛 Milk", "🌰 Tree nuts", "🥬 Celery", "🟡 Mustard", "🌱 Sesame", "🍷 Sulphites", "🌼 Lupin", "🐚 Molluscs"],
+      "faqEyebrow": "Quick answers",
+      "faqTitle": "Before you open the map",
+      "faq": [
+        { "q": "Do I need to install or sign up?", "a": "No. besayfe opens in your browser, and you can skip the allergen profile and still see everything." },
+        { "q": "Can I trust the result?", "a": "Green means the restaurant confirmed it. Anything estimated is labelled as such. besayfe informs, and does not replace confirming with the restaurant." },
+        { "q": "My restaurant is not on the map.", "a": "Photograph the menu and the app estimates the allergens, or send us the place and we will take it from there." },
+        { "q": "I run a restaurant. What do I get?", "a": "Your dishes show as confirmed instead of estimated, which is what guests with allergies look for first. Get in touch and we set the menu up with you." }
+      ],
+      "stickyCta": "Open the map",
+      "ctaSecondaryLabel": "Suggest a restaurant",
       "heroEyebrow": "For anyone eating out",
       "heroTitle": "Know what is on the plate before you order.",
       "heroText": "Set the allergens you avoid and besayfe reads the menu for you, dish by dish. Where the restaurant has not joined yet, a photo of the menu is enough to get an answer.",
@@ -262,7 +289,7 @@ const translations = {
       "ctaEyebrow": "Somewhere you eat often?",
       "ctaTitle": "Tell us where you would like to see besayfe.",
       "ctaText": "Send us the restaurant and we will take it from there. And if you run one, we will set your menu up so your dishes show as confirmed rather than estimated.",
-      "ctaButton": "Send us a message",
+      "ctaButton": "Open the map",
       "ctaSecondary": "Request the market brief",
       "disclaimer": "besayfe is informative and does not replace confirming allergens with the restaurant.",
       "galleryEyebrow": "The app",
@@ -671,7 +698,34 @@ const translations = {
       }
     },
     "home": {
-      "heroCta": "Fala connosco",
+      "heroCta": "Abrir o mapa",
+      "heroTrust": [
+        "100+ restaurantes no mapa",
+        "14 alergénios",
+        "Sem instalar nada",
+        "Português e inglês"
+      ],
+      "legendEyebrow": "Percebe num relance",
+      "legendTitle": "Quatro cores. Uma resposta.",
+      "legendIntro": "Cada ponto e cada prato é pintado face aos teus alergénios, e diz sempre de onde vem a resposta.",
+      "legend": [
+        { "tone": "safe", "title": "Verde", "text": "Opções seguras, confirmadas pelo restaurante." },
+        { "tone": "info", "title": "Azul", "text": "Parece seguro, mas ainda não está confirmado." },
+        { "tone": "warn", "title": "Laranja", "text": "Alergénios por confirmar. Pergunta ao restaurante." },
+        { "tone": "danger", "title": "Vermelho", "text": "Sem opções seguras para ti." }
+      ],
+      "allergensLabel": "Os 14 alergénios de declaração obrigatória",
+      "allergens": ["🌾 Glúten", "🦐 Crustáceos", "🥚 Ovos", "🐟 Peixe", "🥜 Amendoim", "🫘 Soja", "🥛 Leite", "🌰 Frutos de casca rija", "🥬 Aipo", "🟡 Mostarda", "🌱 Sésamo", "🍷 Sulfitos", "🌼 Tremoço", "🐚 Moluscos"],
+      "faqEyebrow": "Respostas rápidas",
+      "faqTitle": "Antes de abrires o mapa",
+      "faq": [
+        { "q": "Tenho de instalar ou criar conta?", "a": "Não. A besayfe abre no navegador e podes saltar o perfil de alergénios e ver tudo na mesma." },
+        { "q": "Posso confiar no resultado?", "a": "Verde quer dizer que o restaurante confirmou. O que é estimado vem sempre identificado. A besayfe informa e não substitui a confirmação com o restaurante." },
+        { "q": "O meu restaurante não está no mapa.", "a": "Fotografa o menu e a app estima os alergénios, ou envia-nos o sítio e tratamos do resto." },
+        { "q": "Tenho um restaurante. O que ganho?", "a": "Os teus pratos aparecem como confirmados e não como estimados, que é o que quem tem alergias procura primeiro. Fala connosco e configuramos o menu contigo." }
+      ],
+      "stickyCta": "Abrir o mapa",
+      "ctaSecondaryLabel": "Sugerir um restaurante",
       "heroEyebrow": "Para quem come fora",
       "heroTitle": "Vê o que está no prato antes de pedires.",
       "heroText": "Escolhes os alergénios que evitas e a besayfe lê o menu por ti, prato a prato. Onde o restaurante ainda não aderiu, uma fotografia do menu chega para teres resposta.",
@@ -824,7 +878,7 @@ const translations = {
       "ctaEyebrow": "Há um sítio onde comes muitas vezes?",
       "ctaTitle": "Diz-nos onde gostavas de encontrar a besayfe.",
       "ctaText": "Envia-nos o restaurante e tratamos do resto. E se for teu, configuramos o menu para que os teus pratos apareçam como confirmados e não como estimados.",
-      "ctaButton": "Enviar mensagem",
+      "ctaButton": "Abrir o mapa",
       "ctaSecondary": "Pedir o relatório de mercado",
       "disclaimer": "A besayfe é informativa e não substitui a confirmação dos alergénios no restaurante.",
       "galleryEyebrow": "A app",

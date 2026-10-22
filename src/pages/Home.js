@@ -16,8 +16,21 @@ const APP_SHOTS = {
   contribution: ssContribution
 };
 
+const APP_URL = "https://besayfe.com/mapa";
+
+const scrollToHow = () => {
+  const el = document.getElementById("how-it-works");
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+};
+
 function Home() {
   const { t } = useTranslation();
+  const trustItems = t("home.heroTrust") || [];
+  const legendItems = t("home.legend") || [];
+  const allergenItems = t("home.allergens") || [];
+  const faqItems = t("home.faq") || [];
+  const legendRef = useReveal();
+  const faqRef = useReveal();
   const siteName = t("seo.siteName") || "besayfe";
   const seoDefaults = t("seo.defaults") || {};
   const seo = t("seo.home") || {};
@@ -87,24 +100,28 @@ function Home() {
                 dangerouslySetInnerHTML={{ __html: t("home.heroText") }}
               ></p>
               <div className="hero-actions">
-                <Link to="/contact" className="demo-btn">
+                <a href={APP_URL} className="demo-btn">
                   <span
                     dangerouslySetInnerHTML={{ __html: t("home.heroCta") }}
                   ></span>
-                </Link>
-                <a
-                  href="https://besayfe.com"
+                </a>
+                <button
+                  type="button"
                   className="ghost-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  onClick={scrollToHow}
                 >
                   <span
                     dangerouslySetInnerHTML={{
                       __html: t("home.heroSecondaryCta")
                     }}
                   ></span>
-                </a>
+                </button>
               </div>
+              <ul className="hero-trust">
+                {trustItems.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </div>
 
             <div className="demo-visual">
@@ -224,6 +241,38 @@ function Home() {
                 </article>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* === Colour legend + allergens === */}
+        <section className="legend" ref={legendRef}>
+          <div className="section-shell">
+            <div className="section-heading section-heading--center reveal">
+              <p className="section-eyebrow">{t("home.legendEyebrow")}</p>
+              <h3 className="section-title">{t("home.legendTitle")}</h3>
+              <p className="section-intro">{t("home.legendIntro")}</p>
+            </div>
+            <div className="legend-grid">
+              {legendItems.map((item, i) => (
+                <article
+                  className={`legend-card legend-card--${item.tone} reveal-scale`}
+                  key={item.tone}
+                  style={{ "--reveal-delay": `${i * 80}ms` }}
+                >
+                  <span className="legend-dot" aria-hidden="true"></span>
+                  <h4>{item.title}</h4>
+                  <p>{item.text}</p>
+                </article>
+              ))}
+            </div>
+            <p className="allergen-strip__label reveal">
+              {t("home.allergensLabel")}
+            </p>
+            <ul className="allergen-strip reveal">
+              {allergenItems.map((a) => (
+                <li key={a}>{a}</li>
+              ))}
+            </ul>
           </div>
         </section>
 
@@ -357,6 +406,24 @@ function Home() {
           </div>
         </section>
 
+        {/* === FAQ === */}
+        <section className="home-faq" ref={faqRef}>
+          <div className="section-shell">
+            <div className="section-heading reveal">
+              <p className="section-eyebrow">{t("home.faqEyebrow")}</p>
+              <h3 className="section-title">{t("home.faqTitle")}</h3>
+            </div>
+            <div className="faq-list">
+              {faqItems.map((item) => (
+                <details className="faq-item reveal" key={item.q}>
+                  <summary>{item.q}</summary>
+                  <p>{item.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* === Final CTA Section === */}
         <section className="home-cta" ref={ctaRef}>
           <div className="section-shell">
@@ -368,15 +435,22 @@ function Home() {
               <h3 dangerouslySetInnerHTML={{ __html: t("home.ctaTitle") }}></h3>
               <p dangerouslySetInnerHTML={{ __html: t("home.ctaText") }}></p>
               <div className="cta-actions">
-                <Link to="/contact" className="cta-btn">
+                <a href={APP_URL} className="cta-btn">
                   <span
                     dangerouslySetInnerHTML={{ __html: t("home.ctaButton") }}
                   ></span>
+                </a>
+                <Link to="/contact" className="ghost-btn">
+                  {t("home.ctaSecondaryLabel")}
                 </Link>
               </div>
             </div>
           </div>
         </section>
+
+        <a href={APP_URL} className="sticky-cta" aria-label={t("home.stickyCta")}>
+          {t("home.stickyCta")}
+        </a>
       </main>
     </div>
   );
