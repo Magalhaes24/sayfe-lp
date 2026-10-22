@@ -8,8 +8,6 @@ import { useReveal } from "../hooks/useReveal";
 
 // Only .webp here: the previous pattern matched every PNG in assets/ and
 // bundled all 4.3 MB of them into this page.
-const APP_URL = "https://besayfe.com/mapa";
-
 const founderImages = require.context("../assets", false, /\.webp$/);
 
 const normalizeFirstName = (name = "") =>
@@ -38,7 +36,6 @@ function AboutUs() {
   const seo = t("seo.about") || {};
 
   const rules      = t("about.rules") || [];
-  const trustItems = t("home.heroTrust") || [];
 
   const missionRef = useReveal();
   const rulesRef   = useReveal();
@@ -79,19 +76,6 @@ function AboutUs() {
               className="about-lead"
               dangerouslySetInnerHTML={{ __html: t("about.heroLead") }}
             ></p>
-            <div className="about-actions">
-              <a href={APP_URL} className="demo-btn">
-                {t("home.heroCta")}
-              </a>
-              <Link to="/contact" className="ghost-btn">
-                {t("home.ctaSecondaryLabel")}
-              </Link>
-            </div>
-            <ul className="hero-trust about-trust">
-              {trustItems.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
           </div>
         </section>
 
@@ -104,18 +88,14 @@ function AboutUs() {
               <p
                 dangerouslySetInnerHTML={{ __html: t("about.missionBody") }}
               ></p>
-              <ul className="about-points">
+              <ul className="mission-pillars">
                 {pillars.map((pillar, i) => (
                   <li
                     key={pillar}
-                    className="about-point reveal-scale"
-                    style={{ "--reveal-delay": `${i * 90}ms` }}
-                  >
-                    <span className="about-point__num" aria-hidden="true">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span dangerouslySetInnerHTML={{ __html: pillar }}></span>
-                  </li>
+                    className="mission-pillar-item reveal"
+                    style={{ "--reveal-delay": `${i * 80}ms` }}
+                    dangerouslySetInnerHTML={{ __html: pillar }}
+                  ></li>
                 ))}
               </ul>
             </div>
@@ -131,18 +111,14 @@ function AboutUs() {
               <p
                 dangerouslySetInnerHTML={{ __html: t("about.rulesBody") }}
               ></p>
-              <ul className="about-points about-points--rules">
+              <ul className="mission-pillars">
                 {rules.map((rule, i) => (
                   <li
                     key={rule}
-                    className="about-point reveal-scale"
-                    style={{ "--reveal-delay": `${i * 90}ms` }}
-                  >
-                    <span className="about-point__num" aria-hidden="true">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span dangerouslySetInnerHTML={{ __html: rule }}></span>
-                  </li>
+                    className="mission-pillar-item reveal"
+                    style={{ "--reveal-delay": `${i * 80}ms` }}
+                    dangerouslySetInnerHTML={{ __html: rule }}
+                  ></li>
                 ))}
               </ul>
             </div>
@@ -198,14 +174,9 @@ function AboutUs() {
             <p
               dangerouslySetInnerHTML={{ __html: t("about.ctaBody") }}
             ></p>
-            <div className="cta-actions">
-              <a href={APP_URL} className="cta-btn">
-                {t("home.heroCta")}
-              </a>
-              <Link to="/contact" className="ghost-btn">
-                {t("home.ctaSecondaryLabel")}
-              </Link>
-            </div>
+            <Link to="/contact" className="cta-btn">
+              {t("home.heroCta")}
+            </Link>
           </div>
         </section>
       </main>
