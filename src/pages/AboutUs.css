@@ -464,3 +464,102 @@
     padding: 1.2rem;
   }
 }
+
+/* === Story, mission/vision, impact === */
+.about-story {
+  padding-block: clamp(3rem, 8vw, 4.5rem);
+}
+
+.about-story__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: start;
+}
+
+.about-story__title {
+  margin: 0;
+  font-size: clamp(1.9rem, 4vw, 2.4rem);
+  color: var(--text-primary);
+}
+
+.about-quote {
+  margin: 1.4rem 0 0;
+  padding-left: 1.1rem;
+  border-left: 3px solid var(--accent);
+  font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+  line-height: 1.4;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.about-story__text p {
+  margin: 0 0 1.1rem;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.about-mv {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1rem, 3vw, 1.6rem);
+}
+
+.mission-card--vision {
+  background: var(--surface-tinted);
+}
+
+.about-impact {
+  padding-block: clamp(3rem, 8vw, 4.5rem);
+}
+
+.about-impact__eyebrow {
+  margin: 0 0 0.6rem;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 3vw, 1.6rem);
+}
+
+.impact-card {
+  padding: 1.6rem;
+  border-radius: var(--radius-lg);
+  background: #fff;
+  border: 1px solid rgba(18, 28, 22, 0.08);
+  box-shadow: 0 12px 28px rgba(18, 28, 22, 0.06);
+}
+
+.impact-card__num {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
+.impact-card h4 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+}
+
+.impact-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .about-story__grid,
+  .about-mv,
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -29,7 +29,8 @@ const getFounderImage = firstName => {
 
 function AboutUs() {
   const { t } = useTranslation();
-  const pillars = t("about.missionPillars") || [];
+  const storyParagraphs = t("about.storyParagraphs") || [];
+  const impact = t("about.impact") || [];
   const founders = t("about.founders") || [];
   const siteName = t("seo.siteName") || "besayfe";
   const seoDefaults = t("seo.defaults") || {};
@@ -37,7 +38,9 @@ function AboutUs() {
 
   const rules      = t("about.rules") || [];
 
+  const storyRef   = useReveal();
   const missionRef = useReveal();
+  const impactRef  = useReveal();
   const rulesRef   = useReveal();
   const teamRef    = useReveal();
   const ctaRef     = useReveal();
@@ -79,25 +82,68 @@ function AboutUs() {
           </div>
         </section>
 
-        <section className="about-mission" ref={missionRef}>
-          <div className="section-shell about-shell">
-            <div className="mission-card reveal">
+        <section className="about-story" ref={storyRef}>
+          <div className="section-shell about-shell about-story__grid">
+            <div className="reveal">
               <h3
-                dangerouslySetInnerHTML={{ __html: t("about.missionTitle") }}
+                className="about-story__title"
+                dangerouslySetInnerHTML={{ __html: t("about.storyTitle") }}
               ></h3>
+              <blockquote className="about-quote">{t("about.storyQuote")}</blockquote>
+            </div>
+            <div className="about-story__text">
+              {storyParagraphs.map((p, i) => (
+                <p
+                  key={p}
+                  className="reveal"
+                  style={{ "--reveal-delay": `${i * 90}ms` }}
+                  dangerouslySetInnerHTML={{ __html: p }}
+                ></p>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="about-mission" ref={missionRef}>
+          <div className="section-shell about-shell about-mv">
+            <div className="mission-card reveal-scale">
+              <h3>{t("about.missionTitle")}</h3>
+              <p dangerouslySetInnerHTML={{ __html: t("about.missionBody") }}></p>
+            </div>
+            <div
+              className="mission-card mission-card--vision reveal-scale"
+              style={{ "--reveal-delay": "100ms" }}
+            >
+              <h3>{t("about.visionTitle")}</h3>
+              <p dangerouslySetInnerHTML={{ __html: t("about.visionBody") }}></p>
+            </div>
+          </div>
+        </section>
+
+        <section className="about-impact" ref={impactRef}>
+          <div className="section-shell about-shell">
+            <div className="reveal">
+              <p className="about-impact__eyebrow">{t("about.impactEyebrow")}</p>
+              <h3 className="team-title">{t("about.impactTitle")}</h3>
               <p
-                dangerouslySetInnerHTML={{ __html: t("about.missionBody") }}
+                className="team-intro"
+                dangerouslySetInnerHTML={{ __html: t("about.impactIntro") }}
               ></p>
-              <ul className="mission-pillars">
-                {pillars.map((pillar, i) => (
-                  <li
-                    key={pillar}
-                    className="mission-pillar-item reveal"
-                    style={{ "--reveal-delay": `${i * 80}ms` }}
-                    dangerouslySetInnerHTML={{ __html: pillar }}
-                  ></li>
-                ))}
-              </ul>
+            </div>
+            <div className="impact-grid">
+              {impact.map((item, i) => (
+                <article
+                  className="impact-card reveal-scale"
+                  key={item.title}
+                  style={{ "--reveal-delay": `${i * 90}ms` }}
+                >
+                  <span className="impact-card__num" aria-hidden="true">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h4>{item.title}</h4>
+                  <p dangerouslySetInnerHTML={{ __html: item.text }}></p>
+                </article>
+              ))}
             </div>
           </div>
         </section>

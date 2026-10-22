@@ -592,9 +592,9 @@ const translations = {
     "about": {
       "heroTag": "Our story",
       "heroTitle": "Making every table feel safe.",
-      "heroLead": "besayfe started at university, from a simple observation: the information that makes a meal safe already exists in the kitchen, and almost never reaches the person eating it.",
-      "missionTitle": "Why we built besayfe",
-      "missionBody": "We listened to people who hesitate before ordering and to friends who read every menu twice. besayfe puts the answer in their hands: what each dish contains, checked against what they avoid. It comes from the kitchen where the restaurant is on besayfe, and from the menu itself where it is not.",
+      "heroLead": "A safe meal starts with information the kitchen already has. We are getting it to the person eating.",
+      "missionTitle": "Our mission",
+      "missionBody": "To put the answer in the hands of the person eating: what each dish contains, checked against what they avoid. It comes from the kitchen where the restaurant is on besayfe, and from the menu itself where it is not.",
       "missionPillars": [
         "The answer belongs to the person eating.",
         "The kitchen already has the answer. Our job is to get it to the table.",
@@ -622,6 +622,32 @@ const translations = {
         "<strong>Only the restaurant confirms.</strong> Anything the model works out stays marked as unconfirmed and never shows in green.",
         "<strong>Declared beats inferred.</strong> Where official information exists, that is what we show, even when the estimate says otherwise.",
         "<strong>We never call a dish safe.</strong> We tell you what we know, where it came from and what is still unconfirmed. The decision stays yours."
+      ],
+      "storyTitle": "How besayfe began",
+      "storyParagraphs": [
+        "besayfe started as a university project, from a simple observation: the information that makes a meal safe already exists in the kitchen, and almost never reaches the person eating it.",
+        "We listened to people who hesitate before ordering and to friends who read every menu twice. People with allergies live on quick answers given mid-service, and often nobody can check the recipe on the spot.",
+        "Instead of asking each person to ask better questions, we decided to put the information in front of them: what each dish contains, checked against what they avoid, before they even leave home."
+      ],
+      "storyQuote": "The answer belongs to the person eating.",
+      "visionTitle": "Our vision",
+      "visionBody": "A world where eating out does not take courage. Anyone with an allergy opens a restaurant's menu and knows what they can eat without having to ask. And allergen information is as normal on a menu as the price.",
+      "impactEyebrow": "The impact",
+      "impactTitle": "What we want to change",
+      "impactIntro": "Allergies and intolerances shape a decision that should be simple. We want to give that decision back to the person making it.",
+      "impact": [
+        {
+          "title": "More independence",
+          "text": "People with allergies choose a restaurant on their own, without relying on whoever is working that day."
+        },
+        {
+          "title": "More transparency",
+          "text": "More restaurants showing what each dish contains, confirmed by the people who cook it."
+        },
+        {
+          "title": "Less worry at the table",
+          "text": "Families eating out again, when up to 22% of European children show allergic symptoms (SPAIC, 2023)."
+        }
       ]
     }
   },
@@ -1224,9 +1250,9 @@ const translations = {
     "about": {
       "heroTag": "A nossa história",
       "heroTitle": "Garantir segurança em cada escolha.",
-      "heroLead": "O besayfe nasceu de um projeto universitário, a partir de uma observação simples: a informação que torna uma refeição segura já existe na cozinha e quase nunca chega a quem a vai comer.",
-      "missionTitle": "Porque criámos o besayfe",
-      "missionBody": "Ouvimos quem hesita antes de pedir e amigos que leem cada menu duas vezes. O besayfe põe a resposta nas mãos deles: o que cada prato leva, comparado com o que evitam. Vem da cozinha, quando o restaurante está no besayfe, e do próprio menu, quando não está.",
+      "heroLead": "Uma refeição segura começa numa informação que já existe na cozinha. Estamos a fazê-la chegar a quem vai comer.",
+      "missionTitle": "A nossa missão",
+      "missionBody": "Pôr a resposta nas mãos de quem come: o que cada prato leva, comparado com o que a pessoa evita. Vem da cozinha, quando o restaurante está no besayfe, e do próprio menu, quando não está.",
       "missionPillars": [
         "A resposta pertence a quem está a comer.",
         "A cozinha já tem a resposta. O nosso trabalho é fazê-la chegar à mesa.",
@@ -1254,6 +1280,32 @@ const translations = {
         "<strong>Só o restaurante confirma.</strong> O que o modelo estima fica marcado como não confirmado e nunca aparece a verde.",
         "<strong>O declarado ganha ao inferido.</strong> Onde há informação oficial, mostramos essa, mesmo que a estimativa diga outra coisa.",
         "<strong>Nunca dizemos que um prato é seguro.</strong> Dizemos o que sabemos, de onde veio e o que falta confirmar. A decisão continua a ser tua."
+      ],
+      "storyTitle": "Como nasceu o besayfe",
+      "storyParagraphs": [
+        "O besayfe nasceu de um projeto universitário, a partir de uma observação simples: a informação que torna uma refeição segura já existe na cozinha e quase nunca chega a quem a vai comer.",
+        "Fomos ouvir quem hesita antes de pedir e amigos que leem cada menu duas vezes. Quem tem alergias vive de respostas dadas à pressa, a meio do serviço, e muitas vezes ninguém consegue confirmar a receita naquele momento.",
+        "Em vez de pedir a cada pessoa que pergunte melhor, decidimos pôr a informação à frente dela: o que cada prato leva, comparado com o que ela evita, antes mesmo de sair de casa."
+      ],
+      "storyQuote": "A resposta pertence a quem está a comer.",
+      "visionTitle": "A nossa visão",
+      "visionBody": "Um mundo em que comer fora não exige coragem. Qualquer pessoa com uma alergia abre o menu de um restaurante e sabe, sem ter de perguntar, o que pode comer. E a informação sobre alergénios é tão normal num menu como o preço.",
+      "impactEyebrow": "O impacto",
+      "impactTitle": "O que queremos mudar",
+      "impactIntro": "As alergias e as intolerâncias condicionam uma decisão que devia ser simples. Queremos devolver essa decisão a quem a toma.",
+      "impact": [
+        {
+          "title": "Mais autonomia",
+          "text": "Quem tem alergias escolhe o restaurante sozinho, sem depender de quem está de serviço nesse dia."
+        },
+        {
+          "title": "Mais transparência",
+          "text": "Cada vez mais restaurantes a mostrar o que cada prato leva, confirmado por quem o cozinha."
+        },
+        {
+          "title": "Menos receio à mesa",
+          "text": "Famílias que voltam a comer fora, quando até 22% das crianças europeias têm sintomas alérgicos (SPAIC, 2023)."
+        }
       ]
     }
   }
