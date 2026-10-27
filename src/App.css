@@ -4,6 +4,12 @@
   --accent-glow:  rgba(115, 172, 132, 0.22);
   --accent-muted: rgba(115, 172, 132, 0.10);
   --accent-soft:  rgba(115, 172, 132, 0.06);
+  /* #73ac84 is too light for text (2.6:1 on white). Green text uses the ink
+     shade (5.1:1); labels on green fills are dark (5.6:1), so the fill keeps
+     the brand colour. */
+  --accent-ink:   #3d7a52;
+  --accent-hover: #86ba95;
+  --on-accent:    #1f2a22;
 
   /* Safety states, as the app paints pins and dishes */
   --state-safe:   #73ac84;
@@ -15,7 +21,7 @@
   /* Text */
   --text-primary:   #1f2a22;
   --text-secondary: #4d6155;
-  --text-tertiary:  rgba(31, 42, 34, 0.45);
+  --text-tertiary:  rgba(31, 42, 34, 0.65);
 
   /* Surfaces */
   --surface:       #ffffff;
@@ -61,11 +67,13 @@ body {
 
 #root {
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .App {
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   background: var(--surface-muted);
@@ -90,7 +98,7 @@ a {
 
 .highlight {
   font-weight: 700; /* bold */
-  color: var(--accent);
+  color: var(--accent-ink);
 }
 
 
@@ -248,7 +256,7 @@ main {
 
 .nav-btn {
   background-color: var(--accent);
-  color: #fff;
+  color: var(--on-accent);
   padding: 0.65rem 1.4rem;
   border-radius: var(--radius-md);
   font-size: 0.95rem;
@@ -263,10 +271,12 @@ main {
   min-width: 120px;
 }
 
-.nav-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-accent);
-  background-color: #5d9470;
+@media (hover: hover) {
+  .nav-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-accent);
+    background-color: var(--accent-hover);
+  }
 }
 
 .nav-btn:active {
@@ -309,7 +319,7 @@ main {
   padding: 0.85rem 1.65rem;
   border-radius: var(--radius-md);
   background: var(--accent);
-  color: #fff;
+  color: var(--on-accent);
   font-weight: 600;
   font-size: 1rem;
   letter-spacing: -0.01em;
@@ -319,10 +329,12 @@ main {
     background-color var(--transition-base);
 }
 
-.cta-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-accent);
-  background-color: #5d9470;
+@media (hover: hover) {
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-accent);
+    background-color: var(--accent-hover);
+  }
 }
 
 .cta-btn:active {
@@ -362,7 +374,7 @@ main {
 
 .feature-card h4 {
   margin: 0;
-  color: var(--accent);
+  color: var(--accent-ink);
   font-size: 1.35rem;
 }
 
@@ -409,7 +421,7 @@ main {
   font-size: 0.78rem;
   letter-spacing: 0.10em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-ink);
   font-weight: 700;
   opacity: 0.85;
 }
@@ -455,14 +467,18 @@ main {
   pointer-events: none;
 }
 
-.problem-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-  border-color: rgba(115, 172, 132, 0.18);
+@media (hover: hover) {
+  .problem-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(115, 172, 132, 0.18);
+  }
 }
 
-.problem-card:hover::after {
-  opacity: 1;
+@media (hover: hover) {
+  .problem-card:hover::after {
+    opacity: 1;
+  }
 }
 
 .problem-icon {
@@ -542,14 +558,18 @@ main {
   pointer-events: none;
 }
 
-.solution-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-  border-color: rgba(115, 172, 132, 0.18);
+@media (hover: hover) {
+  .solution-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(115, 172, 132, 0.18);
+  }
 }
 
-.solution-card:hover::after {
-  opacity: 1;
+@media (hover: hover) {
+  .solution-card:hover::after {
+    opacity: 1;
+  }
 }
 
 .solution-icon {
@@ -618,10 +638,12 @@ main {
   opacity: 0.7;
 }
 
-.social-proof-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-  border-color: rgba(115, 172, 132, 0.15);
+@media (hover: hover) {
+  .social-proof-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(115, 172, 132, 0.15);
+  }
 }
 
 .social-proof-icon {
@@ -685,6 +707,10 @@ main {
   pointer-events: none;
 }
 
+.home-cta-card .highlight {
+  color: var(--accent);
+}
+
 .home-cta-card {
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(8px);
@@ -740,11 +766,13 @@ main {
     box-shadow var(--transition-base);
 }
 
-.ghost-btn:hover {
-  transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.90);
-  background: rgba(255, 255, 255, 0.10);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
+@media (hover: hover) {
+  .ghost-btn:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.90);
+    background: rgba(255, 255, 255, 0.10);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
+  }
 }
 
 .ghost-btn:active {
@@ -989,7 +1017,7 @@ main {
   padding: 0.9rem 1.75rem;
   border-radius: var(--radius-md);
   background: var(--accent);
-  color: #fff;
+  color: var(--on-accent);
   font-weight: 600;
   font-size: 1rem;
   letter-spacing: -0.01em;
@@ -999,10 +1027,12 @@ main {
     background-color var(--transition-base);
 }
 
-.demo-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-accent);
-  background-color: #5d9470;
+@media (hover: hover) {
+  .demo-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-accent);
+    background-color: var(--accent-hover);
+  }
 }
 
 .demo-btn:active {
@@ -1250,7 +1280,7 @@ main {
   font-weight: 900;
   line-height: 1;
   letter-spacing: -0.05em;
-  color: var(--accent);
+  color: var(--accent-ink);
   pointer-events: none;
   font-variant-numeric: tabular-nums;
   user-select: none;
@@ -1276,12 +1306,14 @@ main {
    ================================================================ */
 
 /* Solution cards — slightly bigger lift than problem cards */
-.solution-card:hover {
-  transform: translateY(-8px) scale(1.015);
-  box-shadow:
-    0 24px 52px rgba(18, 42, 28, 0.14),
-    0 6px 16px rgba(115, 172, 132, 0.12);
-  border-color: rgba(115, 172, 132, 0.24);
+@media (hover: hover) {
+  .solution-card:hover {
+    transform: translateY(-8px) scale(1.015);
+    box-shadow:
+      0 24px 52px rgba(18, 42, 28, 0.14),
+      0 6px 16px rgba(115, 172, 132, 0.12);
+    border-color: rgba(115, 172, 132, 0.24);
+  }
 }
 
 /* Social proof accent stripe grows on hover */
@@ -1291,9 +1323,11 @@ main {
     opacity var(--transition-base);
 }
 
-.social-proof-card:hover::before {
-  width: 4px;
-  opacity: 1;
+@media (hover: hover) {
+  .social-proof-card:hover::before {
+    width: 4px;
+    opacity: 1;
+  }
 }
 
 /* ================================================================
@@ -1328,14 +1362,16 @@ main {
 /* The base ghost button lives on the dark CTA band, so the hero needs a light variant. */
 .hero-actions .ghost-btn {
   border-color: rgba(115, 172, 132, 0.45);
-  color: var(--accent);
+  color: var(--accent-ink);
   background: rgba(115, 172, 132, 0.06);
 }
 
-.hero-actions .ghost-btn:hover {
-  border-color: var(--accent);
-  background: rgba(115, 172, 132, 0.12);
-  box-shadow: var(--shadow-sm);
+@media (hover: hover) {
+  .hero-actions .ghost-btn:hover {
+    border-color: var(--accent);
+    background: rgba(115, 172, 132, 0.12);
+    box-shadow: var(--shadow-sm);
+  }
 }
 
 .product-mock {
@@ -1639,10 +1675,12 @@ main {
     border-color var(--transition-base);
 }
 
-.home-feature-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(115, 172, 132, 0.34);
-  box-shadow: var(--shadow-md);
+@media (hover: hover) {
+  .home-feature-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(115, 172, 132, 0.34);
+    box-shadow: var(--shadow-md);
+  }
 }
 
 .home-feature-step {
@@ -1650,7 +1688,7 @@ main {
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.06em;
-  color: var(--accent);
+  color: var(--accent-ink);
   font-variant-numeric: tabular-nums;
   margin-bottom: 0.7rem;
 }
@@ -1795,9 +1833,11 @@ main {
   transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
-.cities-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+@media (hover: hover) {
+  .cities-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
 }
 
 .cities-note {
@@ -1820,13 +1860,15 @@ main {
   }
 }
 
-.mock-disclaimer {
-  width: min(420px, 100%);
-  margin: 0.9rem auto 0;
-  font-size: 0.78rem;
+/* Safety note: as readable as the trust line above it, not small print. */
+.hero-disclaimer {
+  margin: 1rem 0 0;
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--state-warn);
+  font-size: 0.9rem;
   line-height: 1.5;
-  color: var(--text-tertiary);
-  text-align: center;
+  color: var(--text-secondary);
+  text-align: left;
 }
 
 /* Contact: direct email fallback under the form. */
@@ -1838,14 +1880,16 @@ main {
 }
 
 .contact-direct a {
-  color: var(--accent);
+  color: var(--accent-ink);
   font-weight: 600;
   border-bottom: 1px solid rgba(115, 172, 132, 0.4);
   transition: border-color var(--transition-base);
 }
 
-.contact-direct a:hover {
-  border-bottom-color: var(--accent);
+@media (hover: hover) {
+  .contact-direct a:hover {
+    border-bottom-color: var(--accent);
+  }
 }
 
 /* ================================================================
@@ -1878,9 +1922,11 @@ main {
   transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
-.app-shot:hover .app-shot__frame {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
+@media (hover: hover) {
+  .app-shot:hover .app-shot__frame {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+  }
 }
 
 .app-shot__frame img {
@@ -1958,7 +2004,7 @@ button.demo-btn {
 
 .hero-trust li::before {
   content: "✓";
-  color: var(--accent);
+  color: var(--accent-ink);
   font-weight: 700;
   margin-right: 0.4rem;
 }
@@ -2068,7 +2114,7 @@ button.demo-btn {
 
 .faq-item summary::after {
   content: "+";
-  color: var(--accent);
+  color: var(--accent-ink);
   font-size: 1.3rem;
   line-height: 1;
   transition: transform var(--transition-base);
@@ -2116,7 +2162,7 @@ button.demo-btn {
     padding: 0.9rem 1.2rem;
     border-radius: var(--radius-md);
     background: var(--accent);
-    color: #fff;
+    color: var(--on-accent);
     font-weight: 600;
     box-shadow: var(--shadow-accent);
     opacity: 0;
@@ -2192,5 +2238,36 @@ button.demo-btn {
   select:focus-visible,
   .language-switcher:focus-within:has(:focus-visible) {
     outline-color: #2f604a;
+  }
+}
+
+/* ================================================================
+   SHORT SCREENS (a phone on its side, ~390px tall)
+   The header shrinks and the hero loses padding so the main button
+   is on the first screen.
+   ================================================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+  .site-header--pinned {
+    padding-top: calc(env(safe-area-inset-top, 0px) + 0.35rem);
+  }
+
+  .navbar {
+    padding-block: 0.35rem;
+  }
+
+  .demo-section {
+    padding-block: 1.5rem 3rem;
+  }
+
+  .demo-shell {
+    gap: 2rem;
+  }
+
+  .demo-title {
+    font-size: 2rem;
+  }
+
+  .demo-text {
+    margin-block: 0.6rem 1rem;
   }
 }

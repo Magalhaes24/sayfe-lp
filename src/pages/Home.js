@@ -164,6 +164,12 @@ function Home() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+              {/* Sits by the buttons, not under the mock: the warning has to be
+                  read before someone opens the map. */}
+              <p
+                className="hero-disclaimer"
+                dangerouslySetInnerHTML={{ __html: t("home.disclaimer") }}
+              ></p>
             </div>
 
             <div className="demo-visual">
@@ -233,11 +239,6 @@ function Home() {
                   ))}
                 </article>
               </div>
-
-              <p
-                className="mock-disclaimer"
-                dangerouslySetInnerHTML={{ __html: t("home.disclaimer") }}
-              ></p>
             </div>
           </div>
         </section>

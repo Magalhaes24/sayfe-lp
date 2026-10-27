@@ -212,12 +212,12 @@ const translations = {
         {
           "tone": "safe",
           "title": "Green",
-          "text": "There are safe options, confirmed by the restaurant."
+          "text": "There are dishes free of your allergens, confirmed by the restaurant."
         },
         {
           "tone": "likely",
           "title": "Blue",
-          "text": "Looks safe, but nobody has confirmed it yet."
+          "text": "Free of your allergens, unconfirmed."
         },
         {
           "tone": "warn",
@@ -227,7 +227,7 @@ const translations = {
         {
           "tone": "danger",
           "title": "Red",
-          "text": "No safe options for you."
+          "text": "No dishes free of your allergens."
         },
         {
           "tone": "nodata",
@@ -911,12 +911,12 @@ const translations = {
         {
           "tone": "safe",
           "title": "Verde",
-          "text": "Há opções seguras, confirmadas pelo restaurante."
+          "text": "Há pratos sem as tuas alergias, confirmados pelo restaurante."
         },
         {
           "tone": "likely",
           "title": "Azul",
-          "text": "Parece seguro, mas ainda ninguém confirmou."
+          "text": "Sem as tuas alergias, por confirmar."
         },
         {
           "tone": "warn",
@@ -926,7 +926,7 @@ const translations = {
         {
           "tone": "danger",
           "title": "Encarnado",
-          "text": "Não há opções seguras para ti."
+          "text": "Não há pratos sem as tuas alergias."
         },
         {
           "tone": "nodata",

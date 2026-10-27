@@ -30,11 +30,29 @@ function highlightBesayfe(text) {
   });
 }
 
+// First visit follows the browser, so a tourist lands in English. Crawlers
+// report en-US too, and the canonical page is Portuguese, so they keep the default.
+function detectLanguage() {
+  const agent = window.navigator.userAgent || "";
+  if (/bot|crawler|spider|lighthouse|prerender/i.test(agent)) return DEFAULT_LANGUAGE;
+  const preferred = window.navigator.languages || [window.navigator.language];
+  for (const tag of preferred) {
+    const base = (tag || "").slice(0, 2).toLowerCase();
+    if (translations[base]) return base;
+  }
+  return DEFAULT_LANGUAGE;
+}
+
 export function LanguageProvider({ children }) {
   const [language, setLanguage] = useState(() => {
     if (typeof window === "undefined") return DEFAULT_LANGUAGE;
-    const stored = window.localStorage.getItem(STORAGE_KEY);
-    return stored && translations[stored] ? stored : DEFAULT_LANGUAGE;
+    let stored = null;
+    try {
+      stored = window.localStorage.getItem(STORAGE_KEY);
+    } catch (error) {
+      // Storage can be blocked (private mode); fall back to the browser.
+    }
+    return stored && translations[stored] ? stored : detectLanguage();
   });
 
   useEffect(() => {
@@ -42,7 +60,11 @@ export function LanguageProvider({ children }) {
       document.documentElement.lang = language;
     }
     if (typeof window !== "undefined") {
-      window.localStorage.setItem(STORAGE_KEY, language);
+      try {
+        window.localStorage.setItem(STORAGE_KEY, language);
+      } catch (error) {
+        // Not remembered this time; the browser language still applies.
+      }
     }
   }, [language]);
 
