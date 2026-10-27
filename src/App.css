@@ -95,7 +95,8 @@ a {
 
 
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+select:focus-visible {
   outline: 3px solid rgba(115, 172, 132, 0.45);
   outline-offset: 3px;
 }
@@ -192,6 +193,7 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  min-height: 44px;
   text-decoration: none;
 }
 
@@ -234,8 +236,14 @@ main {
   padding: 0.1rem 0.3rem;
 }
 
-.language-select:focus {
+/* The ring goes on the pill around the select, so it follows the pill's shape. */
+.language-select:focus-visible {
   outline: none;
+}
+
+.language-switcher:focus-within:has(:focus-visible) {
+  outline: 3px solid rgba(115, 172, 132, 0.45);
+  outline-offset: 3px;
 }
 
 .nav-btn {
@@ -648,6 +656,13 @@ main {
   color: rgba(18, 28, 22, 0.66);
 }
 
+/* Source links are short text; this gives them a 44px hit area without moving the line. */
+.social-proof-meta a {
+  display: inline-block;
+  padding-block: 0.8rem;
+  margin-block: -0.8rem;
+}
+
 .home-cta {
   padding-block: clamp(3.5rem, 10vw, 5.5rem);
   background:
@@ -865,7 +880,8 @@ main {
   overflow: hidden;
 }
 
-.home-main > *:not(.dotGrid-background) {
+/* The sticky CTA is left out: it has to stay position: fixed. */
+.home-main > *:not(.dotGrid-background):not(.sticky-cta) {
   position: relative;
   z-index: 1;
 }
@@ -2103,6 +2119,78 @@ button.demo-btn {
     color: #fff;
     font-weight: 600;
     box-shadow: var(--shadow-accent);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(calc(100% + 1rem + env(safe-area-inset-bottom, 0px)));
+    transition:
+      transform 420ms var(--ease-spring),
+      opacity var(--transition-base);
   }
+
+  .sticky-cta.is-shown {
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .sticky-cta:active {
+    transform: scale(0.97);
+    transition-duration: var(--duration-micro);
+  }
+
   .home-main { padding-bottom: 5rem; }
+}
+
+/* ================================================================
+   USER DISPLAY PREFERENCES
+   Same idea as the iOS 27 transparency setting: people who turn
+   transparency down get solid surfaces, and people who ask for more
+   contrast get darker text, firmer borders and a solid focus ring.
+   ================================================================ */
+
+@media (prefers-reduced-transparency: reduce) {
+  .navbar,
+  .navbar--pinned,
+  .language-switcher {
+    background: var(--surface);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .home-cta-card {
+    background: #14281b;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --text-secondary: #2b3a30;
+    --text-tertiary:  rgba(31, 42, 34, 0.75);
+  }
+
+  .navbar,
+  .navbar--pinned {
+    background: var(--surface);
+    border: 1px solid rgba(18, 42, 28, 0.4);
+  }
+
+  .language-switcher,
+  .mock-card,
+  .mock-dish-row,
+  .legend-card {
+    border-color: rgba(18, 42, 28, 0.4);
+  }
+
+  .home-cta-card {
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  select:focus-visible,
+  .language-switcher:focus-within:has(:focus-visible) {
+    outline-color: #2f604a;
+  }
 }

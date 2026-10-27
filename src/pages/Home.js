@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import DotGrid from "../components/DotGrid";
 import { useTranslation } from "../contexts/LanguageContext";
@@ -62,8 +62,6 @@ function Home() {
   const citiesStats = t("home.citiesStats") || [];
   const cityItems = t("home.cities") || [];
 
-  // Scrolls without touching the URL hash: a hash change would restart the
-  // global loading screen, which watches the whole location object.
   const problemRef  = useReveal();
   const solutionRef = useReveal();
   const citiesRef   = useReveal();
@@ -71,6 +69,31 @@ function Home() {
   const featuresRef = useReveal();
   const socialRef   = useReveal();
   const ctaRef      = useReveal();
+  const heroActionsRef = useRef(null);
+  const [showStickyCta, setShowStickyCta] = useState(false);
+
+  // The phone-only sticky button appears once the hero buttons have scrolled
+  // away, and leaves again when the final CTA comes into view (or is passed),
+  // so it never doubles a visible button or covers the footer.
+  useEffect(() => {
+    const hero = heroActionsRef.current;
+    const cta = ctaRef.current;
+    if (!hero || !cta || typeof IntersectionObserver === "undefined") return;
+
+    const state = { heroAbove: false, ctaReached: false };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const above = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+        if (entry.target === hero) state.heroAbove = above;
+        else state.ctaReached = entry.isIntersecting || above;
+      });
+      setShowStickyCta(state.heroAbove && !state.ctaReached);
+    });
+
+    io.observe(hero);
+    io.observe(cta);
+    return () => io.disconnect();
+  }, [ctaRef]);
 
   return (
     <div className="App">
@@ -118,7 +141,7 @@ function Home() {
                 className="demo-text"
                 dangerouslySetInnerHTML={{ __html: t("home.heroText") }}
               ></p>
-              <div className="hero-actions">
+              <div className="hero-actions" ref={heroActionsRef}>
                 <a href={APP_URL} className="demo-btn">
                   <span
                     dangerouslySetInnerHTML={{ __html: t("home.heroCta") }}
@@ -388,7 +411,6 @@ function Home() {
                       alt={item.title}
                       loading="lazy"
                       decoding="async"
-                      data-skip-preload="true"
                       width="750"
                       height="1280"
                     />
@@ -529,7 +551,12 @@ function Home() {
           </div>
         </section>
 
-        <a href={APP_URL} className="sticky-cta" aria-label={t("home.stickyCta")}>
+        <a
+          href={APP_URL}
+          className={`sticky-cta${showStickyCta ? " is-shown" : ""}`}
+          aria-hidden={!showStickyCta}
+          tabIndex={showStickyCta ? undefined : -1}
+        >
           {t("home.stickyCta")}
         </a>
       </main>
