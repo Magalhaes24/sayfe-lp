@@ -111,9 +111,9 @@ const translations = {
     "home": {
       "heroCta": "Open the map",
       "heroTrust": [
-        "100+ restaurants on the map",
-        "14 allergens",
-        "Nothing to install",
+        "349 restaurants with a menu",
+        "14 EU allergens",
+        "No install, no sign-up",
         "Portuguese and English"
       ],
       "legendEyebrow": "Reading the map",
@@ -142,6 +142,17 @@ const translations = {
         }
       ],
       "allergensLabel": "Covers all 14 allergens that restaurants must declare in the EU",
+      "citiesEyebrow": "Already on the map",
+      "citiesTitle": "349 restaurants, from Viana do Castelo to the Algarve",
+      "citiesIntro": "More than 50 towns, Madeira and the Azores included. Every menu is checked against the 14 EU allergens, so you can open it before you leave home.",
+      "citiesStats": [
+        { "value": "349", "label": "restaurants with a menu" },
+        { "value": "50+", "label": "towns and cities" },
+        { "value": "14", "label": "allergens per dish" }
+      ],
+      "cities": ["Porto", "Lisboa", "Guimarães", "Sesimbra", "Braga", "Setúbal", "Loulé", "Faro", "Olhão", "Funchal", "Coimbra", "Aveiro", "Cascais", "Ponta Delgada"],
+      "citiesCta": "See every restaurant",
+      "citiesNote": "Not there yet? Photograph the menu and it goes on the map for the next person.",
       "allergens": [
         "🌾 Gluten",
         "🦐 Crustaceans",
@@ -186,6 +197,10 @@ const translations = {
       "heroSecondaryCta": "See how it works",
       "mock": {
         "menuTag": "Restaurant menu",
+        "search": "Search restaurant, city or area…",
+        "allergiesPill": "Allergies",
+        "filtersPill": "Filters",
+        "listPill": "View list (349)",
         "filterLabel": "Your profile",
         "filterChips": [
           "Gluten",
@@ -769,9 +784,9 @@ const translations = {
     "home": {
       "heroCta": "Abrir o mapa",
       "heroTrust": [
-        "Mais de 100 restaurantes no mapa",
-        "14 alergénios",
-        "Sem instalar nada",
+        "349 restaurantes com menu",
+        "14 alergénios da UE",
+        "Sem instalar nem registar",
         "Português e inglês"
       ],
       "legendEyebrow": "Como ler o mapa",
@@ -800,6 +815,17 @@ const translations = {
         }
       ],
       "allergensLabel": "Cobre os 14 alergénios que os restaurantes têm de declarar na UE",
+      "citiesEyebrow": "Já no mapa",
+      "citiesTitle": "349 restaurantes, de Viana do Castelo ao Algarve",
+      "citiesIntro": "Mais de 50 localidades, com a Madeira e os Açores incluídos. Cada menu é cruzado com os 14 alergénios da UE, para o abrires antes de saíres de casa.",
+      "citiesStats": [
+        { "value": "349", "label": "restaurantes com menu" },
+        { "value": "50+", "label": "cidades e vilas" },
+        { "value": "14", "label": "alergénios por prato" }
+      ],
+      "cities": ["Porto", "Lisboa", "Guimarães", "Sesimbra", "Braga", "Setúbal", "Loulé", "Faro", "Olhão", "Funchal", "Coimbra", "Aveiro", "Cascais", "Ponta Delgada"],
+      "citiesCta": "Ver todos os restaurantes",
+      "citiesNote": "O teu ainda não está? Fotografa o menu e ele entra no mapa para a próxima pessoa.",
       "allergens": [
         "🌾 Glúten",
         "🦐 Crustáceos",
@@ -844,6 +870,10 @@ const translations = {
       "heroSecondaryCta": "Ver como funciona",
       "mock": {
         "menuTag": "Menu do restaurante",
+        "search": "Pesquisar restaurante, cidade ou zona…",
+        "allergiesPill": "Alergias",
+        "filtersPill": "Filtros",
+        "listPill": "Ver lista (349)",
         "filterLabel": "O teu perfil",
         "filterChips": [
           "Glúten",

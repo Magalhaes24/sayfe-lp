@@ -17,6 +17,7 @@ const APP_SHOTS = {
 };
 
 const APP_URL = "https://besayfe.com/mapa";
+const RESTAURANTS_URL = "https://besayfe.com/restaurantes";
 
 const scrollToHow = () => {
   const el = document.getElementById("how-it-works");
@@ -43,11 +44,14 @@ function Home() {
   const galleryItems = t("home.gallery.items") || [];
   const featureItems = t("home.features.items") || [];
   const socialProofItems = t("home.socialProof.items") || [];
+  const citiesStats = t("home.citiesStats") || [];
+  const cityItems = t("home.cities") || [];
 
   // Scrolls without touching the URL hash: a hash change would restart the
   // global loading screen, which watches the whole location object.
   const problemRef  = useReveal();
   const solutionRef = useReveal();
+  const citiesRef   = useReveal();
   const galleryRef  = useReveal();
   const featuresRef = useReveal();
   const socialRef   = useReveal();
@@ -127,6 +131,20 @@ function Home() {
             <div className="demo-visual">
               {/* The menu as a guest reads it: their profile, then the dishes. */}
               <div className="product-mock" aria-hidden="true">
+                {/* The app's map screen: search, filter pills, pins coloured for the profile. */}
+                <div className="mock-map">
+                  <div className="mock-map__search">{mock.search}</div>
+                  <div className="mock-map__pills">
+                    <span>{mock.allergiesPill}</span>
+                    <span>{mock.filtersPill}</span>
+                  </div>
+                  <span className="mock-pin mock-pin--safe" style={{ top: "58%", left: "22%" }}></span>
+                  <span className="mock-pin mock-pin--info" style={{ top: "70%", left: "48%" }}></span>
+                  <span className="mock-pin mock-pin--safe" style={{ top: "52%", left: "66%" }}></span>
+                  <span className="mock-pin mock-pin--warn" style={{ top: "76%", left: "80%" }}></span>
+                  <span className="mock-pin mock-pin--danger" style={{ top: "64%", left: "36%" }}></span>
+                  <span className="mock-map__list">{mock.listPill}</span>
+                </div>
                 <article className="mock-card mock-card--menu">
                   <span className="mock-tag">{mock.menuTag}</span>
 
@@ -273,6 +291,36 @@ function Home() {
                 <li key={a}>{a}</li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        {/* === Coverage: the same numbers the app's restaurant list shows === */}
+        <section className="cities" ref={citiesRef}>
+          <div className="section-shell">
+            <div className="section-heading section-heading--center reveal">
+              <p className="section-eyebrow">{t("home.citiesEyebrow")}</p>
+              <h3 className="section-title">{t("home.citiesTitle")}</h3>
+              <p className="section-intro">{t("home.citiesIntro")}</p>
+            </div>
+            <dl className="cities-stats reveal">
+              {citiesStats.map((stat) => (
+                <div className="cities-stat" key={stat.label}>
+                  <dt>{stat.value}</dt>
+                  <dd>{stat.label}</dd>
+                </div>
+              ))}
+            </dl>
+            <ul className="cities-list reveal">
+              {cityItems.map((city) => (
+                <li key={city}>{city}</li>
+              ))}
+            </ul>
+            <div className="cities-actions reveal">
+              <a href={RESTAURANTS_URL} className="cities-btn">
+                {t("home.citiesCta")}
+              </a>
+              <p className="cities-note">{t("home.citiesNote")}</p>
+            </div>
           </div>
         </section>
 
