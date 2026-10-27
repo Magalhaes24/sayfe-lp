@@ -21,11 +21,23 @@ if (!fs.existsSync(indexFile)) {
   process.exit(1);
 }
 
-const html = fs.readFileSync(indexFile);
+const SITE = "https://landing.besayfe.com/";
+const html = fs.readFileSync(indexFile, "utf8");
 
 for (const route of ROUTES) {
+  // The template's canonical points at the home page. Left as is, Google reads
+  // each route as a duplicate of "/" and leaves it out of the index.
+  const pageUrl = `${SITE}${route}/`;
+  const routeHtml = html
+    .replace(`<link rel="canonical" href="${SITE}"`, `<link rel="canonical" href="${pageUrl}"`)
+    .replace(`<meta property="og:url" content="${SITE}"`, `<meta property="og:url" content="${pageUrl}"`)
+    .replace(`<meta name="twitter:url" content="${SITE}"`, `<meta name="twitter:url" content="${pageUrl}"`);
+  if (!routeHtml.includes(`<link rel="canonical" href="${pageUrl}"`)) {
+    console.error(`spa-fallback: canonical tag not found for /${route}/, check public/index.html.`);
+    process.exit(1);
+  }
   const dir = path.join(buildDir, route);
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, "index.html"), html);
+  fs.writeFileSync(path.join(dir, "index.html"), routeHtml);
   console.log(`spa-fallback: wrote build/${route}/index.html`);
 }
