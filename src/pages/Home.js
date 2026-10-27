@@ -4,17 +4,32 @@ import DotGrid from "../components/DotGrid";
 import { useTranslation } from "../contexts/LanguageContext";
 import { useReveal } from "../hooks/useReveal";
 import Seo from "../components/Seo";
-import ssAllergens from "../assets/app/ss-allergens.webp";
-import ssMap from "../assets/app/ss-map.webp";
-import ssMenuDanger from "../assets/app/ss-menu-danger.webp";
-import ssContribution from "../assets/app/ss-contribution.webp";
+import SafetyIcon from "../components/SafetyIcon";
+import shotAllergens from "../assets/app/app-allergens.jpg";
+import shotMap from "../assets/app/app-map.jpg";
+import shotMenu from "../assets/app/app-menu.jpg";
+import shotContribution from "../assets/app/app-contribution.jpg";
 
 const APP_SHOTS = {
-  allergens: ssAllergens,
-  map: ssMap,
-  "menu-danger": ssMenuDanger,
-  contribution: ssContribution
+  allergens: shotAllergens,
+  map: shotMap,
+  menu: shotMenu,
+  contribution: shotContribution
 };
+
+// Pins as the app draws them: state, position on the mock map, and an
+// optional cluster count (clusters show a ring split by state).
+const MOCK_PINS = [
+  { tone: "warn", top: 44, left: 12 },
+  { tone: "likely", top: 30, left: 78 },
+  { tone: "danger", top: 44, left: 52 },
+  { tone: "safe", top: 62, left: 26 },
+  { tone: "warn", top: 58, left: 84 },
+  { tone: "cluster", top: 46, left: 33, count: 4 },
+  { tone: "cluster", top: 66, left: 64, count: 3 },
+  { tone: "dot", top: 36, left: 40 },
+  { tone: "dot", top: 74, left: 46 }
+];
 
 const APP_URL = "https://besayfe.com/mapa";
 const RESTAURANTS_URL = "https://besayfe.com/restaurantes";
@@ -37,7 +52,7 @@ function Home() {
   const seo = t("seo.home") || {};
 
   const mock = t("home.mock") || {};
-  const mockFilters = mock.filterChips || [];
+  const mockCategories = mock.categories || [];
   const mockDishes = mock.dishes || [];
   const problemPoints = t("home.problem.points") || [];
   const solutionSteps = t("home.solution.steps") || [];
@@ -129,52 +144,68 @@ function Home() {
             </div>
 
             <div className="demo-visual">
-              {/* The menu as a guest reads it: their profile, then the dishes. */}
+              {/* The app's map screen, with a restaurant's menu sheet on top. */}
               <div className="product-mock" aria-hidden="true">
-                {/* The app's map screen: search, filter pills, pins coloured for the profile. */}
                 <div className="mock-map">
-                  <div className="mock-map__search">{mock.search}</div>
-                  <div className="mock-map__pills">
-                    <span>{mock.allergiesPill}</span>
-                    <span>{mock.filtersPill}</span>
+                  <div className="mock-map__search">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+                      <circle cx="11" cy="11" r="7" />
+                      <path d="m20 20-3.5-3.5" />
+                    </svg>
+                    {mock.search}
                   </div>
-                  <span className="mock-pin mock-pin--safe" style={{ top: "58%", left: "22%" }}></span>
-                  <span className="mock-pin mock-pin--info" style={{ top: "70%", left: "48%" }}></span>
-                  <span className="mock-pin mock-pin--safe" style={{ top: "52%", left: "66%" }}></span>
-                  <span className="mock-pin mock-pin--warn" style={{ top: "76%", left: "80%" }}></span>
-                  <span className="mock-pin mock-pin--danger" style={{ top: "64%", left: "36%" }}></span>
+                  <div className="mock-map__pills">
+                    <span className="mock-map__pill mock-map__pill--active">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                      {mock.allergiesPill}
+                    </span>
+                    <span className="mock-map__pill">{mock.filtersPill}</span>
+                  </div>
+                  {MOCK_PINS.map((pin, i) => (
+                    <span
+                      key={i}
+                      className={`mock-pin mock-pin--${pin.tone}`}
+                      style={{ top: `${pin.top}%`, left: `${pin.left}%` }}
+                    >
+                      {pin.tone === "cluster" ? (
+                        <>
+                          <span className="mock-pin__core">≡</span>
+                          <span className="mock-pin__count">{pin.count}</span>
+                        </>
+                      ) : pin.tone !== "dot" ? (
+                        <SafetyIcon tone={pin.tone} size={13} strokeWidth={2.5} />
+                      ) : null}
+                    </span>
+                  ))}
                   <span className="mock-map__list">{mock.listPill}</span>
                 </div>
+
                 <article className="mock-card mock-card--menu">
-                  <span className="mock-tag">{mock.menuTag}</span>
-
-                  <div className="mock-profile">
-                    <span className="mock-profile__label">
-                      {mock.filterLabel}
-                    </span>
-                    <ul className="mock-allergens">
-                      {mockFilters.map((allergen) => (
-                        <li className="mock-chip mock-chip--active" key={allergen}>
-                          {allergen}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
+                  <p className="mock-summary">{mock.summary}</p>
+                  <ul className="mock-tabs">
+                    {mockCategories.map((cat, i) => (
+                      <li key={cat} className={i === 0 ? "is-active" : undefined}>
+                        {cat}
+                      </li>
+                    ))}
+                  </ul>
                   {mockDishes.map((dish) => (
-                    <div className="mock-dish-block" key={dish.name}>
-                      <h3 className="mock-dish">{dish.name}</h3>
-                      <p className="mock-category">{dish.category}</p>
-                      <ul className="mock-allergens">
-                        {(dish.allergens || []).map((allergen) => (
-                          <li className="mock-chip" key={allergen}>
-                            {allergen}
-                          </li>
-                        ))}
-                      </ul>
-                      <p className={`mock-status mock-status--${dish.status}`}>
-                        {dish.statusLabel}
-                      </p>
+                    <div className={`mock-dish-row mock-dish-row--${dish.status}`} key={dish.name}>
+                      <span className="mock-tile">
+                        <SafetyIcon tone={dish.status} size={16} />
+                      </span>
+                      <div className="mock-dish-row__body">
+                        <div className="mock-dish-row__top">
+                          <span className="mock-dish-row__name">{dish.name}</span>
+                          <span className="mock-dish-row__price">{dish.price}</span>
+                        </div>
+                        <span className="mock-dish-row__status">{dish.statusLabel}</span>
+                        {dish.detail && (
+                          <span className="mock-dish-row__detail">{dish.detail}</span>
+                        )}
+                      </div>
                     </div>
                   ))}
                 </article>
@@ -277,7 +308,9 @@ function Home() {
                   key={item.tone}
                   style={{ "--reveal-delay": `${i * 80}ms` }}
                 >
-                  <span className="legend-dot" aria-hidden="true"></span>
+                  <span className="legend-pin" aria-hidden="true">
+                    <SafetyIcon tone={item.tone} size={18} strokeWidth={2.5} />
+                  </span>
                   <h4>{item.title}</h4>
                   <p>{item.text}</p>
                 </article>
@@ -356,8 +389,8 @@ function Home() {
                       loading="lazy"
                       decoding="async"
                       data-skip-preload="true"
-                      width="720"
-                      height="1210"
+                      width="750"
+                      height="1280"
                     />
                   </div>
                   <figcaption>

@@ -33,7 +33,7 @@ const translations = {
         "image": "/logo1000.png"
       },
       "home": {
-        "title": "besayfe | See what is on the plate before you order",
+        "title": "besayfe | See what goes into every dish before you order",
         "description": "Set the allergens you avoid, open the map and see restaurant menus dish by dish. No menu yet? A photo is enough to get an estimate in seconds.",
         "keywords": [
           "allergy menu app",
@@ -109,50 +109,133 @@ const translations = {
       }
     },
     "home": {
+      "heroEyebrow": "For people with allergies who eat out",
+      "heroTitle": "See what goes into every dish before you order.",
+      "heroText": "Pick your allergies and besayfe marks, dish by dish, what you can eat at each restaurant. If the menu isn't in the app yet, just take a photo of it.",
       "heroCta": "Open the map",
+      "heroSecondaryCta": "See how it works",
       "heroTrust": [
         "349 restaurants with a menu",
         "14 EU allergens",
-        "No install, no sign-up",
-        "Portuguese and English"
+        "No install, no account",
+        "In Portuguese and English"
       ],
+      "disclaimer": "besayfe is here to inform. It does not replace confirming allergens with the restaurant.",
+      "mock": {
+        "search": "Search restaurant, city or area…",
+        "allergiesPill": "2 allergies",
+        "filtersPill": "Filters",
+        "listPill": "View list",
+        "summary": "2 of 4 dishes free of your allergens",
+        "categories": [
+          "Mains",
+          "Starters",
+          "Desserts"
+        ],
+        "dishes": [
+          {
+            "name": "Polvo à lagareiro",
+            "price": "€18.50",
+            "status": "safe",
+            "statusLabel": "Free of your allergens",
+            "detail": "Contains: Molluscs"
+          },
+          {
+            "name": "Arroz de pato",
+            "price": "€14.00",
+            "status": "likely",
+            "statusLabel": "Free of your allergens, unconfirmed"
+          },
+          {
+            "name": "Lulas grelhadas",
+            "price": "€15.50",
+            "status": "caution",
+            "statusLabel": "Possible cross-contact · Gluten",
+            "detail": "Contains: Molluscs"
+          },
+          {
+            "name": "Bacalhau com natas",
+            "price": "€13.90",
+            "status": "danger",
+            "statusLabel": "Contains Gluten, Milk"
+          }
+        ]
+      },
+      "problemEyebrow": "The problem",
+      "problemTitle": "Eating out still depends on who serves you",
+      "problemIntro": "If you avoid an ingredient, you know the routine: ask, wait for the answer and trust that it's right.",
+      "problem": {
+        "points": [
+          {
+            "icon": "01",
+            "title": "The answer changes with whoever is on shift",
+            "text": "Two people can give different answers to the same question, and there isn't always someone who can go and check the recipe."
+          },
+          {
+            "icon": "02",
+            "title": "Explaining it all again",
+            "text": "Talking about allergies in a full room in the middle of service is tiring. Plenty of people end up ordering the usual or staying home."
+          },
+          {
+            "icon": "03",
+            "title": "Hardly anyone publishes allergens",
+            "text": "Few restaurants put the information where you can read it before you go, so the question always comes back to the table."
+          }
+        ]
+      },
+      "solutionEyebrow": "How it works",
+      "solutionTitle": "Your allergies on the map and on every menu",
+      "solutionIntro": "besayfe opens in your phone's browser. You don't need to install anything or create an account.",
+      "solution": {
+        "steps": [
+          {
+            "icon": "01",
+            "title": "Pick your allergies",
+            "text": "Tick yours from the 14 allergens on the EU list. It takes under a minute, and if you skip it you still see everything."
+          },
+          {
+            "icon": "02",
+            "title": "Open the map, then the menu",
+            "text": "Each restaurant shows the colour it has for you. Open its menu and you can see straight away how many dishes you can eat."
+          },
+          {
+            "icon": "03",
+            "title": "No menu yet? Photograph it",
+            "text": "Take a photo of the paper menu. besayfe reads it in Portuguese or English, estimates the allergens in each dish and shows you the result on the spot."
+          }
+        ]
+      },
       "legendEyebrow": "Reading the map",
-      "legendTitle": "What the colours mean",
-      "legendIntro": "Every pin and every dish is coloured for your allergies, and says where the information came from.",
+      "legendTitle": "What each colour means",
+      "legendIntro": "Map pins and the dishes on each menu share the same colours and icons, worked out from your allergies.",
       "legend": [
         {
           "tone": "safe",
           "title": "Green",
-          "text": "Safe options, confirmed by the restaurant."
+          "text": "There are safe options, confirmed by the restaurant."
         },
         {
-          "tone": "info",
+          "tone": "likely",
           "title": "Blue",
-          "text": "Looks safe, but not confirmed yet."
+          "text": "Looks safe, but nobody has confirmed it yet."
         },
         {
           "tone": "warn",
           "title": "Orange",
-          "text": "Allergens not confirmed. Ask the restaurant."
+          "text": "Allergens not confirmed, or possible cross-contact. Ask the restaurant."
         },
         {
           "tone": "danger",
           "title": "Red",
           "text": "No safe options for you."
+        },
+        {
+          "tone": "nodata",
+          "title": "Grey",
+          "text": "No menu data yet. You can photograph the menu."
         }
       ],
-      "allergensLabel": "Covers all 14 allergens that restaurants must declare in the EU",
-      "citiesEyebrow": "Already on the map",
-      "citiesTitle": "349 restaurants, from Viana do Castelo to the Algarve",
-      "citiesIntro": "More than 50 towns, Madeira and the Azores included. Every menu is checked against the 14 EU allergens, so you can open it before you leave home.",
-      "citiesStats": [
-        { "value": "349", "label": "restaurants with a menu" },
-        { "value": "50+", "label": "towns and cities" },
-        { "value": "14", "label": "allergens per dish" }
-      ],
-      "cities": ["Porto", "Lisboa", "Guimarães", "Sesimbra", "Braga", "Setúbal", "Loulé", "Faro", "Olhão", "Funchal", "Coimbra", "Aveiro", "Cascais", "Ponta Delgada"],
-      "citiesCta": "See every restaurant",
-      "citiesNote": "Not there yet? Photograph the menu and it goes on the map for the next person.",
+      "allergensLabel": "The 14 allergens restaurants must declare in the EU",
       "allergens": [
         "🌾 Gluten",
         "🦐 Crustaceans",
@@ -169,214 +252,157 @@ const translations = {
         "🌼 Lupin",
         "🐚 Molluscs"
       ],
-      "faqEyebrow": "Quick answers",
-      "faqTitle": "Before you open the map",
-      "faq": [
+      "citiesEyebrow": "Already on the map",
+      "citiesTitle": "349 restaurants, from Viana do Castelo to the Algarve",
+      "citiesIntro": "They are spread over more than 50 towns, Madeira and the Azores included. Every menu has been checked against the 14 EU allergens, so you can look it up before you leave home.",
+      "citiesStats": [
         {
-          "q": "Do I need to install anything or create an account?",
-          "a": "No. besayfe opens in your browser. You can skip choosing your allergies and still see everything."
+          "value": "349",
+          "label": "restaurants with a menu"
         },
         {
-          "q": "Can I trust the result?",
-          "a": "Green means the restaurant confirmed it. Anything estimated is labelled as an estimate. besayfe is there to inform you, so it never replaces checking with the restaurant."
+          "value": "50+",
+          "label": "towns and cities"
         },
         {
-          "q": "My restaurant isn't on the map.",
-          "a": "Photograph the menu and the app estimates the allergens, or tell us which restaurant it is and we'll take it from there."
-        },
-        {
-          "q": "I run a restaurant. What do I get?",
-          "a": "Your dishes show as confirmed instead of estimated, which is what guests with allergies look for first. Get in touch and we'll set up the menu with you."
+          "value": "14",
+          "label": "allergens per dish"
         }
       ],
-      "stickyCta": "Open the map",
-      "ctaSecondaryLabel": "Suggest a restaurant",
-      "heroEyebrow": "For anyone eating out",
-      "heroTitle": "Know what is on the plate before you order.",
-      "heroText": "Pick your allergies and besayfe reads the menu for you, dish by dish. If the restaurant isn't on besayfe yet, a photo of the menu is enough.",
-      "heroSecondaryCta": "See how it works",
-      "mock": {
-        "menuTag": "Restaurant menu",
-        "search": "Search restaurant, city or area…",
-        "allergiesPill": "Allergies",
-        "filtersPill": "Filters",
-        "listPill": "View list (349)",
-        "filterLabel": "Your profile",
-        "filterChips": [
-          "Gluten",
-          "Milk"
-        ],
-        "dishes": [
+      "cities": [
+        "Porto",
+        "Lisboa",
+        "Guimarães",
+        "Sesimbra",
+        "Braga",
+        "Setúbal",
+        "Loulé",
+        "Faro",
+        "Olhão",
+        "Funchal",
+        "Coimbra",
+        "Aveiro",
+        "Cascais",
+        "Ponta Delgada"
+      ],
+      "citiesCta": "See every restaurant",
+      "citiesNote": "Yours isn't there? Photograph the menu and it stays on the map for the next person.",
+      "galleryEyebrow": "The app",
+      "galleryTitle": "What it looks like on your phone",
+      "galleryIntro": "Screens from the current version of besayfe. It runs in the browser, so there is nothing to install.",
+      "gallery": {
+        "items": [
           {
-            "name": "Bacalhau com natas",
-            "category": "Main courses",
-            "allergens": [
-              "Gluten",
-              "Milk",
-              "Fish"
-            ],
-            "status": "danger",
-            "statusLabel": "Contains gluten and milk"
+            "key": "allergens",
+            "title": "Say what you avoid",
+            "text": "Choose from the 14 allergens on the EU list. It takes under a minute."
           },
           {
-            "name": "Polvo à lagareiro",
-            "category": "Main courses",
-            "allergens": [
-              "Molluscs"
-            ],
-            "status": "safe",
-            "statusLabel": "Nothing you avoid"
+            "key": "map",
+            "title": "See what's around you",
+            "text": "Pins take the colour of your allergies. Rings group several restaurants that sit close together."
           },
           {
-            "name": "Arroz de pato",
-            "category": "Main courses",
-            "allergens": [
-              "Egg"
-            ],
-            "status": "info",
-            "statusLabel": "Nothing you avoid, unconfirmed"
+            "key": "menu",
+            "title": "Read the menu dish by dish",
+            "text": "Each dish says whether it contains what you avoid, may have cross-contact, or is free of your allergens."
+          },
+          {
+            "key": "contribution",
+            "title": "No menu? Photograph it",
+            "text": "Where there's no data yet, your photo is what the next person reads."
           }
         ]
       },
-      "problemEyebrow": "The problem",
-      "problemTitle": "Eating out still means trusting an answer",
-      "problemIntro": "If you avoid an ingredient, you know the routine: ask, wait, and hope the answer is right.",
-      "problem": {
-        "points": [
-          {
-            "icon": "01",
-            "title": "The answer depends on who is working",
-            "text": "Ask two people the same question and you may get two answers. Often nobody can check the recipe on the spot."
-          },
-          {
-            "icon": "02",
-            "title": "Asking every time",
-            "text": "Explaining an allergy to a full room in the middle of service is tiring. Many people order the usual or stay home."
-          },
-          {
-            "icon": "03",
-            "title": "Most places publish nothing",
-            "text": "Few restaurants publish allergen information where you can read it beforehand, so the question always ends up back at the table."
-          }
-        ]
-      },
-      "solutionEyebrow": "How it works",
-      "solutionTitle": "Your allergies, on the map and on the menu",
-      "solutionIntro": "besayfe opens in the browser. There is nothing to install or sign up for, and it works the same whether or not the restaurant has joined.",
-      "solution": {
-        "steps": [
-          {
-            "icon": "01",
-            "title": "Choose your allergies",
-            "text": "Tick yours from the 14 allergens on the EU list. It takes under a minute, and you can skip it and still see everything."
-          },
-          {
-            "icon": "02",
-            "title": "Open the map, open the menu",
-            "text": "Nearby restaurants are marked by what they mean for you, and each menu tells you straight away how many dishes you can eat."
-          },
-          {
-            "icon": "03",
-            "title": "No menu yet? Photograph it",
-            "text": "Take a photo of the paper menu. besayfe reads it in Portuguese or English, estimates the allergens in each dish and shows you the result straight away."
-          }
-        ]
-      },
-      "featuresEyebrow": "What you get",
+      "featuresEyebrow": "Where the information comes from",
       "featuresTitle": "Useful even before a restaurant joins",
-      "featuresIntro": "Three sources of information, each labelled so you know which one you are reading.",
+      "featuresIntro": "There are three sources, and every dish tells you which one it came from.",
       "features": {
         "items": [
           {
             "icon": "01",
             "title": "Straight from the kitchen",
-            "text": "Restaurants on besayfe fill in a technical sheet for each recipe. Only what they confirm counts as verified, and only that appears in green."
+            "text": "Restaurants that join fill in a technical sheet for each recipe. Only what they confirm shows up in green."
           },
           {
             "icon": "02",
             "title": "Official chain data",
-            "text": "For the big chains we load the allergen tables they publish. Declared information always takes priority over the model's estimate."
+            "text": "For the big chains we use the allergen tables they publish. Declared information always takes priority over the estimate."
           },
           {
             "icon": "03",
             "title": "Everywhere else, AI reads the menu",
-            "text": "For restaurants that have not joined, a photo is enough. OCR extracts the dishes and the model estimates the likely allergens from the dish and the way it is usually cooked."
+            "text": "A photo is enough. OCR pulls out the dishes and the model estimates the likely allergens from the dish name and the way it is usually cooked."
           },
           {
             "icon": "04",
-            "title": "Five states",
-            "text": "Contains, possible contact, no data, nothing you avoid, and nothing you avoid but unconfirmed. You always know which one you are looking at and where the answer came from."
+            "title": "Five states per dish",
+            "text": "Contains, possible cross-contact, no data, free of your allergens, and free of your allergens but unconfirmed. Each one has its own colour and icon."
           },
           {
             "icon": "05",
-            "title": "A map that knows your allergies",
-            "text": "Pins are coloured for your profile, and inside a menu you can filter down to the dishes you can eat."
+            "title": "A map that fits your profile",
+            "text": "The colour of each pin depends on your profile. Inside a menu you can filter down to the dishes you can eat."
           },
           {
             "icon": "06",
-            "title": "Built with everyone's help",
-            "text": "Menus you photograph are reviewed and then help the next person. If you spot a mistake, report it from the menu itself. Everything is in Portuguese and English."
+            "title": "Built by the people who use it",
+            "text": "We review the menus you photograph before we publish them. If you spot a mistake, you can report it from the menu itself."
           }
         ]
       },
       "socialProofEyebrow": "Why it matters",
       "socialProofTitle": "Many people choose where to eat this way",
-      "socialProofIntro": "Allergies and intolerances shape a decision that should be easy, and the information to make it easy already exists.",
+      "socialProofIntro": "Allergies and intolerances weigh on a decision that should be simple. Often the information that would make it simple already exists and just hasn't been published.",
       "socialProof": {
         "items": [
           {
             "icon": "01",
             "title": "1 in 10 European adults",
-            "text": "Adults with an allergy or intolerance choose a restaurant by how confident the answer to their question is.",
+            "text": "Has a food allergy or intolerance and picks a restaurant by how far they can trust the answer.",
             "meta": "Allergy and intolerance prevalence"
           },
           {
             "icon": "02",
             "title": "Up to 22% of European children",
-            "text": "More than one in five show allergic symptoms, and many families stop eating out because of it.",
+            "text": "More than one in five has allergic symptoms, and some families stop eating out because of it.",
             "meta": "<a href=\"https://www.spaic.pt/noticias/ate-22-das-criancas-na-europa-tem-uma-alergia\" target=\"_blank\" rel=\"noreferrer\">SPAIC, 2023</a>"
           },
           {
             "icon": "03",
             "title": "The information already exists",
-            "text": "EU Regulation 1169/2011 has required allergen information for non-prepacked food since 2014. Where it is published we use it, and where it is not we read the menu.",
+            "text": "Since 2014, EU Regulation 1169/2011 has required allergen information for non-prepacked food. Where it is published, we use it. Where it isn't, we read the menu.",
             "meta": "EU Regulation 1169/2011"
           }
         ]
       },
+      "faqEyebrow": "Quick answers",
+      "faqTitle": "Before you open the map",
+      "faq": [
+        {
+          "q": "Do I need to install anything or create an account?",
+          "a": "No. besayfe opens in your browser, and you can see everything without picking your allergies."
+        },
+        {
+          "q": "Can I trust the result?",
+          "a": "Green means the restaurant confirmed it. Anything estimated is labelled as an estimate. besayfe is there to inform you and does not replace checking with the restaurant."
+        },
+        {
+          "q": "My usual restaurant isn't on the map.",
+          "a": "Take a photo of the menu and the app estimates the allergens. You can also tell us which restaurant it is and we'll take it from there."
+        },
+        {
+          "q": "I run a restaurant. What's in it for me?",
+          "a": "Your dishes show as confirmed, which is what people with allergies look for first. Get in touch and we'll set up the menu with you."
+        }
+      ],
       "ctaEyebrow": "Somewhere you eat often?",
-      "ctaTitle": "Tell us where you would like to see besayfe.",
-      "ctaText": "Send us the restaurant and we will take it from there. If you run one, we will set up your menu so your dishes show as confirmed rather than estimated.",
+      "ctaTitle": "Tell us where you'd like to see besayfe.",
+      "ctaText": "Tell us the restaurant and we'll take it from there. If it's yours, we'll set up the menu with you so your dishes show as confirmed.",
       "ctaButton": "Open the map",
       "ctaSecondary": "Request the market brief",
-      "disclaimer": "besayfe is informative and does not replace confirming allergens with the restaurant.",
-      "galleryEyebrow": "The app",
-      "galleryTitle": "What it looks like on your phone",
-      "galleryIntro": "Real besayfe screens. It opens in the browser, so there is nothing to install.",
-      "gallery": {
-        "items": [
-          {
-            "key": "allergens",
-            "title": "Tell it what you avoid",
-            "text": "The 14 allergens on the EU list. Under a minute, and you can skip it."
-          },
-          {
-            "key": "map",
-            "title": "See what is around you",
-            "text": "Every pin is coloured for your profile, and the list of restaurants is a tap away."
-          },
-          {
-            "key": "menu-danger",
-            "title": "The menu, read for you",
-            "text": "How many dishes are clear, what each one contains, and a legend for the five states."
-          },
-          {
-            "key": "contribution",
-            "title": "No menu? Photograph it",
-            "text": "Where there is no data yet, your photo is what the next person will read."
-          }
-        ]
-      }
+      "ctaSecondaryLabel": "Suggest a restaurant",
+      "stickyCta": "Open the map"
     },
     "tests": {
       "hero": {
@@ -700,8 +726,8 @@ const translations = {
         "image": "/logo1000.png"
       },
       "home": {
-        "title": "besayfe | Vê o que está no prato antes de pedires",
-        "description": "App de alergénios para quem come fora: escolhe o que evitas (glúten, lactose, frutos secos, marisco) e vê prato a prato o que podes pedir. Sem menu na app? Uma foto chega.",
+        "title": "besayfe | Vê o que leva cada prato antes de pedires",
+        "description": "App de alergénios para quem come fora: escolhe o que evitas (glúten, lactose, frutos secos, marisco) e vê prato a prato o que podes pedir. Sem menu na app? Uma fotografia chega.",
         "keywords": [
           "menu alergias",
           "menu de alergénios",
@@ -782,56 +808,139 @@ const translations = {
       }
     },
     "home": {
+      "heroEyebrow": "Para quem tem alergias e come fora",
+      "heroTitle": "Vê o que leva cada prato antes de pedires.",
+      "heroText": "Escolhe as tuas alergias e o besayfe assinala, prato a prato, o que podes comer em cada restaurante. Se o menu ainda não estiver na app, basta tirares-lhe uma fotografia.",
       "heroCta": "Abrir o mapa",
+      "heroSecondaryCta": "Ver como funciona",
       "heroTrust": [
         "349 restaurantes com menu",
         "14 alergénios da UE",
-        "Sem instalar nem registar",
-        "Português e inglês"
+        "Sem instalar nem criar conta",
+        "Em português e inglês"
       ],
+      "disclaimer": "O besayfe serve para informar. Não substitui a confirmação dos alergénios no restaurante.",
+      "mock": {
+        "search": "Pesquisar restaurante, cidade ou zona…",
+        "allergiesPill": "2 alergias",
+        "filtersPill": "Filtros",
+        "listPill": "Ver lista",
+        "summary": "2 de 4 pratos sem as tuas alergias",
+        "categories": [
+          "Pratos principais",
+          "Entradas",
+          "Sobremesas"
+        ],
+        "dishes": [
+          {
+            "name": "Polvo à lagareiro",
+            "price": "18,50€",
+            "status": "safe",
+            "statusLabel": "Sem as tuas alergias",
+            "detail": "Contém: Moluscos"
+          },
+          {
+            "name": "Arroz de pato",
+            "price": "14,00€",
+            "status": "likely",
+            "statusLabel": "Sem as tuas alergias, por confirmar"
+          },
+          {
+            "name": "Lulas grelhadas",
+            "price": "15,50€",
+            "status": "caution",
+            "statusLabel": "Possível contacto · Glúten",
+            "detail": "Contém: Moluscos"
+          },
+          {
+            "name": "Bacalhau com natas",
+            "price": "13,90€",
+            "status": "danger",
+            "statusLabel": "Contém Glúten, Leite"
+          }
+        ]
+      },
+      "problemEyebrow": "O problema",
+      "problemTitle": "Comer fora ainda depende de quem te atende",
+      "problemIntro": "Quem evita um ingrediente conhece a rotina: pergunta, espera pela resposta e confia que está certa.",
+      "problem": {
+        "points": [
+          {
+            "icon": "01",
+            "title": "A resposta muda consoante quem está de serviço",
+            "text": "Duas pessoas podem dar respostas diferentes à mesma pergunta, e nem sempre há alguém que possa ir ver a receita."
+          },
+          {
+            "icon": "02",
+            "title": "Explicar tudo outra vez",
+            "text": "Falar de alergias com a sala cheia, a meio do serviço, cansa. Muita gente acaba por pedir o do costume ou por ficar em casa."
+          },
+          {
+            "icon": "03",
+            "title": "Quase ninguém publica os alergénios",
+            "text": "Poucos restaurantes põem a informação onde a possas ler antes de ir, por isso a pergunta volta sempre à mesa."
+          }
+        ]
+      },
+      "solutionEyebrow": "Como funciona",
+      "solutionTitle": "As tuas alergias no mapa e em cada menu",
+      "solutionIntro": "O besayfe abre no navegador do telemóvel. Não precisas de instalar nada nem de criar conta.",
+      "solution": {
+        "steps": [
+          {
+            "icon": "01",
+            "title": "Escolhe as tuas alergias",
+            "text": "Marca as tuas entre os 14 alergénios da lista europeia. Demora menos de um minuto e, se saltares este passo, vês tudo na mesma."
+          },
+          {
+            "icon": "02",
+            "title": "Abre o mapa e depois o menu",
+            "text": "Cada restaurante aparece com a cor que tem para ti. Quando abres o menu, vês logo quantos pratos podes comer."
+          },
+          {
+            "icon": "03",
+            "title": "Ainda não há menu? Fotografa-o",
+            "text": "Tira uma fotografia ao menu em papel. O besayfe lê-o em português ou em inglês, estima os alergénios de cada prato e mostra-te o resultado na hora."
+          }
+        ]
+      },
       "legendEyebrow": "Como ler o mapa",
-      "legendTitle": "O que significa cada cor",
-      "legendIntro": "Cada ponto e cada prato ganha a cor das tuas alergias e diz de onde vem a informação.",
+      "legendTitle": "O que quer dizer cada cor",
+      "legendIntro": "Os pontos do mapa e os pratos de cada menu usam as mesmas cores e os mesmos ícones, calculados a partir das tuas alergias.",
       "legend": [
         {
           "tone": "safe",
           "title": "Verde",
-          "text": "Opções seguras, confirmadas pelo restaurante."
+          "text": "Há opções seguras, confirmadas pelo restaurante."
         },
         {
-          "tone": "info",
+          "tone": "likely",
           "title": "Azul",
-          "text": "Parece seguro, mas ainda não foi confirmado."
+          "text": "Parece seguro, mas ainda ninguém confirmou."
         },
         {
           "tone": "warn",
-          "title": "Laranja",
-          "text": "Alergénios por confirmar. Pergunta ao restaurante."
+          "title": "Cor-de-laranja",
+          "text": "Alergénios por confirmar ou possível contacto. Pergunta no restaurante."
         },
         {
           "tone": "danger",
-          "title": "Vermelho",
-          "text": "Sem opções seguras para ti."
+          "title": "Encarnado",
+          "text": "Não há opções seguras para ti."
+        },
+        {
+          "tone": "nodata",
+          "title": "Cinzento",
+          "text": "Ainda não há dados do menu. Podes fotografá-lo."
         }
       ],
-      "allergensLabel": "Cobre os 14 alergénios que os restaurantes têm de declarar na UE",
-      "citiesEyebrow": "Já no mapa",
-      "citiesTitle": "349 restaurantes, de Viana do Castelo ao Algarve",
-      "citiesIntro": "Mais de 50 localidades, com a Madeira e os Açores incluídos. Cada menu é cruzado com os 14 alergénios da UE, para o abrires antes de saíres de casa.",
-      "citiesStats": [
-        { "value": "349", "label": "restaurantes com menu" },
-        { "value": "50+", "label": "cidades e vilas" },
-        { "value": "14", "label": "alergénios por prato" }
-      ],
-      "cities": ["Porto", "Lisboa", "Guimarães", "Sesimbra", "Braga", "Setúbal", "Loulé", "Faro", "Olhão", "Funchal", "Coimbra", "Aveiro", "Cascais", "Ponta Delgada"],
-      "citiesCta": "Ver todos os restaurantes",
-      "citiesNote": "O teu ainda não está? Fotografa o menu e ele entra no mapa para a próxima pessoa.",
+      "allergensLabel": "Os 14 alergénios que os restaurantes são obrigados a declarar na UE",
       "allergens": [
         "🌾 Glúten",
         "🦐 Crustáceos",
         "🥚 Ovos",
         "🐟 Peixe",
-        "🥜 Amendoim",
+        "🥜 Amendoins",
         "🫘 Soja",
         "🥛 Leite",
         "🌰 Frutos de casca rija",
@@ -839,217 +948,160 @@ const translations = {
         "🟡 Mostarda",
         "🌱 Sésamo",
         "🍷 Sulfitos",
-        "🌼 Tremoço",
+        "🌼 Tremoços",
         "🐚 Moluscos"
       ],
-      "faqEyebrow": "Respostas rápidas",
-      "faqTitle": "Antes de abrires o mapa",
-      "faq": [
+      "citiesEyebrow": "Já no mapa",
+      "citiesTitle": "349 restaurantes, de Viana do Castelo ao Algarve",
+      "citiesIntro": "Estão em mais de 50 localidades, incluindo a Madeira e os Açores. Todos os menus foram cruzados com os 14 alergénios da UE, para os poderes consultar antes de saíres de casa.",
+      "citiesStats": [
         {
-          "q": "Tenho de instalar alguma coisa ou criar conta?",
-          "a": "Não. O besayfe abre no navegador. Podes saltar a escolha das alergias e ver tudo na mesma."
+          "value": "349",
+          "label": "restaurantes com menu"
         },
         {
-          "q": "Posso confiar no resultado?",
-          "a": "Verde quer dizer que o restaurante confirmou. O que é estimado vem sempre identificado como estimativa. O besayfe serve para te informar e não substitui a confirmação com o restaurante."
+          "value": "50+",
+          "label": "cidades e vilas"
         },
         {
-          "q": "O restaurante que frequento não está no mapa.",
-          "a": "Tira uma foto ao menu e a app estima os alergénios, ou diz-nos qual é o restaurante e tratamos do resto."
-        },
-        {
-          "q": "Tenho um restaurante. O que ganho?",
-          "a": "Os teus pratos aparecem como confirmados e não como estimados, que é o que quem tem alergias procura primeiro. Fala connosco e configuramos o menu contigo."
+          "value": "14",
+          "label": "alergénios por prato"
         }
       ],
-      "stickyCta": "Abrir o mapa",
-      "ctaSecondaryLabel": "Sugerir um restaurante",
-      "heroEyebrow": "Para quem come fora",
-      "heroTitle": "Vê o que está no prato antes de pedires.",
-      "heroText": "Escolhe as tuas alergias e o besayfe lê o menu por ti, prato a prato. Se o restaurante ainda não está cá, basta uma foto do menu.",
-      "heroSecondaryCta": "Ver como funciona",
-      "mock": {
-        "menuTag": "Menu do restaurante",
-        "search": "Pesquisar restaurante, cidade ou zona…",
-        "allergiesPill": "Alergias",
-        "filtersPill": "Filtros",
-        "listPill": "Ver lista (349)",
-        "filterLabel": "O teu perfil",
-        "filterChips": [
-          "Glúten",
-          "Leite"
-        ],
-        "dishes": [
-          {
-            "name": "Bacalhau com natas",
-            "category": "Pratos principais",
-            "allergens": [
-              "Glúten",
-              "Leite",
-              "Peixe"
-            ],
-            "status": "danger",
-            "statusLabel": "Contém glúten e leite"
-          },
-          {
-            "name": "Polvo à lagareiro",
-            "category": "Pratos principais",
-            "allergens": [
-              "Moluscos"
-            ],
-            "status": "safe",
-            "statusLabel": "Nada do que evitas"
-          },
-          {
-            "name": "Arroz de pato",
-            "category": "Pratos principais",
-            "allergens": [
-              "Ovo"
-            ],
-            "status": "info",
-            "statusLabel": "Nada do que evitas, por confirmar"
-          }
-        ]
-      },
-      "problemEyebrow": "O problema",
-      "problemTitle": "Comer fora ainda obriga a confiar numa resposta",
-      "problemIntro": "Quem evita um ingrediente conhece a rotina: perguntar, aguardar e esperar que a resposta seja a certa.",
-      "problem": {
-        "points": [
-          {
-            "icon": "01",
-            "title": "A resposta depende de quem está de serviço",
-            "text": "A mesma pergunta pode ter respostas diferentes consoante quem atende, e muitas vezes ninguém consegue confirmar a receita naquele momento."
-          },
-          {
-            "icon": "02",
-            "title": "Perguntar sempre",
-            "text": "Explicar uma alergia com a sala cheia, a meio do serviço, é cansativo. Muita gente acaba por pedir o prato do costume ou por ficar em casa."
-          },
-          {
-            "icon": "03",
-            "title": "Poucos sítios publicam alguma coisa",
-            "text": "Poucos restaurantes publicam os alergénios onde os possas ver antes de ir, por isso acabas sempre a perguntar à mesa."
-          }
-        ]
-      },
-      "solutionEyebrow": "Como funciona",
-      "solutionTitle": "As tuas alergias, no mapa e no menu",
-      "solutionIntro": "Abre no navegador. Não instalas nada, não crias conta e não esperas.",
-      "solution": {
-        "steps": [
-          {
-            "icon": "01",
-            "title": "Escolhe as tuas alergias",
-            "text": "Assinala as tuas entre os 14 alergénios da lista europeia. Demora menos de um minuto e podes saltar este passo e ver tudo na mesma."
-          },
-          {
-            "icon": "02",
-            "title": "Abre o mapa, abre o menu",
-            "text": "Os restaurantes à tua volta ficam marcados conforme o que significam para ti, e o menu diz-te logo quantos pratos podes comer."
-          },
-          {
-            "icon": "03",
-            "title": "Ainda não há menu? Fotografa",
-            "text": "Tira uma foto ao menu de papel. O besayfe lê-o em português ou inglês, estima os alergénios de cada prato e mostra-te logo o resultado."
-          }
-        ]
-      },
-      "featuresEyebrow": "O que tens",
-      "featuresTitle": "Útil mesmo antes de o restaurante aderir",
-      "featuresIntro": "Três fontes de informação, cada uma identificada para saberes qual estás a ler.",
-      "features": {
-        "items": [
-          {
-            "icon": "01",
-            "title": "Vem direto da cozinha",
-            "text": "Os restaurantes no besayfe preenchem uma ficha técnica por receita. Só o que confirmam conta como verificado e só isso aparece a verde."
-          },
-          {
-            "icon": "02",
-            "title": "Dados oficiais das cadeias",
-            "text": "Das grandes cadeias carregamos as tabelas de alergénios que publicam. O que está declarado tem sempre prioridade sobre a estimativa do modelo."
-          },
-          {
-            "icon": "03",
-            "title": "No resto, a IA lê o menu",
-            "text": "Nos restaurantes que ainda não aderiram basta uma foto. O OCR extrai os pratos e o modelo estima os alergénios mais prováveis a partir do prato e da forma como costuma ser confecionado."
-          },
-          {
-            "icon": "04",
-            "title": "Cinco estados",
-            "text": "Contém, possível contacto, sem dados, nada do que evitas, e nada do que evitas mas por confirmar. Sabes sempre em qual estás e de onde vem a resposta."
-          },
-          {
-            "icon": "05",
-            "title": "Um mapa que conhece as tuas alergias",
-            "text": "Os pontos mudam de cor conforme o teu perfil e, dentro do menu, vês só os pratos que podes comer."
-          },
-          {
-            "icon": "06",
-            "title": "Feito com a ajuda de todos",
-            "text": "Os menus que fotografas são revistos e passam a ajudar a pessoa seguinte. Se vires um erro, podes avisar no próprio menu. Tudo em português e inglês."
-          }
-        ]
-      },
-      "socialProofEyebrow": "Porque é que isto importa",
-      "socialProofTitle": "Muita gente escolhe onde comer assim",
-      "socialProofIntro": "As alergias e as intolerâncias condicionam uma decisão que devia ser simples, e a informação para a simplificar já existe.",
-      "socialProof": {
-        "items": [
-          {
-            "icon": "01",
-            "title": "1 em cada 10 adultos europeus",
-            "text": "Os adultos com alergia ou intolerância escolhem o restaurante consoante a confiança que a resposta lhes dá.",
-            "meta": "Prevalência de alergias e intolerâncias"
-          },
-          {
-            "icon": "02",
-            "title": "Até 22% das crianças europeias",
-            "text": "Mais de uma em cada cinco tem sintomas alérgicos, e muitas famílias deixam de comer fora por causa disso.",
-            "meta": "<a href=\"https://www.spaic.pt/noticias/ate-22-das-criancas-na-europa-tem-uma-alergia\" target=\"_blank\" rel=\"noreferrer\">SPAIC, 2023</a>"
-          },
-          {
-            "icon": "03",
-            "title": "A informação já existe",
-            "text": "O Regulamento (UE) 1169/2011 exige informação sobre alergénios nos alimentos não pré-embalados desde 2014. Onde está publicada, usamo-la; onde não está, lemos o menu.",
-            "meta": "Regulamento (UE) 1169/2011"
-          }
-        ]
-      },
-      "ctaEyebrow": "Há um sítio onde comes muitas vezes?",
-      "ctaTitle": "Diz-nos onde gostavas de ver o besayfe.",
-      "ctaText": "Diz-nos qual é o restaurante e tratamos do resto. Se o restaurante for teu, configuramos o menu para que os pratos apareçam como confirmados e não como estimados.",
-      "ctaButton": "Abrir o mapa",
-      "ctaSecondary": "Pedir o relatório de mercado",
-      "disclaimer": "O besayfe é informativo e não substitui a confirmação dos alergénios no restaurante.",
+      "cities": [
+        "Porto",
+        "Lisboa",
+        "Guimarães",
+        "Sesimbra",
+        "Braga",
+        "Setúbal",
+        "Loulé",
+        "Faro",
+        "Olhão",
+        "Funchal",
+        "Coimbra",
+        "Aveiro",
+        "Cascais",
+        "Ponta Delgada"
+      ],
+      "citiesCta": "Ver todos os restaurantes",
+      "citiesNote": "O teu ainda não aparece? Fotografa o menu e ele fica no mapa para quem vier a seguir.",
       "galleryEyebrow": "A app",
-      "galleryTitle": "Como fica no telemóvel",
-      "galleryIntro": "Ecrãs reais do besayfe. Abre no navegador, por isso não tens de instalar nada.",
+      "galleryTitle": "Como é no telemóvel",
+      "galleryIntro": "Capturas da versão atual do besayfe. Abre no navegador, por isso não tens nada para instalar.",
       "gallery": {
         "items": [
           {
             "key": "allergens",
             "title": "Diz o que evitas",
-            "text": "Os 14 alergénios da lista europeia. Menos de um minuto, e podes saltar."
+            "text": "Escolhes entre os 14 alergénios da lista europeia. Demora menos de um minuto."
           },
           {
             "key": "map",
-            "title": "Vês o que tens à volta",
-            "text": "Cada ponto tem a cor das tuas alergias, e a lista de restaurantes está à distância de um toque."
+            "title": "Vê o que tens à volta",
+            "text": "Os pontos ganham a cor das tuas alergias. Os anéis juntam vários restaurantes próximos."
           },
           {
-            "key": "menu-danger",
-            "title": "O menu lido por ti",
-            "text": "Quantos pratos podes comer, o que cada um contém e a legenda dos cinco estados."
+            "key": "menu",
+            "title": "Lê o menu prato a prato",
+            "text": "Cada prato diz se contém o que evitas, se há possível contacto ou se está livre das tuas alergias."
           },
           {
             "key": "contribution",
-            "title": "Sem menu? Fotografa",
-            "text": "Onde ainda não há dados, a tua foto serve a quem vier a seguir."
+            "title": "Sem menu? Fotografa-o",
+            "text": "Onde ainda não há dados, a tua fotografia passa a servir quem vier a seguir."
           }
         ]
-      }
+      },
+      "featuresEyebrow": "De onde vem a informação",
+      "featuresTitle": "Útil mesmo antes de o restaurante aderir",
+      "featuresIntro": "Há três fontes de informação, e cada prato diz-te de qual delas vem.",
+      "features": {
+        "items": [
+          {
+            "icon": "01",
+            "title": "Diretamente da cozinha",
+            "text": "Os restaurantes que aderem preenchem uma ficha técnica para cada receita. Só aparece a verde o que eles confirmam."
+          },
+          {
+            "icon": "02",
+            "title": "Dados oficiais das cadeias",
+            "text": "Nas grandes cadeias usamos as tabelas de alergénios que elas publicam. A informação declarada tem sempre prioridade sobre a estimativa."
+          },
+          {
+            "icon": "03",
+            "title": "Nos restantes, a IA lê o menu",
+            "text": "Basta uma fotografia. O OCR extrai os pratos e o modelo estima os alergénios mais prováveis a partir do nome do prato e da forma habitual de o confecionar."
+          },
+          {
+            "icon": "04",
+            "title": "Cinco estados por prato",
+            "text": "Contém, possível contacto, sem dados, sem as tuas alergias e sem as tuas alergias por confirmar. Cada um tem a sua cor e o seu ícone."
+          },
+          {
+            "icon": "05",
+            "title": "Um mapa à tua medida",
+            "text": "A cor de cada ponto depende do teu perfil. Dentro do menu, podes filtrar para veres só os pratos que podes comer."
+          },
+          {
+            "icon": "06",
+            "title": "Construído por quem o usa",
+            "text": "Revemos os menus que fotografas antes de os publicarmos. Se encontrares um erro, podes reportá-lo a partir do próprio menu."
+          }
+        ]
+      },
+      "socialProofEyebrow": "Porque é que isto importa",
+      "socialProofTitle": "Muita gente escolhe onde comer assim",
+      "socialProofIntro": "As alergias e as intolerâncias pesam numa decisão que devia ser simples. Muitas vezes, a informação que a simplificava já existe e só falta estar publicada.",
+      "socialProof": {
+        "items": [
+          {
+            "icon": "01",
+            "title": "1 em cada 10 adultos europeus",
+            "text": "Tem uma alergia ou intolerância alimentar e escolhe o restaurante pela confiança que a resposta lhe dá.",
+            "meta": "Prevalência de alergias e intolerâncias"
+          },
+          {
+            "icon": "02",
+            "title": "Até 22% das crianças europeias",
+            "text": "Mais de uma em cada cinco tem sintomas alérgicos, e há famílias que deixam de comer fora por causa disso.",
+            "meta": "<a href=\"https://www.spaic.pt/noticias/ate-22-das-criancas-na-europa-tem-uma-alergia\" target=\"_blank\" rel=\"noreferrer\">SPAIC, 2023</a>"
+          },
+          {
+            "icon": "03",
+            "title": "A informação já existe",
+            "text": "Desde 2014, o Regulamento (UE) 1169/2011 obriga a informar sobre os alergénios nos alimentos não pré-embalados. Onde essa informação está publicada, usamo-la. Onde não está, lemos o menu.",
+            "meta": "Regulamento (UE) 1169/2011"
+          }
+        ]
+      },
+      "faqEyebrow": "Respostas rápidas",
+      "faqTitle": "Antes de abrires o mapa",
+      "faq": [
+        {
+          "q": "Tenho de instalar alguma coisa ou criar conta?",
+          "a": "Não. O besayfe abre no navegador e podes ver tudo sem escolheres as tuas alergias."
+        },
+        {
+          "q": "Posso confiar no resultado?",
+          "a": "O verde quer dizer que o restaurante confirmou. Tudo o que é estimado aparece identificado como estimativa. O besayfe serve para informar e não substitui a confirmação no restaurante."
+        },
+        {
+          "q": "O restaurante onde costumo ir não está no mapa.",
+          "a": "Tira uma fotografia ao menu e a app estima os alergénios. Também nos podes dizer qual é o restaurante e tratamos do resto."
+        },
+        {
+          "q": "Tenho um restaurante. O que ganho com isto?",
+          "a": "Os teus pratos passam a aparecer como confirmados, que é o que quem tem alergias procura primeiro. Fala connosco e configuramos o menu contigo."
+        }
+      ],
+      "ctaEyebrow": "Há um sítio onde comes muitas vezes?",
+      "ctaTitle": "Diz-nos onde gostavas de ver o besayfe.",
+      "ctaText": "Indica-nos o restaurante e tratamos do resto. Se o restaurante for teu, configuramos o menu contigo para que os pratos apareçam como confirmados.",
+      "ctaButton": "Abrir o mapa",
+      "ctaSecondary": "Pedir o relatório de mercado",
+      "ctaSecondaryLabel": "Sugerir um restaurante",
+      "stickyCta": "Abrir o mapa"
     },
     "tests": {
       "hero": {
@@ -1149,9 +1201,9 @@ const translations = {
       "profileEdit": "Editar",
       "headerTag": "Leitor",
       "headerTitle": "Consulta de alergénios por código de barras",
-      "headerSubtitle": "Leia o código de barras ou envie uma foto do rótulo para analisar o risco em segundos.",
+      "headerSubtitle": "Leia o código de barras ou envie uma fotografia do rótulo para analisar o risco em segundos.",
       "scannerTitle": "Leitura com câmara",
-      "scannerSubtitle": "Leia o código de barras ou envie uma foto do rótulo abaixo.",
+      "scannerSubtitle": "Leia o código de barras ou envie uma fotografia do rótulo abaixo.",
       "zoom": "Zoom",
       "noCameraQuestion": "Sem código de barras?",
       "manualHint": "Escreva os dígitos do código para procurar o produto.",
@@ -1208,7 +1260,7 @@ const translations = {
       "enterValidCode": "Introduza um código válido para pesquisar.",
       "waiting": "A aguardar leitura ou introdução manual.",
       "processing": "A processar leitura...",
-      "productFoundConfirm": "Produto encontrado – confirme os detalhes abaixo.",
+      "productFoundConfirm": "Produto encontrado. Confirme os detalhes abaixo.",
       "profileTitle": "Perfil de alergénios do utilizador",
       "profileSubtitle": "Mantenha simples: escolha apenas o que importa ao utilizador.",
       "profileSelected": "Selecionados {count}/{total}",
@@ -1239,7 +1291,7 @@ const translations = {
       "riskFinalScore": "Pontuação final de risco:",
       "riskFacilityAdded": "Risco da instalação incluído:",
       "riskScoreLabel": "Pontuação:",
-      "insufficientInfo": "Informação insuficiente de ingredientes. Adicione uma foto do rótulo para analisar.",
+      "insufficientInfo": "Informação insuficiente de ingredientes. Adicione uma fotografia do rótulo para analisar.",
       "riskViewMore": "Ver mais",
       "riskHideDetails": "Ocultar detalhes",
       "riskCalculating": "A calcular risco...",
@@ -1247,10 +1299,10 @@ const translations = {
       "riskEngineFailed": "Falha no cálculo de risco",
       "riskUnavailable": "Serviço indisponível",
       "labelTitle": "Analisar rótulo de ingredientes",
-      "labelSubtitle": "Envie uma foto nítida para ler os ingredientes e calcular o risco.",
+      "labelSubtitle": "Envie uma fotografia nítida para ler os ingredientes e calcular o risco.",
       "labelProcessing": "A ler rótulo...",
       "labelReady": "Análise do rótulo pronta.",
-      "labelHelp": "Precisa de mais detalhe? Uma foto do rótulo completa os ingredientes.",
+      "labelHelp": "Precisa de mais detalhe? Uma fotografia do rótulo completa os ingredientes.",
       "labelEncourage": "Dica: boa luz e rótulo plano melhoram o OCR.",
       "uploadLabel": "Analisar rótulo",
       "uploadingLabel": "A ler rótulo...",
