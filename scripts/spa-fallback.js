@@ -21,7 +21,7 @@ if (!fs.existsSync(indexFile)) {
   process.exit(1);
 }
 
-const SITE = "https://landing.besayfe.com/";
+const SITE = "https://landing.allercarte.com/";
 const html = fs.readFileSync(indexFile, "utf8");
 
 for (const route of ROUTES) {
