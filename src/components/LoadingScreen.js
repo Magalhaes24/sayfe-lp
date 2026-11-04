@@ -59,7 +59,7 @@ const LoadingScreen = () => {
 
         <motion.img
           src={logoPath}
-          alt="besayfe logo"
+          alt="AllerCarte logo"
           className="core-logo"
           animate={{ y: [0, -6, 0] }}
           transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}

@@ -2,9 +2,23 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 export default function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
+    // Pages open at the top straight away, or at the #section asked for,
+    // instead of scrolling the new page up from wherever the last one was.
+    if (!pathname.startsWith("/admin")) {
+      if (!hash) {
+        window.scrollTo(0, 0);
+        return;
+      }
+      const id = window.setTimeout(() => {
+        const el = document.getElementById(hash.slice(1));
+        if (el) el.scrollIntoView({ block: "start" });
+      }, 260);
+      return () => window.clearTimeout(id);
+    }
+
     const start = window.scrollY;
     if (start === 0) return;
 
@@ -33,7 +47,7 @@ export default function ScrollToTop() {
     };
 
     requestAnimationFrame(animate);
-  }, [pathname]);
+  }, [pathname, hash]);
 
   return null;
 }

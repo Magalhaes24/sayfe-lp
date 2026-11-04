@@ -1024,7 +1024,7 @@ function ScrollHero({ captions }) {
           }}
         >
           {captionIndex === 0 ? (
-            <div className="scroll-hero__brand">besayfe</div>
+            <div className="scroll-hero__brand">AllerCarte</div>
           ) : null}
           {caption}
         </div> 

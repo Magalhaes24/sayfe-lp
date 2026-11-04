@@ -1,0 +1,288 @@
+/* Contact test page (/lab/contact). Builds on the .lx base in HomeLab.css. */
+
+.lx-contact__section {
+  padding: clamp(3.5rem, 9vw, 7rem) 0 var(--lx-space);
+  background: linear-gradient(#f5f8f6, #fff 75%);
+}
+
+.lx-contact__grid {
+  display: grid;
+  gap: clamp(3rem, 7vw, 5rem);
+}
+
+.lx-contact__title {
+  margin: 0;
+  max-width: 10ch;
+  font-size: clamp(2.7rem, 7vw, 5.25rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  font-weight: 700;
+}
+
+.lx-contact__direct {
+  display: grid;
+  gap: 0.25rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--lx-line);
+  font-size: 0.95rem;
+  color: var(--lx-gray);
+}
+
+.lx-contact__direct a {
+  justify-self: start;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--lx-ink);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+@media (hover: hover) {
+  .lx-contact__direct a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+
+/* ---------- Card ---------- */
+
+.lx-contact__card {
+  position: relative;
+  display: grid;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  border-radius: 28px;
+  background: #fff;
+  border: 1px solid var(--lx-line);
+  box-shadow: 0 1px 2px rgba(18, 42, 28, 0.04), 0 30px 80px -32px rgba(18, 42, 28, 0.2);
+}
+
+/* Form and thank-you share one grid cell and cross-fade. */
+.lx-form,
+.lx-sent {
+  grid-area: 1 / 1;
+  transition: opacity 0.45s var(--lx-ease), transform 0.6s var(--lx-ease), visibility 0s;
+}
+
+.lx-form.is-away {
+  opacity: 0;
+  transform: translateY(-8px);
+  visibility: hidden;
+  transition: opacity 0.3s, transform 0.5s var(--lx-ease), visibility 0s 0.5s;
+}
+
+.lx-form {
+  display: grid;
+  gap: 0.25rem;
+}
+
+/* ---------- Fields: label sits inside, then floats up ---------- */
+
+.lx-field {
+  position: relative;
+}
+
+.lx-field input,
+.lx-field textarea {
+  display: block;
+  width: 100%;
+  min-height: 60px;
+  padding: 1.55rem 1rem 0.55rem;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  background: var(--lx-soft);
+  color: var(--lx-ink);
+  font: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.lx-field textarea {
+  min-height: 160px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.lx-field label {
+  position: absolute;
+  top: 1.15rem;
+  left: 1rem;
+  font-size: 1rem;
+  color: var(--lx-gray);
+  pointer-events: none;
+  transform-origin: 0 0;
+  transition: transform 0.3s var(--lx-ease), color 0.2s;
+}
+
+.lx-field input:focus + label,
+.lx-field input:not(:placeholder-shown) + label,
+.lx-field textarea:focus + label,
+.lx-field textarea:not(:placeholder-shown) + label {
+  transform: translateY(-0.6rem) scale(0.78);
+}
+
+.lx-field input:focus,
+.lx-field textarea:focus {
+  background: #fff;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(115, 172, 132, 0.18);
+}
+
+.lx-field input:focus + label,
+.lx-field textarea:focus + label {
+  color: var(--accent-ink);
+}
+
+.lx-field.has-error input,
+.lx-field.has-error textarea {
+  background: #fff;
+  border-color: var(--state-danger);
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.12);
+}
+
+.lx-field.has-error label {
+  color: #c42f2f;
+}
+
+.lx-field__error {
+  min-height: 1.4rem;
+  margin: 0.3rem 0 0.35rem 0.25rem;
+  font-size: 0.82rem;
+  color: #c42f2f;
+}
+
+.lx-form__count {
+  margin: -1.4rem 0.25rem 0.5rem auto;
+  font-size: 0.78rem;
+  color: var(--lx-gray);
+  font-variant-numeric: tabular-nums;
+}
+
+.lx-form__submit {
+  gap: 0.6rem;
+  width: 100%;
+  margin-top: 0.5rem;
+  border: 0;
+  font: inherit;
+  font-size: 1.02rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.lx-form__submit:disabled {
+  cursor: progress;
+  background: #34443a;
+}
+
+.lx-spinner {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  animation: lx-spin 0.8s linear infinite;
+}
+
+@keyframes lx-spin {
+  to { transform: rotate(360deg); }
+}
+
+.lx-form__status {
+  min-height: 1.5rem;
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--lx-gray);
+}
+
+.lx-form__status.is-error {
+  color: #c42f2f;
+}
+
+/* ---------- Thank-you ---------- */
+
+.lx-sent {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 0.5rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(12px);
+  visibility: hidden;
+  transition: opacity 0.3s, transform 0.5s var(--lx-ease), visibility 0s 0.5s;
+}
+
+.lx-sent.is-shown {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  transition: opacity 0.5s 0.15s, transform 0.7s var(--lx-ease) 0.15s, visibility 0s;
+}
+
+.lx-sent__icon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 0.75rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--on-accent);
+  transform: scale(0.6);
+  transition: transform 0.6s var(--lx-ease) 0.2s;
+}
+
+.lx-sent.is-shown .lx-sent__icon {
+  transform: none;
+}
+
+.lx-sent h2 {
+  margin: 0;
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+.lx-sent p {
+  margin: 0;
+  max-width: 30ch;
+  color: var(--lx-gray);
+}
+
+.lx-sent__again {
+  margin-top: 0.75rem;
+  border: 0;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+@media (min-width: 900px) {
+  .lx-contact__grid {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(3rem, 7vw, 6rem);
+    align-items: start;
+  }
+
+  .lx-contact__intro {
+    position: sticky;
+    top: 120px;
+    padding-top: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lx-form,
+  .lx-sent,
+  .lx-sent__icon,
+  .lx-field label {
+    transition: none;
+  }
+}

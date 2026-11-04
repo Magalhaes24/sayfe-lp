@@ -1,9 +1,7 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import Home from "./pages/Home";
-import Contact from "./pages/Contact";
-import AboutUs from "./pages/AboutUs";
+import Home from "./pages/HomeMix";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ClickSpark from "./components/ClickSpark";
@@ -12,6 +10,10 @@ import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import ScrollToTop from "./components/ScrollToTop";
 import "./App.css";
+
+// About and Contact load on demand; the home page ships in the main bundle.
+const About = lazy(() => import("./pages/AboutLab"));
+const Contact = lazy(() => import("./pages/ContactLab"));
 
 // Pages render straight away and fade in briefly; nothing waits for images.
 const PAGE_FADE = { duration: 0.18, ease: [0.25, 0.46, 0.45, 0.94] };
@@ -42,13 +44,23 @@ function App() {
             >
               <Routes location={location} key={location.pathname}>
                 <Route path="/" element={<Home />} />
-                <Route path="/about" element={<AboutUs />} />
-                <Route path="/contact" element={<Contact />} />
-                {/* Demo and product demonstration routes are hidden while the
-                    restaurant platform is the public offering. The /tests
-                    scratch pages are unrouted too: they pulled three.js, the
-                    3D models and 4 MB of screenshots into the main bundle.
-                    Old links fall back to the home page. */}
+                <Route
+                  path="/about"
+                  element={
+                    <Suspense fallback={null}>
+                      <About />
+                    </Suspense>
+                  }
+                />
+                <Route
+                  path="/contact"
+                  element={
+                    <Suspense fallback={null}>
+                      <Contact />
+                    </Suspense>
+                  }
+                />
+                {/* Demo, test (/lab*) and old routes fall back to the home page. */}
                 <Route path="/admin" element={<AdminLogin />} />
                 <Route path="/admin/dashboard" element={<AdminDashboard />} />
                 <Route path="*" element={<Navigate to="/" replace />} />

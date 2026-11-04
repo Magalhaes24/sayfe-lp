@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import HamburgerMenu from "./HamburgerMenu";
+import LabHeader from "./lab/LabHeader";
 import { useTranslation } from "../contexts/LanguageContext";
 
-function Header() {
+function SiteHeader() {
   const { t } = useTranslation();
   const [isPinned, setIsPinned] = useState(false);
 
-  const logoPath = `${process.env.PUBLIC_URL || ""}/Y1000.png`;
+  const logoPath = `${process.env.PUBLIC_URL || ""}/allercarte-logo.svg`;
   const navLinks = [
     { to: "/", label: t("nav.home") },
     { to: "/about", label: t("nav.about") },
@@ -31,8 +32,8 @@ function Header() {
       <nav className={`navbar${isPinned ? " navbar--pinned" : ""}`}>
         <div className="navbar-inner">
           <Link to="/" className="logo-link">
-            <img src={logoPath} alt="" className="logo-mark" />
-            <span className="logo">besayfe</span>
+            {/* The wordmark carries the symbol in its "ll". */}
+            <img src={logoPath} alt="AllerCarte" className="logo-mark" width="1335" height="366" />
           </Link>
           <div className="navbar-actions">
             <HamburgerMenu links={navLinks} />
@@ -41,6 +42,12 @@ function Header() {
       </nav>
     </header>
   );
+}
+
+// The public pages use the new header; the admin pages keep the old one.
+function Header() {
+  const isAdmin = useLocation().pathname.startsWith("/admin");
+  return isAdmin ? <SiteHeader /> : <LabHeader />;
 }
 
 export default Header;

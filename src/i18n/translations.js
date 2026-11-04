@@ -12,14 +12,14 @@ const translations = {
       "message": "Getting things ready"
     },
     "footer": {
-      "copyright": "besayfe, 2026. Built in Portugal."
+      "copyright": "AllerCarte, 2026. Built in Portugal."
     },
     "seo": {
-      "siteName": "besayfe",
+      "siteName": "AllerCarte",
       "defaults": {
-        "description": "besayfe maps restaurants against the allergens you avoid. Where a menu is not there yet, photograph it and the app reads it and estimates the allergens for you.",
+        "description": "AllerCarte maps restaurants against the allergens you avoid. Where a menu is not there yet, photograph it and the app reads it and estimates the allergens for you.",
         "keywords": [
-          "besayfe",
+          "AllerCarte",
           "allergen map",
           "eating out with allergies",
           "gluten free menu",
@@ -30,10 +30,10 @@ const translations = {
           "allergen information",
           "restaurant menu ocr"
         ],
-        "image": "/logo1000.png"
+        "image": "/og-image.png"
       },
       "home": {
-        "title": "besayfe | See what goes into every dish before you order",
+        "title": "AllerCarte | See what goes into every dish before you order",
         "description": "Set the allergens you avoid, open the map and see restaurant menus dish by dish. No menu yet? A photo is enough to get an estimate in seconds.",
         "keywords": [
           "allergy menu app",
@@ -44,27 +44,27 @@ const translations = {
         ]
       },
       "about": {
-        "title": "About besayfe | The team behind the allergen map",
-        "description": "Meet the founders of besayfe and why we set out to make eating out simple for people with food allergies and intolerances.",
+        "title": "About AllerCarte | The team behind the allergen map",
+        "description": "Meet the founders of AllerCarte and why we set out to make eating out simple for people with food allergies and intolerances.",
         "keywords": [
-          "besayfe founders",
+          "AllerCarte founders",
           "food allergy startup",
           "safer eating out",
           "allergen transparency"
         ]
       },
       "contact": {
-        "title": "Contact besayfe | Suggest a restaurant or ask a question",
-        "description": "Talk to the besayfe team. Suggest a restaurant, ask a question, or bring besayfe to a place you run.",
+        "title": "Contact AllerCarte | Suggest a restaurant or ask a question",
+        "description": "Talk to the AllerCarte team. Suggest a restaurant, ask a question, or bring AllerCarte to a place you run.",
         "keywords": [
-          "contact besayfe",
+          "contact AllerCarte",
           "suggest a restaurant",
           "allergy friendly menu"
         ]
       },
       "demoPreview": {
-        "title": "besayfe | demo",
-        "description": "Preview the besayfe mobile experience: OCR menu scan, allergen detection, translations, and risk scoring.",
+        "title": "AllerCarte | demo",
+        "description": "Preview the AllerCarte mobile experience: OCR menu scan, allergen detection, translations, and risk scoring.",
         "keywords": [
           "food allergy prototype",
           "figma demo",
@@ -72,7 +72,7 @@ const translations = {
         ]
       },
       "productDemo": {
-        "title": "besayfe | demo",
+        "title": "AllerCarte | demo",
         "description": "Scan or search a barcode to reveal allergens, traces, and ingredient risks powered by AI and European regulations.",
         "keywords": [
           "barcode allergen lookup",
@@ -82,7 +82,7 @@ const translations = {
         ]
       },
       "productDemoV2": {
-        "title": "besayfe | demo",
+        "title": "AllerCarte | demo",
         "description": "Create your allergen profile, scan products, and see AI food risk scores with translations and label upload.",
         "keywords": [
           "allergen risk ai",
@@ -92,18 +92,18 @@ const translations = {
         ]
       },
       "adminLogin": {
-        "title": "besayfe",
-        "description": "Secure sign in for besayfe administrators.",
+        "title": "AllerCarte",
+        "description": "Secure sign in for AllerCarte administrators.",
         "keywords": [
-          "besayfe admin"
+          "AllerCarte admin"
         ],
         "noindex": true
       },
       "adminDashboard": {
-        "title": "besayfe",
-        "description": "Encrypted contact messages and waitlist records for authorized besayfe admins.",
+        "title": "AllerCarte",
+        "description": "Encrypted contact messages and waitlist records for authorized AllerCarte admins.",
         "keywords": [
-          "besayfe admin dashboard"
+          "AllerCarte admin dashboard"
         ],
         "noindex": true
       }
@@ -111,7 +111,7 @@ const translations = {
     "home": {
       "heroEyebrow": "For people with allergies who eat out",
       "heroTitle": "See what goes into every dish before you order.",
-      "heroText": "Pick your allergies and besayfe marks, dish by dish, what you can eat at each restaurant. If the menu isn't in the app yet, just take a photo of it.",
+      "heroText": "Pick your allergies and AllerCarte marks, dish by dish, what you can eat at each restaurant. If the menu isn't in the app yet, just take a photo of it.",
       "heroCta": "Open the map",
       "heroSecondaryCta": "See how it works",
       "heroTrust": [
@@ -120,7 +120,7 @@ const translations = {
         "No install, no account",
         "In Portuguese and English"
       ],
-      "disclaimer": "besayfe is here to inform. It does not replace confirming allergens with the restaurant.",
+      "disclaimer": "AllerCarte is here to inform. It does not replace confirming allergens with the restaurant.",
       "mock": {
         "search": "Search restaurant, city or area…",
         "allergiesPill": "2 allergies",
@@ -185,7 +185,7 @@ const translations = {
       },
       "solutionEyebrow": "How it works",
       "solutionTitle": "Your allergies on the map and on every menu",
-      "solutionIntro": "besayfe opens in your phone's browser. You don't need to install anything or create an account.",
+      "solutionIntro": "AllerCarte opens in your phone's browser. You don't need to install anything or create an account.",
       "solution": {
         "steps": [
           {
@@ -201,7 +201,7 @@ const translations = {
           {
             "icon": "03",
             "title": "No menu yet? Photograph it",
-            "text": "Take a photo of the paper menu. besayfe reads it in Portuguese or English, estimates the allergens in each dish and shows you the result on the spot."
+            "text": "Take a photo of the paper menu. AllerCarte reads it in Portuguese or English, estimates the allergens in each dish and shows you the result on the spot."
           }
         ]
       },
@@ -289,7 +289,7 @@ const translations = {
       "citiesNote": "Yours isn't there? Photograph the menu and it stays on the map for the next person.",
       "galleryEyebrow": "The app",
       "galleryTitle": "What it looks like on your phone",
-      "galleryIntro": "Screens from the current version of besayfe. It runs in the browser, so there is nothing to install.",
+      "galleryIntro": "Screens from the current version of AllerCarte. It runs in the browser, so there is nothing to install.",
       "gallery": {
         "items": [
           {
@@ -381,11 +381,11 @@ const translations = {
       "faq": [
         {
           "q": "Do I need to install anything or create an account?",
-          "a": "No. besayfe opens in your browser, and you can see everything without picking your allergies."
+          "a": "No. AllerCarte opens in your browser, and you can see everything without picking your allergies."
         },
         {
           "q": "Can I trust the result?",
-          "a": "Green means the restaurant confirmed it. Anything estimated is labelled as an estimate. besayfe is there to inform you and does not replace checking with the restaurant."
+          "a": "Green means the restaurant confirmed it. Anything estimated is labelled as an estimate. AllerCarte is there to inform you and does not replace checking with the restaurant."
         },
         {
           "q": "My usual restaurant isn't on the map.",
@@ -397,7 +397,7 @@ const translations = {
         }
       ],
       "ctaEyebrow": "Somewhere you eat often?",
-      "ctaTitle": "Tell us where you'd like to see besayfe.",
+      "ctaTitle": "Tell us where you'd like to see AllerCarte.",
       "ctaText": "Tell us the restaurant and we'll take it from there. If it's yours, we'll set up the menu with you so your dishes show as confirmed.",
       "ctaButton": "Open the map",
       "ctaSecondary": "Request the market brief",
@@ -417,7 +417,7 @@ const translations = {
       "validation": {
         "kicker": "Validation",
         "title": "Demand, experts, and regulation push the project forward",
-        "body": "Discovery interviews, clinical validation, and European regulation confirm that besayfe answers a real and urgent need.",
+        "body": "Discovery interviews, clinical validation, and European regulation confirm that AllerCarte answers a real and urgent need.",
         "items": [
           {
             "step": "01",
@@ -428,7 +428,7 @@ const translations = {
           {
             "step": "02",
             "title": "Clinical and social endorsement",
-            "body": "Allergy associations and healthcare professionals validated besayfe's scientific and human relevance.",
+            "body": "Allergy associations and healthcare professionals validated AllerCarte's scientific and human relevance.",
             "meta": "NGO partners + clinical advisors"
           },
           {
@@ -442,7 +442,7 @@ const translations = {
     },
     "demoPreview": {
       "tag": "Prototype access",
-      "title": "Explore the besayfe mobile journey",
+      "title": "Explore the AllerCarte mobile journey",
       "subtitle": "Navigate the interactive Figma prototype to see how the app's UX/UI is going to be.",
       "backHome": "Back to home",
       "openInFigma": "Open in Figma",
@@ -512,7 +512,7 @@ const translations = {
       "search": "Look up",
       "tapToEnable": "Tap to turn the camera on or off.",
       "summaryTitle": "Product details",
-      "summarySubtitle": "Data is provided by Open Food Facts and besayfe hospitality partners.",
+      "summarySubtitle": "Data is provided by Open Food Facts and AllerCarte hospitality partners.",
       "empty": "Scan a barcode or search above to view allergens and traces.",
       "ingredients": "Ingredients",
       "riskLabel": "Risk",
@@ -523,7 +523,7 @@ const translations = {
       "riskViewMore": "View more",
       "riskHideDetails": "Hide details",
       "riskCalculating": "Calculating risk...",
-      "riskNotFoundEngine": "Product not found in besayfe engine",
+      "riskNotFoundEngine": "Product not found in AllerCarte engine",
       "riskEngineFailed": "Risk engine failed to compute",
       "riskUnavailable": "Service unavailable",
       "tips": []
@@ -584,7 +584,7 @@ const translations = {
       "search": "Look up",
       "tapToEnable": "Tap to turn the camera on or off.",
       "summaryTitle": "Product details",
-      "summarySubtitle": "Data is provided by Open Food Facts and besayfe hospitality partners.",
+      "summarySubtitle": "Data is provided by Open Food Facts and AllerCarte hospitality partners.",
       "empty": "Scan a barcode or search above to view allergens and traces.",
       "ingredients": "Ingredients",
       "riskLabel": "Risk",
@@ -596,7 +596,7 @@ const translations = {
       "riskViewMore": "View more",
       "riskHideDetails": "Hide details",
       "riskCalculating": "Calculating risk...",
-      "riskNotFoundEngine": "Product not found in besayfe engine",
+      "riskNotFoundEngine": "Product not found in AllerCarte engine",
       "riskEngineFailed": "Risk engine failed to compute",
       "riskUnavailable": "Service unavailable",
       "labelTitle": "Analyze an ingredient label",
@@ -635,7 +635,7 @@ const translations = {
       "heroTitle": "Making every table feel safe.",
       "heroLead": "A safe meal starts with information the kitchen already has. We are getting it to the person eating.",
       "missionTitle": "Our mission",
-      "missionBody": "To put the answer in the hands of the person eating: what each dish contains, checked against what they avoid. It comes from the kitchen where the restaurant is on besayfe, and from the menu itself where it is not.",
+      "missionBody": "To put the answer in the hands of the person eating: what each dish contains, checked against what they avoid. It comes from the kitchen where the restaurant is on AllerCarte, and from the menu itself where it is not.",
       "missionPillars": [
         "The answer belongs to the person eating.",
         "The kitchen already has the answer. Our job is to get it to the table.",
@@ -656,7 +656,7 @@ const translations = {
         }
       ],
       "ctaTitle": "Want to be part of it?",
-      "ctaBody": "Tell us where you usually eat and we will bring besayfe to one more table.<br>If you run a restaurant, we will set your menu up so your dishes show as confirmed by you.",
+      "ctaBody": "Tell us where you usually eat and we will bring AllerCarte to one more table.<br>If you run a restaurant, we will set your menu up so your dishes show as confirmed by you.",
       "rulesTitle": "How we handle the information",
       "rulesBody": "People with allergies are asked to trust what we show them, so the rules we follow should be public. Here they are, and the app follows them without exception.",
       "rules": [
@@ -664,13 +664,45 @@ const translations = {
         "<strong>Declared beats inferred.</strong> Where official information exists, that is what we show, even when the estimate says otherwise.",
         "<strong>We never call a dish safe.</strong> We tell you what we know, where it came from and what is still unconfirmed. The decision stays yours."
       ],
-      "storyTitle": "How besayfe began",
+      "storyTitle": "How AllerCarte began",
       "storyParagraphs": [
-        "besayfe started as a university project, from a simple observation: the information that makes a meal safe already exists in the kitchen, and almost never reaches the person eating it.",
+        "AllerCarte started as a university project, from a simple observation: the information that makes a meal safe already exists in the kitchen, and almost never reaches the person eating it.",
         "We listened to people who hesitate before ordering and to friends who read every menu twice. People with allergies live on quick answers given mid-service, and often nobody can check the recipe on the spot.",
         "Instead of asking each person to ask better questions, we decided to put the information in front of them: what each dish contains, checked against what they avoid, before they even leave home."
       ],
       "storyQuote": "The answer belongs to the person eating.",
+      "lab": {
+        "heroTitle": "It started with a question people ask in every restaurant.",
+        "heroLead": "\"Does this dish have gluten?\" People with allergies ask questions like this every day, to whoever is on shift. AllerCarte started from wanting to give them an answer they can read before they order.",
+        "chapters": [
+          {
+            "label": "Where it began",
+            "title": "A university project.",
+            "text": "It started as a university project, from a simple observation: the information that makes a meal safe already exists in the kitchen, and it almost never reaches the person eating it."
+          },
+          {
+            "label": "Listening first",
+            "title": "We went to talk to people who hesitate before ordering.",
+            "text": "We listened to friends who read every menu twice and to people who end up ordering the same dish every time. They told us the same story: answers given in a rush, mid-service, often by someone who can't check the recipe right then."
+          },
+          {
+            "label": "The decision",
+            "title": "Putting the information in front of the person eating.",
+            "text": "What each dish contains, checked against what each person avoids, visible before they leave home. When a restaurant joins, the information comes from its kitchen. When it hasn't joined yet, it comes from the menu itself."
+          },
+          {
+            "label": "Today",
+            "title": "349 restaurants in more than 50 towns.",
+            "text": "From Viana do Castelo to the Algarve, Madeira and the Azores included. Every menu has been checked against the 14 EU allergens, and anyone who finds a restaurant with no data can photograph the menu to put it on the map."
+          },
+          {
+            "label": "A new name",
+            "title": "besayfe is now AllerCarte.",
+            "text": "The name joins allergy and carte, the menu: the two things we wanted to bring together from day one. The symbol hidden in the two l's is an antibody."
+          }
+        ],
+        "visionLabel": "Where we're headed"
+      },
       "visionTitle": "Our vision",
       "visionBody": "A world where eating out does not take courage. Anyone with an allergy opens a restaurant's menu and knows what they can eat without having to ask. And allergen information is as normal on a menu as the price.",
       "impactEyebrow": "The impact",
@@ -705,14 +737,14 @@ const translations = {
       "message": "A preparar tudo"
     },
     "footer": {
-      "copyright": "besayfe, 2026. Feito em Portugal."
+      "copyright": "AllerCarte, 2026. Feito em Portugal."
     },
     "seo": {
-      "siteName": "besayfe",
+      "siteName": "AllerCarte",
       "defaults": {
-        "description": "O besayfe mostra-te o que cada prato leva antes de pedires. Escolhe as tuas alergias e o menu do restaurante assinala-as, em português e inglês.",
+        "description": "O AllerCarte mostra-te o que cada prato leva antes de pedires. Escolhe as tuas alergias e o menu do restaurante assinala-as, em português e inglês.",
         "keywords": [
-          "besayfe",
+          "AllerCarte",
           "mapa de alergénios",
           "comer fora com alergias",
           "menu sem glúten",
@@ -723,10 +755,10 @@ const translations = {
           "intolerância alimentar",
           "OCR de menus"
         ],
-        "image": "/logo1000.png"
+        "image": "/og-image.png"
       },
       "home": {
-        "title": "besayfe | Vê o que leva cada prato antes de pedires",
+        "title": "AllerCarte | Vê o que leva cada prato antes de pedires",
         "description": "App de alergénios para quem come fora: escolhe o que evitas (glúten, lactose, frutos secos, marisco) e vê prato a prato o que podes pedir. Sem menu na app? Uma fotografia chega.",
         "keywords": [
           "menu alergias",
@@ -743,27 +775,27 @@ const translations = {
         ]
       },
       "about": {
-        "title": "Sobre o besayfe | A equipa por trás do mapa de alergénios",
-        "description": "Conhece os fundadores do besayfe e porque quisemos tornar simples comer fora para quem tem alergias ou intolerâncias alimentares.",
+        "title": "Sobre o AllerCarte | A equipa por trás do mapa de alergénios",
+        "description": "Conhece os fundadores do AllerCarte e porque quisemos tornar simples comer fora para quem tem alergias ou intolerâncias alimentares.",
         "keywords": [
-          "fundadores besayfe",
+          "fundadores AllerCarte",
           "startup alergias alimentares",
           "comer fora em segurança",
           "transparência alimentar"
         ]
       },
       "contact": {
-        "title": "Contacto besayfe | Sugere um restaurante ou tira uma dúvida",
-        "description": "Fala com a equipa do besayfe. Sugere um restaurante, tira uma dúvida ou leva o besayfe ao teu restaurante.",
+        "title": "Contacto AllerCarte | Sugere um restaurante ou tira uma dúvida",
+        "description": "Fala com a equipa do AllerCarte. Sugere um restaurante, tira uma dúvida ou leva o AllerCarte ao teu restaurante.",
         "keywords": [
-          "contacto besayfe",
+          "contacto AllerCarte",
           "sugerir restaurante",
           "menu para alérgicos"
         ]
       },
       "demoPreview": {
-        "title": "besayfe | demo",
-        "description": "Veja a experiência mobile do besayfe: OCR em menus, deteção de alergias, traduções e índice de risco.",
+        "title": "AllerCarte | demo",
+        "description": "Veja a experiência mobile do AllerCarte: OCR em menus, deteção de alergias, traduções e índice de risco.",
         "keywords": [
           "protótipo alergias",
           "demo figma",
@@ -771,7 +803,7 @@ const translations = {
         ]
       },
       "productDemo": {
-        "title": "besayfe | demo",
+        "title": "AllerCarte | demo",
         "description": "Leia ou pesquise um código de barras para ver alergias, vestígios e riscos de ingredientes com base em IA e regulação europeia.",
         "keywords": [
           "verificador código de barras",
@@ -781,7 +813,7 @@ const translations = {
         ]
       },
       "productDemoV2": {
-        "title": "besayfe | demo",
+        "title": "AllerCarte | demo",
         "description": "Crie o seu perfil de alergias, escaneie produtos e veja pontuações de risco alimentar com IA, traduções e upload de rótulo.",
         "keywords": [
           "ia risco de alergias",
@@ -791,18 +823,18 @@ const translations = {
         ]
       },
       "adminLogin": {
-        "title": "besayfe",
-        "description": "Acesso seguro para administradores besayfe.",
+        "title": "AllerCarte",
+        "description": "Acesso seguro para administradores AllerCarte.",
         "keywords": [
-          "besayfe admin"
+          "AllerCarte admin"
         ],
         "noindex": true
       },
       "adminDashboard": {
-        "title": "besayfe",
+        "title": "AllerCarte",
         "description": "Mensagens encriptadas e lista de espera para administradores autorizados.",
         "keywords": [
-          "dashboard besayfe admin"
+          "dashboard AllerCarte admin"
         ],
         "noindex": true
       }
@@ -810,7 +842,7 @@ const translations = {
     "home": {
       "heroEyebrow": "Para quem tem alergias e come fora",
       "heroTitle": "Vê o que leva cada prato antes de pedires.",
-      "heroText": "Escolhe as tuas alergias e o besayfe assinala, prato a prato, o que podes comer em cada restaurante. Se o menu ainda não estiver na app, basta tirares-lhe uma fotografia.",
+      "heroText": "Escolhe as tuas alergias e o AllerCarte assinala, prato a prato, o que podes comer em cada restaurante. Se o menu ainda não estiver na app, basta tirares-lhe uma fotografia.",
       "heroCta": "Abrir o mapa",
       "heroSecondaryCta": "Ver como funciona",
       "heroTrust": [
@@ -819,7 +851,7 @@ const translations = {
         "Sem instalar nem criar conta",
         "Em português e inglês"
       ],
-      "disclaimer": "O besayfe serve para informar. Não substitui a confirmação dos alergénios no restaurante.",
+      "disclaimer": "O AllerCarte serve para informar. Não substitui a confirmação dos alergénios no restaurante.",
       "mock": {
         "search": "Pesquisar restaurante, cidade ou zona…",
         "allergiesPill": "2 alergias",
@@ -884,7 +916,7 @@ const translations = {
       },
       "solutionEyebrow": "Como funciona",
       "solutionTitle": "As tuas alergias no mapa e em cada menu",
-      "solutionIntro": "O besayfe abre no navegador do telemóvel. Não precisas de instalar nada nem de criar conta.",
+      "solutionIntro": "O AllerCarte abre no navegador do telemóvel. Não precisas de instalar nada nem de criar conta.",
       "solution": {
         "steps": [
           {
@@ -900,7 +932,7 @@ const translations = {
           {
             "icon": "03",
             "title": "Ainda não há menu? Fotografa-o",
-            "text": "Tira uma fotografia ao menu em papel. O besayfe lê-o em português ou em inglês, estima os alergénios de cada prato e mostra-te o resultado na hora."
+            "text": "Tira uma fotografia ao menu em papel. O AllerCarte lê-o em português ou em inglês, estima os alergénios de cada prato e mostra-te o resultado na hora."
           }
         ]
       },
@@ -988,7 +1020,7 @@ const translations = {
       "citiesNote": "O teu ainda não aparece? Fotografa o menu e ele fica no mapa para quem vier a seguir.",
       "galleryEyebrow": "A app",
       "galleryTitle": "Como é no telemóvel",
-      "galleryIntro": "Capturas da versão atual do besayfe. Abre no navegador, por isso não tens nada para instalar.",
+      "galleryIntro": "Capturas da versão atual do AllerCarte. Abre no navegador, por isso não tens nada para instalar.",
       "gallery": {
         "items": [
           {
@@ -1080,11 +1112,11 @@ const translations = {
       "faq": [
         {
           "q": "Tenho de instalar alguma coisa ou criar conta?",
-          "a": "Não. O besayfe abre no navegador e podes ver tudo sem escolheres as tuas alergias."
+          "a": "Não. O AllerCarte abre no navegador e podes ver tudo sem escolheres as tuas alergias."
         },
         {
           "q": "Posso confiar no resultado?",
-          "a": "O verde quer dizer que o restaurante confirmou. Tudo o que é estimado aparece identificado como estimativa. O besayfe serve para informar e não substitui a confirmação no restaurante."
+          "a": "O verde quer dizer que o restaurante confirmou. Tudo o que é estimado aparece identificado como estimativa. O AllerCarte serve para informar e não substitui a confirmação no restaurante."
         },
         {
           "q": "O restaurante onde costumo ir não está no mapa.",
@@ -1096,7 +1128,7 @@ const translations = {
         }
       ],
       "ctaEyebrow": "Há um sítio onde comes muitas vezes?",
-      "ctaTitle": "Diz-nos onde gostavas de ver o besayfe.",
+      "ctaTitle": "Diz-nos onde gostavas de ver o AllerCarte.",
       "ctaText": "Indica-nos o restaurante e tratamos do resto. Se o restaurante for teu, configuramos o menu contigo para que os pratos apareçam como confirmados.",
       "ctaButton": "Abrir o mapa",
       "ctaSecondary": "Pedir o relatório de mercado",
@@ -1116,7 +1148,7 @@ const translations = {
       "validation": {
         "kicker": "Validação",
         "title": "Procura, especialistas e regulação impulsionam o projeto",
-        "body": "Entrevistas exploratórias, validação clínica e legislação europeia confirmam que o besayfe responde a uma necessidade real e urgente.",
+        "body": "Entrevistas exploratórias, validação clínica e legislação europeia confirmam que o AllerCarte responde a uma necessidade real e urgente.",
         "items": [
           {
             "step": "01",
@@ -1127,7 +1159,7 @@ const translations = {
           {
             "step": "02",
             "title": "Endosso clínico e social",
-            "body": "Associações de alergias e profissionais de saúde validaram a relevância científica e humana do besayfe.",
+            "body": "Associações de alergias e profissionais de saúde validaram a relevância científica e humana do AllerCarte.",
             "meta": "ONG parceiras + conselheiros clínicos"
           },
           {
@@ -1141,7 +1173,7 @@ const translations = {
     },
     "demoPreview": {
       "tag": "Acesso ao protótipo",
-      "title": "Explore a jornada móvel do besayfe",
+      "title": "Explore a jornada móvel do AllerCarte",
       "subtitle": "Siga o protótipo interativo no Figma e veja como irá ser o UX/UI da app.",
       "backHome": "Voltar ao início",
       "openInFigma": "Abrir no Figma",
@@ -1211,7 +1243,7 @@ const translations = {
       "search": "Pesquisar",
       "tapToEnable": "Toque para ativar/desativar a câmara.",
       "summaryTitle": "Detalhes do produto",
-      "summarySubtitle": "Dados fornecidos pela Open Food Facts e parceiros do besayfe.",
+      "summarySubtitle": "Dados fornecidos pela Open Food Facts e parceiros do AllerCarte.",
       "empty": "Leia um código ou pesquise acima para ver alergénios e vestígios.",
       "ingredients": "Ingredientes",
       "riskLabel": "Risco",
@@ -1222,7 +1254,7 @@ const translations = {
       "riskViewMore": "Ver mais",
       "riskHideDetails": "Ocultar detalhes",
       "riskCalculating": "A calcular risco...",
-      "riskNotFoundEngine": "Produto não encontrado no motor besayfe",
+      "riskNotFoundEngine": "Produto não encontrado no motor AllerCarte",
       "riskEngineFailed": "Falha no cálculo de risco",
       "riskUnavailable": "Serviço indisponível",
       "tips": []
@@ -1283,7 +1315,7 @@ const translations = {
       "search": "Pesquisar",
       "tapToEnable": "Toque para ativar/desativar a câmara.",
       "summaryTitle": "Detalhes do produto",
-      "summarySubtitle": "Dados fornecidos pela Open Food Facts e parceiros do besayfe.",
+      "summarySubtitle": "Dados fornecidos pela Open Food Facts e parceiros do AllerCarte.",
       "empty": "Leia um código ou pesquise acima para ver alergénios e vestígios.",
       "ingredients": "Ingredientes",
       "riskLabel": "Risco",
@@ -1295,7 +1327,7 @@ const translations = {
       "riskViewMore": "Ver mais",
       "riskHideDetails": "Ocultar detalhes",
       "riskCalculating": "A calcular risco...",
-      "riskNotFoundEngine": "Produto não encontrado no motor besayfe",
+      "riskNotFoundEngine": "Produto não encontrado no motor AllerCarte",
       "riskEngineFailed": "Falha no cálculo de risco",
       "riskUnavailable": "Serviço indisponível",
       "labelTitle": "Analisar rótulo de ingredientes",
@@ -1334,7 +1366,7 @@ const translations = {
       "heroTitle": "Garantir segurança em cada escolha.",
       "heroLead": "Uma refeição segura começa numa informação que já existe na cozinha. Estamos a fazê-la chegar a quem vai comer.",
       "missionTitle": "A nossa missão",
-      "missionBody": "Pôr a resposta nas mãos de quem come: o que cada prato leva, comparado com o que a pessoa evita. Vem da cozinha, quando o restaurante está no besayfe, e do próprio menu, quando não está.",
+      "missionBody": "Pôr a resposta nas mãos de quem come: o que cada prato leva, comparado com o que a pessoa evita. Vem da cozinha, quando o restaurante está no AllerCarte, e do próprio menu, quando não está.",
       "missionPillars": [
         "A resposta pertence a quem está a comer.",
         "A cozinha já tem a resposta. O nosso trabalho é fazê-la chegar à mesa.",
@@ -1355,7 +1387,7 @@ const translations = {
         }
       ],
       "ctaTitle": "Queres fazer parte disto?",
-      "ctaBody": "Diz-nos onde costumas comer e levamos o besayfe a mais uma mesa.<br>Se tens um restaurante, configuramos o teu menu para que os pratos apareçam confirmados por ti.",
+      "ctaBody": "Diz-nos onde costumas comer e levamos o AllerCarte a mais uma mesa.<br>Se tens um restaurante, configuramos o teu menu para que os pratos apareçam confirmados por ti.",
       "rulesTitle": "Como tratamos a informação",
       "rulesBody": "Pedimos a quem tem alergias que confie no que lhe mostramos, por isso as regras que seguimos têm de estar à vista. São estas, e a app cumpre-as sempre.",
       "rules": [
@@ -1363,13 +1395,45 @@ const translations = {
         "<strong>O declarado ganha ao inferido.</strong> Onde há informação oficial, mostramos essa, mesmo que a estimativa diga outra coisa.",
         "<strong>Nunca dizemos que um prato é seguro.</strong> Dizemos o que sabemos, de onde veio e o que falta confirmar. A decisão continua a ser tua."
       ],
-      "storyTitle": "Como nasceu o besayfe",
+      "storyTitle": "Como nasceu o AllerCarte",
       "storyParagraphs": [
-        "O besayfe nasceu de um projeto universitário, a partir de uma observação simples: a informação que torna uma refeição segura já existe na cozinha e quase nunca chega a quem a vai comer.",
+        "O AllerCarte nasceu de um projeto universitário, a partir de uma observação simples: a informação que torna uma refeição segura já existe na cozinha e quase nunca chega a quem a vai comer.",
         "Fomos ouvir quem hesita antes de pedir e amigos que leem cada menu duas vezes. Quem tem alergias vive de respostas dadas à pressa, a meio do serviço, e muitas vezes ninguém consegue confirmar a receita naquele momento.",
         "Em vez de pedir a cada pessoa que pergunte melhor, decidimos pôr a informação à frente dela: o que cada prato leva, comparado com o que ela evita, antes mesmo de sair de casa."
       ],
       "storyQuote": "A resposta pertence a quem está a comer.",
+      "lab": {
+        "heroTitle": "Começou com uma pergunta que se faz em qualquer restaurante.",
+        "heroLead": "\"Este prato leva glúten?\" Quem tem alergias faz perguntas destas todos os dias, a quem estiver de serviço. O AllerCarte nasceu da vontade de lhe dar uma resposta que se possa ler antes de pedir.",
+        "chapters": [
+          {
+            "label": "O ponto de partida",
+            "title": "Um projeto universitário.",
+            "text": "Começou como projeto universitário, a partir de uma observação simples: a informação que torna uma refeição segura já existe na cozinha e quase nunca chega a quem a vai comer."
+          },
+          {
+            "label": "Ouvir primeiro",
+            "title": "Fomos falar com quem hesita antes de pedir.",
+            "text": "Ouvimos amigos que leem cada menu duas vezes e pessoas que acabam por pedir sempre o mesmo prato. Contaram-nos a mesma coisa: respostas dadas à pressa, a meio do serviço, muitas vezes por quem não pode ir confirmar a receita naquele momento."
+          },
+          {
+            "label": "A decisão",
+            "title": "Pôr a informação à frente de quem come.",
+            "text": "O que cada prato leva, comparado com o que cada pessoa evita, à vista antes de sair de casa. Quando o restaurante adere, a informação vem da cozinha. Quando ainda não aderiu, vem do próprio menu."
+          },
+          {
+            "label": "Hoje",
+            "title": "349 restaurantes em mais de 50 localidades.",
+            "text": "De Viana do Castelo ao Algarve, com a Madeira e os Açores incluídos. Todos os menus foram cruzados com os 14 alergénios da UE, e quem encontra um restaurante sem dados pode fotografar o menu para o deixar no mapa."
+          },
+          {
+            "label": "Um nome novo",
+            "title": "O besayfe passou a chamar-se AllerCarte.",
+            "text": "O nome junta alergia e carta, as duas coisas que quisemos aproximar desde o primeiro dia. O símbolo escondido nos dois \"l\" é um anticorpo."
+          }
+        ],
+        "visionLabel": "Para onde vamos"
+      },
       "visionTitle": "A nossa visão",
       "visionBody": "Um mundo em que comer fora não exige coragem. Qualquer pessoa com uma alergia abre o menu de um restaurante e sabe, sem ter de perguntar, o que pode comer. E a informação sobre alergénios é tão normal num menu como o preço.",
       "impactEyebrow": "O impacto",

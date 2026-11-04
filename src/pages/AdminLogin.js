@@ -11,7 +11,7 @@ const ADMIN_EMAIL = "franciscomagalhaes04@gmail.com";
 function AdminLogin() {
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const siteName = t("seo.siteName") || "besayfe";
+  const siteName = t("seo.siteName") || "AllerCarte";
   const seoDefaults = t("seo.defaults") || {};
   const seo = t("seo.adminLogin") || {};
   const [email, setEmail] = useState("");
