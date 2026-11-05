@@ -112,7 +112,7 @@ function HomeMix() {
           </h2>
           <div className="st-stats d3-stats">
             {stats.map((s, i) => (
-              <div key={s.label} className="st-stat d3-stat st-reveal" style={{ "--d": `${i * 110}ms` }}>
+              <div key={i} className="st-stat d3-stat st-reveal" style={{ "--d": `${i * 110}ms` }}>
                 <strong><CountUp value={s.value} /></strong>
                 <span>{s.label}</span>
               </div>
@@ -131,7 +131,7 @@ function HomeMix() {
           </header>
           <ol className="d3-stack__list">
             {steps.map((s, i) => (
-              <li key={s.title} className="d3-stack__card" style={{ "--i": i }}>
+              <li key={i} className="d3-stack__card" style={{ "--i": i }}>
                 <div className="d3-stack__copy">
                   <span className="st-pill st-pill--soft">{c.step} {i + 1}</span>
                   <h3>{plain(s.title)}</h3>
@@ -168,8 +168,8 @@ function HomeMix() {
         <div className="st-shell st-chat__shell">
           <h2 className="st-h2 st-center st-reveal">{c.askTitle}</h2>
           <div className="st-chat__thread">
-            {c.chat.map((msg) => (
-              <div key={msg.q} className="st-chat__pair">
+            {c.chat.map((msg, i) => (
+              <div key={i} className="st-chat__pair">
                 <p className="st-msg st-msg--q st-reveal">{msg.q}</p>
                 <p className="st-msg st-msg--a st-reveal" style={{ "--d": "450ms" }}>
                   <span className="st-msg__typing" aria-hidden="true">
@@ -197,7 +197,7 @@ function HomeMix() {
           </h2>
           <div className="st-why">
             {why.map((w, i) => (
-              <div key={w.title} className="st-why__card d3-why__card st-reveal" style={{ "--d": `${i * 120}ms` }}>
+              <div key={i} className="st-why__card d3-why__card st-reveal" style={{ "--d": `${i * 120}ms` }}>
                 <strong>{plain(w.title)}</strong>
                 <p>{plain(w.text)}</p>
                 <small dangerouslySetInnerHTML={{ __html: w.meta }} />
@@ -214,7 +214,7 @@ function HomeMix() {
           <div className="st-faq__list st-reveal">
             {faq.map((item, i) => (
               <FaqItem
-                key={item.q}
+                key={i}
                 id={`mx-faq-${i}`}
                 item={item}
                 open={faqOpen === i}

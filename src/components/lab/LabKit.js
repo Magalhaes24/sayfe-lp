@@ -7,29 +7,46 @@ import { Link } from "react-router-dom";
 export const plain = (html) => String(html || "").replace(/<[^>]+>/g, "");
 export const words = (html) => plain(html).split(/\s+/).filter(Boolean);
 
-// Adds .is-in to each .lx-reveal the first time it comes into view.
-export function useReveal(rootRef) {
+// Adds .is-in to each reveal element the first time it comes into view.
+// A MutationObserver also picks up elements React mounts later (a language
+// switch can remount list items), so nothing is ever left at opacity 0.
+export function useReveal(rootRef, selector = ".lx-reveal", ioOptions) {
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return;
-    const els = root.querySelectorAll(".lx-reveal");
+    const show = (el) => el.classList.add("is-in");
     if (typeof IntersectionObserver === "undefined") {
-      els.forEach((el) => el.classList.add("is-in"));
+      root.querySelectorAll(selector).forEach(show);
       return;
     }
     const io = new IntersectionObserver(
       (entries) =>
         entries.forEach((e) => {
           if (e.isIntersecting) {
-            e.target.classList.add("is-in");
+            show(e.target);
             io.unobserve(e.target);
           }
         }),
-      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+      ioOptions || { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
     );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, [rootRef]);
+    const seen = new WeakSet();
+    const watch = () =>
+      root.querySelectorAll(selector).forEach((el) => {
+        if (seen.has(el) || el.classList.contains("is-in")) return;
+        seen.add(el);
+        io.observe(el);
+      });
+    watch();
+    let mo;
+    if (typeof MutationObserver !== "undefined") {
+      mo = new MutationObserver(watch);
+      mo.observe(root, { childList: true, subtree: true });
+    }
+    return () => {
+      io.disconnect();
+      if (mo) mo.disconnect();
+    };
+  }, [rootRef, selector, ioOptions]);
 }
 
 export function Chevron() {
