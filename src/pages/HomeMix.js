@@ -61,6 +61,7 @@ function HomeMix() {
         title={seo.title}
         description={seo.description || seoDefaults.description}
         canonicalPath="/"
+        faq={faq}
         siteName={t("seo.siteName") || "AllerCarte"}
       />
 

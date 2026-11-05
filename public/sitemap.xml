@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!-- Public pages of landing.allercarte.com. Update lastmod when a page's
+     content changes. The app (www.allercarte.com) has its own sitemap. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://landing.allercarte.com/</loc>
-    <lastmod>2026-10-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-11-05</lastmod>
+    <image:image>
+      <image:loc>https://landing.allercarte.com/og-image.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://landing.allercarte.com/about/</loc>
-    <lastmod>2026-10-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://landing.allercarte.com/contact/</loc>
-    <lastmod>2026-10-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-05</lastmod>
   </url>
 </urlset>
