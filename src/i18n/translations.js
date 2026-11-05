@@ -645,7 +645,7 @@ const translations = {
       "teamIntro": "We are a small team that blends technology, rigour and time spent in real kitchens to change how food information reaches the table.",
       "founders": [
         {
-          "name": "Francisco Magalhaes",
+          "name": "Francisco Magalhães",
           "role": "CEO & CTO",
           "bio": "Leads product and engineering, and builds AllerCarte from the map to the menus."
         },
@@ -952,7 +952,7 @@ const translations = {
         },
         {
           "tone": "warn",
-          "title": "Cor-de-laranja",
+          "title": "Cor‑de‑laranja",
           "text": "Alergénios por confirmar ou possível contacto. Pergunta no restaurante."
         },
         {
@@ -1428,7 +1428,7 @@ const translations = {
           },
           {
             "label": "Um nome novo",
-            "title": "O besayfe passou a chamar-se AllerCarte.",
+            "title": "O besayfe passou a chamar‑se AllerCarte.",
             "text": "O nome junta alergia e carta, as duas coisas que quisemos aproximar desde o primeiro dia. O símbolo escondido nos dois \"l\" é um anticorpo."
           }
         ],

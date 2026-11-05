@@ -103,7 +103,7 @@ function AboutLab() {
         <div className="lx-shell">
           <ol className="lx-timeline__list" ref={timelineRef}>
             {chapters.map((c, i) => (
-              <li key={c.label} className="lx-chapter">
+              <li key={i} className="lx-chapter">
                 <span className="lx-chapter__dot" aria-hidden="true" />
                 <p className="lx-chapter__label">
                   <span>{String(i + 1).padStart(2, "0")}</span>
@@ -139,7 +139,7 @@ function AboutLab() {
             {founders.map((f, i) => {
               const src = founderImage(f.name);
               return (
-                <li key={f.name} className="lx-reveal" style={{ "--d": `${i * 120}ms` }}>
+                <li key={i} className="lx-reveal" style={{ "--d": `${i * 120}ms` }}>
                   <div className="lx-founders__photo">
                     {src && <img src={src} alt={f.name} loading="lazy" decoding="async" />}
                   </div>

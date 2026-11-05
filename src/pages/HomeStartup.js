@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "../contexts/LanguageContext";
 import Seo from "../components/Seo";
+import { useReveal as useLabReveal } from "../components/lab/LabKit";
 import shotAllergens from "../assets/app/app-allergens.jpg";
 import shotMap from "../assets/app/app-map.jpg";
 import shotContribution from "../assets/app/app-contribution.jpg";
@@ -103,28 +104,9 @@ export const COPY = {
 export const plain = (html) => String(html || "").replace(/<[^>]+>/g, "");
 
 // .is-in once on screen, for the pop-in reveals.
+const ST_REVEAL_IO = { threshold: 0.2, rootMargin: "0px 0px -8% 0px" };
 export function useReveal(rootRef) {
-  useEffect(() => {
-    const root = rootRef.current;
-    if (!root) return;
-    const els = root.querySelectorAll(".st-reveal");
-    if (typeof IntersectionObserver === "undefined") {
-      els.forEach((el) => el.classList.add("is-in"));
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("is-in");
-            io.unobserve(e.target);
-          }
-        }),
-      { threshold: 0.2, rootMargin: "0px 0px -8% 0px" }
-    );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, [rootRef]);
+  useLabReveal(rootRef, ".st-reveal", ST_REVEAL_IO);
 }
 
 // Counts up when the number scrolls into view. It starts on the real value
