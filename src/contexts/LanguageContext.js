@@ -9,7 +9,9 @@ import {
 import translations from "../i18n/translations";
 
 const DEFAULT_LANGUAGE = "pt";
-const STORAGE_KEY = "sayfe-language";
+const STORAGE_KEY = "allercarte-language";
+// Saved under the old brand name; read once so returning visitors keep it.
+const LEGACY_STORAGE_KEY = "sayfe-language";
 
 const LanguageContext = createContext({
   language: DEFAULT_LANGUAGE,
@@ -22,10 +24,10 @@ function resolveKey(bundle, key) {
   return key.split(".").reduce((acc, part) => (acc == null ? undefined : acc[part]), bundle);
 }
 
-// Helper to highlight every occurrence of "besayfe"
-function highlightBesayfe(text) {
+// Helper to highlight every occurrence of "AllerCarte"
+function highlightBrand(text) {
   if (typeof text !== "string") return text;
-  return text.replace(/\bbesayfe\b/g, match => {
+  return text.replace(/\bAllerCarte\b/g, match => {
     return `<span class="highlight">${match}</span>`;
   });
 }
@@ -48,7 +50,9 @@ export function LanguageProvider({ children }) {
     if (typeof window === "undefined") return DEFAULT_LANGUAGE;
     let stored = null;
     try {
-      stored = window.localStorage.getItem(STORAGE_KEY);
+      stored =
+        window.localStorage.getItem(STORAGE_KEY) ||
+        window.localStorage.getItem(LEGACY_STORAGE_KEY);
     } catch (error) {
       // Storage can be blocked (private mode); fall back to the browser.
     }
@@ -62,6 +66,7 @@ export function LanguageProvider({ children }) {
     if (typeof window !== "undefined") {
       try {
         window.localStorage.setItem(STORAGE_KEY, language);
+        window.localStorage.removeItem(LEGACY_STORAGE_KEY);
       } catch (error) {
         // Not remembered this time; the browser language still applies.
       }
@@ -81,8 +86,8 @@ export function LanguageProvider({ children }) {
 
       if (skipHighlight) return value;
 
-      // Apply highlight to besayfe automatically for non-SEO content
-      return highlightBesayfe(value);
+      // Apply highlight to AllerCarte automatically for non-SEO content
+      return highlightBrand(value);
     },
     [language]
   );

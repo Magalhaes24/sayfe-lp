@@ -37,7 +37,7 @@ function collectProductTags(product, keys) {
 function ProductDemo() {
   const { t } = useTranslation();
   const tt = useMemo(() => t("productDemo"), [t]);
-  const siteName = t("seo.siteName") || "besayfe";
+  const siteName = t("seo.siteName") || "AllerCarte";
   const seoDefaults = t("seo.defaults") || {};
   const seo = t("seo.productDemo") || {};
 

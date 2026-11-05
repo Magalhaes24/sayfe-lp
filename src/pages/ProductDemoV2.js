@@ -15,7 +15,7 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 
 const RISK_API_BASE_URL = process.env.REACT_APP_RISK_API_BASE_URL;
-const RISK_API_WARMUP_STORAGE_KEY = "besayfe:riskApiWarm";
+const RISK_API_WARMUP_STORAGE_KEY = "AllerCarte:riskApiWarm";
 const RISK_API_WARMUP_TTL_MS = 5 * 60 * 1000; // cache warm-up result for 5 minutes
 const RISK_API_WARMUP_TIMEOUT_MS = 1800; // keep the warm-up under 2 seconds
 
@@ -277,7 +277,7 @@ function ProductDemoV2() {
       {},
     [t]
   );
-  const siteName = t("seo.siteName") || "besayfe";
+  const siteName = t("seo.siteName") || "AllerCarte";
   const seoDefaults = t("seo.defaults") || {};
   const seo = t("seo.productDemoV2") || {};
 
@@ -610,7 +610,7 @@ function ProductDemoV2() {
             consider_may_contain: true,
             consider_facility: false
           };
-          console.info("[besayfe:risk] request payload", riskPayload);
+          console.info("[AllerCarte:risk] request payload", riskPayload);
 
           const riskResponse = await fetch(`${RISK_API_BASE_URL}/risk`, {
             method: "POST",
@@ -646,7 +646,7 @@ function ProductDemoV2() {
 
           const riskData = await riskResponse.json();
           // --- API logging: response payload ---
-          console.info("[besayfe:risk] response payload", riskData);
+          console.info("[AllerCarte:risk] response payload", riskData);
           await recordRiskReading({ mode: "barcode", barcode: code, riskData });
           const fallbackText =
             "no ingredient information available; insufficient data to compute ingredient-based risk; openfoodfacts entry has no declared allergens or ingredient text; cannot compute risk from source data; applying conservative fallback score";
@@ -855,7 +855,7 @@ function ProductDemoV2() {
         const online = res.status < 500;
         setApiOnline(online);
         writeWarmupCache(online);
-        console.info("[besayfe:risk] health check", {
+        console.info("[AllerCarte:risk] health check", {
           online,
           status: res.status
         });
@@ -863,7 +863,7 @@ function ProductDemoV2() {
         setApiOnline(false);
         writeWarmupCache(false);
         if (error?.name !== "AbortError") {
-          console.warn("[besayfe:risk] health check failed", error);
+          console.warn("[AllerCarte:risk] health check failed", error);
         }
       } finally {
         window.clearTimeout(timeoutId);
@@ -875,11 +875,11 @@ function ProductDemoV2() {
     if (cached) {
       setApiOnline(Boolean(cached.online));
       setApiChecked(true);
-      console.info("[besayfe:risk] warmup cache hit", {
+      console.info("[AllerCarte:risk] warmup cache hit", {
         online: Boolean(cached.online)
       });
     } else {
-      console.info("[besayfe:risk] warmup start");
+      console.info("[AllerCarte:risk] warmup start");
       checkHealth();
     }
 
@@ -1115,7 +1115,7 @@ function ProductDemoV2() {
           }
 
           const riskData = await response.json();
-          console.info("[besayfe:risk:image] response payload", riskData);
+          console.info("[AllerCarte:risk:image] response payload", riskData);
           const product = riskData?.product || {};
           const summary = riskData?.summary || {};
           const ingredientsText =

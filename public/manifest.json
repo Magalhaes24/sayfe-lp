@@ -1,26 +1,25 @@
-﻿{
-  "short_name": "besayfe",
-  "name": "besayfe",
+{
+  "short_name": "AllerCarte",
+  "name": "AllerCarte",
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "64x64 48x48 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
       "src": "logo500.png",
       "type": "image/png",
-      "sizes": "500x500"
+      "sizes": "512x512"
     },
     {
-      "src": "logo4000.png",
+      "src": "logo1000.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "1000x1000"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#73ac84",
   "background_color": "#ffffff"
 }
-

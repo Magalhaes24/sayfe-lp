@@ -1,8 +1,8 @@
 import { useEffect, useMemo } from "react";
 import { useTranslation } from "../contexts/LanguageContext";
 
-const BASE_URL = "https://landing.besayfe.com";
-const PRODUCT_URL = "https://besayfe.com";
+const BASE_URL = "https://landing.allercarte.com";
+const PRODUCT_URL = "https://www.allercarte.com";
 
 function ensureMeta(attrName, attrValue, content) {
   if (!content) return;
@@ -80,10 +80,10 @@ function Seo({
   title,
   description,
   keywords,
-  image = "/logo1000.png",
+  image = "/og-image.png",
   type = "website",
   canonicalPath = "/",
-  siteName = "besayfe",
+  siteName = "AllerCarte",
   noindex = false
 }) {
   const { language } = useTranslation();
@@ -105,7 +105,7 @@ function Seo({
   useEffect(() => {
     if (typeof document === "undefined") return;
 
-    const suffix = siteName || "besayfe";
+    const suffix = siteName || "AllerCarte";
     const pageTitle = sanitized.title || suffix;
     const finalTitle = pageTitle.includes(suffix) ? pageTitle : `${pageTitle} | ${suffix}`;
     const robotsContent = noindex
@@ -118,7 +118,7 @@ function Seo({
 
     ensureMeta("name", "description", sanitized.description);
     ensureMeta("name", "keywords", sanitized.keywords);
-    ensureMeta("name", "author", "besayfe");
+    ensureMeta("name", "author", "AllerCarte");
     ensureMeta("name", "language", locale.replace("_", "-"));
     ensureMeta("name", "robots", robotsContent);
 
@@ -128,7 +128,7 @@ function Seo({
     ensureMeta("property", "og:url", sanitized.canonical);
     ensureMeta("property", "og:image", sanitized.image);
     ensureMeta("property", "og:image:alt", sanitized.title || siteName);
-    ensureMeta("property", "og:site_name", siteName || "besayfe");
+    ensureMeta("property", "og:site_name", siteName || "AllerCarte");
     ensureMeta("property", "og:locale", locale);
     clearMetaByProperty("og:locale:alternate");
     ensureMeta("property", "og:locale:alternate", alternateLocale);
@@ -151,7 +151,7 @@ function Seo({
               {
                 "@type": "Organization",
                 "@id": `${BASE_URL}/#organization`,
-                name: siteName || "besayfe",
+                name: siteName || "AllerCarte",
                 url: PRODUCT_URL,
                 logo: toAbsoluteUrl("/logo1000.png"),
                 email: "francisco@besayfe.com"
@@ -159,7 +159,7 @@ function Seo({
               {
                 "@type": "WebSite",
                 "@id": `${BASE_URL}/#website`,
-                name: siteName || "besayfe",
+                name: siteName || "AllerCarte",
                 url: `${BASE_URL}/`,
                 inLanguage: locale.replace("_", "-"),
                 publisher: { "@id": `${BASE_URL}/#organization` }
@@ -183,7 +183,7 @@ function Seo({
               {
                 "@type": "MobileApplication",
                 "@id": `${BASE_URL}/#app`,
-                name: siteName || "besayfe",
+                name: siteName || "AllerCarte",
                 url: PRODUCT_URL,
                 applicationCategory: "HealthApplication",
                 operatingSystem: "iOS, Android",

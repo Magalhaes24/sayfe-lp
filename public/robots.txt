@@ -20,4 +20,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://landing.besayfe.com/sitemap.xml
+Sitemap: https://landing.allercarte.com/sitemap.xml

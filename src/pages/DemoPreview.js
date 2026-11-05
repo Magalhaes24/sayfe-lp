@@ -4,7 +4,7 @@ import { useTranslation } from "../contexts/LanguageContext";
 import "./DemoPreview.css";
 import Seo from "../components/Seo";
 
-const DEMO_ACCESS_KEY = "sayfeDemoAccess";
+const DEMO_ACCESS_KEY = "allercarteDemoAccess";
 // Use the embed.figma.com endpoint so the prototype opens without requiring sign-in.
 const FIGMA_PROTOTYPE_URL =
   "https://www.figma.com/proto/mLfhnggAEYUU5JPKXK4na6/besayfe-app?node-id=1-1641&t=0ju3ZqVWVdUtfp30-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A1637";
@@ -13,7 +13,7 @@ const FIGMA_EMBED_URL =
 
 function DemoPreview() {
   const { t } = useTranslation();
-  const siteName = t("seo.siteName") || "besayfe";
+  const siteName = t("seo.siteName") || "AllerCarte";
   const seoDefaults = t("seo.defaults") || {};
   const seo = t("seo.demoPreview") || {};
   const navigate = useNavigate();
@@ -114,7 +114,7 @@ function DemoPreview() {
                 {isExpanded ? "Close" : "Full screen"}
               </button>
               <iframe
-                title="besayfe product demo prototype"
+                title="AllerCarte product demo prototype"
                 src={embedUrl}
                 style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
                 width="100%"

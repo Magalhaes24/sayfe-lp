@@ -206,7 +206,7 @@ main {
 }
 
 .logo-mark {
-  height: 3em;
+  height: 2.5rem;
   width: auto;
   display: block;
 }
@@ -926,7 +926,7 @@ main {
   z-index: 100;
 }
 
-/* === Center the besayfe logo and text on mobile === */
+/* === Center the AllerCarte logo and text on mobile === */
 @media (max-width: 520px) {
   .navbar-inner {
     flex-wrap: nowrap;
@@ -947,7 +947,7 @@ main {
   }
 
   .logo-mark {
-    height: 2.8em;
+    height: 2.2rem;
   }
 
   .logo {
@@ -1132,7 +1132,7 @@ main {
   }
 
   .logo-mark {
-    height: 2.2rem;
+    height: 2.1rem;
     width: auto;
   }
 

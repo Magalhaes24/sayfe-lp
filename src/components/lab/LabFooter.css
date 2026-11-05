@@ -1,0 +1,107 @@
+/* Footer for the /lab pages. */
+
+.lxf {
+  background: #f5f8f6;
+  border-top: 1px solid rgba(31, 42, 34, 0.08);
+  color: #66756b;
+  font-size: 0.86rem;
+}
+
+.lxf__shell {
+  width: min(1120px, 100% - 2.5rem);
+  margin-inline: auto;
+  padding: 3.5rem 0 calc(2rem + env(safe-area-inset-bottom, 0px));
+}
+
+.lxf__top {
+  display: grid;
+  gap: 0.75rem;
+  padding-bottom: 2.5rem;
+}
+
+.lxf__logo {
+  display: inline-flex;
+  justify-self: start;
+  min-height: 44px;
+  align-items: center;
+}
+
+.lxf__logo img {
+  display: block;
+  height: 28px;
+  width: auto;
+}
+
+.lxf__tagline {
+  margin: 0;
+  color: #66756b;
+}
+
+.lxf__cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem 1.5rem;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(31, 42, 34, 0.08);
+}
+
+.lxf__cols nav,
+.lxf__cols > div {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 0.1rem;
+}
+
+.lxf h2 {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #1d2620;
+}
+
+.lxf__cols a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  color: #66756b;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.lxf__cols a:hover {
+  color: #1d2620;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.lxf a:focus-visible {
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.lxf__bottom {
+  display: grid;
+  gap: 0.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(31, 42, 34, 0.08);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.lxf__bottom p {
+  margin: 0;
+}
+
+@media (min-width: 820px) {
+  .lxf__cols {
+    grid-template-columns: repeat(3, minmax(0, 220px));
+  }
+
+  .lxf__bottom {
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+  }
+}

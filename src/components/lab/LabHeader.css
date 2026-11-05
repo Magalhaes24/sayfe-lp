@@ -1,0 +1,481 @@
+/* Header for the /lab pages. 56px, translucent, hides on scroll down. */
+
+.lxh {
+  --lxh-h: 56px;
+  --lxh-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  position: sticky;
+  top: 0;
+  z-index: 1500;
+  height: var(--lxh-h);
+  transition: transform 0.45s var(--lxh-ease);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lxh.is-hidden {
+  transform: translateY(-100%);
+}
+
+.lxh__bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  height: 100%;
+  padding: 0 max(1.25rem, calc((100vw - 1120px) / 2));
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  box-shadow: 0 1px 0 transparent;
+  transition: box-shadow 0.3s, background-color 0.3s;
+}
+
+.lxh.is-scrolled .lxh__bar {
+  box-shadow: 0 1px 0 rgba(31, 42, 34, 0.08);
+}
+
+.lxh.is-open .lxh__bar {
+  background: #fff;
+}
+
+.lxh__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.lxh__logo img {
+  display: block;
+  height: 26px;
+  width: auto;
+}
+
+.lxh__test {
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(31, 42, 34, 0.07);
+  color: #66756b;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ---------- Inline links (wide screens) ---------- */
+
+.lxh__links {
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0 auto;
+}
+
+.lxh__links a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 0.85rem;
+  color: #66756b;
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.lxh__links a:hover,
+.lxh__links a.active {
+  color: #1d2620;
+}
+
+.lxh__links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  width: 4px;
+  height: 4px;
+  margin-left: -2px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.25s, transform 0.35s var(--lxh-ease);
+}
+
+.lxh__links a.active::after {
+  opacity: 1;
+  transform: none;
+}
+
+.lxh__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: auto;
+}
+
+.lxh__cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 1rem;
+  border-radius: 999px;
+  background: #1d2620;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s var(--lxh-ease);
+}
+
+@media (hover: hover) {
+  .lxh__cta:hover {
+    background: #34443a;
+  }
+}
+
+.lxh__cta:active {
+  transform: scale(0.96);
+}
+
+/* ---------- Language ---------- */
+
+.lxh-lang {
+  display: inline-flex;
+  padding: 2px;
+  border-radius: 999px;
+  background: rgba(31, 42, 34, 0.06);
+}
+
+.lxh-lang button {
+  min-width: 36px;
+  min-height: 30px;
+  padding: 0 0.5rem;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: #66756b;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s, color 0.25s, box-shadow 0.25s;
+}
+
+.lxh-lang button[aria-pressed="true"] {
+  background: #fff;
+  color: #1d2620;
+  box-shadow: 0 1px 3px rgba(18, 42, 28, 0.12);
+}
+
+.lxh__lang-desktop {
+  display: none;
+}
+
+/* ---------- Menu button: two lines that cross ---------- */
+
+.lxh__toggle {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.lxh__toggle span {
+  position: absolute;
+  left: 13px;
+  width: 18px;
+  height: 1.5px;
+  border-radius: 2px;
+  background: #1d2620;
+  transition: transform 0.4s var(--lxh-ease);
+}
+
+.lxh__toggle span:first-child {
+  top: 18px;
+}
+
+.lxh__toggle span:last-child {
+  top: 24px;
+}
+
+.lxh.is-open .lxh__toggle span:first-child {
+  transform: translateY(3px) rotate(45deg);
+}
+
+.lxh.is-open .lxh__toggle span:last-child {
+  transform: translateY(-3px) rotate(-45deg);
+}
+
+/* ---------- Sheet (phones) ---------- */
+
+.lxh__sheet {
+  position: fixed;
+  inset: var(--lxh-h) 0 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem 1.5rem calc(2rem + env(safe-area-inset-bottom, 0px));
+  background: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0s 0.3s;
+}
+
+.lxh.is-open .lxh__sheet {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s, visibility 0s;
+}
+
+.lxh__sheet nav {
+  display: grid;
+}
+
+.lxh__sheet nav a,
+.lxh__sheet-foot {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.2s, transform 0.3s var(--lxh-ease);
+}
+
+.lxh.is-open .lxh__sheet nav a,
+.lxh.is-open .lxh__sheet-foot {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.4s calc(var(--i) * 50ms + 80ms), transform 0.6s var(--lxh-ease) calc(var(--i) * 50ms + 80ms);
+}
+
+.lxh__sheet nav a {
+  display: flex;
+  align-items: center;
+  min-height: 64px;
+  border-bottom: 1px solid rgba(31, 42, 34, 0.08);
+  color: #1d2620;
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+}
+
+.lxh__sheet nav a.active {
+  color: var(--accent-ink);
+}
+
+.lxh__sheet-foot {
+  display: grid;
+  justify-items: start;
+  gap: 1.25rem;
+}
+
+.lxh__sheet-foot .lx-btn {
+  width: 100%;
+}
+
+.lxh a:focus-visible,
+.lxh button:focus-visible {
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+@media (min-width: 820px) {
+  .lxh__links,
+  .lxh__lang-desktop {
+    display: inline-flex;
+  }
+
+  .lxh__actions {
+    margin-left: 0;
+  }
+
+  .lxh__toggle,
+  .lxh__sheet {
+    display: none;
+  }
+}
+
+/* Phones: keep the map button, drop it only on the narrowest screens. */
+@media (max-width: 359px) {
+  .lxh__cta {
+    display: none;
+  }
+}
+
+/* ---------- Pill variant (/lab2): a floating rounded bar ---------- */
+
+.lxh--pill {
+  --lxh-h: 72px;
+  font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+}
+
+.lxh--pill .lxh__bar {
+  width: min(1160px, 100% - 1.5rem);
+  height: 60px;
+  margin: 6px auto 0;
+  padding: 0 0.6rem 0 1.25rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 0 0 1px rgba(20, 35, 26, 0.06), 0 10px 30px -18px rgba(20, 35, 26, 0.35);
+}
+
+.lxh--pill.is-scrolled .lxh__bar {
+  box-shadow: 0 0 0 1px rgba(20, 35, 26, 0.08), 0 14px 34px -16px rgba(20, 35, 26, 0.4);
+}
+
+.lxh--pill .lxh__links {
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(20, 35, 26, 0.04);
+}
+
+.lxh--pill .lxh__links a {
+  min-height: 36px;
+  padding: 0 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.lxh--pill .lxh__links a.active {
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(20, 35, 26, 0.12);
+}
+
+.lxh--pill .lxh__links a::after {
+  display: none;
+}
+
+.lxh--pill .lxh__cta {
+  min-height: 44px;
+  padding: 0 1.25rem;
+  background: #3d7a52;
+  font-weight: 700;
+}
+
+@media (hover: hover) {
+  .lxh--pill .lxh__cta:hover {
+    background: #346b47;
+  }
+}
+
+.lxh--pill .lxh__sheet {
+  top: var(--lxh-h);
+}
+
+/* Inside the pill the menu button keeps clear of the rounded edge. */
+.lxh--pill .lxh__toggle {
+  margin-right: 0;
+}
+
+.lxh--pill .lxh__actions {
+  gap: 0.4rem;
+}
+
+/* Announcement strip above the pill (startup test only) */
+.lxh--pill.has-notice {
+  --lxh-h: 112px;
+}
+
+.lxh__announce {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0.35rem 3rem;
+  background: #14231a;
+  color: #fff;
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.lxh__announce p {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Phones get a shorter line so the strip never wraps. */
+.lxh__announce-short {
+  display: none;
+}
+
+@media (max-width: 560px) {
+  .lxh__announce-long {
+    display: none;
+  }
+
+  .lxh__announce-short {
+    display: inline;
+  }
+
+  .lxh__announce {
+    min-height: 36px;
+    font-size: 0.8rem;
+  }
+
+  .lxh--pill.has-notice {
+    --lxh-h: 106px;
+  }
+}
+
+.lxh__announce button {
+  position: absolute;
+  right: 0.4rem;
+  top: 50%;
+  translate: 0 -50%;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lxh__announce button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lxh,
+  .lxh__sheet,
+  .lxh__sheet nav a,
+  .lxh__sheet-foot {
+    transition: none;
+  }
+}
+
+/* Narrow phones: the pill has less room, so tighten it. */
+@media (max-width: 480px) {
+  .lxh--pill .lxh__bar {
+    gap: 0.5rem;
+    padding: 0 0.35rem 0 1rem;
+  }
+
+  .lxh--pill .lxh__test {
+    display: none;
+  }
+
+  .lxh--pill .lxh__cta {
+    min-height: 40px;
+    padding: 0 0.9rem;
+  }
+}

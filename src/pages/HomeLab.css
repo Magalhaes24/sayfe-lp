@@ -1,0 +1,852 @@
+/* Test version of the home page (/lab). Scoped under .lx so the live page
+   is untouched. One idea per section, lots of air, one easing curve.
+   Motion uses opacity and transform only; scroll-linked values come from
+   --p, written by HomeLab.js on the few elements that need it. */
+
+/* The header's closed menu tray sticks out past the right edge on phones
+   and widens the page; clip it here (the live home page has the same issue). */
+html:has(.lx),
+body:has(.lx) {
+  overflow-x: clip;
+}
+
+.lx {
+  --lx-ink: #1d2620;
+  --lx-gray: #66756b;
+  --lx-line: rgba(31, 42, 34, 0.1);
+  --lx-soft: #f5f8f6;
+  --lx-dark: #0f1712;
+  --lx-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --lx-gutter: clamp(1.25rem, 5vw, 2.5rem);
+  --lx-space: clamp(6rem, 13vw, 10rem);
+  background: #fff;
+  color: var(--lx-ink);
+  font-feature-settings: "cv11", "ss01";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* In-page links glide, and land below the header. */
+html:has(.lx) {
+  scroll-behavior: smooth;
+}
+
+.lx [id] {
+  scroll-margin-top: 72px;
+}
+
+.lx ::selection {
+  background: rgba(115, 172, 132, 0.3);
+}
+
+.lx-shell {
+  width: min(1120px, 100% - var(--lx-gutter) * 2);
+  margin-inline: auto;
+}
+
+.lx h3 {
+  color: inherit;
+}
+
+.lx-section {
+  padding: var(--lx-space) 0;
+}
+
+.lx-eyebrow {
+  margin: 0 0 1rem;
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  font-weight: 600;
+  color: var(--accent-ink);
+}
+
+.lx-h2 {
+  margin: 0;
+  font-size: clamp(2.1rem, 5vw, 3.75rem);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+.lx-lead {
+  margin: 1.25rem 0 0;
+  max-width: 40ch;
+  font-size: clamp(1.08rem, 1.5vw, 1.3rem);
+  line-height: 1.5;
+  color: var(--lx-gray);
+  text-wrap: pretty;
+}
+
+.lx-head {
+  margin-bottom: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.lx-head--center {
+  text-align: center;
+}
+
+.lx-head--center .lx-h2 {
+  max-width: 20ch;
+  margin-inline: auto;
+}
+
+.lx-head--center .lx-lead {
+  margin-inline: auto;
+}
+
+.lx-center {
+  display: flex;
+  justify-content: center;
+}
+
+.lx-fine {
+  margin: 1rem auto 0;
+  max-width: 52ch;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--lx-gray);
+  text-align: center;
+}
+
+/* ---------- Motion ---------- */
+
+.lx-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s var(--lx-ease) var(--d, 0ms), transform 1s var(--lx-ease) var(--d, 0ms);
+}
+
+.lx-reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.lx-rise {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: lx-rise 1s var(--lx-ease) var(--d, 0ms) forwards;
+}
+
+@keyframes lx-rise {
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Buttons and links ---------- */
+
+.lx-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 1.75rem;
+  border-radius: 999px;
+  background: var(--lx-ink);
+  color: #fff;
+  font-size: 1.02rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.25s, transform 0.25s var(--lx-ease);
+}
+
+@media (hover: hover) {
+  .lx-btn:hover {
+    background: #34443a;
+  }
+}
+
+.lx-btn:active {
+  transform: scale(0.97);
+}
+
+.lx-btn:focus-visible,
+.lx-more:focus-visible {
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 3px;
+}
+
+.lx-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  min-height: 44px;
+  color: var(--accent-ink);
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.lx-more svg {
+  transition: transform 0.3s var(--lx-ease);
+}
+
+@media (hover: hover) {
+  .lx-more:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .lx-more:hover svg {
+    transform: translateX(3px);
+  }
+}
+
+.lx-more--light {
+  color: #9fd0ad;
+}
+
+/* ---------- Hero ---------- */
+
+.lx-hero {
+  padding: clamp(3.5rem, 9vw, 6.5rem) 0 var(--lx-space);
+  background: linear-gradient(#f5f8f6, #fff 70%);
+  text-align: center;
+}
+
+.lx-hero__copy {
+  display: grid;
+  justify-items: center;
+}
+
+.lx-hero__title {
+  margin: 0;
+  max-width: 13ch;
+  font-size: clamp(2.7rem, 7.4vw, 5.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+.lx-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.08em;
+  margin-right: 0.22em;
+}
+
+.lx-word:last-child {
+  margin-right: 0;
+}
+
+.lx-word > span {
+  display: inline-block;
+  transform: translateY(105%);
+  animation: lx-word 1.1s var(--lx-ease) var(--d) forwards;
+}
+
+@keyframes lx-word {
+  to { transform: none; }
+}
+
+.lx-hero__text {
+  margin: 1.5rem 0 0;
+  max-width: 38ch;
+  font-size: clamp(1.08rem, 1.6vw, 1.3rem);
+  line-height: 1.5;
+  color: var(--lx-gray);
+  text-wrap: pretty;
+}
+
+.lx-hero__text .highlight {
+  color: var(--lx-ink);
+  font-weight: 600;
+}
+
+.lx-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 1.75rem;
+  margin-top: 2.25rem;
+}
+
+.lx-hero__stage {
+  margin-top: clamp(3.5rem, 8vw, 5.5rem);
+}
+
+/* Grows to full size as it scrolls toward the middle of the screen. */
+.lx-hero__frame {
+  --k: clamp(0, calc(var(--p, 1) * 2.4), 1);
+  max-width: 1040px;
+  margin-inline: auto;
+  transform: translateY(calc((1 - var(--k)) * 40px)) scale(calc(0.95 + var(--k) * 0.05));
+  transform-origin: 50% 0;
+}
+
+.lx-hero__fine {
+  margin-top: 2rem;
+}
+
+/* ---------- Statement ---------- */
+
+.lx-statement__text {
+  margin: 0;
+  max-width: 20ch;
+  font-size: clamp(2.1rem, 5.6vw, 4.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+}
+
+/* Each word comes up from pale to ink as the line rises past the screen. */
+.lx-statement__text span {
+  opacity: clamp(0.15, calc((var(--p, 1) - 0.12) * 3 * var(--n) - var(--i) + 1), 1);
+}
+
+.lx-statement .lx-lead {
+  max-width: 44ch;
+}
+
+.lx-points {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin: clamp(4rem, 8vw, 6rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lx-points li {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--lx-line);
+}
+
+.lx-points__num {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--lx-gray);
+  font-variant-numeric: tabular-nums;
+}
+
+.lx-points h3,
+.lx-features h3 {
+  margin: 0.75rem 0 0.5rem;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+
+.lx-points p,
+.lx-features p {
+  margin: 0;
+  color: var(--lx-gray);
+  line-height: 1.6;
+}
+
+/* ---------- Phone ---------- */
+
+.lx-phone {
+  position: relative;
+  aspect-ratio: 750 / 1280;
+  padding: 9px;
+  border-radius: 46px;
+  background: #161e19;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 50px 100px -40px rgba(18, 42, 28, 0.45),
+    0 18px 36px -18px rgba(18, 42, 28, 0.3);
+}
+
+.lx-phone img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 37px;
+}
+
+/* ---------- Story ---------- */
+
+.lx-story {
+  background: var(--lx-soft);
+}
+
+.lx-story__steps {
+  display: grid;
+  gap: clamp(4rem, 12vw, 6rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lx-story__num {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-ink);
+}
+
+.lx-story__step h3 {
+  margin: 0.6rem 0 0.75rem;
+  font-size: clamp(1.75rem, 3.4vw, 2.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+.lx-story__step p {
+  margin: 0;
+  max-width: 34ch;
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  line-height: 1.55;
+  color: var(--lx-gray);
+}
+
+.lx-story__inline {
+  width: min(260px, 70%);
+  margin: 2.5rem auto 0;
+}
+
+.lx-story__device {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .lx-story__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 7vw, 7rem);
+  }
+
+  .lx-story__steps {
+    gap: 0;
+  }
+
+  .lx-story__step {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 78vh;
+    opacity: 0.22;
+    transition: opacity 0.6s var(--lx-ease);
+  }
+
+  .lx-story__step.is-active {
+    opacity: 1;
+  }
+
+  .lx-story__inline {
+    display: none;
+  }
+
+  /* The phone holds the middle of the screen while the steps pass by. */
+  .lx-story__device {
+    position: sticky;
+    top: 0;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    padding-top: 72px;
+  }
+
+  .lx-story__device {
+    grid-template-rows: auto auto;
+    align-content: center;
+    gap: 1.5rem;
+  }
+
+  .lx-story__dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+
+  .lx-story__dots button {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+
+  .lx-story__dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 99px;
+    background: rgba(31, 42, 34, 0.2);
+    transition: width 0.5s var(--lx-ease), background-color 0.3s;
+  }
+
+  .lx-story__dots button:hover span {
+    background: rgba(31, 42, 34, 0.4);
+  }
+
+  .lx-story__dots button[aria-current="step"] span {
+    width: 24px;
+    background: var(--lx-ink);
+  }
+
+  .lx-story__dots button:focus-visible {
+    outline: 2px solid var(--accent-ink);
+    outline-offset: -6px;
+    border-radius: 10px;
+  }
+
+  .lx-story__device .lx-phone {
+    height: min(calc(100vh - 160px), 640px);
+  }
+
+  .lx-story__device img {
+    position: absolute;
+    inset: 9px;
+    width: calc(100% - 18px);
+    height: calc(100% - 18px);
+    opacity: 0;
+    transform: scale(1.03);
+    transition: opacity 0.7s var(--lx-ease), transform 0.9s var(--lx-ease);
+  }
+
+  .lx-story__device img.is-active {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Legend ---------- */
+
+.lx-tone--safe { --tone: #3d7a52; --tone-ink: #fff; }
+.lx-tone--likely { --tone: #fff; --tone-ink: #3d7a52; }
+
+.lx-tone--likely .lx-legend__icon {
+  border: 2px dashed #5f9670;
+}
+.lx-tone--warn { --tone: var(--state-warn); --tone-ink: #1f2a22; }
+.lx-tone--danger { --tone: var(--state-danger); --tone-ink: #fff; }
+.lx-tone--nodata { --tone: var(--state-nodata); --tone-ink: #fff; }
+
+.lx-legend__list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lx-legend__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 1.1rem;
+  padding: 1.4rem 0;
+  border-top: 1px solid var(--lx-line);
+}
+
+.lx-legend__item:last-child {
+  border-bottom: 1px solid var(--lx-line);
+}
+
+.lx-legend__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--tone);
+  color: var(--tone-ink);
+}
+
+.lx-legend__item h3 {
+  margin: 0.2rem 0 0.3rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.lx-legend__item p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--lx-gray);
+}
+
+@media (min-width: 900px) {
+  .lx-legend__list {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+  }
+
+  .lx-legend__item,
+  .lx-legend__item:last-child {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 1.25rem;
+    padding: 0;
+    border: 0;
+    text-align: center;
+  }
+
+  .lx-legend__icon {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+/* ---------- Dark: coverage ---------- */
+
+.lx-dark {
+  background: var(--lx-dark);
+  color: #f1f5f2;
+}
+
+.lx-dark .lx-eyebrow {
+  color: #9fd0ad;
+}
+
+.lx-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 0;
+  text-align: center;
+}
+
+.lx-stat dt {
+  font-size: clamp(3.5rem, 10vw, 7.5rem);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(180deg, #fff 30%, #9fd0ad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.lx-stat dd {
+  margin: 0.85rem 0 0;
+  font-size: 1rem;
+  color: rgba(241, 245, 242, 0.6);
+}
+
+.lx-cities {
+  margin: clamp(4rem, 8vw, 5.5rem) auto 1.5rem;
+  max-width: 62ch;
+  font-size: 0.98rem;
+  line-height: 1.9;
+  color: rgba(241, 245, 242, 0.55);
+  text-align: center;
+  white-space: pre-wrap;
+}
+
+/* ---------- Sources ---------- */
+
+.lx-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.5rem 2.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lx-features li {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--lx-line);
+}
+
+/* ---------- FAQ ---------- */
+
+.lx-faq {
+  border-top: 1px solid var(--lx-line);
+}
+
+.lx-faq__layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.lx-faq__item {
+  border-bottom: 1px solid var(--lx-line);
+}
+
+.lx-faq__item:first-child {
+  border-top: 1px solid var(--lx-line);
+}
+
+.lx-faq__item h3 {
+  margin: 0;
+}
+
+.lx-faq__item button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  min-height: 72px;
+  padding: 1.1rem 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.lx-faq__item button:focus-visible {
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.lx-faq__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+}
+
+.lx-faq__icon::before,
+.lx-faq__icon::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 0;
+  width: 14px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform 0.45s var(--lx-ease);
+}
+
+.lx-faq__icon::after {
+  transform: rotate(90deg);
+}
+
+.lx-faq__item.is-open .lx-faq__icon::after {
+  transform: rotate(0deg);
+}
+
+/* Height animates through grid rows: no measuring, no jank. */
+.lx-faq__answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s var(--lx-ease);
+}
+
+.lx-faq__item.is-open .lx-faq__answer {
+  grid-template-rows: 1fr;
+}
+
+.lx-faq__answer > div {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.lx-faq__answer p {
+  margin: 0 0 1.5rem;
+  max-width: 60ch;
+  line-height: 1.6;
+  color: var(--lx-gray);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.lx-faq__item.is-open .lx-faq__answer p {
+  opacity: 1;
+  transition: opacity 0.5s 0.1s;
+}
+
+/* ---------- CTA ---------- */
+
+.lx-cta {
+  background: var(--lx-soft);
+  text-align: center;
+}
+
+.lx-cta .lx-shell {
+  display: grid;
+  justify-items: center;
+}
+
+.lx-cta__title {
+  margin: 0;
+  max-width: 16ch;
+  font-size: clamp(2.4rem, 6vw, 4.75rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+.lx-cta .lx-lead {
+  max-width: 46ch;
+}
+
+/* ---------- Smaller screens ---------- */
+
+@media (max-width: 899px) {
+  .lx-points,
+  .lx-features {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .lx-faq__layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .lx-faq .lx-head {
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .lx-points,
+  .lx-features {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .lx-stats {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .lx-hero__actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .lx-hero__actions .lx-btn {
+    width: 100%;
+    max-width: 320px;
+  }
+
+
+  .lx-hero__frame {
+    margin-inline: calc(var(--lx-gutter) * -0.5);
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+
+.lx--still .lx-statement__text span {
+  opacity: 1;
+}
+
+.lx--still .lx-hero__frame {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(.lx) {
+    scroll-behavior: auto;
+  }
+
+  .lx-reveal,
+  .lx-rise,
+  .lx-word > span {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+}
