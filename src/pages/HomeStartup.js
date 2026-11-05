@@ -127,15 +127,21 @@ export function useReveal(rootRef) {
   }, [rootRef]);
 }
 
+// Counts up when the number scrolls into view. It starts on the real value
+// and only drops to 0 if it is still below the fold, so crawlers, reduced
+// motion and anything that never scrolls always see the true figure.
 export function CountUp({ value }) {
   const ref = useRef(null);
   const match = String(value).match(/^(\d+)(.*)$/);
-  const [n, setN] = useState(match ? 0 : value);
+  const [n, setN] = useState(match ? Number(match[1]) : value);
 
   useEffect(() => {
     const el = ref.current;
     if (!match || !el || typeof IntersectionObserver === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (el.getBoundingClientRect().top < window.innerHeight) return;
     const target = Number(match[1]);
+    setN(0);
     let frame;
     const io = new IntersectionObserver(([e]) => {
       if (!e.isIntersecting) return;
@@ -182,7 +188,7 @@ export function FaqItem({ item, open, onToggle, id }) {
       <h3>
         <button type="button" aria-expanded={open} aria-controls={id} onClick={onToggle}>
           <span>{item.q}</span>
-          <span className="st-faq__icon" aria-hidden="true">+</span>
+          <span className="st-faq__icon" aria-hidden="true" />
         </button>
       </h3>
       <div className="st-faq__answer" id={id} role="region" aria-hidden={!open}>
