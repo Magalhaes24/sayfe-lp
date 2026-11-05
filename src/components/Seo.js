@@ -84,7 +84,9 @@ function Seo({
   type = "website",
   canonicalPath = "/",
   siteName = "AllerCarte",
-  noindex = false
+  noindex = false,
+  // Questions shown on this page ({ q, a }); published as FAQPage data.
+  faq = null
 }) {
   const { language } = useTranslation();
 
@@ -119,7 +121,6 @@ function Seo({
     ensureMeta("name", "description", sanitized.description);
     ensureMeta("name", "keywords", sanitized.keywords);
     ensureMeta("name", "author", "AllerCarte");
-    ensureMeta("name", "language", locale.replace("_", "-"));
     ensureMeta("name", "robots", robotsContent);
 
     ensureMeta("property", "og:title", finalTitle);
@@ -152,6 +153,7 @@ function Seo({
                 "@type": "Organization",
                 "@id": `${BASE_URL}/#organization`,
                 name: siteName || "AllerCarte",
+                alternateName: "besayfe",
                 url: PRODUCT_URL,
                 logo: toAbsoluteUrl("/logo1000.png"),
                 email: "francisco@besayfe.com"
@@ -181,20 +183,21 @@ function Seo({
                 ]
               },
               {
-                "@type": "MobileApplication",
+                // A web app that opens in the phone's browser
+                "@type": "WebApplication",
                 "@id": `${BASE_URL}/#app`,
                 name: siteName || "AllerCarte",
-                url: PRODUCT_URL,
+                url: `${PRODUCT_URL}/mapa`,
                 applicationCategory: "HealthApplication",
-                operatingSystem: "iOS, Android",
+                operatingSystem: "Web",
+                browserRequirements: "Requires a modern web browser",
                 inLanguage: ["pt-PT", "en"],
                 keywords: sanitized.keywords,
                 featureList: [
-                  "Allergen menu filtered by the 14 EU allergens",
-                  "Menu de alergénios filtrado pelos 14 alergénios da UE",
-                  "Menu photo scan with OCR and allergen estimate",
-                  "QR code menu at the table",
-                  "Gluten-free, dairy-free and nut-free dining",
+                  "Restaurant map coloured by the 14 EU allergens you avoid",
+                  "Mapa de restaurantes com as cores dos alergénios que evitas",
+                  "Menus marked dish by dish: confirmed, estimated, possible cross-contact or contains",
+                  "Menu photo read with OCR and allergen estimate",
                   "Português e inglês"
                 ],
                 description: sanitized.description,
@@ -203,7 +206,23 @@ function Seo({
             ]
           }
     );
-  }, [alternateLocale, locale, noindex, sanitized, siteName, type]);
+
+    ensureJsonLd(
+      "faq",
+      noindex || !faq || !faq.length
+        ? null
+        : {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            inLanguage: locale.replace("_", "-"),
+            mainEntity: faq.map((item) => ({
+              "@type": "Question",
+              name: stripTags(item.q),
+              acceptedAnswer: { "@type": "Answer", text: stripTags(item.a) }
+            }))
+          }
+    );
+  }, [alternateLocale, faq, locale, noindex, sanitized, siteName, type]);
 
   return null;
 }

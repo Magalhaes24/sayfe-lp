@@ -1,6 +1,16 @@
 {
+  "id": "/",
   "short_name": "AllerCarte",
-  "name": "AllerCarte",
+  "name": "AllerCarte: alergénios prato a prato",
+  "description": "Escolhe as tuas alergias e vê, prato a prato, o que podes comer em cada restaurante.",
+  "lang": "pt-PT",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "categories": ["food", "health", "lifestyle"],
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,16 +20,20 @@
     {
       "src": "logo500.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "logo500.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
     },
     {
       "src": "logo1000.png",
       "type": "image/png",
-      "sizes": "1000x1000"
+      "sizes": "1000x1000",
+      "purpose": "any"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#73ac84",
-  "background_color": "#ffffff"
+  ]
 }
