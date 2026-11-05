@@ -125,9 +125,9 @@ function HomeMix() {
       {/* === Steps stack in depth === */}
       <section className="st-section mx-section d3-stack" id="st-how">
         <div className="st-shell">
-          <header className="mx-head st-reveal">
+          <header className="mx-head mx-head--center st-reveal">
             <p className="st-pill">⚙️ {plain(t("home.solutionEyebrow"))}</p>
-            <h2 className="st-h2">{c.stepsTitle}</h2>
+            <h2 className="st-h2 st-center">{c.stepsTitle}</h2>
           </header>
           <ol className="d3-stack__list">
             {steps.map((s, i) => (

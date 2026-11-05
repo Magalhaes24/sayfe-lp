@@ -474,6 +474,27 @@
     padding: 0.9rem 1rem;
     font-size: 1rem;
   }
+
+  /* Answer text lines up with the question above it */
+  .mx .st-faq__answer p {
+    padding: 0 1rem 1.1rem;
+  }
+
+  /* Dark section: the floating emoji keep clear of the title */
+  .mx .d3-float--a,
+  .mx .d3-float--b {
+    top: auto;
+    bottom: 46%;
+    font-size: 2rem;
+  }
+
+  .mx .d3-float--a {
+    left: 3%;
+  }
+
+  .mx .d3-float--b {
+    right: 3%;
+  }
 }
 
 @media (max-width: 819px) {

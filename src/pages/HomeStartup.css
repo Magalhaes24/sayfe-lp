@@ -199,9 +199,11 @@ html:has(.st) {
 
 .st-btn:focus-visible,
 .st-link:focus-visible,
+/* Inside the card and with its corners, so the ring never pokes out */
 .st-faq__item button:focus-visible {
   outline: 3px solid var(--st-green-2);
-  outline-offset: 3px;
+  outline-offset: -3px;
+  border-radius: 20px;
 }
 
 .st-link {
@@ -740,18 +742,34 @@ html:has(.st) {
   cursor: pointer;
 }
 
+/* The plus is drawn with two bars, so it sits dead centre in the circle
+   (a "+" character rides on the font's baseline and looks low). */
 .st-faq__icon {
-  display: grid;
-  place-items: center;
+  position: relative;
   flex-shrink: 0;
   width: 32px;
   height: 32px;
   border-radius: 50%;
   background: #fff;
   color: var(--st-green);
-  font-size: 1.3rem;
-  font-weight: 600;
   transition: transform 0.45s var(--st-spring);
+}
+
+.st-faq__icon::before,
+.st-faq__icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 2px;
+  margin: -1px 0 0 -6px;
+  border-radius: 2px;
+  background: currentColor;
+}
+
+.st-faq__icon::after {
+  transform: rotate(90deg);
 }
 
 .st-faq__item.is-open .st-faq__icon {

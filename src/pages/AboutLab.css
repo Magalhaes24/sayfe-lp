@@ -166,6 +166,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Portraits: the head sits inside the circle and the photo's flat top
+     edge stays just above it, so the circle's curve trims the hair. */
+  object-position: 50% 22%;
   transition: transform 0.8s var(--lx-ease);
 }
 
