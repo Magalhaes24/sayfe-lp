@@ -647,7 +647,7 @@ const translations = {
         {
           "name": "Francisco Magalhaes",
           "role": "CEO & CTO",
-          "bio": "Leads product and engineering, and builds the platform the kitchens work on."
+          "bio": "Leads product and engineering, and builds AllerCarte from the map to the menus."
         },
         {
           "name": "Rodrigo Azevedo",
@@ -1378,7 +1378,7 @@ const translations = {
         {
           "name": "Francisco Magalhães",
           "role": "CEO e CTO",
-          "bio": "Lidera produto e engenharia, e constrói a plataforma em que as cozinhas trabalham."
+          "bio": "Lidera produto e engenharia, e constrói o AllerCarte, do mapa aos menus."
         },
         {
           "name": "Rodrigo Azevedo",
