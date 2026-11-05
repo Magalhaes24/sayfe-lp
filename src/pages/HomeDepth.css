@@ -499,6 +499,7 @@
 .d3-tone--nodata { --tone: var(--state-nodata); --tone-ink: #fff; --tone-soft: #eff2f6; }
 
 .d3-flip button {
+  touch-action: manipulation;
   display: block;
   width: 100%;
   height: 210px;
@@ -523,7 +524,8 @@
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  -webkit-transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 .d3-flip__inner.is-flipped {
@@ -554,6 +556,7 @@
   text-align: center;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  transform: translateZ(1px);
 }
 
 .d3-flip__front {
@@ -570,7 +573,6 @@
   background: var(--tone);
   color: var(--tone-ink);
   box-shadow: 0 14px 26px -10px var(--tone);
-  transform: translateZ(30px);
 }
 
 .d3-flip__front strong {
@@ -599,7 +601,7 @@
 }
 
 .d3-flip__back {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) translateZ(1px);
   background: var(--tone);
   color: var(--tone-ink);
   font-size: 0.95rem;
