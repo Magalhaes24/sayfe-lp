@@ -32,8 +32,7 @@ function SiteHeader() {
       <nav className={`navbar${isPinned ? " navbar--pinned" : ""}`}>
         <div className="navbar-inner">
           <Link to="/" className="logo-link">
-            {/* The wordmark carries the symbol in its "ll". */}
-            <img src={logoPath} alt="AllerCarte" className="logo-mark" width="1335" height="366" />
+            <img src={logoPath} alt="AllerCarte" className="logo-mark" width="682" height="189" />
           </Link>
           <div className="navbar-actions">
             <HamburgerMenu links={navLinks} />

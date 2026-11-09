@@ -22,7 +22,7 @@ export function LanguageSwitch({ className = "" }) {
           aria-pressed={language === code}
           onClick={() => setLanguage(code)}
           lang={code}
-          aria-label={t(code === "pt" ? "nav.languageOptionPt" : "nav.languageOptionEn")}
+          aria-label={`${code.toUpperCase()}, ${t(code === "pt" ? "nav.languageOptionPt" : "nav.languageOptionEn")}`}
         >
           {code.toUpperCase()}
         </button>
@@ -117,7 +117,7 @@ function LabHeader() {
       )}
       <div className="lxh__bar">
         <Link to="/" className="lxh__logo" aria-label="AllerCarte">
-          <img src={`${process.env.PUBLIC_URL || ""}/allercarte-logo.svg`} alt="" width="1335" height="366" />
+          <img src={`${process.env.PUBLIC_URL || ""}/allercarte-logo.svg`} alt="" width="682" height="189" />
         </Link>
 
         <nav className="lxh__links" aria-label={copy.main}>
