@@ -24,7 +24,7 @@ function LabFooter() {
       <div className="lxf__shell">
         <div className="lxf__top">
           <Link to="/" className="lxf__logo" aria-label="AllerCarte">
-            <img src={`${process.env.PUBLIC_URL || ""}/allercarte-logo.svg`} alt="" width="1335" height="366" />
+            <img src={`${process.env.PUBLIC_URL || ""}/allercarte-logo.svg`} alt="" width="682" height="189" />
           </Link>
           <p className="lxf__tagline">{plain(t("home.heroEyebrow"))}</p>
         </div>
