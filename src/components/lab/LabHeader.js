@@ -116,8 +116,17 @@ function LabHeader() {
         </div>
       )}
       <div className="lxh__bar">
-        <Link to="/" className="lxh__logo" aria-label="AllerCarte">
-          <img src={`${process.env.PUBLIC_URL || ""}/allercarte-logo.svg`} alt="" width="682" height="189" />
+        <Link
+          to="/"
+          className="lxh__logo"
+          aria-label="AllerCarte"
+          onClick={() => {
+            if (pathname !== "/") return;
+            const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+            window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+          }}
+        >
+          <img src={`${process.env.PUBLIC_URL || ""}/allercarte-logo-horizontal.svg`} alt="" width="659" height="126" />
         </Link>
 
         <nav className="lxh__links" aria-label={copy.main}>
