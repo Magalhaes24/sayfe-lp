@@ -1,3 +1,4 @@
+import { trackEvent } from "../analytics/tracker";
 import React, { useRef, useState } from "react";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebaseConfig";
@@ -124,6 +125,7 @@ function ContactLab() {
       setForm(initialForm);
       setErrors({});
       setStatus({ type: "", key: "" });
+      trackEvent("contact_sent");
       setSent(true);
       setCooldownUntil(Date.now() + SUBMIT_COOLDOWN_MS);
     } catch (error) {

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "../../contexts/LanguageContext";
+import { reopenConsent } from "../../analytics/consent";
 import { LanguageSwitch } from "./LabHeader";
 import "./LabFooter.css";
 
@@ -8,8 +9,8 @@ const APP_URL = "https://www.allercarte.com/mapa";
 const RESTAURANTS_URL = "https://www.allercarte.com/restaurantes";
 
 const COPY = {
-  pt: { product: "Produto", company: "Empresa", language: "Idioma" },
-  en: { product: "Product", company: "Company", language: "Language" }
+  pt: { product: "Produto", company: "Empresa", language: "Idioma", privacy: "Privacidade", cookies: "Definições de cookies" },
+  en: { product: "Product", company: "Company", language: "Language", privacy: "Privacy", cookies: "Cookie settings" }
 };
 
 const plain = (html) => String(html || "").replace(/<[^>]+>/g, "");
@@ -40,6 +41,8 @@ function LabFooter() {
             <h2>{copy.company}</h2>
             <Link to="/about">{t("nav.about")}</Link>
             <Link to="/contact">{t("nav.contact")}</Link>
+            <Link to="/privacy">{copy.privacy}</Link>
+            <button type="button" className="lxf__link" onClick={reopenConsent}>{copy.cookies}</button>
           </nav>
           <div>
             <h2>{copy.language}</h2>

@@ -13,6 +13,7 @@ const ClickSpark = ({
   const canvasRef = useRef(null);
   const sparksRef = useRef([]);
   const startTimeRef = useRef(null);
+  const startLoopRef = useRef(() => {});
 
   // Resize the canvas to viewport size
   useEffect(() => {
@@ -54,8 +55,9 @@ const ClickSpark = ({
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let animationId;
+    let animationId = 0;
 
+    // The loop only runs while sparks are on screen; idle, it costs nothing.
     const draw = (timestamp) => {
       if (!startTimeRef.current) startTimeRef.current = timestamp;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -85,11 +87,16 @@ const ClickSpark = ({
         return true;
       });
 
-      animationId = requestAnimationFrame(draw);
+      animationId = sparksRef.current.length ? requestAnimationFrame(draw) : 0;
     };
 
-    animationId = requestAnimationFrame(draw);
-    return () => cancelAnimationFrame(animationId);
+    startLoopRef.current = () => {
+      if (!animationId) animationId = requestAnimationFrame(draw);
+    };
+    return () => {
+      cancelAnimationFrame(animationId);
+      startLoopRef.current = () => {};
+    };
   }, [sparkColor, sparkSize, sparkRadius, sparkCount, duration, easeFunc, extraScale]);
 
   const handleClick = (e) => {
@@ -108,6 +115,7 @@ const ClickSpark = ({
     }));
 
     sparksRef.current.push(...newSparks);
+    startLoopRef.current();
   };
 
   return (

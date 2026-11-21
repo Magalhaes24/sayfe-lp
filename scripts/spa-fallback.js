@@ -11,7 +11,7 @@ const fs = require("fs");
 const path = require("path");
 
 // Keep in sync with the public routes in src/App.js.
-const ROUTES = ["about", "contact"];
+const ROUTES = ["about", "contact", "privacy"];
 
 const buildDir = path.join(__dirname, "..", "build");
 const indexFile = path.join(buildDir, "index.html");

@@ -6,14 +6,19 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ClickSpark from "./components/ClickSpark";
 import { LanguageProvider } from "./contexts/LanguageContext";
-import AdminLogin from "./pages/AdminLogin";
-import AdminDashboard from "./pages/AdminDashboard";
 import ScrollToTop from "./components/ScrollToTop";
+import Analytics from "./analytics/Analytics";
+import ConsentBanner from "./components/ConsentBanner";
 import "./App.css";
 
 // About and Contact load on demand; the home page ships in the main bundle.
 const About = lazy(() => import("./pages/AboutLab"));
 const Contact = lazy(() => import("./pages/ContactLab"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const AdminAnalytics = lazy(() => import("./pages/AdminAnalytics"));
+// Admin pages pull in Firebase; keep them out of the bundle visitors download.
+const AdminLogin = lazy(() => import("./pages/AdminLogin"));
+const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
 
 // Pages render straight away and fade in briefly; nothing waits for images.
 const PAGE_FADE = { duration: 0.18, ease: [0.25, 0.46, 0.45, 0.94] };
@@ -33,6 +38,8 @@ function App() {
       >
         <div data-page-root>
           <Header />
+          <Analytics />
+          <ConsentBanner />
           <ScrollToTop /> {/* Ensures scroll resets on route change */}
           <AnimatePresence mode="wait">
             <motion.div
@@ -60,9 +67,39 @@ function App() {
                     </Suspense>
                   }
                 />
+                <Route
+                  path="/privacy"
+                  element={
+                    <Suspense fallback={null}>
+                      <Privacy />
+                    </Suspense>
+                  }
+                />
+                <Route
+                  path="/admin/analytics"
+                  element={
+                    <Suspense fallback={null}>
+                      <AdminAnalytics />
+                    </Suspense>
+                  }
+                />
                 {/* Demo, test (/lab*) and old routes fall back to the home page. */}
-                <Route path="/admin" element={<AdminLogin />} />
-                <Route path="/admin/dashboard" element={<AdminDashboard />} />
+                <Route
+                  path="/admin"
+                  element={
+                    <Suspense fallback={null}>
+                      <AdminLogin />
+                    </Suspense>
+                  }
+                />
+                <Route
+                  path="/admin/dashboard"
+                  element={
+                    <Suspense fallback={null}>
+                      <AdminDashboard />
+                    </Suspense>
+                  }
+                />
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </motion.div>
