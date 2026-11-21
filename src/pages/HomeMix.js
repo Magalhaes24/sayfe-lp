@@ -80,7 +80,7 @@ function HomeMix() {
             dangerouslySetInnerHTML={{ __html: t("home.heroText") }}
           />
           <div className="mx-hero__actions mx-rise" style={{ "--d": "280ms" }}>
-            <a href={APP_URL} className="st-btn st-btn--big">
+            <a href={APP_URL} className="st-btn st-btn--big" data-track="hero_open_app">
               <span aria-hidden="true">🗺️</span>
               {c.open}
             </a>

@@ -65,6 +65,41 @@ service cloud.firestore {
       allow read, list, update, delete: if isAdmin();
     }
 
+    // First-party anonymous analytics (written only after visitor consent).
+    // Create-only for anyone, with strict shape and size limits; read and
+    // delete for admins. Turn on a Firestore TTL policy on "expireAt".
+    function isShortId(value) {
+      return value is string && value.size() >= 8 && value.size() <= 40;
+    }
+
+    function isValidAnalyticsBatch() {
+      let d = request.resource.data;
+      return d.keys().hasOnly(["v", "vid", "sid", "ts", "expireAt", "ctx", "ev"])
+        && d.v == 1
+        && isShortId(d.vid)
+        && isShortId(d.sid)
+        && d.ts is int
+        && d.ts > request.time.toMillis() - 86400000
+        && d.ts < request.time.toMillis() + 86400000
+        && d.expireAt is timestamp
+        && d.expireAt > request.time
+        && d.expireAt < request.time + duration.value(400, 'd')
+        && d.ctx is map
+        && d.ctx.keys().hasOnly([
+          "lang", "dev", "vw", "os", "br", "tz", "ref", "us", "um", "uc",
+          "rv", "vc", "lp", "touch"
+        ])
+        && d.ev is list
+        && d.ev.size() > 0
+        && d.ev.size() <= 60;
+    }
+
+    match /analytics_batches/{docId} {
+      allow create: if isValidAnalyticsBatch();
+      allow get, list, delete: if isAdmin();
+      allow update: if false;
+    }
+
     match /secure/adminPrivateKey {
       allow get: if isAdmin();
       allow list: if false;

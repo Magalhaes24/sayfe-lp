@@ -61,7 +61,8 @@
   color: #1d2620;
 }
 
-.lxf__cols a {
+.lxf__cols a,
+.lxf__link {
   display: inline-flex;
   align-items: center;
   min-height: 36px;
@@ -70,13 +71,23 @@
   transition: color 0.2s;
 }
 
-.lxf__cols a:hover {
+.lxf__link {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.lxf__cols a:hover,
+.lxf__link:hover {
   color: #1d2620;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-.lxf a:focus-visible {
+.lxf a:focus-visible,
+.lxf__link:focus-visible {
   outline: 2px solid var(--accent-ink);
   outline-offset: 2px;
   border-radius: 4px;

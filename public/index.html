@@ -84,20 +84,54 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZTNEV4V64"></script>
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7306226343101171"
-      crossorigin="anonymous"
-    ></script>
+    <!-- AdSense site verification without loading the ad script up front -->
+    <meta name="google-adsense-account" content="ca-pub-7306226343101171" />
+    <!-- Google tag (gtag.js) and AdSense, only after the visitor accepts the
+         consent banner (see src/analytics/consent.js). Until then Consent Mode
+         keeps every Google storage type denied and no Google script is fetched. -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "denied",
+      });
       gtag("js", new Date());
-      gtag("config", "G-FZTNEV4V64");
+      gtag("config", "G-FZTNEV4V64", { anonymize_ip: true });
+      (function () {
+        var loaded = false;
+        function add(src, cross) {
+          var s = document.createElement("script");
+          s.async = true;
+          s.src = src;
+          if (cross) s.crossOrigin = "anonymous";
+          document.head.appendChild(s);
+        }
+        function granted() {
+          try {
+            var c = JSON.parse(localStorage.getItem("ac_consent") || "null");
+            return !!(c && c.v === 1 && c.a);
+          } catch (e) {
+            return false;
+          }
+        }
+        function loadThirdParty() {
+          if (loaded || !granted()) return;
+          loaded = true;
+          gtag("consent", "update", { analytics_storage: "granted" });
+          add("https://www.googletagmanager.com/gtag/js?id=G-FZTNEV4V64");
+        }
+        window.addEventListener("ac:consent", function (e) {
+          if (e.detail === "granted") loadThirdParty();
+        });
+        window.addEventListener("load", function () {
+          setTimeout(loadThirdParty, 1500);
+        });
+      })();
     </script>
   </head>
 
