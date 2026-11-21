@@ -6,6 +6,15 @@
   padding: clamp(5.5rem, 12vw, 9.5rem) 0;
 }
 
+/* Sections below the first screen skip style, layout and paint until they get
+   near the viewport. The page is ~13 000px tall, and laying it all out at once
+   was the biggest cost on phones. `auto` keeps each section's real height once
+   it has rendered, so the scrollbar settles after the first pass. */
+.mx-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
 .mx-section.mx-final-wrap {
   padding-top: 0;
   padding-bottom: clamp(7rem, 12vw, 10rem);

@@ -1,4 +1,4 @@
-import React, { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useId, useMemo, useRef, useState } from "react";
 import SafetyIcon from "../SafetyIcon";
 import {
   ALLERGEN_KEYS,
@@ -131,17 +131,12 @@ function RestaurantSelect({ value, onChange, picked, copy }) {
 }
 
 // Segmented control; the white pill slides to the active option.
+// The options share the width equally, so the pill is placed with CSS alone.
+// Measuring offsetLeft here forced the first layout of the whole page inside
+// React's commit and was the longest task on load.
 function Segmented({ items, value, onChange }) {
-  const list = useRef(null);
-  const [bar, setBar] = useState(null);
-
-  useLayoutEffect(() => {
-    const el = list.current && list.current.children[value];
-    if (el) setBar({ x: el.offsetLeft, w: el.offsetWidth });
-  }, [value, items]);
-
   return (
-    <div className="demo-seg" role="tablist" ref={list}>
+    <div className="demo-seg" role="tablist">
       {items.map((label, i) => (
         <button
           key={label}
@@ -153,13 +148,11 @@ function Segmented({ items, value, onChange }) {
           {label}
         </button>
       ))}
-      {bar && (
-        <span
-          className="demo-seg__pill"
-          style={{ transform: `translateX(${bar.x}px)`, width: bar.w }}
-          aria-hidden="true"
-        />
-      )}
+      <span
+        className="demo-seg__pill"
+        style={{ "--n": items.length, transform: `translateX(${value * 100}%)` }}
+        aria-hidden="true"
+      />
     </div>
   );
 }
@@ -261,7 +254,7 @@ function LiveDemo({ t, language, reduceMotion }) {
               type="button"
               className={`demo-auto${paused ? " is-paused" : ""}`}
               aria-pressed={paused}
-              aria-label={paused ? copy.resume : copy.pause}
+              aria-label={`${paused ? copy.paused : copy.playing}. ${paused ? copy.resume : copy.pause}`}
               onClick={() => setPaused((v) => !v)}
             >
               <span className="demo-auto__icon" aria-hidden="true">
