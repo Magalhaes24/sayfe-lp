@@ -1,11 +1,21 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { collection, getDocs, limit, orderBy, query, where } from "firebase/firestore";
+import {
+  collection,
+  getCountFromServer,
+  getDocs,
+  limit,
+  orderBy,
+  query,
+  where,
+  writeBatch
+} from "firebase/firestore";
 import { auth, db } from "../firebaseConfig";
 import { aggregate } from "./analyticsAggregate";
 import { setIgnoreSelf } from "../analytics/tracker";
 import Seo from "../components/Seo";
+import ConfirmDialog from "../components/ConfirmDialog";
 import "./Admin.css";
 import "./AdminAnalytics.css";
 
@@ -181,6 +191,52 @@ export default function AdminAnalytics() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [ready, setReady] = useState(false);
+  const [expired, setExpired] = useState(0);
+  const [confirmPurge, setConfirmPurge] = useState(false);
+  const [purging, setPurging] = useState(false);
+  const [purgeMsg, setPurgeMsg] = useState("");
+
+  // Batches whose retention date (expireAt, ~13 months after writing) has passed.
+  const expiredQuery = useCallback(
+    (size) => query(collection(db, "analytics_batches"), where("expireAt", "<=", new Date()), limit(size)),
+    []
+  );
+
+  const countExpired = useCallback(async () => {
+    try {
+      const snap = await getCountFromServer(
+        query(collection(db, "analytics_batches"), where("expireAt", "<=", new Date()))
+      );
+      setExpired(snap.data().count);
+    } catch (err) {
+      console.error("Expired count failed:", err);
+    }
+  }, []);
+
+  const purgeExpired = useCallback(async () => {
+    setConfirmPurge(false);
+    setPurging(true);
+    setPurgeMsg("");
+    let deleted = 0;
+    try {
+      for (;;) {
+        const snap = await getDocs(expiredQuery(400));
+        if (snap.empty) break;
+        const batch = writeBatch(db);
+        snap.docs.forEach((d) => batch.delete(d.ref));
+        await batch.commit();
+        deleted += snap.size;
+        setPurgeMsg(`A apagar… ${deleted} registos`);
+      }
+      setPurgeMsg(`Apagados ${deleted} registos expirados.`);
+    } catch (err) {
+      console.error("Purge failed:", err);
+      setPurgeMsg(`Erro depois de ${deleted} registos apagados. Tenta de novo.`);
+    } finally {
+      setPurging(false);
+      countExpired();
+    }
+  }, [expiredQuery, countExpired]);
 
   const load = useCallback(async (range) => {
     setLoading(true);
@@ -221,6 +277,10 @@ export default function AdminAnalytics() {
     if (ready) load(days);
   }, [ready, days, load]);
 
+  useEffect(() => {
+    if (ready) countExpired();
+  }, [ready, countExpired]);
+
   const data = useMemo(() => aggregate(rows), [rows]);
   const k = data.kpi;
   const funnelTop = data.funnel[0]?.value || 1;
@@ -255,6 +315,19 @@ export default function AdminAnalytics() {
       </div>
 
       {error && <p className="error-message">{error}</p>}
+      {(expired > 0 || purgeMsg) && (
+        <div className="aa-purge">
+          <span>
+            {purgeMsg ||
+              `${expired} registos já passaram os 13 meses de conservação e devem ser apagados.`}
+          </span>
+          {expired > 0 && (
+            <button className="logout-btn" onClick={() => setConfirmPurge(true)} disabled={purging}>
+              {purging ? "A apagar…" : "Apagar expirados"}
+            </button>
+          )}
+        </div>
+      )}
       {rows.length >= MAX_BATCHES && (
         <p className="aa-note">Mostrados os {MAX_BATCHES} lotes mais recentes; escolhe um período mais curto para ver tudo.</p>
       )}
@@ -356,6 +429,15 @@ export default function AdminAnalytics() {
           <Heatmap data={data} />
         </Card>
       </div>
+      <ConfirmDialog
+        open={confirmPurge}
+        title="Apagar registos expirados"
+        message={`Vão ser apagados ${expired} registos com mais de 13 meses. Não é possível desfazer.`}
+        cancelLabel="Cancelar"
+        confirmLabel="Apagar"
+        onCancel={() => setConfirmPurge(false)}
+        onConfirm={purgeExpired}
+      />
     </div>
   );
 }

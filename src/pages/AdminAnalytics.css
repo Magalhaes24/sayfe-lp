@@ -86,3 +86,17 @@
   .aa-bars li { grid-template-columns: 1fr auto; }
   .aa-bars__track { grid-column: 1 / -1; order: 3; }
 }
+
+.aa-purge {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem 1rem;
+  margin: 0.8rem 0;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  background: #fdecec;
+  color: #8a2b2b;
+  font-size: 0.88rem;
+}
