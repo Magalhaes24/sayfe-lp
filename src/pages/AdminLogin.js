@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { sendEmailVerification, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 import { useTranslation } from "../contexts/LanguageContext";
 import Seo from "../components/Seo";
@@ -17,15 +17,27 @@ function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [info, setInfo] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (loading) return;
     setError("");
+    setInfo("");
     setLoading(true);
     try {
       const creds = await signInWithEmailAndPassword(auth, email, password);
+      // The Firestore rules only trust verified e-mails. A new account is not
+      // verified yet, so send the link once, then sign in again after clicking it.
+      if (!creds.user.emailVerified) {
+        await sendEmailVerification(creds.user);
+        await auth.signOut();
+        setInfo(
+          `We sent a verification link to ${creds.user.email}. Open it, then sign in again.`
+        );
+        return;
+      }
       const tokenResult = await creds.user.getIdTokenResult(true);
       const isAdmin =
         tokenResult?.claims?.admin === true ||
@@ -77,6 +89,7 @@ function AdminLogin() {
           </button>
         </form>
         {error && <p className="error-message">{error}</p>}
+        {info && <p className="info-message">{info}</p>}
       </div>
     </main>
   );
