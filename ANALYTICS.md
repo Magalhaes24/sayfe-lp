@@ -8,7 +8,7 @@ Nothing is stored or sent until the visitor presses Accept. GPC / Do Not Track c
 | Tracker (events, heatmap data, vitals) | `src/analytics/tracker.js` |
 | Route page views | `src/analytics/Analytics.js` |
 | Banner and policy | `src/components/ConsentBanner.js`, `src/pages/Privacy.js` |
-| Dashboard (`/admin/analytics`) | `src/pages/AdminAnalytics.js`, `analyticsAggregate.js` |
+| Dashboard (`/admin/analytics`, only with `npm start`, not in production builds) | `src/pages/AdminAnalytics.js`, `analyticsAggregate.js` |
 | Storage rules | `firestore.rules` (`analytics_batches`) |
 
 ## Deploy checklist

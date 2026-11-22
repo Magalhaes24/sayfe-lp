@@ -436,9 +436,11 @@ function AdminDashboard() {
           <button onClick={handleRefresh} className="admin-refresh" disabled={loading}>
             {loading ? "Refreshing..." : "Refresh"}
           </button>
-          <button onClick={() => navigate("/admin/analytics")} className="admin-refresh">
-            Analytics
-          </button>
+          {process.env.NODE_ENV === "development" && (
+            <button onClick={() => navigate("/admin/analytics")} className="admin-refresh">
+              Analytics
+            </button>
+          )}
           <button onClick={handleLogout} className="logout-btn">
             Logout
           </button>

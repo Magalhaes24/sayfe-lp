@@ -15,7 +15,10 @@ import "./App.css";
 const About = lazy(() => import("./pages/AboutLab"));
 const Contact = lazy(() => import("./pages/ContactLab"));
 const Privacy = lazy(() => import("./pages/Privacy"));
-const AdminAnalytics = lazy(() => import("./pages/AdminAnalytics"));
+// The analytics dashboard only exists in `npm start`. In a production build this
+// is null, so the page is not even bundled and /admin/analytics falls back to home.
+const AdminAnalytics =
+  process.env.NODE_ENV === "development" ? lazy(() => import("./pages/AdminAnalytics")) : null;
 // Admin pages pull in Firebase; keep them out of the bundle visitors download.
 const AdminLogin = lazy(() => import("./pages/AdminLogin"));
 const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
@@ -75,14 +78,16 @@ function App() {
                     </Suspense>
                   }
                 />
-                <Route
-                  path="/admin/analytics"
-                  element={
-                    <Suspense fallback={null}>
-                      <AdminAnalytics />
-                    </Suspense>
-                  }
-                />
+                {AdminAnalytics && (
+                  <Route
+                    path="/admin/analytics"
+                    element={
+                      <Suspense fallback={null}>
+                        <AdminAnalytics />
+                      </Suspense>
+                    }
+                  />
+                )}
                 {/* Demo, test (/lab*) and old routes fall back to the home page. */}
                 <Route
                   path="/admin"
