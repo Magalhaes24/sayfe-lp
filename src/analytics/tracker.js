@@ -35,6 +35,7 @@ const CLICK_CAP = 250;
 
 const state = {
   on: false,
+  appCheck: "",
   queue: [],
   sent: 0,
   timer: null,
@@ -270,6 +271,17 @@ function encode(value, depth = 0) {
   return { nullValue: null };
 }
 
+// Keeps a fresh App Check token ready, so a flush while the page unloads never has to wait.
+function refreshAppCheck() {
+  if (!process.env.REACT_APP_RECAPTCHA_SITE_KEY) return;
+  import("./appCheck")
+    .then((mod) => mod.fetchAppCheckToken())
+    .then((token) => {
+      if (state.on) state.appCheck = token;
+    })
+    .catch(() => {});
+}
+
 function dryRun() {
   const session = store("session");
   return process.env.REACT_APP_ANALYTICS_DRY_RUN === "1" || (session && session.getItem("ac_dry") === "1");
@@ -302,7 +314,9 @@ function flush({ unloading = false } = {}) {
 
   fetch(ENDPOINT, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: state.appCheck
+      ? { "Content-Type": "application/json", "X-Firebase-AppCheck": state.appCheck }
+      : { "Content-Type": "application/json" },
     body: JSON.stringify(body),
     keepalive: true,
     credentials: "omit",
@@ -691,7 +705,11 @@ function start() {
 
   watchLanguage();
   startVitals();
-  state.timer = window.setInterval(() => flush(), FLUSH_MS);
+  refreshAppCheck();
+  state.timer = window.setInterval(() => {
+    refreshAppCheck();
+    flush();
+  }, FLUSH_MS);
   state.cleanups.push(() => window.clearInterval(state.timer));
 
   trackPage(window.location.pathname);
@@ -704,6 +722,7 @@ function stop({ wipe }) {
   if (state.page && state.page.io) state.page.io.disconnect();
   state.page = null;
   state.queue = [];
+  state.appCheck = "";
   if (wipe) {
     wipeIdentifiers();
     if (typeof window.gtag === "function") window.gtag("consent", "update", { analytics_storage: "denied" });
