@@ -193,6 +193,9 @@ export function aggregate(batches) {
     .filter((s) => s.path === "/")
     .sort((a, b) => a.i - b.i);
 
+  // How far each session on the home page scrolled, for the scroll heatmap.
+  const sdList = list.filter((s) => s.paths.has("/")).map((s) => s.sd);
+
   const clicks = Array.from(clickStats.values()).sort((a, b) => b.n - a.n).slice(0, 15);
   const dead = clicks.filter((c) => !c.ia).slice(0, 8);
 
@@ -243,6 +246,7 @@ export function aggregate(batches) {
     errors: top(errors),
     vitals: vitalRows,
     clicksPts,
-    gridPts
+    gridPts,
+    sdList
   };
 }
