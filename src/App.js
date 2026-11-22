@@ -15,13 +15,17 @@ import "./App.css";
 const About = lazy(() => import("./pages/AboutLab"));
 const Contact = lazy(() => import("./pages/ContactLab"));
 const Privacy = lazy(() => import("./pages/Privacy"));
-// The analytics dashboard only exists in `npm start`. In a production build this
-// is null, so the page is not even bundled and /admin/analytics falls back to home.
+// Everything under /admin (login, dashboard, analytics) only exists in `npm start`.
+// In a production build these are null: the pages are not bundled and the
+// addresses fall back to the home page, so nothing of the admin is live.
+// The condition must stay inline: webpack only drops the import() in a production
+// build when it can fold `process.env.NODE_ENV === "development"` itself.
 const AdminAnalytics =
   process.env.NODE_ENV === "development" ? lazy(() => import("./pages/AdminAnalytics")) : null;
-// Admin pages pull in Firebase; keep them out of the bundle visitors download.
-const AdminLogin = lazy(() => import("./pages/AdminLogin"));
-const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
+const AdminLogin =
+  process.env.NODE_ENV === "development" ? lazy(() => import("./pages/AdminLogin")) : null;
+const AdminDashboard =
+  process.env.NODE_ENV === "development" ? lazy(() => import("./pages/AdminDashboard")) : null;
 
 // Pages render straight away and fade in briefly; nothing waits for images.
 const PAGE_FADE = { duration: 0.18, ease: [0.25, 0.46, 0.45, 0.94] };
@@ -89,22 +93,26 @@ function App() {
                   />
                 )}
                 {/* Demo, test (/lab*) and old routes fall back to the home page. */}
-                <Route
-                  path="/admin"
-                  element={
-                    <Suspense fallback={null}>
-                      <AdminLogin />
-                    </Suspense>
-                  }
-                />
-                <Route
-                  path="/admin/dashboard"
-                  element={
-                    <Suspense fallback={null}>
-                      <AdminDashboard />
-                    </Suspense>
-                  }
-                />
+                {AdminLogin && (
+                  <Route
+                    path="/admin"
+                    element={
+                      <Suspense fallback={null}>
+                        <AdminLogin />
+                      </Suspense>
+                    }
+                  />
+                )}
+                {AdminDashboard && (
+                  <Route
+                    path="/admin/dashboard"
+                    element={
+                      <Suspense fallback={null}>
+                        <AdminDashboard />
+                      </Suspense>
+                    }
+                  />
+                )}
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </motion.div>
