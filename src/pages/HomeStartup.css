@@ -140,38 +140,32 @@ html:has(.st) {
   min-height: 50px;
   padding: 0 1.5rem;
   border-radius: 999px;
-  background: var(--st-green);
+  background-color: var(--st-green);
   color: #fff;
   font-weight: 700;
   text-decoration: none;
-  overflow: hidden;
   box-shadow: 0 10px 24px -10px rgba(61, 122, 82, 0.7);
   transition: transform 0.35s var(--st-spring), box-shadow 0.3s, background-color 0.2s;
-}
-
-/* A light sheen passes over the button now and then. */
-.st-btn::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -60%;
-  width: 40%;
-  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
-  transform: skewX(-20deg);
+  /* A light sheen passes over the button now and then. It is the button's own
+     background, not a moving child: a skewed, animated child inside a rounded
+     overflow:hidden box left a hairline along the top edge on iOS Safari. */
+  background-image: linear-gradient(100deg, transparent 42%, rgba(255, 255, 255, 0.35) 50%, transparent 58%);
+  background-repeat: no-repeat;
+  background-size: 300% 100%;
+  background-position: 100% 0;
   animation: st-sheen 4.5s ease-in-out 1.5s infinite;
 }
 
 @keyframes st-sheen {
-  0%, 70% { left: -60%; }
-  100% { left: 130%; }
+  0%, 70% { background-position: 100% 0; }
+  100% { background-position: 0% 0; }
 }
 
 @media (hover: hover) {
   .st-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 16px 30px -12px rgba(61, 122, 82, 0.75);
-    background: #346b47;
+    background-color: #346b47;
   }
 }
 
@@ -186,14 +180,14 @@ html:has(.st) {
 }
 
 .st-btn--light {
-  background: #fff;
+  background-color: #fff;
   color: var(--st-ink);
   box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.4);
 }
 
 @media (hover: hover) {
   .st-btn--light:hover {
-    background: #f2f7f3;
+    background-color: #f2f7f3;
   }
 }
 

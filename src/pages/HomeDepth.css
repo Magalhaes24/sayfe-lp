@@ -396,49 +396,43 @@
 .d3-stack__device {
   display: grid;
   place-items: center;
-  perspective: 1000px;
 }
 
-.d3-mini-phone {
-  position: relative;
-  width: min(170px, 46vw);
-  aspect-ratio: 750 / 1280;
-  padding: 6px;
-  border-radius: 30px;
+/* Every phone mockup uses the iPhone 17 Pro proportions (71.9 x 150 mm body,
+   1206 x 2622 screen) and is never tilted, squeezed or cropped by its card.
+   Size it only through --w; bezel and corner radii follow from it. */
+.d3-mini-phone,
+.mx-final__phone {
+  --w: 190px;
+  width: var(--w);
+  aspect-ratio: 71.9 / 150;
+  padding: calc(var(--w) * 0.03);
+  border-radius: calc(var(--w) * 0.17);
   background: #121a15;
-  transform-style: preserve-3d;
-  transform: rotateY(-20deg) rotateX(10deg) rotateZ(2deg);
-  box-shadow: 24px 40px 60px -30px rgba(20, 35, 26, 0.55);
-  animation: d3-hover 6s ease-in-out infinite;
-  transition: transform 0.8s var(--d3-spring);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 40px 60px -30px rgba(20, 35, 26, 0.55);
 }
 
-.d3-mini-phone::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: #0a100c;
-  transform: translateZ(-10px);
-}
-
-.d3-mini-phone img {
-  position: relative;
+.d3-mini-phone img,
+.mx-final__phone img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 24px;
+  /* The captures are 402 x 874 (an iPhone 17 Pro viewport), so they fill the
+     screen without cropping. Keep new ones at that size. */
+  object-position: 50% 0;
+  border-radius: calc(var(--w) * 0.14);
+}
+
+.d3-mini-phone {
+  position: relative;
+  animation: d3-hover 6s ease-in-out infinite;
 }
 
 @keyframes d3-hover {
   50% { translate: 0 -10px; }
-}
-
-@media (hover: hover) {
-  .d3-stack__card:hover .d3-mini-phone {
-    transform: rotateY(-6deg) rotateX(4deg) rotateZ(0);
-  }
 }
 
 @media (min-width: 820px) {
@@ -449,27 +443,20 @@
   }
 
   .d3-mini-phone {
-    width: 210px;
+    --w: 190px;
   }
 }
 
+/* Phones: copy on the left, the whole phone on the right. */
 @media (max-width: 819px) {
   .d3-stack__card {
     top: calc(84px + var(--i) * 12px);
-  }
-
-  .d3-stack__device {
-    order: -1;
-    height: 230px;
-    overflow: hidden;
-    margin: -0.5rem -1.75rem 0;
-    padding-top: 1.5rem;
-    background: linear-gradient(var(--st-mint), transparent);
+    grid-template-columns: 1fr auto;
+    gap: 1.25rem;
   }
 
   .d3-mini-phone {
-    width: 150px;
-    align-self: start;
+    --w: 120px;
   }
 }
 
