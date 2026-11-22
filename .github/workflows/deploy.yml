@@ -54,6 +54,8 @@ jobs:
           REACT_APP_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.REACT_APP_FIREBASE_MESSAGING_SENDER_ID }}
           REACT_APP_FIREBASE_APP_ID: ${{ secrets.REACT_APP_FIREBASE_APP_ID }}
           REACT_APP_FIREBASE_MEASUREMENT_ID: ${{ secrets.REACT_APP_FIREBASE_MEASUREMENT_ID }}
+          # App Check (reCAPTCHA Enterprise). This is a public site key, not a secret.
+          REACT_APP_RECAPTCHA_SITE_KEY: 6LeFbC0uAAAAADoxczsyod5bpWaSM64NLI6bSso8
           GENERATE_SOURCEMAP: false
         run: npm run build
 
