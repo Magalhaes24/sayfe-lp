@@ -72,15 +72,6 @@
 .aa-table th, .aa-table td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid rgba(20, 35, 26, 0.07); white-space: nowrap; }
 .aa-table th { color: #5b6b61; font-weight: 600; }
 
-.aa-heat__bar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin-bottom: 0.7rem; }
-.aa-heat__bar button { padding: 0.4rem 0.8rem; border-radius: 99px; border: 1px solid #ccd7cf; background: #fff; font: inherit; font-size: 0.8rem; cursor: pointer; text-transform: capitalize; }
-.aa-heat__bar button.on { background: #3d7a52; border-color: #3d7a52; color: #fff; }
-.aa-heat__bar em { margin-left: auto; color: #5b6b61; font-size: 0.78rem; }
-.aa-sep { width: 1px; height: 20px; background: #ccd7cf; margin: 0 0.3rem; }
-.aa-heat__scroll { max-height: 80vh; overflow: auto; border-radius: 12px; border: 1px solid rgba(20, 35, 26, 0.12); background: #f4f4f4; }
-.aa-heat__stage { position: relative; transform-origin: 0 0; margin: 0 auto; }
-.aa-heat__stage iframe { display: block; border: 0; background: #fff; pointer-events: none; }
-.aa-heat__stage canvas { position: absolute; inset: 0; pointer-events: none; }
 
 @media (max-width: 640px) {
   .aa-bars li { grid-template-columns: 1fr auto; }

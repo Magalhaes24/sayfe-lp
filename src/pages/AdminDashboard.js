@@ -10,7 +10,6 @@ import ConfirmDialog from "../components/ConfirmDialog";
 import "./Admin.css";
 
 const PRIVATE_KEY_DOC = { collection: "secure", doc: "adminPrivateKey" };
-const ADMIN_EMAIL = "franciscomagalhaes04@gmail.com";
 
 function AdminDashboard() {
   const navigate = useNavigate();
@@ -287,7 +286,14 @@ function AdminDashboard() {
       setSelectedRiskReadings([]);
     } catch (err) {
       console.error("Error fetching messages or waitlist:", err);
-      setAuthError("Permission denied or private key unavailable. Please sign in with an admin account.");
+      // A missing key only blocks reading contact messages; say so instead of
+      // blaming the account, since Analytics works without it.
+      const keyMissing = /private key/i.test((err && err.message) || "");
+      setAuthError(
+        keyMissing
+          ? "Contact messages cannot be decrypted: the private key (secure/adminPrivateKey) is missing in this Firebase project. Analytics is not affected."
+          : `Permission denied (${(err && (err.code || err.message)) || "unknown"}). Please sign in with a verified admin account.`
+      );
     } finally {
       setLoading(false);
     }
@@ -320,18 +326,6 @@ function AdminDashboard() {
       }
 
       try {
-        const tokenResult = await user.getIdTokenResult();
-        const isAdmin =
-          tokenResult?.claims?.admin === true ||
-          (user?.email && user.email.toLowerCase() === ADMIN_EMAIL);
-        if (!isAdmin) {
-          setAuthError("Missing admin permissions. Please use an admin account.");
-          setLoading(false);
-          await signOut(auth);
-          navigate("/admin", { replace: true });
-          return;
-        }
-
         setAuthError("");
         fetchData();
       } catch (err) {

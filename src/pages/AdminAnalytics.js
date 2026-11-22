@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import {
   collection,
   getCountFromServer,
@@ -16,12 +16,11 @@ import { aggregate } from "./analyticsAggregate";
 import { setIgnoreSelf } from "../analytics/tracker";
 import Seo from "../components/Seo";
 import ConfirmDialog from "../components/ConfirmDialog";
+import HeatmapPanel from "./HeatmapPanel";
 import "./Admin.css";
 import "./AdminAnalytics.css";
 
-const ADMIN_EMAIL = "franciscomagalhaes04@gmail.com";
 const MAX_BATCHES = 4000;
-const WIDTHS = { desktop: 1280, tablet: 820, mobile: 390 };
 
 const fmtTime = (s) => (s >= 60 ? `${Math.floor(s / 60)}m ${s % 60}s` : `${s}s`);
 
@@ -68,119 +67,6 @@ function Daily({ rows }) {
         );
       })}
     </svg>
-  );
-}
-
-function Heatmap({ data }) {
-  const [dev, setDev] = useState("desktop");
-  const [kind, setKind] = useState("clicks");
-  const [height, setHeight] = useState(3000);
-  const frame = useRef(null);
-  const canvas = useRef(null);
-  const width = WIDTHS[dev];
-
-  const points = useMemo(() => {
-    if (kind === "clicks") {
-      return data.clicksPts
-        .filter((p) => p.dev === dev)
-        .map((p) => ({ x: (p.x / 1000) * width, y: p.y, w: 1, r: 26 }));
-    }
-    return data.gridPts
-      .filter((p) => p.dev === dev)
-      .map((p) => ({ x: ((p.cx + 0.5) / 50) * width, y: p.cy * 100 + 50, w: Math.min(p.n, 12) / 3, r: 46 }));
-  }, [data, dev, kind, width]);
-
-  const measure = useCallback(() => {
-    const doc = frame.current && frame.current.contentDocument;
-    if (!doc || !doc.documentElement) return;
-    // Show everything that normally fades in on scroll, so clicks line up with visible content.
-    if (!doc.getElementById("aa-force")) {
-      const style = doc.createElement("style");
-      style.id = "aa-force";
-      style.textContent =
-        ".st-reveal,[data-depth-p],.mx-rise{opacity:1!important;transform:none!important;animation:none!important}" +
-        "header,.acb{position:absolute!important}";
-      doc.head.appendChild(style);
-    }
-    setHeight(Math.max(doc.documentElement.scrollHeight, 800));
-  }, []);
-
-  useEffect(() => {
-    const el = canvas.current;
-    if (!el) return;
-    el.width = width;
-    el.height = height;
-    const ctx = el.getContext("2d");
-    ctx.clearRect(0, 0, width, height);
-    if (!points.length) return;
-
-    const shade = document.createElement("canvas");
-    shade.width = width;
-    shade.height = height;
-    const sctx = shade.getContext("2d");
-    points.forEach((p) => {
-      const g = sctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
-      g.addColorStop(0, `rgba(0,0,0,${Math.min(0.5, 0.18 * p.w)})`);
-      g.addColorStop(1, "rgba(0,0,0,0)");
-      sctx.fillStyle = g;
-      sctx.fillRect(p.x - p.r, p.y - p.r, p.r * 2, p.r * 2);
-    });
-
-    const lut = document.createElement("canvas");
-    lut.width = 256;
-    lut.height = 1;
-    const lctx = lut.getContext("2d");
-    const grad = lctx.createLinearGradient(0, 0, 256, 0);
-    grad.addColorStop(0.0, "rgba(61,122,82,0)");
-    grad.addColorStop(0.25, "rgba(115,172,132,0.55)");
-    grad.addColorStop(0.5, "rgba(255,214,10,0.8)");
-    grad.addColorStop(0.75, "rgba(255,120,0,0.9)");
-    grad.addColorStop(1.0, "rgba(220,30,30,0.95)");
-    lctx.fillStyle = grad;
-    lctx.fillRect(0, 0, 256, 1);
-    const palette = lctx.getImageData(0, 0, 256, 1).data;
-
-    const img = sctx.getImageData(0, 0, width, height);
-    for (let i = 0; i < img.data.length; i += 4) {
-      const a = img.data[i + 3];
-      if (!a) continue;
-      img.data[i] = palette[a * 4];
-      img.data[i + 1] = palette[a * 4 + 1];
-      img.data[i + 2] = palette[a * 4 + 2];
-      img.data[i + 3] = palette[a * 4 + 3];
-    }
-    ctx.putImageData(img, 0, 0);
-  }, [points, width, height]);
-
-  return (
-    <div className="aa-heat">
-      <div className="aa-heat__bar">
-        {Object.keys(WIDTHS).map((d) => (
-          <button key={d} type="button" className={dev === d ? "on" : ""} onClick={() => setDev(d)}>{d}</button>
-        ))}
-        <span className="aa-sep" />
-        <button type="button" className={kind === "clicks" ? "on" : ""} onClick={() => setKind("clicks")}>Cliques</button>
-        <button type="button" className={kind === "attention" ? "on" : ""} onClick={() => setKind("attention")}>Atenção do rato</button>
-        <em>{points.length} pontos</em>
-      </div>
-      <div className="aa-heat__scroll">
-        <div className="aa-heat__stage" style={{ width, height }}>
-          <iframe
-            ref={frame}
-            title="Página inicial"
-            src="/?_hm=1"
-            width={width}
-            height={height}
-            onLoad={() => {
-              measure();
-              window.setTimeout(measure, 1200);
-              window.setTimeout(measure, 3000);
-            }}
-          />
-          <canvas ref={canvas} />
-        </div>
-      </div>
-    </div>
   );
 }
 
@@ -249,7 +135,8 @@ export default function AdminAnalytics() {
       setRows(snap.docs.map((d) => d.data()));
     } catch (err) {
       console.error("Analytics load failed:", err);
-      setError("Não foi possível carregar os dados. Confirma as regras do Firestore.");
+      const why = err && (err.code || err.message) ? ` (${err.code || err.message})` : "";
+      setError(`Não foi possível carregar os dados${why}. Confirma as regras do Firestore e o e-mail verificado.`);
     } finally {
       setLoading(false);
     }
@@ -259,13 +146,6 @@ export default function AdminAnalytics() {
     setIgnoreSelf(true); // the owner's browser never counts as a visitor
     return onAuthStateChanged(auth, async (user) => {
       if (!user) {
-        navigate("/admin", { replace: true });
-        return;
-      }
-      const token = await user.getIdTokenResult();
-      const ok = token?.claims?.admin === true || (user.email && user.email.toLowerCase() === ADMIN_EMAIL);
-      if (!ok) {
-        await signOut(auth);
         navigate("/admin", { replace: true });
         return;
       }
@@ -426,7 +306,7 @@ export default function AdminAnalytics() {
         <Card title="Erros de JavaScript"><Bars rows={data.errors} /></Card>
 
         <Card title="Mapa de calor da página inicial" wide>
-          <Heatmap data={data} />
+          <HeatmapPanel data={data} totalSessions={k.sessions} />
         </Card>
       </div>
       <ConfirmDialog
