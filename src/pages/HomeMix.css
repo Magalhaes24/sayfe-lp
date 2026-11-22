@@ -15,8 +15,12 @@
   contain-intrinsic-size: auto 900px;
 }
 
+/* The back phone leans out 6.5rem above the card. content-visibility clips
+   whatever leaves the section's box, so the section reserves that room itself
+   (padding) and the negative margin keeps the layout where it was. */
 .mx-section.mx-final-wrap {
-  padding-top: 0;
+  padding-top: 7rem;
+  margin-top: -7rem;
   padding-bottom: clamp(7rem, 12vw, 10rem);
 }
 
@@ -350,21 +354,8 @@
 }
 
 .mx-final__phone {
+  --w: clamp(150px, 17vw, 210px);
   position: absolute;
-  width: clamp(150px, 17vw, 210px);
-  aspect-ratio: 750 / 1280;
-  padding: 6px;
-  border-radius: 32px;
-  background: #0f1712;
-  box-shadow: 0 40px 60px -30px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-}
-
-.mx-final__phone img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 26px;
 }
 
 .mx-final__phone--back {
@@ -400,31 +391,14 @@
 
   .mx .d3-stack__card {
     top: calc(78px + var(--i) * 10px);
-    grid-template-columns: 1fr 88px;
-    align-items: start;
+    align-items: center;
     gap: 1rem;
     padding: 1.25rem;
     border-radius: 24px;
   }
 
-  .mx .d3-stack__device {
-    order: 0;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    background: none;
-    overflow: visible;
-  }
-
   .mx .d3-mini-phone {
-    width: 88px;
-    padding: 4px;
-    border-radius: 16px;
-    transform: rotateY(-14deg) rotateX(6deg);
-  }
-
-  .mx .d3-mini-phone img {
-    border-radius: 12px;
+    --w: 104px;
   }
 
   .mx .d3-stack__copy h3 {
@@ -530,13 +504,7 @@
   }
 
   .mx-final__phone {
-    width: 140px;
-    border-radius: 24px;
-    padding: 5px;
-  }
-
-  .mx-final__phone img {
-    border-radius: 20px;
+    --w: 120px;
   }
 
   .mx-final__phone--back {
