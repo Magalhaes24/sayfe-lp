@@ -131,7 +131,7 @@ function HomeMix() {
           </header>
           <ol className="d3-stack__list">
             {steps.map((s, i) => (
-              <li key={i} className="d3-stack__card" style={{ "--i": i }}>
+              <li key={i} className="d3-stack__card" data-depth-p style={{ "--i": i }}>
                 <div className="d3-stack__copy">
                   <span className="st-pill st-pill--soft">{c.step} {i + 1}</span>
                   <h3>{plain(s.title)}</h3>
