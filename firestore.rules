@@ -99,6 +99,13 @@ service cloud.firestore {
       allow update: if false;
     }
 
+    // The admin dashboard lists these. Nothing on the live site writes them any
+    // more, so only the admin can read or clean them up; nobody can create them.
+    match /riskReadings/{docId} {
+      allow create: if false;
+      allow get, list, update, delete: if isAdmin();
+    }
+
     match /secure/adminPrivateKey {
       allow get: if isAdmin();
       allow list: if false;
