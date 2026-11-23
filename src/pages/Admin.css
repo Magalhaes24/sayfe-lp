@@ -499,3 +499,13 @@ details summary {
   }
 }
 
+
+.info-message {
+  margin: 0 0 1rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  background: #fff7e0;
+  color: #7a5b00;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
