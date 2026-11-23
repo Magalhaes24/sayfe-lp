@@ -75,13 +75,12 @@ export default function HeatmapPanel({ data, totalSessions }) {
     if (!doc.getElementById("hm-force")) {
       const style = doc.createElement("style");
       style.id = "hm-force";
-      // Show what normally fades in on scroll, freeze motion, and keep fixed bars out of the way.
+      // Show what normally fades in on scroll, freeze motion, and stack the step cards.
       style.textContent =
         ".st-reveal,[data-depth-p],.mx-rise{opacity:1!important;transform:none!important}" +
         "*,*::before,*::after{animation:none!important;transition:none!important}" +
-        // Only the site bar: a bare `header` also matched each section's own <header>,
-        // which dropped the headings out of the layout and let cards cover them.
-        "header.lxh,.lxh__announce,.acb{position:absolute!important}" +
+        // The site bar is left alone: it is sticky, and in a page that does not scroll it
+        // sits at the top exactly as it does for a visitor (announcement, then the header).
         ".d3-stack__card{position:relative!important;top:auto!important;transform:none!important}";
       doc.head.appendChild(style);
     }
