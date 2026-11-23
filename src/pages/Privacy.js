@@ -39,7 +39,13 @@ const COPY = {
       {
         h: "Cookies e armazenamento local",
         p: [
-          "Sem consentimento, só guardamos a sua escolha e a língua. Com consentimento, guardamos no navegador um identificador aleatório (válido por 12 meses, depois muda) e um identificador de visita (termina com o separador). O Google Analytics (cookies _ga) só é carregado depois de aceitar, com o endereço IP anonimizado. Para proteger o formulário de contacto e a recolha de dados contra abusos, usamos o Google reCAPTCHA (através do Firebase App Check): carrega no formulário de contacto e, para a medição, só depois de aceitar. Não usamos publicidade nem cookies de redes sociais."
+          "Sem consentimento, só guardamos a sua escolha e a língua. Com consentimento, guardamos no navegador um identificador aleatório (válido por 12 meses, depois muda) e um identificador de visita (termina com o separador). O Google Analytics (cookies _ga) só é carregado depois de aceitar, com o endereço IP anonimizado. Para proteger a recolha de dados contra abusos, usamos o Google reCAPTCHA (através do Firebase App Check), e só depois de aceitar. Não usamos publicidade nem cookies de redes sociais."
+        ]
+      },
+      {
+        h: "Formulário de contacto",
+        p: [
+          "O que escrever no formulário (nome, e-mail e mensagem) é enviado por e-mail para contact@allercarte.com, através de um serviço da Google (Google Apps Script). Não fica guardado no site nem numa base de dados nossa. Guardamos a mensagem apenas o tempo necessário para responder e depois apagamo-la."
         ]
       },
       {
@@ -102,7 +108,13 @@ const COPY = {
       {
         h: "Cookies and local storage",
         p: [
-          "Without consent we only store your choice and your language. With consent we store a random identifier in your browser (valid for 12 months, then replaced) and a visit identifier (it ends with the tab). Google Analytics (_ga cookies) only loads after you accept, with IP anonymisation on. To protect the contact form and data collection from abuse we use Google reCAPTCHA (through Firebase App Check): it loads on the contact form and, for measurement, only after you accept. We use no advertising and no social-network cookies."
+          "Without consent we only store your choice and your language. With consent we store a random identifier in your browser (valid for 12 months, then replaced) and a visit identifier (it ends with the tab). Google Analytics (_ga cookies) only loads after you accept, with IP anonymisation on. To protect data collection from abuse we use Google reCAPTCHA (through Firebase App Check), and only after you accept. We use no advertising and no social-network cookies."
+        ]
+      },
+      {
+        h: "Contact form",
+        p: [
+          "What you write in the form (name, e-mail and message) is sent by e-mail to contact@allercarte.com through a Google service (Google Apps Script). It is not stored on the site or in a database of ours. We keep the message only as long as needed to reply, then delete it."
         ]
       },
       {

@@ -55,6 +55,9 @@ jobs:
           REACT_APP_FIREBASE_APP_ID: ${{ secrets.REACT_APP_FIREBASE_APP_ID }}
           REACT_APP_FIREBASE_MEASUREMENT_ID: ${{ secrets.REACT_APP_FIREBASE_MEASUREMENT_ID }}
           # App Check (reCAPTCHA Enterprise). This is a public site key, not a secret.
+          # Where the contact form is posted (Google Apps Script URL, see CONTACT.md).
+          # A repository variable, not a secret: it is visible in the page anyway.
+          REACT_APP_CONTACT_ENDPOINT: ${{ vars.REACT_APP_CONTACT_ENDPOINT }}
           REACT_APP_RECAPTCHA_SITE_KEY: 6LeFbC0uAAAAADoxczsyod5bpWaSM64NLI6bSso8
           GENERATE_SOURCEMAP: false
         run: npm run build

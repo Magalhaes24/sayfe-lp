@@ -25,7 +25,7 @@ function AdminLogin() {
     try {
       // Who is the admin is decided by the Firestore rules, not by this page.
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/admin/dashboard");
+      navigate("/admin/analytics");
     } catch (err) {
       console.error("Admin login failed:", err);
       setError("Invalid credentials or account not permitted.");

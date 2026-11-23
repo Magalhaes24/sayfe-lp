@@ -466,7 +466,7 @@ const translations = {
       "status": {
         "incomplete": "Please fill in every field before sending.",
         "invalidEmail": "Enter a valid email address.",
-        "sending": "Sending your encrypted message...",
+        "sending": "Sending your message...",
         "success": "Thank you! We will reply shortly.",
         "error": "We could not send your message. Please try again in a moment."
       },
@@ -1197,7 +1197,7 @@ const translations = {
       "status": {
         "incomplete": "Preenche todos os campos antes de enviar.",
         "invalidEmail": "Indica um email válido.",
-        "sending": "A enviar a mensagem encriptada...",
+        "sending": "A enviar a mensagem...",
         "success": "Obrigado! Respondemos em breve.",
         "error": "Não foi possível enviar agora. Tenta outra vez daqui a pouco."
       },

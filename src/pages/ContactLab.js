@@ -1,18 +1,18 @@
 import { trackEvent } from "../analytics/tracker";
 import React, { useRef, useState } from "react";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-import { db } from "../firebaseConfig";
 import { useTranslation } from "../contexts/LanguageContext";
-import { encryptForAdmin } from "../utils/secureCrypto";
 import Seo from "../components/Seo";
 import { RiseTitle, useReveal } from "../components/lab/LabKit";
 import "./HomeLab.css";
 import "./ContactLab.css";
 
-// Same limits and submission as the live Contact page: the message is
-// encrypted in the browser and stored in Firestore.
-const initialForm = { name: "", email: "", message: "" };
-const CONTACT_EMAIL = "francisco@besayfe.com";
+// The form is e-mailed to CONTACT_EMAIL. Nothing is stored on our side: the
+// message goes to a small Google Apps Script (see CONTACT.md) that forwards it.
+// Until REACT_APP_CONTACT_ENDPOINT is set, the visitor's own mail app opens
+// with the message ready, so the form never silently does nothing.
+const initialForm = { name: "", email: "", message: "", company: "" }; // company = honeypot
+const CONTACT_EMAIL = "contact@allercarte.com";
+const ENDPOINT = process.env.REACT_APP_CONTACT_ENDPOINT || "";
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX = { name: 80, email: 254, message: 2000 };
 const SUBMIT_COOLDOWN_MS = 10_000;
@@ -21,11 +21,15 @@ const COPY = {
   pt: {
     sentTitle: "Mensagem enviada.",
     again: "Enviar outra mensagem",
+    mailto: "Abrimos a tua aplicação de e-mail com a mensagem pronta. Carrega em enviar lá.",
+    mailSubject: "Mensagem do site AllerCarte",
     count: (n, max) => `${n} de ${max}`
   },
   en: {
     sentTitle: "Message sent.",
     again: "Send another message",
+    mailto: "We opened your mail app with the message ready. Press send there.",
+    mailSubject: "Message from the AllerCarte site",
     count: (n, max) => `${n} of ${max}`
   }
 };
@@ -67,6 +71,7 @@ function ContactLab() {
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
   const [cooldownUntil, setCooldownUntil] = useState(0);
+  const shownAt = useRef(Date.now());
 
   const rootRef = useRef(null);
   useReveal(rootRef);
@@ -114,22 +119,42 @@ function ContactLab() {
       return;
     }
 
+    // Bots fill the hidden field. Say "sent" and drop it.
+    if (form.company) {
+      setForm(initialForm);
+      setSent(true);
+      return;
+    }
+
     setSubmitting(true);
     setStatus({ type: "info", key: "contact.status.sending" });
     try {
-      const encrypted = await encryptForAdmin(data);
-      await addDoc(collection(db, "contactMessages"), {
-        ...encrypted,
-        createdAt: serverTimestamp()
-      });
-      setForm(initialForm);
-      setErrors({});
-      setStatus({ type: "", key: "" });
-      trackEvent("contact_sent");
-      setSent(true);
+      if (ENDPOINT) {
+        // text/plain keeps this a "simple" request: no CORS preflight for Apps Script.
+        const res = await fetch(ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify({ ...data, lang: language, ms: Date.now() - shownAt.current }),
+          credentials: "omit",
+          referrerPolicy: "no-referrer"
+        });
+        const out = await res.json();
+        if (!out || !out.ok) throw new Error((out && out.error) || "send failed");
+        setForm(initialForm);
+        setErrors({});
+        setStatus({ type: "", key: "" });
+        trackEvent("contact_sent");
+        setSent(true);
+      } else {
+        const body = `${data.message}
+
+${data.name} <${data.email}>`;
+        window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(copy.mailSubject)}&body=${encodeURIComponent(body)}`;
+        setStatus({ type: "info", text: copy.mailto });
+      }
       setCooldownUntil(Date.now() + SUBMIT_COOLDOWN_MS);
     } catch (error) {
-      console.error("Firestore Error:", error);
+      console.error("Contact send failed:", error);
       setStatus({ type: "error", key: "contact.status.error" });
       setCooldownUntil(Date.now() + SUBMIT_COOLDOWN_MS);
     } finally {
@@ -204,6 +229,15 @@ function ContactLab() {
                 error={errors.message}
                 required
               />
+              <input
+                className="lx-hp"
+                name="company"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                value={form.company}
+                onChange={onChange}
+              />
               <p className="lx-form__count" aria-live="off">
                 {copy.count(form.message.length, MAX.message)}
               </p>
@@ -218,7 +252,7 @@ function ContactLab() {
                 role="status"
                 aria-live="polite"
               >
-                {status.key ? t(status.key) : ""}
+                {status.text || (status.key ? t(status.key) : "")}
               </p>
             </form>
 

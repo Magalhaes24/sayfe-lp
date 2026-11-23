@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import {
   collection,
   getCountFromServer,
@@ -142,7 +142,7 @@ export default function AdminAnalytics() {
             {loading ? "A carregar…" : "Atualizar"}
           </button>
           <button className="admin-refresh" onClick={exportJson} disabled={!rows.length}>Exportar JSON</button>
-          <button className="logout-btn" onClick={() => navigate("/admin/dashboard")}>Voltar</button>
+          <button className="logout-btn" onClick={() => signOut(auth).finally(() => navigate("/admin"))}>Sair</button>
         </div>
       </div>
 
