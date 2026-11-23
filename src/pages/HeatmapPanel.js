@@ -79,7 +79,9 @@ export default function HeatmapPanel({ data, totalSessions }) {
       style.textContent =
         ".st-reveal,[data-depth-p],.mx-rise{opacity:1!important;transform:none!important}" +
         "*,*::before,*::after{animation:none!important;transition:none!important}" +
-        "header,.acb,.lxh,.lxh__announce{position:absolute!important}" +
+        // Only the site bar: a bare `header` also matched each section's own <header>,
+        // which dropped the headings out of the layout and let cards cover them.
+        "header.lxh,.lxh__announce,.acb{position:absolute!important}" +
         ".d3-stack__card{position:relative!important;top:auto!important;transform:none!important}";
       doc.head.appendChild(style);
     }

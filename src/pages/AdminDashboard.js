@@ -25,6 +25,7 @@ function AdminDashboard() {
   const [showAllRiskReadings, setShowAllRiskReadings] = useState(false);
   const [loading, setLoading] = useState(true);
   const [authError, setAuthError] = useState("");
+  const [keyNotice, setKeyNotice] = useState("");
   const [privateKey, setPrivateKey] = useState("");
   const [busyId, setBusyId] = useState("");
   const [imageModal, setImageModal] = useState("");
@@ -213,15 +214,28 @@ function AdminDashboard() {
   const fetchData = useCallback(async () => {
     setLoading(true);
     try {
-      const key = privateKey || (await fetchPrivateKey());
-      if (!privateKey) {
-        setPrivateKey(key);
+      // Without the private key everything else still loads; only the contact
+      // messages stay locked.
+      let key = privateKey;
+      let notice = "";
+      if (!key) {
+        try {
+          key = await fetchPrivateKey();
+          setPrivateKey(key);
+        } catch (keyErr) {
+          if (!/private key/i.test((keyErr && keyErr.message) || "")) throw keyErr;
+          key = "";
+          notice =
+            "The private key (secure/adminPrivateKey) is missing in this Firebase project, so contact messages stay locked. Everything else below is loaded. Analytics is not affected.";
+        }
       }
 
       const contactSnap = await getDocs(query(collection(db, "contactMessages"), orderBy("createdAt", "desc")));
       const contactPromises = contactSnap.docs.map(async (docSnap) => {
         const createdAt = docSnap.data().createdAt?.toDate?.() || null;
-        const decrypted = await decryptRecord(docSnap.data(), docSnap.id, "contact");
+        const decrypted = key
+          ? await decryptRecord(docSnap.data(), docSnap.id, "contact")
+          : { name: "🔒 Locked", email: "🔒 Locked", message: "🔒 Locked: private key missing" };
         return {
           id: docSnap.id,
           name: decrypted.name || "(empty)",
@@ -284,6 +298,7 @@ function AdminDashboard() {
       setSelectedMessages([]);
       setSelectedUploads([]);
       setSelectedRiskReadings([]);
+      setKeyNotice(notice);
     } catch (err) {
       console.error("Error fetching messages or waitlist:", err);
       // A missing key only blocks reading contact messages; say so instead of
@@ -442,6 +457,7 @@ function AdminDashboard() {
       </div>
 
       {authError && <p className="error-message">{authError}</p>}
+      {keyNotice && <p className="info-message">{keyNotice}</p>}
 
       {loading ? (
         <p>Loading data...</p>
