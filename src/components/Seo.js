@@ -156,7 +156,7 @@ function Seo({
                 alternateName: "besayfe",
                 url: PRODUCT_URL,
                 logo: toAbsoluteUrl("/logo1000.png"),
-                email: "francisco@besayfe.com"
+                email: "contact@allercarte.com"
               },
               {
                 "@type": "WebSite",

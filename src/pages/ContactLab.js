@@ -12,7 +12,7 @@ import "./ContactLab.css";
 // Same limits and submission as the live Contact page: the message is
 // encrypted in the browser and stored in Firestore.
 const initialForm = { name: "", email: "", message: "" };
-const CONTACT_EMAIL = "francisco@besayfe.com";
+const CONTACT_EMAIL = "contact@allercarte.com";
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX = { name: 80, email: 254, message: 2000 };
 const SUBMIT_COOLDOWN_MS = 10_000;

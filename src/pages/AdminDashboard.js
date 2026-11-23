@@ -11,6 +11,17 @@ import "./Admin.css";
 
 const PRIVATE_KEY_DOC = { collection: "secure", doc: "adminPrivateKey" };
 
+// Collections the site no longer uses have no Firestore rules, so reading them is
+// refused. Treat that as "empty" instead of failing the whole page.
+const safeGetDocs = async (q) => {
+  try {
+    return await getDocs(q);
+  } catch (err) {
+    if (err && err.code === "permission-denied") return { docs: [] };
+    throw err;
+  }
+};
+
 function AdminDashboard() {
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -248,7 +259,7 @@ function AdminDashboard() {
 
       const [decryptedMessages] = await Promise.all([Promise.all(contactPromises)]);
 
-      const labelUploadsSnap = await getDocs(query(collection(db, "labelUploads"), orderBy("createdAt", "desc")));
+      const labelUploadsSnap = await safeGetDocs(query(collection(db, "labelUploads"), orderBy("createdAt", "desc")));
       const uploads = labelUploadsSnap.docs.map((docSnap) => {
         const data = docSnap.data() || {};
         const createdAt = data.createdAt?.toDate?.() || null;
@@ -274,7 +285,7 @@ function AdminDashboard() {
 
       setMessages(sortRows(decryptedMessages, contactSort));
       setLabelUploads(sortRows(uploads, uploadSort));
-      const riskSnap = await getDocs(query(collection(db, "riskReadings"), orderBy("createdAt", "desc")));
+      const riskSnap = await safeGetDocs(query(collection(db, "riskReadings"), orderBy("createdAt", "desc")));
       const risks = riskSnap.docs.map((docSnap) => {
         const data = docSnap.data() || {};
         const createdAt = data.createdAt?.toDate?.() || null;

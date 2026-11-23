@@ -43,6 +43,12 @@ const COPY = {
         ]
       },
       {
+        h: "Formulário de contacto",
+        p: [
+          "O que escrever no formulário (nome, e-mail e mensagem) é cifrado no seu navegador antes de ser enviado e fica guardado na Google Cloud (Firebase). Só nós o conseguimos ler. Guardamos a mensagem apenas o tempo necessário para responder e depois apagamo-la. O endereço de contacto é contact@allercarte.com."
+        ]
+      },
+      {
         h: "Base legal e conservação",
         p: [
           "Consentimento (RGPD, artigo 6.º, n.º 1, alínea a). Os registos são apagados automaticamente ao fim de 13 meses."
@@ -103,6 +109,12 @@ const COPY = {
         h: "Cookies and local storage",
         p: [
           "Without consent we only store your choice and your language. With consent we store a random identifier in your browser (valid for 12 months, then replaced) and a visit identifier (it ends with the tab). Google Analytics (_ga cookies) only loads after you accept, with IP anonymisation on. To protect the contact form and data collection from abuse we use Google reCAPTCHA (through Firebase App Check): it loads on the contact form and, for measurement, only after you accept. We use no advertising and no social-network cookies."
+        ]
+      },
+      {
+        h: "Contact form",
+        p: [
+          "What you write in the form (name, e-mail and message) is encrypted in your browser before it is sent and stored on Google Cloud (Firebase). Only we can read it. We keep the message only as long as needed to reply, then delete it. The contact address is contact@allercarte.com."
         ]
       },
       {
