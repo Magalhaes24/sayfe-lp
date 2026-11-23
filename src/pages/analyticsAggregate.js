@@ -247,6 +247,7 @@ export function aggregate(batches) {
     vitals: vitalRows,
     clicksPts,
     gridPts,
-    sdList
+    sdList,
+    sessionList: list
   };
 }
