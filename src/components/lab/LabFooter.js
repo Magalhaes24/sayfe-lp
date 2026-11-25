@@ -28,6 +28,20 @@ function LabFooter() {
             <img src={`${process.env.PUBLIC_URL || ""}/allercarte-logo.svg`} alt="" width="682" height="189" />
           </Link>
           <p className="lxf__tagline">{plain(t("home.heroEyebrow"))}</p>
+          <a
+            className="lxf__ph"
+            href="https://www.producthunt.com/products/allercarte?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-allercarte"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              alt="AllerCarte - See which dishes you can eat, based on your allergies | Product Hunt"
+              width="250"
+              height="54"
+              loading="lazy"
+              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1318710&theme=light&t=1795623085828"
+            />
+          </a>
         </div>
 
         <div className="lxf__cols">
