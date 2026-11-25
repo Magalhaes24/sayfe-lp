@@ -19,6 +19,18 @@
   padding-bottom: 2.5rem;
 }
 
+.lxf__ph {
+  display: inline-flex;
+  justify-self: start;
+  margin-top: 0.5rem;
+}
+
+.lxf__ph img {
+  display: block;
+  width: 250px;
+  height: 54px;
+}
+
 .lxf__logo {
   display: inline-flex;
   justify-self: start;
